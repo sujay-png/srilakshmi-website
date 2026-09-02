@@ -30,11 +30,9 @@ import { services } from '../../data/services';
                 <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="service-image-preview" aria-hidden="true">
-              <div class="service-image-inner">
-                <img src={service.image} alt="" loading="lazy" draggable="false" />
-              </div>
-            </div>
+          </div>
+          <div class="service-image-preview" aria-hidden="true">
+            <img src={service.image} alt="" loading="lazy" draggable="false" />
           </div>
         </a>
       ))}
@@ -64,6 +62,7 @@ import { services } from '../../data/services';
 
   .services-list {
     border-top: 1px solid var(--c-grey-light);
+    position: relative;
   }
 
   .service-row {
@@ -79,12 +78,11 @@ import { services } from '../../data/services';
     grid-template-columns: 48px 1fr auto;
     align-items: center;
     gap: 1.25rem;
-    padding: 1.25rem 1rem;
+    padding: 1.35rem 1rem;
     position: relative;
-    overflow: hidden;
-    min-height: 72px;
-    border-radius: var(--radius-md);
-    transition: background-color 0.4s var(--ease-out-expo);
+    z-index: 2;
+    min-height: 76px;
+    transition: background-color 0.35s var(--ease-out-expo);
   }
 
   .service-row:hover .service-row__inner {
@@ -97,8 +95,6 @@ import { services } from '../../data/services';
     color: var(--c-grey);
     transition: color 0.3s ease;
     font-variant-numeric: tabular-nums;
-    position: relative;
-    z-index: 2;
   }
 
   .service-row:hover .service-number {
@@ -106,26 +102,29 @@ import { services } from '../../data/services';
   }
 
   .service-title-wrap {
-    position: relative;
-    z-index: 2;
     min-width: 0;
   }
 
   .service-title {
     margin: 0;
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-    transition: transform 0.4s var(--ease-out-expo);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+    display: inline;
+    background-image: linear-gradient(var(--c-accent), var(--c-accent));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+
+  .service-row:hover .service-title {
+    background-size: 100% 2px;
   }
 
   .service-desc {
     display: none;
-  }
-
-  .service-row:hover .service-title {
-    transform: translateX(6px);
   }
 
   .service-arrow {
@@ -138,8 +137,6 @@ import { services } from '../../data/services';
     border: 1px solid var(--c-grey-light);
     transition: all 0.4s var(--ease-out-expo);
     flex-shrink: 0;
-    position: relative;
-    z-index: 2;
     background: var(--c-white);
   }
 
@@ -150,20 +147,22 @@ import { services } from '../../data/services';
     transform: rotate(-45deg);
   }
 
-  /* Image stays inside the row */
+  /* Square floating preview — center clamped inside row, image can overflow */
   .service-image-preview {
-    position: absolute;
-    top: 50%;
-    left: 55%;
-    width: 180px;
-    height: 110px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 15;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.9);
-    transition: opacity 0.35s var(--ease-out-expo), visibility 0.35s, transform 0.12s var(--ease-out-expo);
-    will-change: transform, left, top;
+    transform: translate(-50%, -50%) scale(0.88);
+    transition: opacity 0.35s var(--ease-out-expo), visibility 0.35s, transform 0.35s var(--ease-out-expo);
+    will-change: left, top;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
   }
 
   .service-image-preview.visible {
@@ -172,19 +171,11 @@ import { services } from '../../data/services';
     transform: translate(-50%, -50%) scale(1);
   }
 
-  .service-image-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border: 2px solid var(--c-white);
-  }
-
-  .service-image-inner img {
+  .service-image-preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   .services-footer {
@@ -197,13 +188,13 @@ import { services } from '../../data/services';
     .service-row__inner {
       grid-template-columns: 56px 1fr auto;
       gap: 1.5rem;
-      padding: 1.35rem 1.5rem;
-      min-height: 80px;
+      padding: 1.5rem 1.25rem;
+      min-height: 84px;
     }
 
     .service-image-preview {
-      width: 200px;
-      height: 120px;
+      width: 260px;
+      height: 260px;
     }
   }
 
@@ -212,21 +203,15 @@ import { services } from '../../data/services';
       display: none;
     }
 
-    /* Show description on tablet/mobile instead of hover image */
     .service-desc {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--c-grey);
-      line-height: 1.5;
-      margin-top: 0.35rem;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-    }
-
-    .service-title {
-      white-space: normal;
+      font-size: 0.8rem;
+      color: var(--c-grey);
+      line-height: 1.5;
+      margin-top: 0.35rem;
     }
   }
 
@@ -234,7 +219,7 @@ import { services } from '../../data/services';
     .service-row__inner {
       grid-template-columns: 36px 1fr auto;
       gap: 0.75rem;
-      padding: 1.1rem 0.75rem;
+      padding: 1.15rem 0.75rem;
       min-height: auto;
     }
 
@@ -246,10 +231,6 @@ import { services } from '../../data/services';
     .services-footer {
       justify-content: center;
     }
-
-    .section-header--split {
-      gap: 1rem;
-    }
   }
 </style>
 
@@ -258,13 +239,8 @@ import { services } from '../../data/services';
     const rows = document.querySelectorAll('.service-row');
 
     rows.forEach(row => {
-      const inner = row.querySelector('.service-row__inner') as HTMLElement;
       const preview = row.querySelector('.service-image-preview') as HTMLElement;
-      if (!inner || !preview) return;
-
-      const imgW = 200;
-      const imgH = 120;
-      const arrowSpace = 56;
+      if (!preview) return;
 
       let targetX = 0;
       let targetY = 0;
@@ -275,23 +251,18 @@ import { services } from '../../data/services';
 
       const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
-      const clampPosition = (x: number, y: number, rect: DOMRect) => {
-        const padX = imgW / 2 + 12;
-        const padY = imgH / 2 + 8;
-        const minX = padX;
-        const maxX = rect.width - padX - arrowSpace;
-        const minY = padY;
-        const maxY = rect.height - padY;
-
+      /** Clamp image CENTER to stay inside the row bounds */
+      const clampCenterToRow = (clientX: number, clientY: number) => {
+        const rect = row.getBoundingClientRect();
         return {
-          x: Math.max(minX, Math.min(maxX, x)),
-          y: Math.max(minY, Math.min(maxY, y)),
+          x: Math.max(rect.left, Math.min(rect.right, clientX)),
+          y: Math.max(rect.top, Math.min(rect.bottom, clientY)),
         };
       };
 
       const animate = () => {
-        currentX = lerp(currentX, targetX, 0.14);
-        currentY = lerp(currentY, targetY, 0.14);
+        currentX = lerp(currentX, targetX, 0.12);
+        currentY = lerp(currentY, targetY, 0.12);
 
         preview.style.left = `${currentX}px`;
         preview.style.top = `${currentY}px`;
@@ -303,10 +274,7 @@ import { services } from '../../data/services';
 
       row.addEventListener('mouseenter', (e: MouseEvent) => {
         isHovering = true;
-        const rect = inner.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const clamped = clampPosition(x, y, rect);
+        const clamped = clampCenterToRow(e.clientX, e.clientY);
         targetX = clamped.x;
         targetY = clamped.y;
         currentX = targetX;
@@ -318,10 +286,7 @@ import { services } from '../../data/services';
       });
 
       row.addEventListener('mousemove', (e: MouseEvent) => {
-        const rect = inner.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const clamped = clampPosition(x, y, rect);
+        const clamped = clampCenterToRow(e.clientX, e.clientY);
         targetX = clamped.x;
         targetY = clamped.y;
       });
