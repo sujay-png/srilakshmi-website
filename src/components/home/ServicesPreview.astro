@@ -17,7 +17,13 @@ import { services } from '../../data/services';
 
     <div class="services-list" id="services-list">
       {services.slice(0, 5).map((service, index) => (
-        <a href="/services" class="service-row interactive reveal" data-service-index={index} style={`transition-delay: ${index * 0.08}s;`}>
+        <a
+          href="/services"
+          class="service-row interactive reveal"
+          data-service-index={index}
+          data-image={service.image}
+          style={`transition-delay: ${index * 0.08}s;`}
+        >
           <div class="service-row__inner">
             <div class="service-number">0{index + 1}</div>
             <div class="service-title-wrap">
@@ -31,11 +37,13 @@ import { services } from '../../data/services';
               </svg>
             </div>
           </div>
-          <div class="service-image-preview" aria-hidden="true">
-            <img src={service.image} alt="" loading="lazy" draggable="false" />
-          </div>
         </a>
       ))}
+    </div>
+
+    <!-- Single shared hover image — moved to body via JS -->
+    <div class="service-hover-image" id="service-hover-image" aria-hidden="true">
+      <img src="" alt="" draggable="false" />
     </div>
 
     <div class="services-footer reveal" style="transition-delay: 0.4s;">
@@ -65,7 +73,6 @@ import { services } from '../../data/services';
     position: relative;
   }
 
-  /* Override global .reveal transform — it breaks position context for hover image */
   .service-row.reveal {
     opacity: 0;
     transform: none;
@@ -83,10 +90,9 @@ import { services } from '../../data/services';
     position: relative;
     text-decoration: none;
     color: inherit;
-    overflow: visible;
   }
 
-  .service-row:hover {
+  .service-row.is-hovered {
     z-index: 20;
   }
 
@@ -97,11 +103,11 @@ import { services } from '../../data/services';
     gap: 1.25rem;
     padding: 1.35rem 1rem;
     position: relative;
-    z-index: 2;
     min-height: 76px;
     transition: background-color 0.35s var(--ease-out-expo);
   }
 
+  .service-row.is-hovered .service-row__inner,
   .service-row:hover .service-row__inner {
     background-color: var(--c-soft-white);
   }
@@ -112,8 +118,11 @@ import { services } from '../../data/services';
     color: var(--c-grey);
     transition: color 0.3s ease;
     font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 2;
   }
 
+  .service-row.is-hovered .service-number,
   .service-row:hover .service-number {
     color: var(--c-accent);
   }
@@ -121,7 +130,7 @@ import { services } from '../../data/services';
   .service-title-wrap {
     min-width: 0;
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
 
   .service-title {
@@ -137,6 +146,7 @@ import { services } from '../../data/services';
     transition: background-size 0.4s var(--ease-out-expo);
   }
 
+  .service-row.is-hovered .service-title,
   .service-row:hover .service-title {
     background-size: 100% 2px;
   }
@@ -157,43 +167,15 @@ import { services } from '../../data/services';
     flex-shrink: 0;
     background: var(--c-white);
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
 
+  .service-row.is-hovered .service-arrow,
   .service-row:hover .service-arrow {
     background-color: var(--c-charcoal);
     color: var(--c-white);
     border-color: var(--c-charcoal);
     transform: rotate(-45deg);
-  }
-
-  /* Square preview — absolute inside row, follows cursor, center clamped to row */
-  .service-image-preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 260px;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s var(--ease-out-expo), visibility 0.3s;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-  }
-
-  .service-image-preview.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .service-image-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
   }
 
   .services-footer {
@@ -212,10 +194,6 @@ import { services } from '../../data/services';
   }
 
   @media (max-width: 1023px) {
-    .service-image-preview {
-      display: none;
-    }
-
     .service-desc {
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -247,71 +225,123 @@ import { services } from '../../data/services';
   }
 </style>
 
+<style is:global>
+  .service-hover-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 260px;
+    pointer-events: none;
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.25s var(--ease-out-expo), visibility 0.25s;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  .service-hover-image.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .service-hover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 1023px) {
+    .service-hover-image {
+      display: none !important;
+    }
+  }
+</style>
+
 <script>
   if (window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 1024) {
-    const rows = document.querySelectorAll('.service-row');
+    const preview = document.getElementById('service-hover-image');
+    const img = preview?.querySelector('img') as HTMLImageElement;
+    const rows = document.querySelectorAll('.service-row[data-image]');
 
-    rows.forEach(row => {
-      const preview = row.querySelector('.service-image-preview') as HTMLElement;
-      if (!preview) return;
+    if (preview && img) {
+      document.body.appendChild(preview);
 
+      let activeRow: HTMLElement | null = null;
       let targetX = 0;
       let targetY = 0;
       let currentX = 0;
       let currentY = 0;
-      let isHovering = false;
+      let isActive = false;
       let rafId: number;
 
       const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
-      /** Convert cursor to row-local coords; clamp center inside row bounds */
-      const getClampedPosition = (clientX: number, clientY: number) => {
+      const clampToRow = (clientX: number, clientY: number, row: HTMLElement) => {
         const rect = row.getBoundingClientRect();
-        const localX = clientX - rect.left;
-        const localY = clientY - rect.top;
-
         return {
-          x: Math.max(0, Math.min(rect.width, localX)),
-          y: Math.max(0, Math.min(rect.height, localY)),
+          x: Math.max(rect.left, Math.min(rect.right, clientX)),
+          y: Math.max(rect.top, Math.min(rect.bottom, clientY)),
         };
       };
 
       const animate = () => {
         currentX = lerp(currentX, targetX, 0.18);
         currentY = lerp(currentY, targetY, 0.18);
-
         preview.style.left = `${currentX}px`;
         preview.style.top = `${currentY}px`;
 
-        if (isHovering) {
+        if (isActive) {
           rafId = requestAnimationFrame(animate);
         }
       };
 
-      row.addEventListener('mouseenter', (e: MouseEvent) => {
-        isHovering = true;
-        const pos = getClampedPosition(e.clientX, e.clientY);
+      const setPosition = (clientX: number, clientY: number) => {
+        if (!activeRow) return;
+        const pos = clampToRow(clientX, clientY, activeRow);
         targetX = pos.x;
         targetY = pos.y;
-        currentX = targetX;
-        currentY = targetY;
-        preview.style.left = `${currentX}px`;
-        preview.style.top = `${currentY}px`;
-        preview.classList.add('visible');
-        animate();
-      });
+      };
 
-      row.addEventListener('mousemove', (e: MouseEvent) => {
-        const pos = getClampedPosition(e.clientX, e.clientY);
-        targetX = pos.x;
-        targetY = pos.y;
-      });
+      rows.forEach(row => {
+        const el = row as HTMLElement;
 
-      row.addEventListener('mouseleave', () => {
-        isHovering = false;
-        cancelAnimationFrame(rafId);
-        preview.classList.remove('visible');
+        el.addEventListener('mouseenter', (e: MouseEvent) => {
+          activeRow = el;
+          isActive = true;
+          el.classList.add('is-hovered');
+
+          const imageSrc = el.dataset.image;
+          if (imageSrc) img.src = imageSrc;
+
+          const pos = clampToRow(e.clientX, e.clientY, el);
+          targetX = pos.x;
+          targetY = pos.y;
+          currentX = targetX;
+          currentY = targetY;
+          preview.style.left = `${currentX}px`;
+          preview.style.top = `${currentY}px`;
+          preview.classList.add('visible');
+          animate();
+        });
+
+        el.addEventListener('mousemove', (e: MouseEvent) => {
+          if (activeRow === el) setPosition(e.clientX, e.clientY);
+        });
+
+        el.addEventListener('mouseleave', () => {
+          if (activeRow === el) {
+            isActive = false;
+            activeRow = null;
+            el.classList.remove('is-hovered');
+            cancelAnimationFrame(rafId);
+            preview.classList.remove('visible');
+          }
+        });
       });
-    });
+    }
   }
 </script>
