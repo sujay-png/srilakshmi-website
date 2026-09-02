@@ -38,7 +38,7 @@ const { eyebrow, title, subtitle, image, size = 'default' } = Astro.props;
     padding-bottom: 4rem;
     padding-top: calc(var(--header-height) + 2rem);
     overflow: hidden;
-    color: var(--c-white);
+    color: var(--c-media-text);
   }
 
   .page-hero--large {
@@ -103,13 +103,14 @@ const { eyebrow, title, subtitle, image, size = 'default' } = Astro.props;
     line-height: 1.05;
     letter-spacing: -0.03em;
     margin: 0;
+    color: var(--c-media-text);
   }
 
   .page-hero__subtitle {
     margin-top: 1.5rem;
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--c-media-text-muted);
     max-width: 560px;
   }
 
