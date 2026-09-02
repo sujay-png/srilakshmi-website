@@ -1,0 +1,148 @@
+---
+import { services } from '../../data/services';
+---
+
+<section class="services-page section-pad section-light">
+  <div class="container">
+    <div class="section-header section-header--split reveal">
+      <div class="section-header__left">
+        <span class="text-eyebrow">All Services</span>
+        <h2 class="text-h2">Full Spectrum<br/>Expertise</h2>
+        <span class="section-header__line"></span>
+      </div>
+      <div class="section-header__right">
+        <p class="section-desc">Nine specialized disciplines — from architecture and planning to green construction — delivered with precision across Mangalore and beyond.</p>
+      </div>
+    </div>
+
+    <div class="services-editorial">
+      {services.map((service, index) => (
+        <article class={`service-editorial reveal ${index % 2 === 1 ? 'service-editorial--reverse' : ''}`} style={`transition-delay: ${(index % 3) * 0.08}s;`}>
+          <div class="service-editorial__media">
+            <div class="service-editorial__image-wrap">
+              <img src={service.image} alt={service.title} loading="lazy" />
+            </div>
+            <span class="service-editorial__index">0{index + 1}</span>
+          </div>
+          <div class="service-editorial__content">
+            <h3 class="service-editorial__title">{service.title}</h3>
+            <p class="service-editorial__desc">{service.description}</p>
+            <a href="/contact" class="service-editorial__link magnetic-btn">
+              Start a project
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-editorial {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    margin-top: 2rem;
+  }
+
+  .service-editorial {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .service-editorial {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+    }
+
+    .service-editorial--reverse {
+      direction: rtl;
+    }
+
+    .service-editorial--reverse > * {
+      direction: ltr;
+    }
+  }
+
+  .service-editorial__media {
+    position: relative;
+  }
+
+  .service-editorial__image-wrap {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--c-grey-light);
+  }
+
+  .service-editorial__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo);
+  }
+
+  .service-editorial:hover .service-editorial__image-wrap img {
+    transform: scale(1.04);
+  }
+
+  .service-editorial__index {
+    position: absolute;
+    top: -1rem;
+    left: -0.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--c-accent);
+    opacity: 0.25;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .service-editorial__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .service-editorial__desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-grey);
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
+
+  .service-editorial__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-charcoal);
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--c-charcoal);
+    transition: gap 0.4s var(--ease-out-expo), color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .service-editorial__link:hover {
+    gap: 0.85rem;
+    color: var(--c-accent);
+    border-color: var(--c-accent);
+  }
+</style>

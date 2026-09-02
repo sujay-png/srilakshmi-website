@@ -13,19 +13,21 @@ const displayProjects = limit ? projects.slice(0, limit) : projects;
 <div class="projects-section">
   {!limit && (
     <div class="project-filters reveal">
-      <ul class="filter-list">
-        {categories.map((cat, index) => (
-          <li>
-            <button class={`filter-btn ${index === 0 ? 'active' : ''}`} data-filter={cat}>{cat}</button>
-          </li>
-        ))}
-      </ul>
+      <div class="filter-track">
+        <ul class="filter-list" id="filter-list">
+          {categories.map((cat, index) => (
+            <li>
+              <button class={`filter-btn ${index === 0 ? 'active' : ''}`} data-filter={cat}>{cat}</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )}
 
   <div class="project-grid" id="project-grid">
     {displayProjects.map((project, index) => (
-      <div class="project-item reveal" style={`transition-delay: ${(index % 3) * 0.1}s;`}>
+      <div class="project-item reveal-scale" style={`transition-delay: ${(index % 3) * 0.08}s;`} data-category={project.category}>
         <ProjectCard project={project} />
       </div>
     ))}
@@ -34,61 +36,63 @@ const displayProjects = limit ? projects.slice(0, limit) : projects;
 
 <style>
   .project-filters {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .filter-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .filter-track::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.5rem;
     padding: 0.5rem;
-    background-color: var(--c-white);
-    border-radius: 100px; /* Pill shape for the container if it fits, or rounded corners */
-    border: 1px solid var(--c-grey-light);
-    max-width: fit-content;
+    width: max-content;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  }
-
-  @media (max-width: 1024px) {
-    .filter-list {
-      border-radius: var(--radius-lg);
-    }
+    background: var(--c-white);
+    border-radius: 100px;
+    border: 1px solid var(--c-grey-light);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
   }
 
   .filter-btn {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--c-grey);
     padding: 0.75rem 1.5rem;
     border-radius: 100px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    background-color: transparent;
+    transition: all 0.4s var(--ease-out-expo);
+    background: transparent;
     border: none;
     cursor: pointer;
+    white-space: nowrap;
     position: relative;
-    z-index: 1;
   }
 
   .filter-btn:hover {
     color: var(--c-charcoal);
-    background-color: rgba(26, 26, 26, 0.03);
   }
 
   .filter-btn.active {
     color: var(--c-charcoal);
-    background-color: var(--c-accent);
-    box-shadow: 0 4px 15px rgba(239, 198, 44, 0.3); /* Accent shadow */
+    background: var(--c-accent);
+    box-shadow: 0 4px 16px rgba(239, 198, 44, 0.3);
   }
 
   .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   @media (min-width: 768px) {
@@ -100,17 +104,17 @@ const displayProjects = limit ? projects.slice(0, limit) : projects;
   @media (min-width: 1024px) {
     .project-grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
     }
   }
 
-  /* Transition classes for filtering */
   .project-item {
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
   }
 
   .project-item.hidden {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.92);
     pointer-events: none;
     position: absolute;
     visibility: hidden;
@@ -123,29 +127,23 @@ const displayProjects = limit ? projects.slice(0, limit) : projects;
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
 
-      // Filter projects
       projectItems.forEach(item => {
-        const card = item.querySelector('.project-card');
-        if (card) {
-          const category = card.getAttribute('data-category');
-          if (filter === 'All' || category === filter) {
-            item.classList.remove('hidden');
-            // Quick layout recalculation trick
-            (item as HTMLElement).style.position = 'relative';
-          } else {
-            item.classList.add('hidden');
-            setTimeout(() => {
-              if (item.classList.contains('hidden')) {
-                (item as HTMLElement).style.position = 'absolute';
-              }
-            }, 400); // match transition duration
-          }
+        const category = item.getAttribute('data-category');
+        if (filter === 'All' || category === filter) {
+          item.classList.remove('hidden');
+          (item as HTMLElement).style.position = 'relative';
+        } else {
+          item.classList.add('hidden');
+          setTimeout(() => {
+            if (item.classList.contains('hidden')) {
+              (item as HTMLElement).style.position = 'absolute';
+            }
+          }, 500);
         }
       });
     });

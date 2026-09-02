@@ -1,162 +1,235 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/global/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
 import { siteData } from '../data/site';
 ---
 
 <BaseLayout title="Contact">
-  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/slider4.jpg'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
-    <div class="container" style="padding-top: var(--header-height);">
-      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Start A Project</span>
-      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
-        Let's Build Something <br/> Exceptional Together.
-      </h1>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Start A Project"
+    title="Let's Build Something<br/>Exceptional Together."
+    image="/images/slider4.jpg"
+    size="large"
+  />
 
-  <section class="contact-section section-pad">
+  <section class="contact-section section-pad section-light">
     <div class="container">
       <div class="contact-grid">
-        <div class="contact-info reveal">
-          <h2 class="text-h3" style="margin-bottom: 2rem;">Headquarters</h2>
-          
-          <div class="info-block">
-            <h4 class="text-eyebrow">Address</h4>
-            <p class="text-body">{siteData.contact.address}</p>
+        <div class="contact-info reveal-left">
+          <span class="text-eyebrow">Get in Touch</span>
+          <h2 class="contact-heading">Headquarters</h2>
+          <span class="section-header__line"></span>
+
+          <div class="info-blocks">
+            <div class="info-block">
+              <h4 class="info-label">Address</h4>
+              <p class="info-text">{siteData.contact.address}</p>
+            </div>
+
+            <div class="info-block">
+              <h4 class="info-label">Phone</h4>
+              <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="info-link">{siteData.contact.phone}</a>
+            </div>
+
+            <div class="info-block">
+              <h4 class="info-label">Email</h4>
+              <a href={`mailto:${siteData.contact.email}`} class="info-link">{siteData.contact.email}</a>
+            </div>
           </div>
-          
-          <div class="info-block">
-            <h4 class="text-eyebrow">Phone</h4>
-            <p class="text-body"><a href={`tel:${siteData.contact.phone.replace(/\\s/g, '')}`}>{siteData.contact.phone}</a></p>
-          </div>
-          
-          <div class="info-block">
-            <h4 class="text-eyebrow">Email</h4>
-            <p class="text-body"><a href={`mailto:${siteData.contact.email}`}>{siteData.contact.email}</a></p>
+
+          <div class="contact-hours">
+            <h4 class="info-label">Office Hours</h4>
+            <p class="info-text">Mon – Sat: 9:00 AM – 6:00 PM</p>
           </div>
         </div>
-        
-        <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;">
+
+        <div class="contact-form-wrapper reveal-right" style="transition-delay: 0.15s;">
           <form class="contact-form">
-            <h3 class="text-h3" style="margin-bottom: 2rem;">Send a Message</h3>
+            <h3 class="form-heading">Send a Message</h3>
+            <p class="form-sub">Tell us about your project and we'll get back to you within 24 hours.</p>
+
             <div class="form-group">
               <input type="text" id="name" name="name" required placeholder=" " />
               <label for="name">Your Name</label>
             </div>
-            
+
             <div class="form-group">
               <input type="email" id="email" name="email" required placeholder=" " />
               <label for="email">Your Email</label>
             </div>
-            
+
             <div class="form-group">
               <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
               <label for="message">Tell us about your project...</label>
             </div>
-            
-            <button type="submit" class="btn btn-primary magnetic-btn" style="background-color: var(--c-accent); color: var(--c-charcoal); border-radius: var(--radius-sm); font-weight: 600;">SEND MESSAGE</button>
+
+            <button type="submit" class="btn btn-primary magnetic-btn form-submit">
+              SEND MESSAGE
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </form>
         </div>
       </div>
-      
-      <div class="map-wrapper reveal" style="transition-delay: 0.3s; margin-top: 4rem;">
-        <iframe 
-          src="https://www.google.com/maps?q=Evershine+complex,+opp+H.P+Petrol+bunk,+Kavoor,+Mangalore,+Karnataka+575015&output=embed" 
-          width="100%" 
-          height="450" 
-          style="border:0; border-radius: var(--radius-xl);" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
+
+      <div class="map-section reveal-scale" style="transition-delay: 0.25s;">
+        <div class="map-header">
+          <span class="text-eyebrow">Find Us</span>
+          <h3 class="map-title">Our Location</h3>
+        </div>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps?q=Evershine+complex,+opp+H.P+Petrol+bunk,+Kavoor,+Mangalore,+Karnataka+575015&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            title="Sri Lakshmi Construction location"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
+
+  <FinalCTA />
 </BaseLayout>
 
 <style>
-  .page-header {
-    background-color: var(--c-soft-white);
-  }
-
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
+    margin-bottom: 5rem;
   }
 
   @media (min-width: 1024px) {
     .contact-grid {
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch; /* Make both boxes same height */
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
     }
   }
 
-  .contact-info {
-    background-color: var(--c-soft-white); /* soft background box */
-    padding: 3rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(0,0,0,0.05);
+  .contact-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin: 0.75rem 0 0;
+    line-height: 1.1;
+  }
+
+  .info-blocks {
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 2rem;
   }
 
-  .info-block {
-    margin-bottom: 2.5rem;
-  }
-
-  .info-block .text-eyebrow {
+  .info-label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-accent);
     margin-bottom: 0.5rem;
-    color: var(--c-charcoal);
   }
 
-  .info-block a {
+  .info-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--c-charcoal-light);
+  }
+
+  .info-link {
+    font-size: 1.05rem;
+    color: var(--c-charcoal);
     transition: color 0.3s ease;
+    display: inline-block;
   }
 
-  .info-block a:hover {
-    color: var(--c-charcoal);
+  .info-link:hover {
+    color: var(--c-accent);
+  }
+
+  .contact-hours {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-grey-light);
   }
 
   .contact-form {
-    background-color: var(--c-white);
+    background: var(--c-charcoal);
+    color: var(--c-white);
     padding: 3rem;
     border-radius: var(--radius-lg);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border: 1px solid var(--c-grey-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse, rgba(239, 198, 44, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .form-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .form-sub {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+    position: relative;
   }
 
   .form-group {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 1.25rem 1rem 0.5rem;
+    padding: 1.25rem 0 0.5rem;
     border: none;
-    border-bottom: 2px solid var(--c-grey-light);
-    border-radius: 0;
-    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
     font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--c-charcoal);
+    color: var(--c-white);
     transition: border-color 0.3s ease;
+    position: relative;
   }
 
   .form-group textarea {
     resize: vertical;
+    min-height: 100px;
   }
 
   .form-group label {
     position: absolute;
     top: 1rem;
-    left: 1rem;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--c-grey);
+    left: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.4);
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--ease-out-expo);
   }
 
   .form-group input:focus,
@@ -170,17 +243,54 @@ import { siteData } from '../data/site';
   .form-group textarea:focus ~ label,
   .form-group textarea:not(:placeholder-shown) ~ label {
     top: 0;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--c-accent);
     font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--c-accent);
+    color: var(--c-charcoal);
+    margin-top: 0.5rem;
+    position: relative;
+  }
+
+  .form-submit:hover {
+    background: #f5d44a;
+    box-shadow: 0 12px 32px rgba(239, 198, 44, 0.25);
+  }
+
+  .map-section {
+    border-top: 1px solid var(--c-grey-light);
+    padding-top: 4rem;
+  }
+
+  .map-header {
+    margin-bottom: 2rem;
+  }
+
+  .map-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    letter-spacing: -0.02em;
   }
 
   .map-wrapper {
     width: 100%;
+    height: 400px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
+    border: 1px solid var(--c-grey-light);
+    filter: grayscale(20%);
+    transition: filter 0.5s ease;
   }
-  
-  .btn {
-    width: 100%;
+
+  .map-wrapper:hover {
+    filter: grayscale(0%);
   }
 </style>

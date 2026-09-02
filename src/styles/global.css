@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* Colors */
@@ -12,8 +12,8 @@
   --c-accent: #efc62c;
 
   /* Typography */
-  --font-heading: 'Roboto', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   /* Radius System */
   --radius-sm: 12px;
@@ -191,6 +191,40 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
   color: var(--c-grey);
   margin-top: 0.5rem;
+}
+
+/* Editorial lead text */
+.text-lead {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--c-charcoal);
+  letter-spacing: -0.02em;
+}
+
+/* Dark section variant */
+.section-dark {
+  background-color: var(--c-charcoal);
+  color: var(--c-white);
+}
+
+.section-dark .text-eyebrow {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.section-dark .text-body,
+.section-dark .text-lead {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Light section variant */
+.section-light {
+  background-color: var(--c-white);
+}
+
+.section-muted {
+  background-color: var(--c-soft-white);
 }
 
 /* Buttons */

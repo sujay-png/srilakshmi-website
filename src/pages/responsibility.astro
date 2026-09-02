@@ -1,48 +1,80 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/global/PageHero.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
+
+const pillars = [
+  {
+    eyebrow: 'Sustainability',
+    title: 'Giving Back & Building the Future',
+    image: '/images/Srilakshmirainwaterharvesting.png',
+    paragraphs: [
+      'To construct functionally efficient, economically viable, Residential/commercial complexes and self-contained mini Townships which reflect Engineering Excellence and Architectural ambiance with a view to provide complete customer satisfaction.',
+      'The Quality standard of our Product and Services should result in giving complete value for money for the clients as well as faster continuous demand for products resulting in sustained growth of the organization.',
+      'It all started with dreaming of constructing beautiful buildings around the City keeping in mind not to affect the existing ecosystem and having a sustainable growth and opportunity for everyone involved in the project.',
+    ],
+  },
+  {
+    eyebrow: 'Workplace Safety',
+    title: 'Uncompromising Safety Standards',
+    image: '/images/slider4.jpg',
+    paragraphs: [
+      'Our objective is to continue to achieve the best safety performance in the business. We provide our owners with quality projects, built on time, within budget and safely.',
+      'To achieve this mission we provide our greatest assets, our people, with the best equipment and training. Our employees have helped to create a successful company-wide safety program.',
+      'Sri Lakshmi Construction will only issue work to subcontractors deemed safe by our high safety standards. In order to bid any Sri Lakshmi Construction project, subcontractors are required to submit a safety pre-qualification assessment and a written safety plan.',
+    ],
+  },
+];
 ---
 
 <BaseLayout title="Giving Back & Safety">
-  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/Srilakshmirainwaterharvesting.png'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
-    <div class="container" style="padding-top: var(--header-height);">
-      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Our Commitment</span>
-      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
-        Giving Back &amp; Safety
-      </h1>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Our Commitment"
+    title="Giving Back &amp;<br/>Safety"
+    subtitle="Building responsibly for our communities, our people, and the environments we shape."
+    image="/images/Srilakshmirainwaterharvesting.png"
+    size="large"
+  />
 
-  <section class="content-section section-pad" style="background-color: var(--c-soft-white);">
-    <div class="container">
-      <div class="content-grid reveal">
-        <h2 class="text-h2" style="margin-bottom: 2rem;">Giving Back &amp; Building the Future</h2>
-        <p class="text-body" style="font-size: 1.25rem; color: var(--c-charcoal); margin-bottom: 2rem;">
-          To Construct functionally efficient, economically viable, Residential/commercial complexes and self-contained mini Townships which reflect Engineering Excellence and Architectural ambiance with a view to provide complete customer satisfaction.
-        </p>
-        <p class="text-body" style="margin-bottom: 1.5rem;">
-          The Quality standard of our Product and Services should result in giving complete value for money for the clients as well as faster continuous demand for products resulting in sustained growth of the organization thereby giving impetus profitability and all-around improvement.
-        </p>
-        <p class="text-body">
-          It all started with dreaming of constructing beautiful buildings around the City keeping in mind not to affect the existing ecosystem and having a sustainable growth and opportunity for everyone involved in the project.
-        </p>
+  {pillars.map((pillar, index) => (
+    <section class={`pillar-section section-pad ${index % 2 === 0 ? 'section-light' : 'section-muted'}`}>
+      <div class="container">
+        <div class={`pillar-grid ${index % 2 === 1 ? 'pillar-grid--reverse' : ''}`}>
+          <div class="pillar-media reveal-left">
+            <div class="pillar-image-wrap">
+              <img src={pillar.image} alt={pillar.title} loading="lazy" />
+            </div>
+          </div>
+          <div class="pillar-content reveal-right" style="transition-delay: 0.15s;">
+            <span class="text-eyebrow">{pillar.eyebrow}</span>
+            <h2 class="pillar-title">{pillar.title}</h2>
+            <span class="section-header__line"></span>
+            {pillar.paragraphs.map((p, pIndex) => (
+              <p class={`pillar-text ${pIndex === 0 ? 'pillar-text--lead' : ''}`}>{p}</p>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
-  <section class="content-section section-pad" style="background-color: var(--c-charcoal); color: var(--c-white);">
+  <section class="impact-section section-pad section-dark">
     <div class="container">
-      <div class="content-grid reveal">
-        <h2 class="text-h2" style="margin-bottom: 2rem; color: var(--c-white);">Uncompromising Safety Standards</h2>
-        <p class="text-body" style="font-size: 1.25rem; color: var(--c-off-white); margin-bottom: 2rem;">
-          Our objective is to continue to achieve the best safety performance in the business. We provide our owners with quality projects, built on time, within budget and safely. It is our mission to fulfill all of these values without sacrificing one for the other.
-        </p>
-        <p class="text-body" style="margin-bottom: 1.5rem; color: var(--c-grey-light);">
-          To achieve this mission we provide our greatest assets, our people, with the best equipment and training. Our employees have helped to create a successful company-wide safety program. For each project, a site-specific safety plan is developed. In addition to our plan, communication will be open and ongoing between the project team and the Owner to make this a successful and safe building program.
-        </p>
-        <p class="text-body" style="color: var(--c-grey-light);">
-          Sri Lakshmi Construction will only issue work to subcontractors deemed safe by our high safety standards. In order to bid any Sri Lakshmi Construction project, subcontractors are required to submit a safety pre-qualification assessment and a written safety plan.
-        </p>
+      <div class="impact-grid">
+        <div class="impact-item reveal" style="transition-delay: 0s;">
+          <span class="impact-num">100%</span>
+          <span class="impact-label">Safety Pre-Qualification</span>
+        </div>
+        <div class="impact-divider reveal-line" style="transition-delay: 0.1s;"></div>
+        <div class="impact-item reveal" style="transition-delay: 0.15s;">
+          <span class="impact-num">Green</span>
+          <span class="impact-label">Construction Practices</span>
+        </div>
+        <div class="impact-divider reveal-line" style="transition-delay: 0.2s;"></div>
+        <div class="impact-item reveal" style="transition-delay: 0.3s;">
+          <span class="impact-num">Zero</span>
+          <span class="impact-label">Compromise on Quality</span>
+        </div>
       </div>
     </div>
   </section>
@@ -51,8 +83,121 @@ import FinalCTA from '../components/home/FinalCTA.astro';
 </BaseLayout>
 
 <style>
-  .content-grid {
-    max-width: 900px;
-    margin: 0 auto;
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .pillar-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+
+    .pillar-grid--reverse {
+      direction: rtl;
+    }
+
+    .pillar-grid--reverse > * {
+      direction: ltr;
+    }
+  }
+
+  .pillar-image-wrap {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--c-grey-light);
+  }
+
+  .pillar-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo);
+  }
+
+  .pillar-grid:hover .pillar-image-wrap img {
+    transform: scale(1.03);
+  }
+
+  .pillar-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin: 0.75rem 0 0;
+    line-height: 1.15;
+  }
+
+  .pillar-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-grey);
+    margin-top: 1.25rem;
+  }
+
+  .pillar-text--lead {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 400;
+    color: var(--c-charcoal);
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+
+  .impact-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .impact-grid {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  .impact-item {
+    flex: 1;
+  }
+
+  .impact-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--c-accent);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .impact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .impact-divider {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .impact-divider {
+      display: block;
+      width: 1px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      transform-origin: top;
+    }
   }
 </style>

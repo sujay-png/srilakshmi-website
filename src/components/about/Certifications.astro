@@ -1,55 +1,54 @@
 ---
+const certifications = [
+  { icon: '/images/certi-icon1.png', label: 'Quality Management' },
+  { icon: '/images/certi-icon2.png', label: 'Safety Standards' },
+  { icon: '/images/certi-icon3.png', label: 'Environmental Compliance' },
+  { icon: '/images/certi-icon5.png', label: 'Excellence in Engineering' },
+];
 ---
 
-<section class="certifications-section section-pad">
+<section class="certifications-section section-pad section-muted">
   <div class="container">
-    <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-      <span class="text-eyebrow">Quality & Standards</span>
-      <h2 class="text-h2" style="margin-top: 1rem;">Company Certifications</h2>
+    <div class="section-header section-header--split reveal">
+      <div class="section-header__left">
+        <span class="text-eyebrow">Quality & Standards</span>
+        <h2 class="text-h2">Company<br/>Certifications</h2>
+        <span class="section-header__line"></span>
+      </div>
+      <div class="section-header__right">
+        <p class="section-desc">Recognized standards that underpin every project we deliver — from quality management to environmental compliance.</p>
+      </div>
     </div>
 
-    <div class="cert-grid reveal" style="transition-delay: 0.2s;">
-      <div class="cert-item">
-        <div class="cert-icon-wrapper">
-          <img src="/images/certi-icon1.png" alt="Certification 1" loading="lazy" />
+    <div class="cert-grid">
+      {certifications.map((cert, index) => (
+        <div class="cert-item reveal-scale" style={`transition-delay: ${index * 0.1}s;`}>
+          <div class="cert-icon-wrapper">
+            <img src={cert.icon} alt={cert.label} loading="lazy" />
+          </div>
+          <p class="cert-label">{cert.label}</p>
         </div>
-        <p class="text-eyebrow">Quality Management</p>
-      </div>
-      
-      <div class="cert-item">
-        <div class="cert-icon-wrapper">
-          <img src="/images/certi-icon2.png" alt="Certification 2" loading="lazy" />
-        </div>
-        <p class="text-eyebrow">Safety Standards</p>
-      </div>
-      
-      <div class="cert-item">
-        <div class="cert-icon-wrapper">
-          <img src="/images/certi-icon3.png" alt="Certification 3" loading="lazy" />
-        </div>
-        <p class="text-eyebrow">Environmental Compliance</p>
-      </div>
-      
-      <div class="cert-item">
-        <div class="cert-icon-wrapper">
-          <img src="/images/certi-icon5.png" alt="Certification 4" loading="lazy" />
-        </div>
-        <p class="text-eyebrow">Excellence in Engineering</p>
-      </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .certifications-section {
-    background-color: var(--c-soft-white);
+  .section-header .text-h2 {
+    margin-top: 0.75rem;
   }
 
   .cert-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .cert-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
   }
 
   .cert-item {
@@ -57,32 +56,59 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 200px;
+    padding: 2.5rem 1.5rem;
+    background: var(--c-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--c-grey-light);
+    transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo), border-color 0.4s ease;
+  }
+
+  .cert-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
+    border-color: transparent;
   }
 
   .cert-icon-wrapper {
-    width: 100px;
-    height: 100px;
-    background-color: var(--c-accent); /* Changed to accent color */
+    width: 72px;
+    height: 72px;
+    background: var(--c-charcoal);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.4s ease;
+    transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
   }
 
   .cert-item:hover .cert-icon-wrapper {
-    transform: translateY(-10px);
-    background-color: var(--c-charcoal);
+    background: var(--c-accent);
+    transform: scale(1.08);
   }
 
   .cert-icon-wrapper img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 45%;
+    max-height: 45%;
     object-fit: contain;
-    filter: brightness(0) invert(1); /* Makes the black/grey icon white */
+    filter: brightness(0) invert(1);
     transition: filter 0.4s ease;
+  }
+
+  .cert-item:hover .cert-icon-wrapper img {
+    filter: brightness(0);
+  }
+
+  .cert-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-grey);
+    transition: color 0.3s ease;
+  }
+
+  .cert-item:hover .cert-label {
+    color: var(--c-charcoal);
   }
 </style>

@@ -1,110 +1,209 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/global/PageHero.astro';
 import Stats from '../components/home/Stats.astro';
+import ContentSection from '../components/global/ContentSection.astro';
 import Certifications from '../components/about/Certifications.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
 import { siteData } from '../data/site';
 ---
 
 <BaseLayout title="About Us">
-  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/ASHOKA-PARADISE.jpg'); background-size: cover; background-position: center; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
-    <div class="container" style="padding-top: var(--header-height);">
-      <span class="text-eyebrow reveal" style="color: var(--c-accent);">About Sri Lakshmi Construction</span>
-      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
-        21 Years of Experience. <br/>
-        Built on Trust. Driven by Possibility.
-      </h1>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="About Sri Lakshmi Construction"
+    title="21 Years of Experience.<br/>Built on Trust. Driven by Possibility."
+    image="/images/ASHOKA-PARADISE.jpg"
+    size="large"
+  />
 
   <Stats />
 
-  <section class="about-content section-pad" style="padding-top: 0;">
+  <section class="about-story section-pad section-light">
     <div class="container">
       <div class="about-grid">
-        <div class="about-text reveal">
-          <p class="text-body" style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--c-charcoal);">
+        <div class="about-label reveal-left">
+          <span class="text-eyebrow">Our Story</span>
+          <span class="section-header__line reveal-line"></span>
+        </div>
+        <div class="about-text reveal-right" style="transition-delay: 0.15s;">
+          <p class="text-lead">
             We have built our reputation as a construction services firm that puts people first.
           </p>
-          <p class="text-body" style="margin-bottom: 1.5rem;">
+          <p class="text-body">
             {siteData.name} was established in 2012. Since our inception, we have been committed to delivering world-class engineering and construction services across Mangalore, Udupi, and beyond.
           </p>
           <p class="text-body">
             We specialize in building Apartments, Healthcare Buildings, Educational Institutions, Commercial Complexes, and a variety of specialized construction projects including Landscape and Green Construction.
           </p>
         </div>
-        
-        <div class="founder-card reveal" style="transition-delay: 0.2s;">
-          <div class="founder-image-wrapper">
+      </div>
+    </div>
+  </section>
+
+  <section class="founder-section section-pad section-muted">
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-image-col reveal-left">
+          <div class="founder-image-wrap">
             <img src="/images/suresh.png" alt={siteData.founder.name} onerror="this.src='/images/srilakshmiconstructionlogo-1.png'" class="founder-img" />
+            <div class="founder-image-accent"></div>
           </div>
-          <div class="founder-info">
-            <h3 class="text-h3">{siteData.founder.name}</h3>
-            <p class="text-eyebrow" style="margin-bottom: 0.5rem;">{siteData.founder.title}</p>
-            <p class="text-body" style="font-size: 0.875rem;">
-              {siteData.founder.experience} of experience in the construction field.
-            </p>
+        </div>
+        <div class="founder-content reveal-right" style="transition-delay: 0.15s;">
+          <span class="text-eyebrow">Leadership</span>
+          <h2 class="founder-name">{siteData.founder.name}</h2>
+          <p class="founder-title">{siteData.founder.title}</p>
+          <p class="text-body founder-bio">
+            With {siteData.founder.experience} of experience in the construction field, {siteData.founder.name.split(' ')[0]} leads Sri Lakshmi Construction with a vision rooted in quality, integrity, and community impact.
+          </p>
+          <div class="founder-stats">
+            <div class="founder-stat">
+              <span class="founder-stat__num">21+</span>
+              <span class="founder-stat__label">Years Experience</span>
+            </div>
+            <div class="founder-stat">
+              <span class="founder-stat__num">2012</span>
+              <span class="founder-stat__label">Established</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="about-team section-pad" style="background-color: var(--c-charcoal); color: var(--c-white);">
-    <div class="container">
-      <div class="reveal" style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <span class="text-eyebrow" style="color: var(--c-accent);">Our Philosophy</span>
-        <h2 class="text-h2" style="margin: 1rem 0 2rem; color: var(--c-white);">Teamwork & Collaboration</h2>
-        <p class="text-body" style="font-size: 1.25rem; color: var(--c-off-white);">
-          Sri Lakshmi Construction is committed to construct office buildings to recreation centers and municipal facilities, designing and building a successful project which requires more than meeting the schedule and budget. A truly successful project is rooted in teamwork and derived from a passion to ensure all of your project expectations are exceeded.
-        </p>
-      </div>
-    </div>
-  </section>
+  <ContentSection
+    eyebrow="Our Philosophy"
+    title="Teamwork & Collaboration"
+    variant="dark"
+    align="center"
+    maxWidth="800px"
+  >
+    <p class="text-lead" style="color: rgba(255,255,255,0.9);">
+      Sri Lakshmi Construction is committed to construct office buildings to recreation centers and municipal facilities, designing and building a successful project which requires more than meeting the schedule and budget.
+    </p>
+    <p class="text-body">
+      A truly successful project is rooted in teamwork and derived from a passion to ensure all of your project expectations are exceeded.
+    </p>
+  </ContentSection>
 
   <Certifications />
-
   <FinalCTA />
 </BaseLayout>
 
 <style>
-  .page-header {
-    /* Styles handled inline for background */
-  }
-
   .about-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 2.5rem;
+    align-items: start;
   }
 
   @media (min-width: 1024px) {
     .about-grid {
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
     }
   }
 
-  .founder-card {
-    background-color: var(--c-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  .about-text :global(p + p) {
+    margin-top: 1.25rem;
   }
 
-  .founder-image-wrapper {
-    aspect-ratio: 4/3;
-    background-color: var(--c-grey-light);
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .founder-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+    }
+  }
+
+  .founder-image-wrap {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-lg);
     overflow: hidden;
+    background: var(--c-grey-light);
   }
 
   .founder-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%);
+    filter: grayscale(15%);
+    transition: filter 0.6s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
   }
 
-  .founder-info {
-    padding: 2rem;
+  .founder-image-wrap:hover .founder-img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+
+  .founder-image-accent {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 60%;
+    height: 60%;
+    border: 2px solid var(--c-accent);
+    border-radius: var(--radius-lg);
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  .founder-name {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin: 1rem 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .founder-title {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-bio {
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .founder-stats {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-grey-light);
+  }
+
+  .founder-stat__num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--c-charcoal);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .founder-stat__label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-grey);
+    font-family: var(--font-heading);
+    font-weight: 600;
   }
 </style>
