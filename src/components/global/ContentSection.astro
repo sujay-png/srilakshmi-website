@@ -1,0 +1,76 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  variant?: 'light' | 'muted' | 'dark';
+  align?: 'left' | 'center';
+  maxWidth?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  variant = 'light',
+  align = 'left',
+  maxWidth = '900px',
+} = Astro.props;
+
+const variantClass = {
+  light: 'section-light',
+  muted: 'section-muted',
+  dark: 'section-dark',
+}[variant];
+---
+
+<section class={`content-section section-pad ${variantClass}`}>
+  <div class="container">
+    {(eyebrow || title) && (
+      <div class={`content-section__header reveal ${align === 'center' ? 'content-section__header--center' : ''}`}>
+        {eyebrow && <span class="text-eyebrow">{eyebrow}</span>}
+        {title && <h2 class="text-h2 content-section__title">{title}</h2>}
+        <span class="section-header__line"></span>
+      </div>
+    )}
+    <div class={`content-section__body reveal ${align === 'center' ? 'content-section__body--center' : ''}`} style={`max-width: ${maxWidth}; transition-delay: 0.15s;`}>
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section__header {
+    margin-bottom: 3rem;
+  }
+
+  .content-section__header--center {
+    text-align: center;
+  }
+
+  .content-section__header--center .section-header__line {
+    margin-left: auto;
+    margin-right: auto;
+    transform-origin: center;
+  }
+
+  .content-section__title {
+    margin-top: 0.75rem;
+  }
+
+  .section-dark .content-section__title {
+    color: var(--c-white);
+  }
+
+  .content-section__body--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .content-section__body :global(p + p) {
+    margin-top: 1.25rem;
+  }
+
+  .content-section__body :global(.text-lead) {
+    margin-bottom: 1.5rem;
+  }
+</style>

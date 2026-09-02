@@ -1,49 +1,128 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/global/PageHero.astro';
+import ContentSection from '../components/global/ContentSection.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
+import { siteData } from '../data/site';
+
+const values = [
+  { title: 'Quality First', desc: 'Every structure reflects our uncompromising standards in craftsmanship and materials.' },
+  { title: 'Safety Always', desc: 'Site-specific safety plans and rigorous training for every team member.' },
+  { title: 'Sustainable Growth', desc: 'Building responsibly with minimal environmental impact and maximum community benefit.' },
+  { title: 'Team Culture', desc: 'A collaborative environment where passionate professionals thrive and grow.' },
+];
 ---
 
 <BaseLayout title="Career">
-  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/Expose-Concrete-work.png'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
-    <div class="container" style="padding-top: var(--header-height);">
-      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Join Our Team</span>
-      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
-        Build Your Career With Us.
-      </h1>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Join Our Team"
+    title="Build Your Career<br/>With Us."
+    subtitle="We are always looking for passionate and talented individuals who share our commitment to quality, safety, and innovation."
+    image="/images/Expose-Concrete-work.png"
+    size="large"
+  />
 
-  <section class="content-section section-pad">
+  <section class="career-values section-pad section-light">
     <div class="container">
-      <div class="content-grid reveal">
-        <p class="text-body" style="font-size: 1.25rem; color: var(--c-charcoal); margin-bottom: 2rem;">
-          It all started with dreaming of constructing beautiful buildings around the City keeping in mind not to affect the existing ecosystem and having a sustainable growth and opportunity for everyone involved in the project.
-        </p>
-        <p class="text-body" style="margin-bottom: 2rem;">
-          We are always looking for passionate and talented individuals to join our team. If you share our commitment to quality, safety, and innovation, we'd love to hear from you.
-        </p>
-        
-        <div class="career-contact">
-          <h3 class="text-h3" style="margin-bottom: 1rem;">Send your resume to</h3>
-          <a href="mailto:srilakshmiconstruction08@gmail.com" class="btn btn-outline magnetic-btn">srilakshmiconstruction08@gmail.com</a>
-        </div>
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <span class="text-eyebrow">Why Join Us</span>
+        <h2 class="text-h2" style="margin-top: 0.75rem;">What We Stand For</h2>
+        <span class="section-header__line" style="margin: 1.25rem auto 0;"></span>
+      </div>
+
+      <div class="values-grid">
+        {values.map((value, index) => (
+          <div class="value-card reveal" style={`transition-delay: ${index * 0.1}s;`}>
+            <span class="value-card__num">0{index + 1}</span>
+            <h3 class="value-card__title">{value.title}</h3>
+            <p class="value-card__desc">{value.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
+
+  <ContentSection
+    eyebrow="Open Applications"
+    title="Ready to Make an Impact?"
+    variant="muted"
+    align="center"
+    maxWidth="640px"
+  >
+    <p class="text-lead">
+      It all started with dreaming of constructing beautiful buildings around the City — keeping in mind not to affect the existing ecosystem and having sustainable growth for everyone involved.
+    </p>
+    <p class="text-body" style="margin-bottom: 2.5rem;">
+      Send your resume and tell us how you'd like to contribute to our next chapter.
+    </p>
+    <a href={`mailto:${siteData.contact.email}`} class="btn btn-primary magnetic-btn">
+      {siteData.contact.email}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </ContentSection>
 
   <FinalCTA />
 </BaseLayout>
 
 <style>
-  .page-header {
-    background-color: var(--c-soft-white);
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .content-grid {
-    max-width: 800px;
+
+  @media (min-width: 768px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
   }
-  .career-contact {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--c-grey-light);
+
+  @media (min-width: 1024px) {
+    .values-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .value-card {
+    padding: 2rem;
+    background: var(--c-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--c-grey-light);
+    transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo), border-color 0.4s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    border-color: transparent;
+  }
+
+  .value-card__num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--c-accent);
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .value-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--c-charcoal);
+  }
+
+  .value-card__desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--c-grey);
   }
 </style>

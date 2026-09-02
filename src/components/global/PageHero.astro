@@ -1,0 +1,168 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  image: string;
+  size?: 'default' | 'large';
+}
+
+const { eyebrow, title, subtitle, image, size = 'default' } = Astro.props;
+---
+
+<section class={`page-hero page-hero--${size}`}>
+  <div class="page-hero__bg">
+    <img src={image} alt="" class="page-hero__image" loading="eager" />
+    <div class="page-hero__overlay"></div>
+  </div>
+
+  <div class="container page-hero__content">
+    <span class="text-eyebrow page-hero__eyebrow reveal">{eyebrow}</span>
+    <h1 class="page-hero__title reveal" style="transition-delay: 0.1s;" set:html={title}></h1>
+    {subtitle && (
+      <p class="page-hero__subtitle reveal" style="transition-delay: 0.2s;">{subtitle}</p>
+    )}
+  </div>
+
+  <div class="page-hero__scroll reveal" style="transition-delay: 0.4s;" aria-hidden="true">
+    <span class="page-hero__scroll-line"></span>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 4rem;
+    padding-top: calc(var(--header-height) + 2rem);
+    overflow: hidden;
+    color: var(--c-media-text);
+  }
+
+  .page-hero--large {
+    min-height: 70vh;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0;
+  }
+
+  .page-hero--large .page-hero__content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .page-hero--large .page-hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .page-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    animation: heroZoom 20s var(--ease-out-expo) forwards;
+  }
+
+  @keyframes heroZoom {
+    to { transform: scale(1); }
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 40%),
+      linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.2) 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .page-hero__eyebrow {
+    color: var(--c-accent);
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .page-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0;
+    color: var(--c-media-text);
+  }
+
+  .page-hero__subtitle {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--c-media-text-muted);
+    max-width: 560px;
+  }
+
+  .page-hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .page-hero__scroll-line {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--c-accent), transparent);
+    animation: scrollPulse 2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.4; transform: scaleY(0.6); }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 50vh;
+      padding-bottom: 2.5rem;
+      padding-top: calc(var(--header-height-mobile) + 2.5rem);
+      margin-top: 0;
+    }
+
+    .page-hero--large {
+      align-items: flex-end;
+      padding-bottom: 3rem;
+    }
+
+    .page-hero__content {
+      padding-top: 0;
+    }
+
+    .page-hero__title {
+      font-size: clamp(1.85rem, 7.5vw, 2.75rem);
+      line-height: 1.1;
+    }
+
+    .page-hero__subtitle {
+      font-size: 0.95rem;
+    }
+
+    .page-hero__scroll {
+      display: none;
+    }
+  }
+</style>

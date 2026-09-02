@@ -30,36 +30,62 @@ const slides = [
 ---
 
 <section class="hero">
-  <!-- Slider Backgrounds -->
   <div class="hero-slider">
     {slides.map((slide, index) => (
-      <div class={`hero-slide ${index === 0 ? 'active' : ''}`}>
+      <div class={`hero-slide ${index === 0 ? 'active' : ''}`} data-index={index}>
         <div class="hero-image-container">
           <img src={slide.image} alt={`Sri Lakshmi Construction Banner ${index + 1}`} class="hero-image" />
           <div class="hero-overlay"></div>
         </div>
-        
-        <!-- Individual Slide Content -->
+
         <div class="container hero-content">
           <div class="hero-text">
-            <h2 class="text-eyebrow">{siteData.name}</h2>
+            <div class="hero-meta">
+              <h2 class="text-eyebrow hero-eyebrow">{siteData.name}</h2>
+            </div>
             <h1 class="text-huge hero-title" set:html={slide.title}></h1>
-            
+
             <div class="hero-actions">
-              <a href={slide.link} class="btn btn-primary magnetic-btn">{slide.button}</a>
+              <a href={slide.link} class="btn btn-primary magnetic-btn">
+                <span>{slide.button}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
       </div>
     ))}
   </div>
-  
-  <!-- Slider Controls (Dots) -->
-  <div class="slider-controls">
-    {slides.map((_, index) => (
-      <button class={`slider-dot ${index === 0 ? 'active' : ''}`} data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
-    ))}
+
+  <div class="hero-bottom">
+    <span class="hero-slide-counter">
+      <span class="counter-current" id="hero-counter">01</span>
+      <span class="counter-sep">/</span>
+      <span class="counter-total">04</span>
+    </span>
+
+    <div class="slider-progress">
+      <div class="slider-progress-bar" id="slider-progress"></div>
+    </div>
+
+    <div class="slider-controls">
+      {slides.map((_, index) => (
+        <button class={`slider-dot ${index === 0 ? 'active' : ''}`} data-index={index} aria-label={`Go to slide ${index + 1}`}>
+          <span class="dot-fill"></span>
+        </button>
+      ))}
+    </div>
   </div>
+
+  <a href="#intro" class="scroll-indicator" aria-label="Scroll to content">
+    <span class="scroll-text">Scroll</span>
+    <span class="scroll-line">
+      <span class="scroll-dot"></span>
+    </span>
+  </a>
 </section>
 
 <style>
@@ -74,38 +100,34 @@ const slides = [
 
   .hero-slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     z-index: 1;
   }
 
   .hero-slide {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     opacity: 0;
     z-index: 1;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1.2s var(--ease-in-out);
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
   }
 
   .hero-slide.active {
     opacity: 1;
     z-index: 2;
+    pointer-events: auto;
   }
 
   .hero-image-container {
     position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
+    top: 4%;
+    left: 3%;
+    width: 94%;
+    height: 92%;
     border-radius: var(--radius-2xl);
     overflow: hidden;
     z-index: -1;
@@ -115,8 +137,9 @@ const slides = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.1);
-    transition: transform 10s ease-out;
+    transform: scale(1.15);
+    transition: transform 12s var(--ease-out-expo);
+    will-change: transform;
   }
 
   .hero-slide.active .hero-image {
@@ -125,11 +148,10 @@ const slides = [
 
   .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 40%),
+      linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%);
   }
 
   .hero-content {
@@ -139,9 +161,9 @@ const slides = [
     width: 100%;
     display: flex;
     justify-content: center;
-    transform: translateY(20px);
+    transform: translateY(30px);
     opacity: 0;
-    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+    transition: all 1.2s var(--ease-out-expo) 0.3s;
   }
 
   .hero-slide.active .hero-content {
@@ -150,58 +172,182 @@ const slides = [
   }
 
   .hero-text {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 100%;
-    color: var(--c-white);
+    color: var(--c-media-text);
     text-align: center;
     margin: 0 auto;
   }
 
-  .text-eyebrow {
-    color: var(--c-off-white);
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
-    letter-spacing: 0.1em;
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow {
+    color: var(--c-media-text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    margin: 0;
   }
 
   .hero-title {
     margin-bottom: 3rem;
-    line-height: 1.15;
-    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.1;
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    font-weight: 400;
+    color: var(--c-media-text);
   }
 
-  /* Slider Controls */
-  .slider-controls {
+  .hero-actions .btn {
+    padding: 1.1rem 2.25rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-bottom {
     position: absolute;
-    bottom: 5%;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
+    width: min(90%, 600px);
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .hero-slide-counter {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--c-media-text-faint);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .counter-current {
+    color: var(--c-accent);
+    font-weight: 600;
+  }
+
+  .slider-progress {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--c-accent);
+    transition: width 0.1s linear;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 0.75rem;
   }
 
   .slider-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 2px solid transparent;
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: none;
     cursor: pointer;
     padding: 0;
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
   }
 
   .slider-dot:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   .slider-dot.active {
-    background-color: transparent;
-    border-color: var(--c-accent);
-    transform: scale(1.3);
+    background-color: rgba(255, 255, 255, 0.3);
   }
-  
+
+  .dot-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--c-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .slider-dot.active .dot-fill {
+    animation: dotProgress 5s linear forwards;
+  }
+
+  @keyframes dotProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.3s ease;
+  }
+
+  .scroll-indicator:hover {
+    color: var(--c-media-text);
+  }
+
+  .scroll-text {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 8px;
+    background: var(--c-accent);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: scrollBounce 2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { top: 0; opacity: 1; }
+    50% { top: 70%; opacity: 0.3; }
+  }
+
   @media (max-width: 768px) {
     .hero-image-container {
       top: 0;
@@ -210,9 +356,34 @@ const slides = [
       height: 100%;
       border-radius: 0;
     }
-    
-    .slider-controls {
+
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions .btn {
+      padding: 0.9rem 1.5rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-bottom {
       bottom: 2rem;
+      width: 92%;
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+
+    .hero-meta {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hero-content {
+      padding-top: 1rem;
+      padding-bottom: 6rem;
     }
   }
 </style>
@@ -230,32 +401,77 @@ const slides = [
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.slider-dot');
+    const progressBar = document.getElementById('slider-progress');
+    const counterCurrent = document.getElementById('hero-counter');
     const totalSlides = slides.length;
-    
-    if (totalSlides > 1) {
-      const goToSlide = (index) => {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentSlide = index;
-      };
-      
-      const nextSlide = () => {
-        const next = (currentSlide + 1) % totalSlides;
-        goToSlide(next);
-      };
-      
-      let slideInterval = setInterval(nextSlide, 5000);
-      
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          clearInterval(slideInterval);
-          goToSlide(index);
-          slideInterval = setInterval(nextSlide, 5000);
-        });
+    const SLIDE_DURATION = 5000;
+
+    if (totalSlides <= 1) return;
+
+    const pad = (n) => String(n).padStart(2, '0');
+
+    const resetDotAnimations = () => {
+      dots.forEach(dot => {
+        const fill = dot.querySelector('.dot-fill');
+        if (fill) {
+          fill.style.animation = 'none';
+          void fill.offsetWidth;
+          fill.style.animation = '';
+        }
       });
-    }
+    };
+
+    const goToSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+
+      if (counterCurrent) counterCurrent.textContent = pad(index + 1);
+      resetDotAnimations();
+      if (progressBar) progressBar.style.width = '0%';
+    };
+
+    const nextSlide = () => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    };
+
+    let slideInterval;
+    let progressInterval;
+
+    const startProgress = () => {
+      if (!progressBar) return;
+      let elapsed = 0;
+      clearInterval(progressInterval);
+      progressBar.style.width = '0%';
+      progressInterval = setInterval(() => {
+        elapsed += 50;
+        progressBar.style.width = `${(elapsed / SLIDE_DURATION) * 100}%`;
+        if (elapsed >= SLIDE_DURATION) clearInterval(progressInterval);
+      }, 50);
+    };
+
+    const scheduleNext = () => {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(() => {
+        nextSlide();
+        startProgress();
+      }, SLIDE_DURATION);
+    };
+
+    startProgress();
+    scheduleNext();
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        clearInterval(progressInterval);
+        goToSlide(index);
+        startProgress();
+        scheduleNext();
+      });
+    });
   });
 </script>
