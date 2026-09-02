@@ -35,13 +35,13 @@
     pointer-events: none;
     transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     /* Rounded overlay effect on open */
-    clip-path: circle(0% at 90% 45px);
+    clip-path: circle(0% at calc(100% - 1.25rem) 29px);
   }
 
   .mobile-menu.open {
     opacity: 1;
     pointer-events: auto;
-    clip-path: circle(150% at 90% 45px);
+    clip-path: circle(150% at calc(100% - 1.25rem) 29px);
   }
 
   .mobile-nav-list {

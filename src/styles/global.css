@@ -32,6 +32,9 @@
   /* Layout */
   --max-width: 1440px;
   --header-height: 90px;
+  --header-height-scrolled: 70px;
+  --header-height-mobile: 58px;
+  --header-height-mobile-scrolled: 52px;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -156,6 +159,12 @@ h1, h2, h3, h4, h5, h6 {
 
   .text-h2 {
     font-size: clamp(1.35rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --header-height: var(--header-height-mobile);
   }
 }
 

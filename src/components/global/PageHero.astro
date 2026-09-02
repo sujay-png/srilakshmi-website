@@ -37,7 +37,6 @@ const { eyebrow, title, subtitle, image, size = 'default' } = Astro.props;
     align-items: flex-end;
     padding-bottom: 4rem;
     padding-top: calc(var(--header-height) + 2rem);
-    margin-top: calc(var(--header-height) * -1);
     overflow: hidden;
     color: var(--c-white);
   }
@@ -137,13 +136,24 @@ const { eyebrow, title, subtitle, image, size = 'default' } = Astro.props;
 
   @media (max-width: 768px) {
     .page-hero {
-      min-height: 45vh;
+      min-height: 50vh;
       padding-bottom: 2.5rem;
-      padding-top: calc(var(--header-height) + 1.5rem);
+      padding-top: calc(var(--header-height-mobile) + 2.5rem);
+      margin-top: 0;
+    }
+
+    .page-hero--large {
+      align-items: flex-end;
+      padding-bottom: 3rem;
+    }
+
+    .page-hero__content {
+      padding-top: 0;
     }
 
     .page-hero__title {
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(1.85rem, 7.5vw, 2.75rem);
+      line-height: 1.1;
     }
 
     .page-hero__subtitle {
