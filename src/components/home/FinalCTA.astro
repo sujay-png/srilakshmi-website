@@ -3,16 +3,33 @@ import { siteData } from '../../data/site';
 ---
 
 <section class="cta-section section-pad">
+  <div class="cta-bg" aria-hidden="true">
+    <div class="cta-gradient"></div>
+    <div class="cta-grid"></div>
+  </div>
+
   <div class="container">
-    <div class="cta-content reveal">
-      <h2 class="text-eyebrow">Ready to begin?</h2>
-      <h3 class="text-h1 cta-title">
-        What do you want to build? <br/>
-        <span class="text-accent">Let's create something built to last.</span>
+    <div class="cta-content reveal-scale">
+      <span class="text-eyebrow cta-eyebrow">Ready to begin?</span>
+      <h3 class="cta-title">
+        What do you want to build?
+        <span class="cta-accent">Let's create something built to last.</span>
       </h3>
-      
+
       <div class="cta-actions">
-        <a href="/contact" class="btn btn-primary magnetic-btn">GET IN TOUCH &rarr;</a>
+        <a href="/contact" class="btn btn-primary magnetic-btn cta-btn">
+          GET IN TOUCH
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cta-contact reveal" style="transition-delay: 0.3s;">
+        <a href={`mailto:${siteData.contact.email}`} class="cta-link">{siteData.contact.email}</a>
+        <span class="cta-sep">·</span>
+        <a href={`tel:${siteData.contact.phone}`} class="cta-link">{siteData.contact.phone}</a>
       </div>
     </div>
   </div>
@@ -20,31 +37,109 @@ import { siteData } from '../../data/site';
 
 <style>
   .cta-section {
-    background-color: var(--c-white);
+    background-color: var(--c-charcoal);
     text-align: center;
-    border-top: 1px solid var(--c-grey-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta-gradient {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(239, 198, 44, 0.08) 0%, transparent 60%);
+  }
+
+  .cta-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
   }
 
   .cta-content {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-eyebrow {
+    color: var(--c-accent);
+    display: block;
+    margin-bottom: 1.5rem;
   }
 
   .cta-title {
-    margin: 2rem 0 3rem;
-    line-height: 1.1;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--c-white);
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
   }
 
-  .text-accent {
-    color: var(--c-grey);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  .cta-accent {
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.45);
+    font-style: italic;
   }
 
   .cta-actions {
     display: flex;
     justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-btn {
+    padding: 1.15rem 2.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    background-color: var(--c-accent);
+    color: var(--c-charcoal);
+  }
+
+  .cta-btn:hover {
+    background-color: #f5d44a;
+    box-shadow: 0 16px 40px rgba(239, 198, 44, 0.25);
+  }
+
+  .cta-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-link:hover {
+    color: var(--c-accent);
+  }
+
+  .cta-sep {
+    color: rgba(255, 255, 255, 0.2);
   }
 </style>

@@ -43,17 +43,18 @@ const { title = siteData.name, description = siteData.description } = Astro.prop
     <Footer />
     
     <script>
-      // Intersection Observer for scroll reveals
       document.addEventListener('DOMContentLoaded', () => {
+        const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-line, .section-header__line';
+
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('active');
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll(revealSelectors).forEach(el => observer.observe(el));
       });
     </script>
   </body>

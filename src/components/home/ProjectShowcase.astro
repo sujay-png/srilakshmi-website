@@ -5,37 +5,49 @@ import ProjectCard from '../projects/ProjectCard.astro';
 
 <section class="project-showcase section-pad">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="text-eyebrow">03 / Our Work</span>
-      <h2 class="text-h2">Projects That Shape Places.</h2>
+    <div class="section-header section-header--split reveal">
+      <div class="section-header__left">
+        <span class="text-eyebrow">03 / Our Work</span>
+        <h2 class="text-h2">Projects That<br/>Shape Places.</h2>
+        <span class="section-header__line"></span>
+      </div>
+      <div class="section-header__right">
+        <p class="section-desc">Landmarks across healthcare, education, commercial, and residential sectors — each built with precision and purpose.</p>
+      </div>
     </div>
 
-    <!-- Asymmetric Editorial Layout for Homepage -->
     <div class="showcase-grid">
-      <!-- Large Featured Project -->
       {projects[0] && (
-        <div class="showcase-item featured reveal">
-          <ProjectCard project={projects[0]} />
+        <div class="showcase-item featured reveal-scale">
+          <div class="featured-index">01</div>
+          <ProjectCard project={projects[0]} featured={true} />
         </div>
       )}
-      
-      <!-- Two Smaller Projects side-by-side -->
+
       <div class="showcase-row">
         {projects[1] && (
           <div class="showcase-item reveal" style="transition-delay: 0.1s;">
+            <div class="item-index">02</div>
             <ProjectCard project={projects[1]} />
           </div>
         )}
         {projects[2] && (
           <div class="showcase-item reveal" style="transition-delay: 0.2s;">
+            <div class="item-index">03</div>
             <ProjectCard project={projects[2]} />
           </div>
         )}
       </div>
     </div>
-    
-    <div class="showcase-footer reveal" style="transition-delay: 0.3s; margin-top: 4rem; text-align: center;">
-      <a href="/projects" class="btn btn-outline magnetic-btn">VIEW ALL PROJECTS</a>
+
+    <div class="showcase-footer reveal" style="transition-delay: 0.3s;">
+      <a href="/projects" class="btn btn-outline magnetic-btn">
+        VIEW ALL PROJECTS
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -43,31 +55,67 @@ import ProjectCard from '../projects/ProjectCard.astro';
 <style>
   .project-showcase {
     background-color: var(--c-soft-white);
+    position: relative;
   }
 
-  .section-header {
-    margin-bottom: 4rem;
+  .section-header .text-h2 {
+    margin-top: 0.75rem;
   }
 
   .showcase-grid {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  .showcase-item {
+    position: relative;
+  }
+
+  .featured-index,
+  .item-index {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 5;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--c-white);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.5s var(--ease-out-expo);
+  }
+
+  .showcase-item:hover .featured-index,
+  .showcase-item:hover .item-index {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .showcase-item.featured :global(.project-image-wrapper) {
-    aspect-ratio: 16/9;
+    aspect-ratio: 21/9;
   }
 
   .showcase-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   @media (min-width: 768px) {
     .showcase-row {
       grid-template-columns: 1fr 1fr;
     }
+  }
+
+  .showcase-footer {
+    margin-top: 4rem;
+    text-align: center;
   }
 </style>

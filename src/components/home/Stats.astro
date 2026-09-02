@@ -1,22 +1,33 @@
 ---
+const stats = [
+  { value: 21, suffix: '+', label: 'Years of Experience' },
+  { value: 2012, suffix: '', label: 'Established' },
+  { value: 15, suffix: '+', label: 'Major Projects' },
+];
 ---
 
 <section class="stats-section section-pad">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item reveal">
-        <h3 class="stat-number">21+</h3>
-        <p class="stat-label text-eyebrow">Years of Experience</p>
+        <h3 class="stat-number" data-target={stats[0].value} data-suffix={stats[0].suffix}>
+          0{stats[0].suffix}
+        </h3>
+        <p class="stat-label text-eyebrow">{stats[0].label}</p>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal" style="transition-delay: 0.2s;">
-        <h3 class="stat-number">2012</h3>
-        <p class="stat-label text-eyebrow">Established</p>
+      <div class="stat-divider reveal-line" style="transition-delay: 0.15s;"></div>
+      <div class="stat-item reveal" style="transition-delay: 0.15s;">
+        <h3 class="stat-number" data-target={stats[1].value} data-suffix={stats[1].suffix}>
+          0{stats[1].suffix}
+        </h3>
+        <p class="stat-label text-eyebrow">{stats[1].label}</p>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal" style="transition-delay: 0.4s;">
-        <h3 class="stat-number">15+</h3>
-        <p class="stat-label text-eyebrow">Major Projects</p>
+      <div class="stat-divider reveal-line" style="transition-delay: 0.3s;"></div>
+      <div class="stat-item reveal" style="transition-delay: 0.3s;">
+        <h3 class="stat-number" data-target={stats[2].value} data-suffix={stats[2].suffix}>
+          0{stats[2].suffix}
+        </h3>
+        <p class="stat-label text-eyebrow">{stats[2].label}</p>
       </div>
     </div>
   </div>
@@ -24,7 +35,20 @@
 
 <style>
   .stats-section {
-    background-color: var(--c-soft-white);
+    background-color: var(--c-charcoal);
+    color: var(--c-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(239, 198, 44, 0.4), transparent);
   }
 
   .stats-grid {
@@ -44,17 +68,22 @@
 
   .stat-item {
     text-align: center;
+    position: relative;
   }
 
   .stat-number {
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: clamp(3.5rem, 6vw, 6rem);
     font-weight: 300;
-    color: var(--c-charcoal);
-    margin-bottom: 0.5rem;
+    color: var(--c-white);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
   }
 
   .stat-label {
-    color: var(--c-grey);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.75rem;
   }
 
   .stat-divider {
@@ -66,7 +95,48 @@
       display: block;
       width: 1px;
       height: 80px;
-      background-color: var(--c-grey-light);
+      background-color: rgba(255, 255, 255, 0.1);
+      transform-origin: top;
     }
   }
 </style>
+
+<script>
+  const animateCounter = (el: HTMLElement) => {
+    const target = parseInt(el.dataset.target || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(eased * target);
+      el.textContent = `${current}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${target}${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        if (!el.dataset.animated) {
+          el.dataset.animated = 'true';
+          animateCounter(el);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+    observer.observe(el);
+  });
+</script>

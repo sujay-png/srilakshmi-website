@@ -4,33 +4,48 @@ import { services } from '../../data/services';
 
 <section class="services-section section-pad">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="text-eyebrow">02 / Expertise</span>
-      <h2 class="text-h2">What We Do</h2>
+    <div class="section-header section-header--split reveal">
+      <div class="section-header__left">
+        <span class="text-eyebrow">02 / Expertise</span>
+        <h2 class="text-h2">What We Do</h2>
+        <span class="section-header__line"></span>
+      </div>
+      <div class="section-header__right">
+        <p class="section-desc">From concept to completion, we deliver construction excellence across every sector.</p>
+      </div>
     </div>
 
-    <div class="services-list">
+    <div class="services-list" id="services-list">
       {services.slice(0, 5).map((service, index) => (
-        <a href="/services" class="service-row interactive reveal" style={`transition-delay: ${index * 0.1}s;`}>
+        <a href="/services" class="service-row interactive reveal" data-service-index={index} style={`transition-delay: ${index * 0.08}s;`}>
           <div class="service-number">0{index + 1}</div>
           <div class="service-title-wrap">
             <h3 class="service-title text-h3">{service.title}</h3>
+            <p class="service-desc">{service.description}</p>
           </div>
           <div class="service-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="service-image-preview">
-            <img src={service.image} alt={service.title} />
+          <div class="service-image-preview" aria-hidden="true">
+            <div class="service-image-inner">
+              <img src={service.image} alt="" loading="lazy" draggable="false" />
+            </div>
           </div>
         </a>
       ))}
     </div>
-    
-    <div class="services-footer reveal" style="transition-delay: 0.5s; margin-top: 3rem; text-align: right;">
-      <a href="/services" class="btn btn-outline magnetic-btn">VIEW ALL SERVICES</a>
+
+    <div class="services-footer reveal" style="transition-delay: 0.4s;">
+      <a href="/services" class="btn btn-outline magnetic-btn">
+        VIEW ALL SERVICES
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -38,125 +53,242 @@ import { services } from '../../data/services';
 <style>
   .services-section {
     background-color: var(--c-white);
-  }
-
-  .section-header {
-    margin-bottom: 4rem;
+    position: relative;
   }
 
   .section-header .text-h2 {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   .services-list {
     border-top: 1px solid var(--c-grey-light);
+    position: relative;
   }
 
   .service-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
     align-items: center;
+    gap: 1.5rem;
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--c-grey-light);
     position: relative;
-    group: hover;
-    transition: padding 0.4s ease, background-color 0.4s ease;
+    transition: padding 0.5s var(--ease-out-expo), background-color 0.5s var(--ease-out-expo);
+    overflow: visible;
   }
 
-  .service-row:hover {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .service-row::before {
+    content: '';
+    position: absolute;
+    inset: 0 -1.5rem;
     background-color: var(--c-soft-white);
     border-radius: var(--radius-lg);
+    opacity: 0;
+    transform: scaleY(0.9);
+    transition: all 0.5s var(--ease-out-expo);
+    z-index: 0;
+  }
+
+  .service-row:hover::before {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .service-row > * {
+    position: relative;
+    z-index: 1;
   }
 
   .service-number {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--c-grey);
-    width: 60px;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
+    font-variant-numeric: tabular-nums;
   }
 
   .service-row:hover .service-number {
-    color: var(--c-charcoal);
+    color: var(--c-accent);
   }
 
   .service-title-wrap {
-    flex-grow: 1;
+    overflow: hidden;
   }
 
   .service-title {
     margin: 0;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    color: var(--c-grey);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    max-width: 480px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s var(--ease-out-expo), max-height 0.5s var(--ease-out-expo), margin 0.5s var(--ease-out-expo);
+  }
+
+  .service-row:hover .service-desc {
+    opacity: 1;
+    max-height: 80px;
+    margin-top: 0.75rem;
   }
 
   .service-row:hover .service-title {
-    transform: translateX(10px);
+    transform: translateX(8px);
   }
 
   .service-arrow {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 1px solid var(--c-grey-light);
-    transition: all 0.4s ease;
+    transition: all 0.5s var(--ease-out-expo);
+    flex-shrink: 0;
   }
 
   .service-row:hover .service-arrow {
     background-color: var(--c-charcoal);
     color: var(--c-white);
     border-color: var(--c-charcoal);
-    transform: translateX(-10px);
+    transform: rotate(-45deg);
   }
-  
+
   .service-image-preview {
-    position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translateY(-50%) scale(0.8) rotate(-5deg);
-    width: 300px;
-    height: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 190px;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.85) rotate(-3deg);
+    transition: opacity 0.4s var(--ease-out-expo), visibility 0.4s, transform 0.15s var(--ease-out-expo);
+    will-change: transform, opacity;
+  }
+
+  .service-image-preview.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1) rotate(2deg);
+  }
+
+  .service-image-inner {
+    width: 100%;
+    height: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 10;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--c-white);
   }
-  
-  .service-image-preview img {
+
+  .service-image-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s var(--ease-out-expo);
   }
 
-  @media (min-width: 1024px) {
-    .service-row:hover .service-image-preview {
-      opacity: 1;
-      transform: translateY(-50%) scale(1) rotate(2deg);
+  .service-image-preview.visible .service-image-inner img {
+    transform: scale(1.05);
+  }
+
+  .services-footer {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1023px) {
+    .service-image-preview {
+      display: none;
     }
   }
 
   @media (max-width: 768px) {
     .service-row {
-      padding: 1.5rem 0;
+      grid-template-columns: 40px 1fr auto;
+      gap: 1rem;
+      padding: 1.75rem 0;
     }
-    
-    .service-row:hover {
-      padding-left: 1rem;
-      padding-right: 1rem;
+
+    .service-desc {
+      display: none;
     }
-    
-    .service-number {
-      width: 40px;
-    }
-    
+
     .service-title {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
+    }
+
+    .service-arrow {
+      width: 36px;
+      height: 36px;
+    }
+
+    .services-footer {
+      justify-content: center;
     }
   }
 </style>
+
+<script>
+  if (window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 1024) {
+    const rows = document.querySelectorAll('.service-row');
+
+    rows.forEach(row => {
+      const preview = row.querySelector('.service-image-preview') as HTMLElement;
+      if (!preview) return;
+
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      let isHovering = false;
+      let rafId: number;
+
+      const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
+
+      const animate = () => {
+        currentX = lerp(currentX, targetX, 0.12);
+        currentY = lerp(currentY, targetY, 0.12);
+
+        preview.style.left = `${currentX}px`;
+        preview.style.top = `${currentY}px`;
+
+        if (isHovering) {
+          rafId = requestAnimationFrame(animate);
+        }
+      };
+
+      row.addEventListener('mouseenter', (e: MouseEvent) => {
+        isHovering = true;
+        targetX = e.clientX + 40;
+        targetY = e.clientY - 20;
+        currentX = targetX;
+        currentY = targetY;
+        preview.classList.add('visible');
+        animate();
+      });
+
+      row.addEventListener('mousemove', (e: MouseEvent) => {
+        targetX = e.clientX + 40;
+        targetY = e.clientY - 20;
+      });
+
+      row.addEventListener('mouseleave', () => {
+        isHovering = false;
+        cancelAnimationFrame(rafId);
+        preview.classList.remove('visible');
+      });
+    });
+  }
+</script>

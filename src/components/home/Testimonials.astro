@@ -4,37 +4,61 @@ import { testimonials } from '../../data/testimonials';
 
 <section class="testimonials-section section-pad">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="text-eyebrow">03 / Testimonials</span>
-      <h2 class="text-h2">What Our Clients Say</h2>
+    <div class="section-header section-header--split reveal">
+      <div class="section-header__left">
+        <span class="text-eyebrow">04 / Testimonials</span>
+        <h2 class="text-h2">What Our<br/>Clients Say</h2>
+        <span class="section-header__line"></span>
+      </div>
+      <div class="section-header__right">
+        <div class="testimonial-counter">
+          <span class="counter-current" id="testimonial-current">01</span>
+          <span class="counter-sep">/</span>
+          <span class="counter-total">{String(testimonials.length).padStart(2, '0')}</span>
+        </div>
+      </div>
     </div>
 
-    <div class="testimonial-slider reveal" style="transition-delay: 0.2s;">
-      <div class="testimonial-track" id="testimonial-track">
-        {testimonials.map((t, index) => (
-          <div class="testimonial-slide" data-index={index}>
-            <blockquote class="testimonial-quote">
-              "{t.quote}"
-            </blockquote>
-            <div class="testimonial-author">
-              <h4 class="author-name">{t.name}</h4>
-              <span class="author-company">{t.company}</span>
+    <div class="testimonial-slider reveal-scale" style="transition-delay: 0.15s;">
+      <div class="quote-mark" aria-hidden="true">"</div>
+
+      <div class="testimonial-track-wrapper">
+        <div class="testimonial-track" id="testimonial-track">
+          {testimonials.map((t, index) => (
+            <div class="testimonial-slide" data-index={index}>
+              <blockquote class="testimonial-quote">
+                {t.quote}
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <span>{t.name.charAt(0)}</span>
+                </div>
+                <div class="author-info">
+                  <h4 class="author-name">{t.name}</h4>
+                  <span class="author-company">{t.company}</span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      
+
       <div class="slider-controls">
         <button class="slider-btn prev-btn magnetic-btn" aria-label="Previous testimonial">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M19 12H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
+        <div class="slider-dots" id="testimonial-dots">
+          {testimonials.map((_, index) => (
+            <button class={`testimonial-dot ${index === 0 ? 'active' : ''}`} data-index={index} aria-label={`Go to testimonial ${index + 1}`}></button>
+          ))}
+        </div>
         <button class="slider-btn next-btn magnetic-btn" aria-label="Next testimonial">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
@@ -46,78 +70,205 @@ import { testimonials } from '../../data/testimonials';
   .testimonials-section {
     background-color: var(--c-charcoal);
     color: var(--c-white);
+    position: relative;
+    overflow: hidden;
   }
 
-  .section-header {
-    margin-bottom: 4rem;
+  .testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse, rgba(239, 198, 44, 0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .section-header .text-eyebrow {
-    color: var(--c-grey);
+    color: rgba(255, 255, 255, 0.4);
   }
-  
+
+  .section-header .text-h2 {
+    margin-top: 0.75rem;
+    color: var(--c-white);
+  }
+
+  .section-header__line {
+    background-color: var(--c-accent);
+  }
+
+  .testimonial-counter {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.15);
+    line-height: 1;
+  }
+
+  .testimonial-counter .counter-current {
+    color: var(--c-accent);
+    font-weight: 400;
+  }
+
   .testimonial-slider {
     position: relative;
+    padding: 1rem 0 0;
+  }
+
+  .quote-mark {
+    font-family: var(--font-heading);
+    font-size: clamp(6rem, 12vw, 10rem);
+    line-height: 0.6;
+    color: rgba(239, 198, 44, 0.12);
+    position: absolute;
+    top: -2rem;
+    left: -0.5rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .testimonial-track-wrapper {
     overflow: hidden;
-    padding: 2rem 0;
+    position: relative;
   }
 
   .testimonial-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.7s var(--ease-out-expo);
   }
 
   .testimonial-slide {
     min-width: 100%;
-    opacity: 0.4;
-    transition: opacity 0.5s ease;
     padding-right: 2rem;
+    opacity: 0.3;
+    transform: scale(0.97);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
   }
 
   .testimonial-slide.active {
     opacity: 1;
+    transform: scale(1);
   }
 
   .testimonial-quote {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    line-height: 1.4;
-    margin-bottom: 2rem;
-    max-width: 900px;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300;
+    line-height: 1.45;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    letter-spacing: -0.02em;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(239, 198, 44, 0.15);
+    border: 1px solid rgba(239, 198, 44, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--c-accent);
+    flex-shrink: 0;
   }
 
   .author-name {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
 
   .author-company {
-    color: var(--c-grey);
-    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
   }
 
   .slider-controls {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 3rem;
   }
 
   .slider-btn {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    border: 1px solid var(--c-grey);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--c-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--ease-out-expo);
+    flex-shrink: 0;
   }
 
   .slider-btn:hover {
     background-color: var(--c-white);
     color: var(--c-charcoal);
+    border-color: var(--c-white);
+    transform: scale(1.05);
+  }
+
+  .slider-dots {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .testimonial-dot {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-dot.active {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .testimonial-dot.active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--c-accent);
+    animation: dotFill 6s linear forwards;
+  }
+
+  @keyframes dotFill {
+    from { transform: scaleX(0); transform-origin: left; }
+    to { transform: scaleX(1); transform-origin: left; }
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-counter {
+      font-size: 2rem;
+    }
+
+    .quote-mark {
+      font-size: 5rem;
+      top: -1rem;
+    }
   }
 </style>
 
@@ -126,34 +277,47 @@ import { testimonials } from '../../data/testimonials';
   const slides = document.querySelectorAll('.testimonial-slide');
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
-  
+  const dots = document.querySelectorAll('.testimonial-dot');
+  const counterEl = document.getElementById('testimonial-current');
+
   let currentIndex = 0;
-  
+  const pad = (n: number) => String(n).padStart(2, '0');
+
   function updateSlider() {
     if (track) {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       slides.forEach((slide, index) => {
-        if (index === currentIndex) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
+        slide.classList.toggle('active', index === currentIndex);
+      });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+        if (index !== currentIndex) {
+          const after = dot as HTMLElement;
+          after.style.animation = 'none';
         }
       });
+      if (counterEl) counterEl.textContent = pad(currentIndex + 1);
     }
   }
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
       updateSlider();
     });
 
     nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+      currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
       updateSlider();
     });
-    
-    // Init
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+      });
+    });
+
     updateSlider();
   }
 </script>
