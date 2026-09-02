@@ -65,12 +65,29 @@ import { services } from '../../data/services';
     position: relative;
   }
 
+  /* Override global .reveal transform — it breaks position context for hover image */
+  .service-row.reveal {
+    opacity: 0;
+    transform: none;
+    transition: opacity 0.8s var(--ease-out-expo);
+  }
+
+  .service-row.reveal.active {
+    opacity: 1;
+    transform: none;
+  }
+
   .service-row {
     display: block;
     border-bottom: 1px solid var(--c-grey-light);
     position: relative;
     text-decoration: none;
     color: inherit;
+    overflow: visible;
+  }
+
+  .service-row:hover {
+    z-index: 20;
   }
 
   .service-row__inner {
@@ -103,6 +120,8 @@ import { services } from '../../data/services';
 
   .service-title-wrap {
     min-width: 0;
+    position: relative;
+    z-index: 3;
   }
 
   .service-title {
@@ -110,7 +129,6 @@ import { services } from '../../data/services';
     font-size: clamp(1.15rem, 2.5vw, 1.65rem);
     font-weight: 500;
     letter-spacing: -0.02em;
-    transition: color 0.3s ease;
     display: inline;
     background-image: linear-gradient(var(--c-accent), var(--c-accent));
     background-size: 0% 2px;
@@ -138,6 +156,8 @@ import { services } from '../../data/services';
     transition: all 0.4s var(--ease-out-expo);
     flex-shrink: 0;
     background: var(--c-white);
+    position: relative;
+    z-index: 3;
   }
 
   .service-row:hover .service-arrow {
@@ -147,20 +167,19 @@ import { services } from '../../data/services';
     transform: rotate(-45deg);
   }
 
-  /* Square floating preview — center clamped inside row, image can overflow */
+  /* Square preview — absolute inside row, follows cursor, center clamped to row */
   .service-image-preview {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 220px;
-    height: 220px;
+    width: 260px;
+    height: 260px;
     pointer-events: none;
-    z-index: 15;
+    z-index: 1;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.88);
-    transition: opacity 0.35s var(--ease-out-expo), visibility 0.35s, transform 0.35s var(--ease-out-expo);
-    will-change: left, top;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s var(--ease-out-expo), visibility 0.3s;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
   }
@@ -168,7 +187,6 @@ import { services } from '../../data/services';
   .service-image-preview.visible {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
   }
 
   .service-image-preview img {
@@ -190,11 +208,6 @@ import { services } from '../../data/services';
       gap: 1.5rem;
       padding: 1.5rem 1.25rem;
       min-height: 84px;
-    }
-
-    .service-image-preview {
-      width: 260px;
-      height: 260px;
     }
   }
 
@@ -251,18 +264,21 @@ import { services } from '../../data/services';
 
       const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
-      /** Clamp image CENTER to stay inside the row bounds */
-      const clampCenterToRow = (clientX: number, clientY: number) => {
+      /** Convert cursor to row-local coords; clamp center inside row bounds */
+      const getClampedPosition = (clientX: number, clientY: number) => {
         const rect = row.getBoundingClientRect();
+        const localX = clientX - rect.left;
+        const localY = clientY - rect.top;
+
         return {
-          x: Math.max(rect.left, Math.min(rect.right, clientX)),
-          y: Math.max(rect.top, Math.min(rect.bottom, clientY)),
+          x: Math.max(0, Math.min(rect.width, localX)),
+          y: Math.max(0, Math.min(rect.height, localY)),
         };
       };
 
       const animate = () => {
-        currentX = lerp(currentX, targetX, 0.12);
-        currentY = lerp(currentY, targetY, 0.12);
+        currentX = lerp(currentX, targetX, 0.18);
+        currentY = lerp(currentY, targetY, 0.18);
 
         preview.style.left = `${currentX}px`;
         preview.style.top = `${currentY}px`;
@@ -274,9 +290,9 @@ import { services } from '../../data/services';
 
       row.addEventListener('mouseenter', (e: MouseEvent) => {
         isHovering = true;
-        const clamped = clampCenterToRow(e.clientX, e.clientY);
-        targetX = clamped.x;
-        targetY = clamped.y;
+        const pos = getClampedPosition(e.clientX, e.clientY);
+        targetX = pos.x;
+        targetY = pos.y;
         currentX = targetX;
         currentY = targetY;
         preview.style.left = `${currentX}px`;
@@ -286,9 +302,9 @@ import { services } from '../../data/services';
       });
 
       row.addEventListener('mousemove', (e: MouseEvent) => {
-        const clamped = clampCenterToRow(e.clientX, e.clientY);
-        targetX = clamped.x;
-        targetY = clamped.y;
+        const pos = getClampedPosition(e.clientX, e.clientY);
+        targetX = pos.x;
+        targetY = pos.y;
       });
 
       row.addEventListener('mouseleave', () => {
