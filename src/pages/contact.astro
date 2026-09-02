@@ -164,8 +164,8 @@ import { siteData } from '../data/site';
   }
 
   .contact-form {
-    background: var(--c-charcoal);
-    color: var(--c-white);
+    background: var(--c-inverse-surface);
+    color: var(--c-inverse-text);
     padding: 3rem;
     border-radius: var(--radius-lg);
     position: relative;
@@ -179,7 +179,7 @@ import { siteData } from '../data/site';
     right: -30%;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse, rgba(239, 198, 44, 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse, var(--c-saffron-soft) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -212,7 +212,7 @@ import { siteData } from '../data/site';
     background: transparent;
     font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--c-white);
+    color: var(--c-inverse-text);
     transition: border-color 0.3s ease;
     position: relative;
   }
@@ -252,15 +252,15 @@ import { siteData } from '../data/site';
 
   .form-submit {
     width: 100%;
-    background: var(--c-accent);
-    color: var(--c-charcoal);
+    background: var(--c-saffron);
+    color: var(--c-on-saffron);
     margin-top: 0.5rem;
     position: relative;
   }
 
   .form-submit:hover {
-    background: #f5d44a;
-    box-shadow: 0 12px 32px rgba(239, 198, 44, 0.25);
+    background: var(--c-saffron-hover);
+    box-shadow: 0 12px 32px var(--c-saffron-glow);
   }
 
   .map-section {

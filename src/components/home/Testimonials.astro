@@ -68,8 +68,8 @@ import { testimonials } from '../../data/testimonials';
 
 <style>
   .testimonials-section {
-    background-color: var(--c-charcoal);
-    color: var(--c-white);
+    background-color: var(--c-inverse-bg);
+    color: var(--c-inverse-text);
     position: relative;
     overflow: hidden;
   }
@@ -81,7 +81,7 @@ import { testimonials } from '../../data/testimonials';
     right: -20%;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse, rgba(239, 198, 44, 0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse, var(--c-saffron-soft) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -91,7 +91,7 @@ import { testimonials } from '../../data/testimonials';
 
   .section-header .text-h2 {
     margin-top: 0.75rem;
-    color: var(--c-white);
+    color: var(--c-inverse-text);
   }
 
   .section-header__line {
@@ -121,7 +121,7 @@ import { testimonials } from '../../data/testimonials';
     font-family: var(--font-heading);
     font-size: clamp(6rem, 12vw, 10rem);
     line-height: 0.6;
-    color: rgba(239, 198, 44, 0.12);
+    color: var(--c-saffron-soft);
     position: absolute;
     top: -2rem;
     left: -0.5rem;
@@ -172,8 +172,8 @@ import { testimonials } from '../../data/testimonials';
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(239, 198, 44, 0.15);
-    border: 1px solid rgba(239, 198, 44, 0.3);
+    background: var(--c-saffron-soft);
+    border: 1px solid var(--c-saffron-glow);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -209,7 +209,7 @@ import { testimonials } from '../../data/testimonials';
     height: 52px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--c-white);
+    color: var(--c-inverse-text);
     display: flex;
     align-items: center;
     justify-content: center;

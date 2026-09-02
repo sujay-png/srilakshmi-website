@@ -1,17 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap');
+@import './themes.css';
 
 :root {
-  /* Colors */
-  --c-charcoal: #1a1a1a;
-  --c-charcoal-light: #2d2d2d;
-  --c-white: #ffffff;
-  --c-off-white: #f5f5f5;
-  --c-soft-white: #fafafa;
-  --c-grey: #888888;
-  --c-grey-light: #e0e0e0;
-  --c-accent: #efc62c;
-
-  /* Typography */
   --font-heading: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
@@ -51,8 +41,8 @@
 
 html {
   font-family: var(--font-body);
-  color: var(--c-charcoal);
-  background-color: var(--c-soft-white);
+  color: var(--c-text);
+  background-color: var(--c-bg);
   scroll-behavior: smooth;
   font-size: 14px;
 }
@@ -61,6 +51,9 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 img {
@@ -85,8 +78,8 @@ button {
 }
 
 ::selection {
-  background-color: var(--c-accent);
-  color: var(--c-charcoal);
+  background-color: var(--c-saffron);
+  color: var(--c-on-saffron);
 }
 
 /* Typography Classes */
@@ -117,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-body {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--c-charcoal-light);
+  color: var(--c-text-secondary);
 }
 
 .text-eyebrow {
@@ -218,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   width: 48px;
   height: 2px;
-  background-color: var(--c-accent);
+  background-color: var(--c-saffron);
   margin-top: 1.25rem;
   transform-origin: left;
   transform: scaleX(0);
@@ -243,18 +236,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 400;
   line-height: 1.5;
-  color: var(--c-charcoal);
+  color: var(--c-text);
   letter-spacing: -0.02em;
 }
 
-/* Dark section variant */
+/* Dark section variant — always dark with light text */
 .section-dark {
-  background-color: var(--c-charcoal);
-  color: var(--c-white);
+  background-color: var(--c-inverse-bg);
+  color: var(--c-inverse-text);
 }
 
 .section-dark .text-eyebrow {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .section-dark .text-body,
@@ -264,11 +257,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Light section variant */
 .section-light {
-  background-color: var(--c-white);
+  background-color: var(--c-surface);
 }
 
 .section-muted {
-  background-color: var(--c-soft-white);
+  background-color: var(--c-bg);
 }
 
 /* Buttons */
@@ -288,24 +281,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background-color: var(--c-charcoal);
-  color: var(--c-white);
+  background-color: var(--c-saffron);
+  color: var(--c-on-saffron);
 }
 
 .btn-primary:hover {
-  background-color: var(--c-charcoal-light);
+  background-color: var(--c-saffron-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.2);
+  box-shadow: 0 12px 32px var(--c-saffron-glow);
 }
 
 .btn-outline {
-  border: 1px solid var(--c-charcoal);
-  color: var(--c-charcoal);
+  border: 1px solid var(--c-saffron);
+  color: var(--c-text);
 }
 
 .btn-outline:hover {
-  background-color: var(--c-charcoal);
-  color: var(--c-white);
+  background-color: var(--c-saffron);
+  color: var(--c-on-saffron);
+  border-color: var(--c-saffron);
 }
 
 /* Scroll Animations */

@@ -35,8 +35,8 @@ const stats = [
 
 <style>
   .stats-section {
-    background-color: var(--c-charcoal);
-    color: var(--c-white);
+    background-color: var(--c-inverse-bg);
+    color: var(--c-inverse-text);
     position: relative;
     overflow: hidden;
   }
@@ -48,7 +48,7 @@ const stats = [
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(239, 198, 44, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, var(--c-saffron-glow), transparent);
   }
 
   .stats-grid {
@@ -74,7 +74,7 @@ const stats = [
   .stat-number {
     font-size: clamp(3.5rem, 6vw, 6rem);
     font-weight: 300;
-    color: var(--c-white);
+    color: var(--c-inverse-text);
     margin-bottom: 0.75rem;
     letter-spacing: -0.04em;
     line-height: 1;

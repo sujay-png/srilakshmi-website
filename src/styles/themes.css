@@ -1,0 +1,75 @@
+/* Saffron brand + light/dark theme tokens */
+
+:root,
+[data-theme="light"] {
+  --c-saffron: #ff9933;
+  --c-saffron-hover: #e88a2e;
+  --c-saffron-glow: rgba(255, 153, 51, 0.3);
+  --c-saffron-soft: rgba(255, 153, 51, 0.12);
+  --c-accent: var(--c-saffron);
+
+  --c-bg: #fafafa;
+  --c-surface: #ffffff;
+  --c-surface-2: #f5f5f5;
+  --c-text: #1a1a1a;
+  --c-text-secondary: #2d2d2d;
+  --c-text-muted: #888888;
+  --c-border: #e0e0e0;
+
+  --c-inverse-bg: #0a0a0a;
+  --c-inverse-surface: #141414;
+  --c-inverse-text: #ffffff;
+  --c-on-saffron: #000000;
+
+  --c-header-bg: #ffffff;
+  --c-header-bg-scrolled: rgba(255, 255, 255, 0.88);
+  --c-header-border: rgba(0, 0, 0, 0.08);
+  --c-header-shadow: rgba(0, 0, 0, 0.06);
+
+  /* Legacy aliases */
+  --c-charcoal: var(--c-text);
+  --c-charcoal-light: var(--c-text-secondary);
+  --c-white: var(--c-surface);
+  --c-off-white: var(--c-surface-2);
+  --c-soft-white: var(--c-bg);
+  --c-grey: var(--c-text-muted);
+  --c-grey-light: var(--c-border);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --c-saffron: #ff9933;
+  --c-saffron-hover: #ffaa55;
+  --c-saffron-glow: rgba(255, 153, 51, 0.35);
+  --c-saffron-soft: rgba(255, 153, 51, 0.15);
+  --c-accent: var(--c-saffron);
+
+  --c-bg: #000000;
+  --c-surface: #111111;
+  --c-surface-2: #1a1a1a;
+  --c-text: #f5f5f5;
+  --c-text-secondary: #d4d4d4;
+  --c-text-muted: #999999;
+  --c-border: #2a2a2a;
+
+  --c-inverse-bg: #0a0a0a;
+  --c-inverse-surface: #141414;
+  --c-inverse-text: #ffffff;
+  --c-on-saffron: #000000;
+
+  --c-header-bg: #000000;
+  --c-header-bg-scrolled: rgba(0, 0, 0, 0.88);
+  --c-header-border: rgba(255, 255, 255, 0.08);
+  --c-header-shadow: rgba(0, 0, 0, 0.4);
+
+  --c-charcoal: var(--c-text);
+  --c-charcoal-light: var(--c-text-secondary);
+  --c-white: var(--c-surface);
+  --c-off-white: var(--c-surface-2);
+  --c-soft-white: var(--c-bg);
+  --c-grey: var(--c-text-muted);
+  --c-grey-light: var(--c-border);
+
+  color-scheme: dark;
+}
