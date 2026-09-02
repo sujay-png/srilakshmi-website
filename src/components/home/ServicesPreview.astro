@@ -18,20 +18,22 @@ import { services } from '../../data/services';
     <div class="services-list" id="services-list">
       {services.slice(0, 5).map((service, index) => (
         <a href="/services" class="service-row interactive reveal" data-service-index={index} style={`transition-delay: ${index * 0.08}s;`}>
-          <div class="service-number">0{index + 1}</div>
-          <div class="service-title-wrap">
-            <h3 class="service-title text-h3">{service.title}</h3>
-            <p class="service-desc">{service.description}</p>
-          </div>
-          <div class="service-arrow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="service-image-preview" aria-hidden="true">
-            <div class="service-image-inner">
-              <img src={service.image} alt="" loading="lazy" draggable="false" />
+          <div class="service-row__inner">
+            <div class="service-number">0{index + 1}</div>
+            <div class="service-title-wrap">
+              <h3 class="service-title text-h3">{service.title}</h3>
+              <p class="service-desc">{service.description}</p>
+            </div>
+            <div class="service-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="service-image-preview" aria-hidden="true">
+              <div class="service-image-inner">
+                <img src={service.image} alt="" loading="lazy" draggable="false" />
+              </div>
             </div>
           </div>
         </a>
@@ -62,49 +64,41 @@ import { services } from '../../data/services';
 
   .services-list {
     border-top: 1px solid var(--c-grey-light);
-    position: relative;
   }
 
   .service-row {
-    display: grid;
-    grid-template-columns: 60px 1fr auto;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2.5rem 0;
+    display: block;
     border-bottom: 1px solid var(--c-grey-light);
     position: relative;
-    transition: padding 0.5s var(--ease-out-expo), background-color 0.5s var(--ease-out-expo);
-    overflow: visible;
+    text-decoration: none;
+    color: inherit;
   }
 
-  .service-row::before {
-    content: '';
-    position: absolute;
-    inset: 0 -1.5rem;
-    background-color: var(--c-soft-white);
-    border-radius: var(--radius-lg);
-    opacity: 0;
-    transform: scaleY(0.9);
-    transition: all 0.5s var(--ease-out-expo);
-    z-index: 0;
-  }
-
-  .service-row:hover::before {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  .service-row > * {
+  .service-row__inner {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1rem;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
+    min-height: 72px;
+    border-radius: var(--radius-md);
+    transition: background-color 0.4s var(--ease-out-expo);
+  }
+
+  .service-row:hover .service-row__inner {
+    background-color: var(--c-soft-white);
   }
 
   .service-number {
     font-family: var(--font-heading);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--c-grey);
-    transition: color 0.4s ease;
+    transition: color 0.3s ease;
     font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 2;
   }
 
   .service-row:hover .service-number {
@@ -112,46 +106,41 @@ import { services } from '../../data/services';
   }
 
   .service-title-wrap {
-    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    min-width: 0;
   }
 
   .service-title {
     margin: 0;
-    transition: transform 0.5s var(--ease-out-expo);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    transition: transform 0.4s var(--ease-out-expo);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .service-desc {
-    font-size: 0.875rem;
-    color: var(--c-grey);
-    line-height: 1.6;
-    margin-top: 0.5rem;
-    max-width: 480px;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s var(--ease-out-expo), max-height 0.5s var(--ease-out-expo), margin 0.5s var(--ease-out-expo);
-  }
-
-  .service-row:hover .service-desc {
-    opacity: 1;
-    max-height: 80px;
-    margin-top: 0.75rem;
+    display: none;
   }
 
   .service-row:hover .service-title {
-    transform: translateX(8px);
+    transform: translateX(6px);
   }
 
   .service-arrow {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 1px solid var(--c-grey-light);
-    transition: all 0.5s var(--ease-out-expo);
+    transition: all 0.4s var(--ease-out-expo);
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    background: var(--c-white);
   }
 
   .service-row:hover .service-arrow {
@@ -161,81 +150,105 @@ import { services } from '../../data/services';
     transform: rotate(-45deg);
   }
 
+  /* Image stays inside the row */
   .service-image-preview {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px;
-    height: 190px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    width: 180px;
+    height: 110px;
     pointer-events: none;
-    z-index: 50;
+    z-index: 1;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.85) rotate(-3deg);
-    transition: opacity 0.4s var(--ease-out-expo), visibility 0.4s, transform 0.15s var(--ease-out-expo);
-    will-change: transform, opacity;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity 0.35s var(--ease-out-expo), visibility 0.35s, transform 0.12s var(--ease-out-expo);
+    will-change: transform, left, top;
   }
 
   .service-image-preview.visible {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1) rotate(2deg);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .service-image-inner {
     width: 100%;
     height: 100%;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
-    border: 3px solid var(--c-white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 2px solid var(--c-white);
   }
 
   .service-image-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s var(--ease-out-expo);
-  }
-
-  .service-image-preview.visible .service-image-inner img {
-    transform: scale(1.05);
   }
 
   .services-footer {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: flex-end;
+  }
+
+  @media (min-width: 1024px) {
+    .service-row__inner {
+      grid-template-columns: 56px 1fr auto;
+      gap: 1.5rem;
+      padding: 1.35rem 1.5rem;
+      min-height: 80px;
+    }
+
+    .service-image-preview {
+      width: 200px;
+      height: 120px;
+    }
   }
 
   @media (max-width: 1023px) {
     .service-image-preview {
       display: none;
     }
-  }
 
-  @media (max-width: 768px) {
-    .service-row {
-      grid-template-columns: 40px 1fr auto;
-      gap: 1rem;
-      padding: 1.75rem 0;
-    }
-
+    /* Show description on tablet/mobile instead of hover image */
     .service-desc {
-      display: none;
+      display: block;
+      font-size: 0.8rem;
+      color: var(--c-grey);
+      line-height: 1.5;
+      margin-top: 0.35rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .service-title {
-      font-size: 1.15rem;
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-row__inner {
+      grid-template-columns: 36px 1fr auto;
+      gap: 0.75rem;
+      padding: 1.1rem 0.75rem;
+      min-height: auto;
     }
 
     .service-arrow {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
     }
 
     .services-footer {
       justify-content: center;
+    }
+
+    .section-header--split {
+      gap: 1rem;
     }
   }
 </style>
@@ -245,8 +258,13 @@ import { services } from '../../data/services';
     const rows = document.querySelectorAll('.service-row');
 
     rows.forEach(row => {
+      const inner = row.querySelector('.service-row__inner') as HTMLElement;
       const preview = row.querySelector('.service-image-preview') as HTMLElement;
-      if (!preview) return;
+      if (!inner || !preview) return;
+
+      const imgW = 200;
+      const imgH = 120;
+      const arrowSpace = 56;
 
       let targetX = 0;
       let targetY = 0;
@@ -257,9 +275,23 @@ import { services } from '../../data/services';
 
       const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
+      const clampPosition = (x: number, y: number, rect: DOMRect) => {
+        const padX = imgW / 2 + 12;
+        const padY = imgH / 2 + 8;
+        const minX = padX;
+        const maxX = rect.width - padX - arrowSpace;
+        const minY = padY;
+        const maxY = rect.height - padY;
+
+        return {
+          x: Math.max(minX, Math.min(maxX, x)),
+          y: Math.max(minY, Math.min(maxY, y)),
+        };
+      };
+
       const animate = () => {
-        currentX = lerp(currentX, targetX, 0.12);
-        currentY = lerp(currentY, targetY, 0.12);
+        currentX = lerp(currentX, targetX, 0.14);
+        currentY = lerp(currentY, targetY, 0.14);
 
         preview.style.left = `${currentX}px`;
         preview.style.top = `${currentY}px`;
@@ -271,17 +303,27 @@ import { services } from '../../data/services';
 
       row.addEventListener('mouseenter', (e: MouseEvent) => {
         isHovering = true;
-        targetX = e.clientX + 40;
-        targetY = e.clientY - 20;
+        const rect = inner.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const clamped = clampPosition(x, y, rect);
+        targetX = clamped.x;
+        targetY = clamped.y;
         currentX = targetX;
         currentY = targetY;
+        preview.style.left = `${currentX}px`;
+        preview.style.top = `${currentY}px`;
         preview.classList.add('visible');
         animate();
       });
 
       row.addEventListener('mousemove', (e: MouseEvent) => {
-        targetX = e.clientX + 40;
-        targetY = e.clientY - 20;
+        const rect = inner.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const clamped = clampPosition(x, y, rect);
+        targetX = clamped.x;
+        targetY = clamped.y;
       });
 
       row.addEventListener('mouseleave', () => {

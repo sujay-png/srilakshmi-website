@@ -141,6 +141,41 @@ h1, h2, h3, h4, h5, h6 {
   .section-pad {
     padding: var(--space-lg) 0;
   }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header--split {
+    gap: 1rem;
+  }
+
+  .text-h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .text-h2 {
+    font-size: clamp(1.35rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  .container {
+    padding: 0 4%;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .section-pad {
+    padding: 3rem 0;
+  }
 }
 
 /* Section Headers */
