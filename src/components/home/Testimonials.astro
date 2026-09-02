@@ -1,0 +1,159 @@
+---
+import { testimonials } from '../../data/testimonials';
+---
+
+<section class="testimonials-section section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="text-eyebrow">03 / Testimonials</span>
+      <h2 class="text-h2">What Our Clients Say</h2>
+    </div>
+
+    <div class="testimonial-slider reveal" style="transition-delay: 0.2s;">
+      <div class="testimonial-track" id="testimonial-track">
+        {testimonials.map((t, index) => (
+          <div class="testimonial-slide" data-index={index}>
+            <blockquote class="testimonial-quote">
+              "{t.quote}"
+            </blockquote>
+            <div class="testimonial-author">
+              <h4 class="author-name">{t.name}</h4>
+              <span class="author-company">{t.company}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="slider-controls">
+        <button class="slider-btn prev-btn magnetic-btn" aria-label="Previous testimonial">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="slider-btn next-btn magnetic-btn" aria-label="Next testimonial">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background-color: var(--c-charcoal);
+    color: var(--c-white);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-header .text-eyebrow {
+    color: var(--c-grey);
+  }
+  
+  .testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+
+  .testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .testimonial-slide {
+    min-width: 100%;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+    padding-right: 2rem;
+  }
+
+  .testimonial-slide.active {
+    opacity: 1;
+  }
+
+  .testimonial-quote {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    max-width: 900px;
+  }
+
+  .author-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .author-company {
+    color: var(--c-grey);
+    font-size: 0.875rem;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .slider-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--c-grey);
+    color: var(--c-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .slider-btn:hover {
+    background-color: var(--c-white);
+    color: var(--c-charcoal);
+  }
+</style>
+
+<script>
+  const track = document.getElementById('testimonial-track');
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  
+  let currentIndex = 0;
+  
+  function updateSlider() {
+    if (track) {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      slides.forEach((slide, index) => {
+        if (index === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+      updateSlider();
+    });
+    
+    // Init
+    updateSlider();
+  }
+</script>

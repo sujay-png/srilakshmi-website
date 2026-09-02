@@ -1,0 +1,73 @@
+---
+import { projects } from '../../data/projects';
+import ProjectCard from '../projects/ProjectCard.astro';
+---
+
+<section class="project-showcase section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="text-eyebrow">03 / Our Work</span>
+      <h2 class="text-h2">Projects That Shape Places.</h2>
+    </div>
+
+    <!-- Asymmetric Editorial Layout for Homepage -->
+    <div class="showcase-grid">
+      <!-- Large Featured Project -->
+      {projects[0] && (
+        <div class="showcase-item featured reveal">
+          <ProjectCard project={projects[0]} />
+        </div>
+      )}
+      
+      <!-- Two Smaller Projects side-by-side -->
+      <div class="showcase-row">
+        {projects[1] && (
+          <div class="showcase-item reveal" style="transition-delay: 0.1s;">
+            <ProjectCard project={projects[1]} />
+          </div>
+        )}
+        {projects[2] && (
+          <div class="showcase-item reveal" style="transition-delay: 0.2s;">
+            <ProjectCard project={projects[2]} />
+          </div>
+        )}
+      </div>
+    </div>
+    
+    <div class="showcase-footer reveal" style="transition-delay: 0.3s; margin-top: 4rem; text-align: center;">
+      <a href="/projects" class="btn btn-outline magnetic-btn">VIEW ALL PROJECTS</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-showcase {
+    background-color: var(--c-soft-white);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .showcase-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .showcase-item.featured :global(.project-image-wrapper) {
+    aspect-ratio: 16/9;
+  }
+
+  .showcase-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .showcase-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

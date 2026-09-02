@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectGrid from '../components/projects/ProjectGrid.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<BaseLayout title="Our Experience">
+  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/slider1.jpg'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
+    <div class="container" style="padding-top: var(--header-height);">
+      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Our Legacy</span>
+      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-bottom: 2rem;">
+        A Visual Archive of Our Experience.
+      </h1>
+      <p class="text-body reveal" style="max-width: 600px; margin: 0 auto; color: var(--c-off-white); transition-delay: 0.2s;">
+        It all started with dreaming of constructing beautiful buildings around the City keeping in mind not to affect the existing ecosystem and having a sustainable growth and opportunity for everyone involved in the project.
+      </p>
+    </div>
+  </section>
+
+  <section class="experience-list section-pad">
+    <div class="container">
+      <ProjectGrid />
+    </div>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--c-soft-white);
+  }
+</style>

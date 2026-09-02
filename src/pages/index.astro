@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import IntroStatement from '../components/home/IntroStatement.astro';
+import Stats from '../components/home/Stats.astro';
+import ServicesPreview from '../components/home/ServicesPreview.astro';
+import ProjectShowcase from '../components/home/ProjectShowcase.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import Clients from '../components/home/Clients.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { siteData } from '../data/site';
+---
+
+<BaseLayout title={siteData.name} description={siteData.description}>
+  <Hero />
+  <IntroStatement />
+  <Stats />
+  <ServicesPreview />
+  <ProjectShowcase />
+  <Testimonials />
+  <Clients />
+  <FinalCTA />
+</BaseLayout>

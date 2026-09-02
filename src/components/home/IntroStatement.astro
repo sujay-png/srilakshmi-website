@@ -1,0 +1,49 @@
+---
+---
+
+<section class="intro-section section-pad">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-label reveal">
+        <span class="text-eyebrow">01 / Our Philosophy</span>
+      </div>
+      <div class="intro-content reveal" style="transition-delay: 0.2s;">
+        <h2 class="intro-text">
+          We have built our reputation as a construction services firm that puts <span class="highlight">people first</span>.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro-section {
+    background-color: var(--c-white);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .intro-grid {
+      grid-template-columns: 1fr 3fr;
+      gap: 4rem;
+    }
+  }
+
+  .intro-text {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--c-charcoal);
+  }
+
+  .highlight {
+    color: var(--c-accent);
+    font-style: italic;
+  }
+</style>

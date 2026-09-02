@@ -1,0 +1,153 @@
+---
+import { projects, categories } from '../../data/projects';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const displayProjects = limit ? projects.slice(0, limit) : projects;
+---
+
+<div class="projects-section">
+  {!limit && (
+    <div class="project-filters reveal">
+      <ul class="filter-list">
+        {categories.map((cat, index) => (
+          <li>
+            <button class={`filter-btn ${index === 0 ? 'active' : ''}`} data-filter={cat}>{cat}</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="project-grid" id="project-grid">
+    {displayProjects.map((project, index) => (
+      <div class="project-item reveal" style={`transition-delay: ${(index % 3) * 0.1}s;`}>
+        <ProjectCard project={project} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .project-filters {
+    margin-bottom: 3rem;
+  }
+
+  .filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 0.5rem;
+    background-color: var(--c-white);
+    border-radius: 100px; /* Pill shape for the container if it fits, or rounded corners */
+    border: 1px solid var(--c-grey-light);
+    max-width: fit-content;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+
+  @media (max-width: 1024px) {
+    .filter-list {
+      border-radius: var(--radius-lg);
+    }
+  }
+
+  .filter-btn {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--c-grey);
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+
+  .filter-btn:hover {
+    color: var(--c-charcoal);
+    background-color: rgba(26, 26, 26, 0.03);
+  }
+
+  .filter-btn.active {
+    color: var(--c-charcoal);
+    background-color: var(--c-accent);
+    box-shadow: 0 4px 15px rgba(239, 198, 44, 0.3); /* Accent shadow */
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Transition classes for filtering */
+  .project-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .project-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      // Filter projects
+      projectItems.forEach(item => {
+        const card = item.querySelector('.project-card');
+        if (card) {
+          const category = card.getAttribute('data-category');
+          if (filter === 'All' || category === filter) {
+            item.classList.remove('hidden');
+            // Quick layout recalculation trick
+            (item as HTMLElement).style.position = 'relative';
+          } else {
+            item.classList.add('hidden');
+            setTimeout(() => {
+              if (item.classList.contains('hidden')) {
+                (item as HTMLElement).style.position = 'absolute';
+              }
+            }, 400); // match transition duration
+          }
+        }
+      });
+    });
+  });
+</script>

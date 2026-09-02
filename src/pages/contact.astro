@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteData } from '../data/site';
+---
+
+<BaseLayout title="Contact">
+  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/slider4.jpg'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
+    <div class="container" style="padding-top: var(--header-height);">
+      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Start A Project</span>
+      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
+        Let's Build Something <br/> Exceptional Together.
+      </h1>
+    </div>
+  </section>
+
+  <section class="contact-section section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h2 class="text-h3" style="margin-bottom: 2rem;">Headquarters</h2>
+          
+          <div class="info-block">
+            <h4 class="text-eyebrow">Address</h4>
+            <p class="text-body">{siteData.contact.address}</p>
+          </div>
+          
+          <div class="info-block">
+            <h4 class="text-eyebrow">Phone</h4>
+            <p class="text-body"><a href={`tel:${siteData.contact.phone.replace(/\\s/g, '')}`}>{siteData.contact.phone}</a></p>
+          </div>
+          
+          <div class="info-block">
+            <h4 class="text-eyebrow">Email</h4>
+            <p class="text-body"><a href={`mailto:${siteData.contact.email}`}>{siteData.contact.email}</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;">
+          <form class="contact-form">
+            <h3 class="text-h3" style="margin-bottom: 2rem;">Send a Message</h3>
+            <div class="form-group">
+              <input type="text" id="name" name="name" required placeholder=" " />
+              <label for="name">Your Name</label>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" id="email" name="email" required placeholder=" " />
+              <label for="email">Your Email</label>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+              <label for="message">Tell us about your project...</label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary magnetic-btn" style="background-color: var(--c-accent); color: var(--c-charcoal); border-radius: var(--radius-sm); font-weight: 600;">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="map-wrapper reveal" style="transition-delay: 0.3s; margin-top: 4rem;">
+        <iframe 
+          src="https://www.google.com/maps?q=Evershine+complex,+opp+H.P+Petrol+bunk,+Kavoor,+Mangalore,+Karnataka+575015&output=embed" 
+          width="100%" 
+          height="450" 
+          style="border:0; border-radius: var(--radius-xl);" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--c-soft-white);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch; /* Make both boxes same height */
+    }
+  }
+
+  .contact-info {
+    background-color: var(--c-soft-white); /* soft background box */
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .info-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .info-block .text-eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--c-charcoal);
+  }
+
+  .info-block a {
+    transition: color 0.3s ease;
+  }
+
+  .info-block a:hover {
+    color: var(--c-charcoal);
+  }
+
+  .contact-form {
+    background-color: var(--c-white);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid var(--c-grey-light);
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 1.25rem 1rem 0.5rem;
+    border: none;
+    border-bottom: 2px solid var(--c-grey-light);
+    border-radius: 0;
+    background-color: transparent;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--c-charcoal);
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .form-group label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--c-grey);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--c-accent);
+  }
+
+  .form-group input:focus ~ label,
+  .form-group input:not(:placeholder-shown) ~ label,
+  .form-group textarea:focus ~ label,
+  .form-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 0.75rem;
+    color: var(--c-accent);
+    font-weight: 600;
+  }
+
+  .map-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+</style>

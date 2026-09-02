@@ -1,0 +1,225 @@
+---
+import { siteData } from '../../data/site';
+---
+
+<header class="header" id="main-header">
+  <div class="container header-inner">
+    <a href="/" class="logo-link">
+      <img src="/images/srilakshmiconstructionlogo-1.png" alt={siteData.name} class="logo" />
+    </a>
+    
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li class="has-dropdown">
+          <a href="/services" class="nav-link">Services</a>
+          <ul class="dropdown">
+            <li><a href="/responsibility" class="nav-link">Giving Back &amp; Safety</a></li>
+          </ul>
+        </li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/experience" class="nav-link">Experience</a></li>
+        <li><a href="/career" class="nav-link">Career</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/contact" class="btn btn-primary magnetic-btn">START A PROJECT</a>
+      <button class="mobile-menu-btn" aria-label="Open Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 100;
+    transition: all 0.4s ease;
+    background-color: var(--c-white);
+    border-bottom: 1px solid var(--c-grey-light);
+  }
+  
+  .header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    height: 70px;
+    border-bottom: 1px solid var(--c-grey-light);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.4s ease;
+  }
+
+  .header.scrolled .logo {
+    height: 40px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-nav {
+      display: block;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-list > li {
+    position: relative;
+  }
+
+  /* Dropdown Styles */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--c-white);
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--c-grey-light);
+    border-radius: var(--radius-sm);
+    padding: 1rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown li {
+    padding: 0 1.5rem;
+  }
+
+  .dropdown .nav-link {
+    display: block;
+    padding: 0.75rem 0;
+    color: var(--c-charcoal);
+  }
+
+  .dropdown .nav-link::after {
+    display: none;
+  }
+  
+  .dropdown .nav-link:hover {
+    color: var(--c-accent);
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--c-charcoal);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-actions .btn {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .header-actions .btn {
+      display: inline-flex;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 32px;
+    height: 24px;
+    justify-content: center;
+    z-index: 102;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--c-charcoal);
+    transition: all 0.3s ease;
+  }
+</style>
+
+<script>
+  // Scroll interaction
+  const header = document.getElementById('main-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // Active link state
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath || (currentPath !== '/' && link.getAttribute('href')?.startsWith(currentPath))) {
+      link.classList.add('active');
+    }
+  });
+</script>

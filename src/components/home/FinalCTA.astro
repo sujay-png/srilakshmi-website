@@ -1,0 +1,50 @@
+---
+import { siteData } from '../../data/site';
+---
+
+<section class="cta-section section-pad">
+  <div class="container">
+    <div class="cta-content reveal">
+      <h2 class="text-eyebrow">Ready to begin?</h2>
+      <h3 class="text-h1 cta-title">
+        What do you want to build? <br/>
+        <span class="text-accent">Let's create something built to last.</span>
+      </h3>
+      
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary magnetic-btn">GET IN TOUCH &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background-color: var(--c-white);
+    text-align: center;
+    border-top: 1px solid var(--c-grey-light);
+  }
+
+  .cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    margin: 2rem 0 3rem;
+    line-height: 1.1;
+  }
+
+  .text-accent {
+    color: var(--c-grey);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    display: block;
+    margin-top: 1rem;
+    font-weight: 300;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+  }
+</style>

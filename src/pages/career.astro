@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<BaseLayout title="Career">
+  <section class="page-header section-pad" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/Expose-Concrete-work.png'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--c-white); padding-top: calc(var(--header-height) + var(--space-lg)); margin-top: calc(var(--header-height) * -1);">
+    <div class="container" style="padding-top: var(--header-height);">
+      <span class="text-eyebrow reveal" style="color: var(--c-accent);">Join Our Team</span>
+      <h1 class="text-h1 reveal" style="transition-delay: 0.1s; margin-top: 1rem;">
+        Build Your Career With Us.
+      </h1>
+    </div>
+  </section>
+
+  <section class="content-section section-pad">
+    <div class="container">
+      <div class="content-grid reveal">
+        <p class="text-body" style="font-size: 1.25rem; color: var(--c-charcoal); margin-bottom: 2rem;">
+          It all started with dreaming of constructing beautiful buildings around the City keeping in mind not to affect the existing ecosystem and having a sustainable growth and opportunity for everyone involved in the project.
+        </p>
+        <p class="text-body" style="margin-bottom: 2rem;">
+          We are always looking for passionate and talented individuals to join our team. If you share our commitment to quality, safety, and innovation, we'd love to hear from you.
+        </p>
+        
+        <div class="career-contact">
+          <h3 class="text-h3" style="margin-bottom: 1rem;">Send your resume to</h3>
+          <a href="mailto:srilakshmiconstruction08@gmail.com" class="btn btn-outline magnetic-btn">srilakshmiconstruction08@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--c-soft-white);
+  }
+  .content-grid {
+    max-width: 800px;
+  }
+  .career-contact {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-grey-light);
+  }
+</style>

@@ -1,0 +1,94 @@
+---
+import { clients } from '../../data/clients';
+---
+
+<section class="clients-section section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="text-eyebrow">04 / Our Network</span>
+      <h2 class="text-h2">Trusted By</h2>
+    </div>
+
+    <div class="clients-grid reveal" style="transition-delay: 0.2s;">
+      {clients.map((client) => (
+        <div class="client-logo-wrapper">
+          {client.logo ? (
+            <img src={client.logo} alt={client.name} class="client-logo" loading="lazy" />
+          ) : (
+            <span class="client-name">{client.name}</span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-section {
+    background-color: var(--c-soft-white);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .clients-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .clients-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  .client-logo-wrapper {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--c-white);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .client-logo-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .client-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
+    transition: all 0.3s ease;
+  }
+
+  .client-logo-wrapper:hover .client-logo {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  .client-name {
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--c-grey);
+    font-weight: 500;
+  }
+</style>

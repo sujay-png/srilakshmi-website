@@ -1,0 +1,278 @@
+---
+import { siteData } from '../../data/site';
+---
+
+<footer class="footer">
+  <div class="footer-bg-text"></div>
+  <div class="container relative z-10">
+    
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <a href="/" class="footer-logo-link">
+          <img src="/images/srilakshmiconstructionlogo-1.png" alt={siteData.name} class="footer-logo" />
+        </a>
+        <p class="footer-desc text-body">{siteData.description}</p>
+        
+        <div class="social-links">
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="social-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col nav-col">
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Our Services</a></li>
+          <li><a href="/projects">Selected Works</a></li>
+          <li><a href="/experience">Experience</a></li>
+          <li><a href="/responsibility">Giving Back &amp; Safety</a></li>
+          <li><a href="/career">Careers</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Reach Out</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="contact-label">Head Office</span>
+            {siteData.contact.address}
+          </li>
+          <li>
+            <span class="contact-label">Phone</span>
+            <a href={`tel:${siteData.contact.phone.replace(/\\s/g, '')}`}>{siteData.contact.phone}</a>
+          </li>
+          <li>
+            <span class="contact-label">Email</span>
+            <a href={`mailto:${siteData.contact.email}`}>{siteData.contact.email}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-flex">
+        <p>&copy; {new Date().getFullYear()} {siteData.name}. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    background: radial-gradient(circle at 10% 90%, #2a2a2a 0%, var(--c-charcoal) 100%);
+    color: var(--c-off-white);
+    padding: var(--space-xl) 0 2rem;
+    overflow: hidden;
+  }
+
+  .footer-bg-text {
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16vw;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .relative { position: relative; }
+  .z-10 { z-index: 10; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-logo {
+    height: 70px;
+    object-fit: contain;
+    
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .footer-logo-link:hover .footer-logo {
+    transform: scale(1.05);
+  }
+
+  .footer-desc {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 320px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--c-white);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .social-icon:hover {
+    background-color: var(--c-accent);
+    color: var(--c-charcoal);
+    transform: translateY(-5px);
+    border-color: var(--c-accent);
+    box-shadow: 0 10px 20px rgba(239, 198, 44, 0.2);
+  }
+
+  .footer-heading {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--c-white);
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.05rem;
+  }
+
+  .footer-links a::before {
+    content: '→';
+    margin-right: 0;
+    opacity: 0;
+    width: 0;
+    color: var(--c-accent);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .footer-links a:hover {
+    color: var(--c-white);
+    transform: translateX(5px);
+  }
+
+  .footer-links a:hover::before {
+    opacity: 1;
+    width: 20px;
+    margin-right: 8px;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  .footer-contact li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-accent);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .footer-contact a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .footer-contact a:hover {
+    color: var(--c-accent);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-bottom-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom-flex {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .legal-links a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .legal-links a:hover {
+    color: var(--c-white);
+  }
+</style>

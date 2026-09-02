@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+import MobileMenu from '../components/global/MobileMenu.astro';
+import CustomCursor from '../components/global/CustomCursor.astro';
+import { siteData } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = siteData.name, description = siteData.description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO -->
+    <title>{title === siteData.name ? title : `${title} | ${siteData.name}`}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/srilakshmiconstructionlogo-1.png" />
+    <link rel="canonical" href={Astro.url} />
+  </head>
+  <body>
+    <CustomCursor />
+    <Header />
+    <MobileMenu />
+    
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+    
+    <script>
+      // Intersection Observer for scroll reveals
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
