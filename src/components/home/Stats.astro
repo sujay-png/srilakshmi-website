@@ -1,6 +1,6 @@
 ---
 const stats = [
-  { value: 21, suffix: '+', label: 'Years of Experience' },
+  { value: 750000, suffix: '+', label: 'Sqft of Construction Work Done' },
   { value: 2012, suffix: '', label: 'Established' },
   { value: 15, suffix: '+', label: 'Major Projects' },
 ];
@@ -112,12 +112,12 @@ const stats = [
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 4);
       const current = Math.floor(eased * target);
-      el.textContent = `${current}${suffix}`;
+      el.textContent = `${current.toLocaleString('en-IN')}${suffix}`;
 
       if (progress < 1) {
         requestAnimationFrame(step);
       } else {
-        el.textContent = `${target}${suffix}`;
+        el.textContent = `${target.toLocaleString('en-IN')}${suffix}`;
       }
     };
 

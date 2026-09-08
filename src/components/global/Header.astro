@@ -84,6 +84,11 @@ import ThemeToggle from './ThemeToggle.astro';
     transition: height 0.4s var(--ease-out-expo), filter 0.3s ease;
   }
 
+  :global([data-theme="dark"]) .logo {
+    filter: invert(1) grayscale(1) brightness(200%);
+    mix-blend-mode: screen;
+  }
+
   .header.scrolled .logo {
     height: 40px;
   }

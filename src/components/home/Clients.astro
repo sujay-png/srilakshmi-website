@@ -85,7 +85,7 @@ import { clients } from '../../data/clients';
   .marquee-content {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
     width: max-content;
     animation: marquee 40s linear infinite;
   }
@@ -96,50 +96,53 @@ import { clients } from '../../data/clients';
 
   .client-logo-wrapper {
     flex-shrink: 0;
-    width: 180px;
-    height: 90px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--c-white);
-    border-radius: var(--radius-sm);
-    padding: 1.25rem 1.75rem;
-    border: 1px solid var(--c-grey-light);
-    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo), border-color 0.4s ease;
-  }
-
-  .client-logo-wrapper:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
-    border-color: transparent;
   }
 
   .client-logo {
-    max-width: 100%;
-    max-height: 100%;
+    width: auto;
+    height: 100%;
+    max-width: 240px;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.6);
-    transition: filter 0.4s ease;
+    opacity: 0.5;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Light mode */
+    mix-blend-mode: multiply;
+    filter: grayscale(100%);
   }
 
-  .client-logo-wrapper:hover .client-logo {
-    filter: grayscale(0%) opacity(1);
+  .client-logo:hover {
+    transform: translateY(-4px) scale(1.05);
+    opacity: 1;
+  }
+
+  :global([data-theme="dark"]) .client-logo {
+    mix-blend-mode: screen;
+    filter: grayscale(100%) invert(1) brightness(200%);
   }
 
   .client-name {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: center;
-    color: var(--c-grey);
+    color: var(--c-text);
     font-weight: 500;
     font-family: var(--font-heading);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .client-logo-wrapper:hover .client-name {
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
     .client-logo-wrapper {
-      width: 140px;
-      height: 70px;
-      padding: 1rem;
+      height: 45px;
     }
 
     .marquee-fade {
