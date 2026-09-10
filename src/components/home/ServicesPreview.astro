@@ -21,7 +21,6 @@ import { services } from '../../data/services';
           href="/services"
           class="service-row interactive reveal"
           data-service-index={index}
-          data-image={service.image}
           style={`transition-delay: ${index * 0.08}s;`}
         >
           <div class="service-row__inner">
@@ -30,6 +29,11 @@ import { services } from '../../data/services';
               <h3 class="service-title text-h3">{service.title}</h3>
               <p class="service-desc">{service.description}</p>
             </div>
+            
+            <div class="service-image-inline">
+              <img src={service.image} alt={service.title} loading="lazy" />
+            </div>
+
             <div class="service-arrow">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -39,11 +43,6 @@ import { services } from '../../data/services';
           </div>
         </a>
       ))}
-    </div>
-
-    <!-- Single shared hover image — moved to body via JS -->
-    <div class="service-hover-image" id="service-hover-image" aria-hidden="true">
-      <img src="" alt="" draggable="false" />
     </div>
 
     <div class="services-footer reveal" style="transition-delay: 0.4s;">
@@ -178,6 +177,10 @@ import { services } from '../../data/services';
     transform: rotate(-45deg);
   }
 
+  .service-image-inline {
+    display: none;
+  }
+
   .services-footer {
     margin-top: 3rem;
     display: flex;
@@ -190,6 +193,38 @@ import { services } from '../../data/services';
       gap: 1.5rem;
       padding: 1.5rem 1.25rem;
       min-height: 84px;
+    }
+
+    .service-image-inline {
+      display: block;
+      position: absolute;
+      right: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 240px;
+      height: 160px;
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 8px;
+      overflow: hidden;
+      pointer-events: none;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transition: opacity 0.4s var(--ease-out-expo), visibility 0.4s, transform 0.4s var(--ease-out-expo);
+      z-index: 10;
+    }
+
+    .service-row.is-hovered .service-image-inline,
+    .service-row:hover .service-image-inline {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) scale(1.02);
+    }
+
+    .service-image-inline img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 
@@ -225,123 +260,4 @@ import { services } from '../../data/services';
   }
 </style>
 
-<style is:global>
-  .service-hover-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 260px;
-    pointer-events: none;
-    z-index: 150;
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.25s var(--ease-out-expo), visibility 0.25s;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  }
-
-  .service-hover-image.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .service-hover-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  @media (max-width: 1023px) {
-    .service-hover-image {
-      display: none !important;
-    }
-  }
 </style>
-
-<script>
-  if (window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 1024) {
-    const preview = document.getElementById('service-hover-image');
-    const img = preview?.querySelector('img') as HTMLImageElement;
-    const rows = document.querySelectorAll('.service-row[data-image]');
-
-    if (preview && img) {
-      document.body.appendChild(preview);
-
-      let activeRow: HTMLElement | null = null;
-      let targetX = 0;
-      let targetY = 0;
-      let currentX = 0;
-      let currentY = 0;
-      let isActive = false;
-      let rafId: number;
-
-      const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
-
-      const clampToRow = (clientX: number, clientY: number, row: HTMLElement) => {
-        const rect = row.getBoundingClientRect();
-        return {
-          x: Math.max(rect.left, Math.min(rect.right, clientX)),
-          y: Math.max(rect.top, Math.min(rect.bottom, clientY)),
-        };
-      };
-
-      const animate = () => {
-        currentX = lerp(currentX, targetX, 0.18);
-        currentY = lerp(currentY, targetY, 0.18);
-        preview.style.left = `${currentX}px`;
-        preview.style.top = `${currentY}px`;
-
-        if (isActive) {
-          rafId = requestAnimationFrame(animate);
-        }
-      };
-
-      const setPosition = (clientX: number, clientY: number) => {
-        if (!activeRow) return;
-        const pos = clampToRow(clientX, clientY, activeRow);
-        targetX = pos.x;
-        targetY = pos.y;
-      };
-
-      rows.forEach(row => {
-        const el = row as HTMLElement;
-
-        el.addEventListener('mouseenter', (e: MouseEvent) => {
-          activeRow = el;
-          isActive = true;
-          el.classList.add('is-hovered');
-
-          const imageSrc = el.dataset.image;
-          if (imageSrc) img.src = imageSrc;
-
-          const pos = clampToRow(e.clientX, e.clientY, el);
-          targetX = pos.x;
-          targetY = pos.y;
-          currentX = targetX;
-          currentY = targetY;
-          preview.style.left = `${currentX}px`;
-          preview.style.top = `${currentY}px`;
-          preview.classList.add('visible');
-          animate();
-        });
-
-        el.addEventListener('mousemove', (e: MouseEvent) => {
-          if (activeRow === el) setPosition(e.clientX, e.clientY);
-        });
-
-        el.addEventListener('mouseleave', () => {
-          if (activeRow === el) {
-            isActive = false;
-            activeRow = null;
-            el.classList.remove('is-hovered');
-            cancelAnimationFrame(rafId);
-            preview.classList.remove('visible');
-          }
-        });
-      });
-    }
-  }
-</script>
