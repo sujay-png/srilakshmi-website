@@ -39,7 +39,7 @@ const { title = siteData.name, description = siteData.description } = Astro.prop
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/images/srilakshmiconstructionlogo-1.png" />
-    <link rel="canonical" href={Astro.url} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   </head>
   <body>
     <CustomCursor />
