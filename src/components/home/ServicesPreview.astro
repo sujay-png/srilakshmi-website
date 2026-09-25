@@ -18,7 +18,7 @@ import { services } from '../../data/services';
     <div class="services-list" id="services-list">
       {services.slice(0, 6).map((service, index) => (
         <a
-          href="/services"
+          href="/services/"
           class="service-row interactive reveal"
           data-service-index={index}
           style={`transition-delay: ${index * 0.08}s;`}
@@ -46,7 +46,7 @@ import { services } from '../../data/services';
     </div>
 
     <div class="services-footer reveal" style="transition-delay: 0.4s;">
-      <a href="/services" class="btn btn-outline magnetic-btn">
+      <a href="/services/" class="btn btn-outline magnetic-btn">
         VIEW ALL SERVICES
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
