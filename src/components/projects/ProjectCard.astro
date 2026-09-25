@@ -10,7 +10,7 @@ const { project, featured = false } = Astro.props;
 ---
 
 <a
-  href={`/projects#${project.id}`}
+  href={`/projects/#${project.id}`}
   class={`project-card project-card-hover ${featured ? 'project-card--featured' : ''}`}
   data-category={project.category}
   data-cursor="EXPLORE →"

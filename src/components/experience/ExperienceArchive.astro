@@ -18,7 +18,7 @@ import { projects } from '../../data/projects';
     <div class="archive-grid">
       {projects.map((project, index) => (
         <a
-          href={`/projects#${project.id}`}
+          href={`/projects/#${project.id}`}
           class={`archive-item reveal-scale project-card-hover ${index % 5 === 0 ? 'archive-item--large' : ''}`}
           style={`transition-delay: ${(index % 4) * 0.06}s;`}
           data-cursor="VIEW →"
