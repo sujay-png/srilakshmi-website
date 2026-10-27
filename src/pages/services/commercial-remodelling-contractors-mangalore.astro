@@ -1,0 +1,2476 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Commercial Remodelling & Renovation Contractors In Coastal Karnataka";
+const pageDescription = "Tailored remodelling and renovation solutions for commercial, institutional, and industrial facilities in Mangalore, Udupi and Coastal Karnataka. Strategic planning to safeguard and enhance property value.";
+
+const trustedClients = [
+  "New India Constructions",
+  "Sri Devi Education Trust",
+  "Karnataka Jesuit Society (St. Aloysius)",
+  "Raja Laxmi Education Trust",
+  "Prasad Netralaya",
+  "Mohthishams Complexes",
+  "Inland Infrastructure",
+  "Landlinks Housing Development Corporation",
+  "City Developers"
+];
+
+const expertiseList = [
+  {
+    num: "01",
+    title: "Structural Work & Layout Changes",
+    desc: "Reshaping space to fit how your business actually operates today."
+  },
+  {
+    num: "02",
+    title: "Flooring & Industrial Finishes",
+    desc: "Including V.D.F. (vacuum dewatered flooring) for heavy-use industrial sites."
+  },
+  {
+    num: "03",
+    title: "Modern Looks & Finishing",
+    desc: "Fresh paint, wall and ceiling finishes, modern lighting and updated fixtures. These upgrades bring your building up to date, and they make your space match your brand."
+  },
+  {
+    num: "04",
+    title: "Sustainable & Efficient Upgrades",
+    desc: "Green building practices that lower your long-term operating costs. We use life cycle costing (LCC) to compare the full cost of each upgrade over its life, including purchase, running and maintenance. That way we choose the upgrades that save you the most over time."
+  },
+  {
+    num: "05",
+    title: "Exterior & Site Work",
+    desc: "Rainwater harvesting systems, hardscape/landscape, and parking lot construction."
+  }
+];
+
+const processPhases = [
+  {
+    phase: "Plan",
+    stepRange: "STEPS 1–4",
+    steps: [
+      {
+        num: "01",
+        title: "Initial Assessment and Planning",
+        desc: "Evaluating the existing building, identifying renovation requirements, defining project goals, and establishing a preliminary budget."
+      },
+      {
+        num: "02",
+        title: "Design and Approvals",
+        desc: "Developing the design, finalizing layouts and material selections, and obtaining the necessary permits and approvals before construction begins."
+      },
+      {
+        num: "03",
+        title: "Bidding and Contractor Selection",
+        desc: "Reviewing proposals, comparing costs and timelines, evaluating contractor experience, and selecting the right team for the project."
+      },
+      {
+        num: "04",
+        title: "Contract Finalization and Scheduling",
+        desc: "Defining the project scope, budget, responsibilities, timelines, and payment terms before signing the contract."
+      }
+    ]
+  },
+  {
+    phase: "Build",
+    stepRange: "STEPS 5–7",
+    steps: [
+      {
+        num: "05",
+        title: "Site Preparation and Material Procurement",
+        desc: "Preparing the site, arranging materials and equipment, and implementing safety measures to ensure the project can proceed smoothly."
+      },
+      {
+        num: "06",
+        title: "Demolition and Removal",
+        desc: "Removing outdated fixtures, finishes, partitions, or other elements as required by the renovation plan."
+      },
+      {
+        num: "07",
+        title: "Construction and Installation",
+        desc: "Carrying out structural modifications, electrical and plumbing work, HVAC upgrades, interior improvements, and other planned renovations."
+      }
+    ]
+  },
+  {
+    phase: "Handover",
+    stepRange: "STEPS 8–10",
+    steps: [
+      {
+        num: "08",
+        title: "Inspections and Quality Checks",
+        desc: "Verifying that the work meets the agreed specifications, applicable building codes, and relevant safety and performance requirements."
+      },
+      {
+        num: "09",
+        title: "Finishing and Cleanup",
+        desc: "Completing painting, flooring, fixtures, final detailing, and thorough site cleanup."
+      },
+      {
+        num: "10",
+        title: "Final Walkthrough and Handover",
+        desc: "Reviewing the completed project, resolving outstanding issues, and handing over relevant documentation, warranties, and maintenance information."
+      }
+    ]
+  }
+];
+
+const benefitsList = [
+  {
+    num: "01",
+    title: "Rebranding Opportunity",
+    desc: "When companies choose rebranding, one of the first decisions they typically make is changing the look and feel of their workspace. Matching the appearance of the business and the brand is one way companies spread and reinforce their message."
+  },
+  {
+    num: "02",
+    title: "Improved Use of Space",
+    desc: "Optimum utilisation of space is critical for businesses expanding in future or already expanding. Installation of custom cabinetry, redesign of offices and cubicles, redesigning storage areas are effective ways to free up office space."
+  },
+  {
+    num: "03",
+    title: "Better Safety",
+    desc: "Older buildings are often unsafe for workers and customers because they do not meet modern safety standards. Many companies remodel their premises to prevent accidents in the workplace."
+  },
+  {
+    num: "04",
+    title: "Reduction in Energy Bills",
+    desc: "Older buildings waste energy through outdated lighting, poor insulation and inefficient cooling. A remodel lets you replace these with modern systems that use less power, so your bills drop every month. We compare upgrade options by life cycle cost, so you choose the ones that pay for themselves over time."
+  },
+  {
+    num: "05",
+    title: "Sustainable & Healthier Workspace",
+    desc: "Green building practices help the environment and the people inside your building. Eco-friendly materials, rainwater harvesting and better use of natural light cut waste and create a space where staff and visitors feel better."
+  },
+  {
+    num: "06",
+    title: "Improved Indoor Air Quality",
+    desc: "Stale air, damp walls and dust make a workspace uncomfortable. A remodel lets you upgrade ventilation, fix leaks and moisture problems, and choose finishes that keep the air cleaner. Cleaner air helps your team stay comfortable and focused through the workday."
+  }
+];
+
+const testimonialsList = [
+  {
+    quote: "The Best Team I have ever worked with. Their dedication and commitment to quality are unmatched in the industry.",
+    author: "City Developers",
+    location: "Udupi"
+  },
+  {
+    quote: "Excellent execution of our project from start to finish. Highly professional and always on time.",
+    author: "Raghu",
+    location: "Udupi"
+  },
+  {
+    quote: "Outstanding work quality and exceptional project management skills. Delivered exactly what was promised.",
+    author: "Prasanna K R",
+    location: "Ocean Pearl, Bejai Kapikad"
+  }
+];
+
+const warningSigns = [
+  {
+    num: "01",
+    category: "Corporate & Offices",
+    desc: "One of the major signs for office remodelling is unorganised space that can often lead to lost documents. Offices also become cluttered or cramped as companies grow. Oftentimes, the desire to remodel office space comes from changes occurring within the company.",
+    signs: [
+      "Reduction in productivity of employees",
+      "Less space for workers",
+      "Wall paint colors are outdated",
+      "Space is disorganized & documents are often lost",
+      "Fixtures are inefficient"
+    ],
+    solution: "We redesign layouts to match your current headcount, fix worn finishes, and redesign storage so documents and equipment have a proper place."
+  },
+  {
+    num: "02",
+    category: "Institutions",
+    desc: "Floors in institutional buildings can wear quickly, as they get continuous traffic from stakeholders. Remodels for academic buildings can vary depending on the type of institution.",
+    signs: [
+      "Reduced attention in classrooms",
+      "Lack of storage space",
+      "Facilities need constant repair",
+      "There aren’t enough classrooms",
+      "Student strength has outgrown the space"
+    ],
+    solution: "We’ve built and renovated engineering colleges, education institutions, and hostels — we expand and reinforce space to handle heavy daily student use."
+  },
+  {
+    num: "03",
+    category: "Hospitals & Healthcare Facilities",
+    desc: "Hospitals and healthcare facilities carry zero room for error during a remodel — operations and patient care can’t simply pause. We plan these projects in careful phases so care continues uninterrupted while work proceeds.",
+    signs: [
+      "The number of patients or staff has outgrown current capacity",
+      "Infrastructure limiting department growth",
+      "Equipment areas that can’t accommodate newer machinery",
+      "A building that no longer meets updated health standards"
+    ],
+    solution: "We phase every healthcare remodel around your operational needs, so patient care and daily functions continue without compromise from start to finish. We also upgrade your facility to meet current health standards and make room for modern equipment."
+  },
+  {
+    num: "04",
+    category: "Manufacturing / Industrial",
+    desc: "Manufacturing sites need regular repair because they’re in constant use by workers. Mechanical fixtures must be repaired regularly.",
+    signs: [
+      "New tenant relocation",
+      "Production can’t meet the demand",
+      "Inefficient equipment, or equipment that does not meet industry standards",
+      "Facilities release pollution"
+    ],
+    solution: "Our V.D.F. industrial flooring and structural reconfiguration work is built for heavy, continuous operational use — including fast turnarounds when a new tenant moves in."
+  },
+  {
+    num: "05",
+    category: "Religious & Government Buildings",
+    desc: "Religious and government buildings serve the public continuously. These buildings need safe and dignified space for daily public use, often while hosting large gatherings, events, or services.",
+    signs: [
+      "Worn out electrical, plumbing, or structural systems that no longer meet current public safety codes",
+      "Outdated or insufficient electrical capacity for modern lighting, sound systems, or HVAC during events",
+      "Seating, hall, or gathering space that can’t accommodate current attendance"
+    ],
+    solution: "We bring the same precision we use for new religious and government construction to renovation work — respecting the building’s existing character while bringing safety and capacity up to current standards."
+  }
+];
+
+const qualitySteps = [
+  {
+    num: "1",
+    title: "Punch-list resolution",
+    desc: "Every outstanding item addressed with your facility manager before handover."
+  },
+  {
+    num: "2",
+    title: "Full site clean-up",
+    desc: "Debris cleared, space ready for immediate use."
+  },
+  {
+    num: "3",
+    title: "Final walkthrough",
+    desc: "We review the completed work together and resolve anything you raise before calling the project done."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>{siteData.contact.phone}</span>
+        </a>
+        <span class="utility-divider">·</span>
+        <a href={`mailto:${siteData.contact.email}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>{siteData.contact.email}</span>
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Coastal Karnataka</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="remodel-hero hero" id="top">
+    <div class="container hero-container">
+      <div class="hero-grid">
+        
+        <!-- Left: Copy & Actions -->
+        <div class="hero-left">
+          <div class="section-tag reveal">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">SERVICES / COMMERCIAL RENOVATION</span>
+          </div>
+
+          <h1 class="hero-headline reveal">
+            Commercial Remodelling &amp; Renovation Contractors In Coastal <span class="highlight-amber">Karnataka</span>
+          </h1>
+
+          <p class="hero-subtext reveal">
+            We deliver tailored remodelling solutions for commercial, institutional, and industrial facilities utilizing strategic planning to safeguard and enhance property value.
+          </p>
+
+          <div class="hero-ctas reveal">
+            <a href="#hero-assessment-form" class="cta-amber-btn scroll-to-form">
+              ENQUIRE COMMERCIAL REMODELLING
+            </a>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="cta-outline-btn">
+              CALL {siteData.contact.phone}
+            </a>
+          </div>
+
+          <!-- Hero Proof Stats -->
+          <div class="hero-proof-stats reveal">
+            <div class="proof-stat-item">
+              <span class="proof-number">15+</span>
+              <span class="proof-label">Completed projects</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Quality · Speed · Experience</span>
+              <span class="proof-label">What we stand for</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Mangalore · Udupi</span>
+              <span class="proof-label">Where we work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Assessment Form Card -->
+        <div class="hero-right reveal">
+          <div class="assessment-card" id="hero-assessment-form">
+            <div class="assessment-header">
+              <h3 class="assessment-title">Schedule a Site Assessment</h3>
+              <p class="assessment-subtitle">Tell us about your building and our experts will get back to you.</p>
+            </div>
+
+            <form class="assessment-form site-form" data-form-id="hero-form">
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-building-type">BUILDING TYPE</label>
+                <div class="select-wrapper">
+                  <select id="hero-building-type" name="building_type" required>
+                    <option value="" disabled selected>Select building type</option>
+                    <option value="Corporate & Offices">Corporate &amp; Offices</option>
+                    <option value="Institutions & Colleges">Institutions &amp; Colleges</option>
+                    <option value="Hospitals & Healthcare Facilities">Hospitals &amp; Healthcare Facilities</option>
+                    <option value="Manufacturing / Industrial">Manufacturing / Industrial</option>
+                    <option value="Religious & Government Buildings">Religious &amp; Government Buildings</option>
+                    <option value="Other Commercial">Other Commercial Facility</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-message">WHAT DO YOU WANT TO RENOVATE?</label>
+                <textarea id="hero-message" name="message" rows="3" placeholder="Describe the scope, areas, or goals..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-amber-btn">
+                REQUEST SITE ASSESSMENT
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="assessment-footer-text">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By Section -->
+  <section class="trusted-section">
+    <div class="container trusted-container">
+      <div class="trusted-label">TRUSTED BY</div>
+      <div class="trusted-clients-grid">
+        {trustedClients.map((client) => (
+          <span class="trusted-client-name">{client}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 01: Overview -->
+  <section class="section-paper section-overview" id="overview">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">01 / OVERVIEW</span>
+      </div>
+
+      <div class="overview-grid">
+        <div class="overview-left reveal">
+          <h2 class="overview-headline">
+            Commercial remodelling is one of the major considerations for any business to stay <span class="highlight-amber">relevant, productive &amp; functional.</span>
+          </h2>
+        </div>
+        <div class="overview-right reveal">
+          <p class="overview-body">
+            Poorly maintained commercial buildings can lose their efficiency, appeal, and long-term value over time. Working with an experienced contractor and collaborating closely throughout the planning stages is key to a successful commercial renovation that enhances performance, elevates aesthetics, and meets contemporary standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 02: Expertise -->
+  <section class="section-paper section-expertise" id="expertise">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">02 / EXPERTISE</span>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-left reveal">
+          <h2 class="expertise-heading">Our Expertise In Building Renovation</h2>
+          <p class="expertise-sub">
+            We handle commercial remodelling end-to-end, drawing on capabilities we’ve built across more than 15 completed projects:
+          </p>
+          <a href="#hero-assessment-form" class="enquire-arrow-link scroll-to-form">
+            <span>ENQUIRE ABOUT YOUR PROJECT</span>
+            <span class="arrow-symbol">→</span>
+          </a>
+        </div>
+
+        <div class="expertise-right">
+          <div class="expertise-list">
+            {expertiseList.map((item) => (
+              <div class="expertise-item reveal">
+                <span class="expertise-num">{item.num}</span>
+                <div class="expertise-content">
+                  <h3 class="expertise-title">{item.title}</h3>
+                  <p class="expertise-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slim Bar After Expertise -->
+  <section class="slim-cta-bar">
+    <div class="container slim-cta-inner">
+      <div class="slim-cta-left">
+        <h3 class="slim-cta-title">Have a building in mind?</h3>
+        <p class="slim-cta-desc">Tell us what you want to renovate and our experts will take it from there.</p>
+      </div>
+      <div class="slim-cta-right">
+        <a href="#hero-assessment-form" class="cta-amber-btn scroll-to-form">
+          ENQUIRE COMMERCIAL REMODELLING
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Process -->
+  <section class="section-charcoal section-process" id="process">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">03 / PROCESS</span>
+      </div>
+
+      <div class="process-header reveal">
+        <h2 class="section-title-white">Steps Involved In Commercial Remodelling</h2>
+        <p class="process-intro">
+          Every commercial remodelling project is unique, depending on the building type, location, business requirements, and scope of work. However, most commercial renovation projects follow a structured process to ensure efficient execution, quality results, and minimal disruption to business operations.
+        </p>
+        <p class="process-intro-sub">
+          A typical commercial renovation project involves the following stages:
+        </p>
+      </div>
+
+      <!-- 3 Phase Columns -->
+      <div class="phases-grid">
+        {processPhases.map((phase) => (
+          <div class="phase-column reveal">
+            <div class="phase-header-bar">
+              <h3 class="phase-name">{phase.phase}</h3>
+              <span class="phase-step-range">{phase.stepRange}</span>
+            </div>
+            <div class="phase-steps-list">
+              {phase.steps.map((st) => (
+                <div class="phase-step-item">
+                  <span class="phase-step-num">{st.num}</span>
+                  <div class="phase-step-body">
+                    <h4 class="phase-step-title">{st.title}</h4>
+                    <p class="phase-step-desc">{st.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Related Reading Card -->
+      <div class="related-reading-box reveal">
+        <div class="related-reading-inner">
+          <div class="related-reading-left">
+            <span class="related-tag">RELATED READING</span>
+            <h3 class="related-title">How to optimise budget for commercial building construction</h3>
+            <p class="related-sub">Understand the budget optimization in detail.</p>
+          </div>
+          <a href="/blog/7-ways-to-optimise-budget-for-commercial-building-construction/" class="related-arrow-btn" aria-label="Read full article on budget optimization">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amber Band After Process -->
+  <section class="amber-banner">
+    <div class="container amber-banner-inner">
+      <div class="amber-banner-left">
+        <h2 class="amber-banner-heading">
+          Looking To Hire Commercial Remodelling Contractors In Mangalore / Udupi?
+        </h2>
+        <p class="amber-banner-sub">
+          Contact our experts to explore options and decide what works best for you.
+        </p>
+      </div>
+      <div class="amber-banner-right">
+        <a href="#hero-assessment-form" class="cta-dark-btn scroll-to-form">
+          ENQUIRE COMMERCIAL REMODELLING
+        </a>
+        <span class="amber-banner-call">
+          or call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="banner-tel-link">{siteData.contact.phone}</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 04: Benefits -->
+  <section class="section-paper section-benefits" id="benefits">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">04 / BENEFITS</span>
+      </div>
+
+      <div class="section-heading-wrap reveal">
+        <h2 class="section-title-dark">6 Advantages Of Commercial Remodelling / Renovation</h2>
+      </div>
+
+      <div class="benefits-grid">
+        {benefitsList.map((benefit) => (
+          <div class="benefit-card reveal">
+            <span class="benefit-number">{benefit.num}</span>
+            <h3 class="benefit-title">{benefit.title}</h3>
+            <p class="benefit-desc">{benefit.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-charcoal section-testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">TESTIMONIALS</span>
+      </div>
+
+      <div class="testimonials-header reveal">
+        <h2 class="section-title-white">What Our Clients Say</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        {testimonialsList.map((t) => (
+          <div class="testimonial-card reveal">
+            <span class="quote-mark">“</span>
+            <p class="testimonial-quote">{t.quote}</p>
+            <div class="testimonial-author">
+              <strong class="author-name">{t.author}</strong>
+              <span class="author-loc">{t.location}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 05: Warning Signs & Solutions -->
+  <section class="section-paper section-warning-signs" id="warning-signs">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">05 / WARNING SIGNS</span>
+      </div>
+
+      <div class="warning-signs-header reveal">
+        <h2 class="section-title-dark">Warning Signs You Need A Commercial Remodelling</h2>
+        <p class="warning-signs-intro">
+          As a commercial property owner, watch out for the warning signs by getting feedback from clients and employees and by inspecting your property regularly. See the list of warning signs below categorized by building type:
+        </p>
+      </div>
+
+      <div class="industry-subheading reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">INDUSTRY-SPECIFIC SIGNS &amp; SOLUTIONS</span>
+      </div>
+
+      <div class="warning-modules-list">
+        {warningSigns.map((item) => (
+          <div class="warning-module-card reveal">
+            <div class="warning-module-grid">
+              
+              <!-- Left: Number & Building Type -->
+              <div class="warning-module-left">
+                <span class="module-num">{item.num}</span>
+                <h3 class="module-title">{item.category}</h3>
+              </div>
+
+              <!-- Right: Content, Signs, & Solution -->
+              <div class="warning-module-right">
+                <p class="module-desc">{item.desc}</p>
+
+                <div class="signs-box">
+                  <span class="signs-label">SIGNS TO WATCH FOR</span>
+                  <ul class="signs-list">
+                    {item.signs.map((sign) => (
+                      <li class="sign-item">
+                        <span class="sign-bullet">■</span>
+                        <span>{sign}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="solution-box">
+                  <span class="solution-label">OUR SOLUTION</span>
+                  <p class="solution-text">{item.solution}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Prompt After Warning Signs -->
+      <div class="prompt-box reveal">
+        <div class="prompt-left">
+          <h3 class="prompt-title">Not sure which applies to your building?</h3>
+          <p class="prompt-sub">Our experts will assess your property and recommend what it needs.</p>
+        </div>
+        <div class="prompt-right">
+          <a href="#hero-assessment-form" class="cta-amber-btn scroll-to-form">
+            SCHEDULE A SITE ASSESSMENT
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 06: Quality Control & Project Closeout -->
+  <section class="section-charcoal section-quality" id="quality">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">06 / QUALITY CONTROL</span>
+      </div>
+
+      <div class="quality-grid">
+        <div class="quality-left reveal">
+          <h2 class="section-title-white">Quality Control &amp; Project Closeout</h2>
+          <p class="quality-desc">
+            We don’t consider a remodel complete until it’s walked through and signed off with you. Our final phase includes:
+          </p>
+        </div>
+
+        <div class="quality-right">
+          <div class="quality-steps-list">
+            {qualitySteps.map((q) => (
+              <div class="quality-step-item reveal">
+                <span class="quality-badge">{q.num}</span>
+                <div class="quality-step-content">
+                  <h3 class="quality-step-title">{q.title}</h3>
+                  <p class="quality-step-desc">{q.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 07: Ready to Upgrade / Closing Assessment Form -->
+  <section class="section-charcoal section-closing" id="closing-assessment">
+    <div class="container">
+      <div class="closing-grid">
+        
+        <!-- Left: Ready info -->
+        <div class="closing-left reveal">
+          <div class="section-tag">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">READY TO BEGIN?</span>
+          </div>
+
+          <h2 class="closing-headline">
+            Ready to Upgrade Your <span class="highlight-amber">Commercial Property?</span>
+          </h2>
+
+          <p class="closing-subtext">
+            Sri Lakshmi Construction brings hands-on experience across apartments, educational institutions, hospitals, and industrial sites in Mangalore and coastal Karnataka.
+          </p>
+
+          <div class="closing-contact-details">
+            <div class="closing-contact-row">
+              <span class="contact-label">PHONE</span>
+              <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="contact-val-link">
+                {siteData.contact.phone}
+              </a>
+            </div>
+
+            <div class="closing-contact-row">
+              <span class="contact-label">EMAIL</span>
+              <a href={`mailto:${siteData.contact.email}`} class="contact-val-link">
+                {siteData.contact.email}
+              </a>
+            </div>
+
+            <div class="closing-contact-row">
+              <span class="contact-label">HEAD OFFICE</span>
+              <span class="contact-val-text">
+                {siteData.contact.address}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Closing Assessment Card -->
+        <div class="closing-right reveal" id="closing-form-wrap">
+          <div class="assessment-card" id="closing-assessment-form">
+            <div class="assessment-header">
+              <h3 class="assessment-title">Schedule a Site Assessment</h3>
+              <p class="assessment-subtitle">Share a few details and our experts will contact you.</p>
+            </div>
+
+            <form class="assessment-form site-form" data-form-id="closing-form">
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-building-type">BUILDING TYPE</label>
+                <div class="select-wrapper">
+                  <select id="close-building-type" name="building_type" required>
+                    <option value="" disabled selected>Select building type</option>
+                    <option value="Corporate & Offices">Corporate &amp; Offices</option>
+                    <option value="Institutions & Colleges">Institutions &amp; Colleges</option>
+                    <option value="Hospitals & Healthcare Facilities">Hospitals &amp; Healthcare Facilities</option>
+                    <option value="Manufacturing / Industrial">Manufacturing / Industrial</option>
+                    <option value="Religious & Government Buildings">Religious &amp; Government Buildings</option>
+                    <option value="Other Commercial">Other Commercial Facility</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-message">WHAT DO YOU WANT TO RENOVATE?</label>
+                <textarea id="close-message" name="message" rows="3" placeholder="Describe the scope, areas, or goals..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-amber-btn">
+                SCHEDULE A SITE ASSESSMENT
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="assessment-footer-text">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Color Tokens & Theme System */
+  :global(:root),
+  :global([data-theme="light"]) {
+    --rm-amber: #f0a500;
+    --rm-amber-hover: #d99300;
+    --rm-paper: #f6f3ed;
+    --rm-paper-text: #000000;
+    --rm-paper-body: #000000;
+    --rm-paper-text-muted: #111111;
+    --rm-paper-border: rgba(0, 0, 0, 0.12);
+
+    --rm-card-bg: #ffffff;
+    --rm-card-border: #dcdcdc;
+    --rm-card-border-top: #14171a;
+    --rm-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --rm-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    --rm-input-bg: #fafafa;
+    --rm-input-border: #cccccc;
+    --rm-input-text: #000000;
+    --rm-input-placeholder: #555555;
+
+    --rm-charcoal: #14171a;
+    --rm-charcoal-card: #1b1e22;
+
+    --rm-trusted-bg: #eae6de;
+    --rm-trusted-text: #000000;
+    --rm-trusted-label: #222222;
+
+    --rm-solution-bg: #14171a;
+    --rm-solution-text: #ffffff;
+    --rm-solution-border: transparent;
+  }
+
+  /* Full Dark Mode Theme Support */
+  :global([data-theme="dark"]) {
+    --rm-paper: #000000;
+    --rm-paper-text: #ffffff;
+    --rm-paper-body: #ffffff;
+    --rm-paper-text-muted: #ffffff;
+    --rm-paper-border: rgba(255, 255, 255, 0.15);
+
+    --rm-card-bg: #111417;
+    --rm-card-border: rgba(255, 255, 255, 0.12);
+    --rm-card-border-top: var(--c-saffron, #ff9933);
+    --rm-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --rm-card-shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.6);
+
+    --rm-input-bg: #181c20;
+    --rm-input-border: rgba(255, 255, 255, 0.2);
+    --rm-input-text: #ffffff;
+    --rm-input-placeholder: #9ca3af;
+
+    --rm-charcoal: #0a0c0e;
+    --rm-charcoal-card: #14181c;
+
+    --rm-trusted-bg: #0c0e10;
+    --rm-trusted-text: #ffffff;
+    --rm-trusted-label: #cbd5e1;
+
+    --rm-solution-bg: #14181c;
+    --rm-solution-text: #ffffff;
+    --rm-solution-border: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Strict Light & Dark Mode Color Enforcement */
+  .overview-body,
+  .expertise-sub,
+  .expertise-desc,
+  .benefit-desc,
+  .warning-signs-intro,
+  .module-desc,
+  .signs-label,
+  .sign-item,
+  .prompt-sub,
+  .assessment-subtitle,
+  .assessment-footer-text,
+  .assessment-footer-text .phone-link,
+  .form-field label,
+  .trusted-client-name,
+  .trusted-label {
+    color: #000000 !important;
+  }
+
+  :global([data-theme="dark"]) .overview-body,
+  :global([data-theme="dark"]) .expertise-sub,
+  :global([data-theme="dark"]) .expertise-desc,
+  :global([data-theme="dark"]) .benefit-desc,
+  :global([data-theme="dark"]) .warning-signs-intro,
+  :global([data-theme="dark"]) .module-desc,
+  :global([data-theme="dark"]) .signs-label,
+  :global([data-theme="dark"]) .sign-item,
+  :global([data-theme="dark"]) .prompt-sub,
+  :global([data-theme="dark"]) .assessment-subtitle,
+  :global([data-theme="dark"]) .assessment-footer-text,
+  :global([data-theme="dark"]) .assessment-footer-text .phone-link,
+  :global([data-theme="dark"]) .form-field label,
+  :global([data-theme="dark"]) .trusted-client-name,
+  :global([data-theme="dark"]) .trusted-label {
+    color: #ffffff !important;
+  }
+
+  .overview-headline,
+  .expertise-heading,
+  .expertise-title,
+  .section-title-dark,
+  .benefit-title,
+  .signs-heading,
+  .module-title,
+  .prompt-title,
+  .assessment-title,
+  .enquire-arrow-link {
+    color: #000000 !important;
+  }
+
+  :global([data-theme="dark"]) .overview-headline,
+  :global([data-theme="dark"]) .expertise-heading,
+  :global([data-theme="dark"]) .expertise-title,
+  :global([data-theme="dark"]) .section-title-dark,
+  :global([data-theme="dark"]) .benefit-title,
+  :global([data-theme="dark"]) .signs-heading,
+  :global([data-theme="dark"]) .module-title,
+  :global([data-theme="dark"]) .prompt-title,
+  :global([data-theme="dark"]) .assessment-title,
+  :global([data-theme="dark"]) .enquire-arrow-link {
+    color: #ffffff !important;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    color: #000000 !important;
+  }
+
+  :global([data-theme="dark"]) .form-field input,
+  :global([data-theme="dark"]) .form-field select,
+  :global([data-theme="dark"]) .form-field textarea {
+    color: #ffffff !important;
+  }
+
+  /* Top Utility Bar */
+  .top-utility-bar {
+    background-color: #0d0f12;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.8125rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 101;
+    margin-top: var(--header-height);
+  }
+
+  @media (max-width: 1023px) {
+    .top-utility-bar {
+      margin-top: var(--header-height-mobile);
+    }
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .utility-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #ffffff;
+    transition: color 0.25s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--rm-amber);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .utility-right {
+      display: none;
+    }
+  }
+
+  /* Shared Typography & Tags - Consistent with Site Standard */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag-diamond {
+    color: var(--rm-amber);
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
+  .tag-text {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rm-amber);
+  }
+
+  .highlight-amber {
+    color: var(--rm-amber);
+  }
+
+  .section-title-white {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .section-title-dark {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--rm-paper-text);
+    margin-bottom: 1.5rem;
+    transition: color 0.35s ease;
+  }
+
+  /* Section Backgrounds with smooth transitions */
+  .section-charcoal {
+    background-color: var(--rm-charcoal);
+    color: #ffffff;
+    padding: 6rem 0;
+    transition: background-color 0.35s ease;
+  }
+
+  .section-paper {
+    background-color: var(--rm-paper);
+    color: var(--rm-paper-text);
+    padding: 6rem 0;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper {
+      padding: 4rem 0;
+    }
+  }
+
+  /* Action Buttons */
+  .cta-amber-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--rm-amber);
+    color: #14171a;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .cta-amber-btn:hover {
+    background-color: var(--rm-amber-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.4);
+    color: #14171a;
+  }
+
+  .cta-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: var(--rm-amber);
+    color: var(--rm-amber);
+    background-color: rgba(240, 165, 0, 0.08);
+  }
+
+  .cta-dark-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #14171a;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+  }
+
+  /* HERO SECTION */
+  .remodel-hero {
+    background-color: var(--rm-charcoal);
+    color: #ffffff;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.35s ease;
+  }
+
+  /* Architectural Blueprint Line Graphic in Hero Background */
+  .remodel-hero::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(240, 165, 0, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(240, 165, 0, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.8;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at 75% 75%, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 75% 75%, black 40%, transparent 80%);
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+    }
+  }
+
+  .hero-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-subtext {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.7;
+    color: #ffffff;
+    margin-bottom: 2.25rem;
+    max-width: 600px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 640px) {
+    .hero-proof-stats {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-number {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 2.5vw, 2.25rem);
+    font-weight: 600;
+    color: var(--rm-amber);
+    line-height: 1;
+  }
+
+  .proof-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-size: 0.8125rem;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  /* Assessment Card Form (Responsive to Dark / Light theme) */
+  .assessment-card {
+    background-color: var(--rm-card-bg);
+    color: var(--rm-paper-text);
+    border-radius: 4px;
+    padding: 2.25rem;
+    box-shadow: var(--rm-card-shadow);
+    border: 1px solid var(--rm-card-border);
+    border-top: 4px solid var(--rm-amber);
+    position: relative;
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  @media (max-width: 480px) {
+    .assessment-card {
+      padding: 1.5rem;
+    }
+  }
+
+  .assessment-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .assessment-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--rm-paper-text);
+    margin-bottom: 0.5rem;
+    transition: color 0.35s ease;
+  }
+
+  .assessment-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  .assessment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 540px) {
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--rm-input-border);
+    border-radius: 4px;
+    background-color: var(--rm-input-bg);
+    color: var(--rm-input-text);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    transition: all 0.25s ease;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--rm-amber);
+    box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.18);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--rm-input-placeholder);
+    font-size: 0.875rem;
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 2.25rem;
+    cursor: pointer;
+  }
+
+  .select-wrapper select option {
+    background-color: var(--rm-card-bg);
+    color: var(--rm-paper-text);
+  }
+
+  .select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--rm-paper-body);
+    pointer-events: none;
+  }
+
+  .submit-amber-btn {
+    width: 100%;
+    background-color: var(--rm-amber);
+    color: #14171a;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1.1rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 0.25rem;
+    box-shadow: 0 4px 12px rgba(240, 165, 0, 0.3);
+  }
+
+  .submit-amber-btn:hover {
+    background-color: var(--rm-amber-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(240, 165, 0, 0.45);
+  }
+
+  .assessment-footer-text {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--rm-paper-body);
+    margin-top: 0.5rem;
+    transition: color 0.35s ease;
+  }
+
+  .assessment-footer-text .phone-link {
+    color: var(--rm-paper-body);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--rm-amber);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .assessment-footer-text .phone-link:hover {
+    color: var(--rm-amber);
+  }
+
+  .form-response {
+    display: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .form-response.success {
+    display: block;
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  /* TRUSTED BY STRIP */
+  .trusted-section {
+    background-color: var(--rm-trusted-bg);
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--rm-paper-border);
+    border-bottom: 1px solid var(--rm-paper-border);
+    transition: background-color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .trusted-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .trusted-container {
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+
+  .trusted-label {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rm-trusted-label);
+    flex-shrink: 0;
+    transition: color 0.35s ease;
+  }
+
+  .trusted-clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2rem;
+  }
+
+  .trusted-client-name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--rm-trusted-text);
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+  }
+
+  .trusted-client-name:hover {
+    color: var(--rm-amber);
+  }
+
+  /* SECTION 01: OVERVIEW */
+  .section-overview {
+    border-bottom: 1px solid var(--rm-paper-border);
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .overview-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 5rem;
+      align-items: start;
+    }
+  }
+
+  .overview-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--rm-paper-text);
+    transition: color 0.35s ease;
+  }
+
+  .overview-body {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--rm-paper-body);
+    font-weight: 400;
+    transition: color 0.35s ease;
+  }
+
+  /* SECTION 02: EXPERTISE */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 960px) {
+    .expertise-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 5rem;
+    }
+  }
+
+  .expertise-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--rm-paper-text);
+    margin-bottom: 1.25rem;
+    transition: color 0.35s ease;
+  }
+
+  .expertise-sub {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--rm-paper-body);
+    margin-bottom: 2rem;
+    transition: color 0.35s ease;
+  }
+
+  .enquire-arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rm-paper-text);
+    border-bottom: 2px solid var(--rm-amber);
+    padding-bottom: 0.35rem;
+    transition: all 0.25s ease;
+  }
+
+  .enquire-arrow-link:hover {
+    color: var(--rm-amber);
+    gap: 0.75rem;
+  }
+
+  .arrow-symbol {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+  }
+
+  .enquire-arrow-link:hover .arrow-symbol {
+    transform: translateX(4px);
+  }
+
+  .expertise-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--rm-paper-border);
+    transition: border-color 0.35s ease;
+  }
+
+  .expertise-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rm-paper-border);
+    align-items: start;
+    transition: border-color 0.35s ease;
+  }
+
+  .expertise-num {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--rm-amber);
+    line-height: 1.3;
+  }
+
+  .expertise-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--rm-paper-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.015em;
+    transition: color 0.35s ease;
+  }
+
+  .expertise-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  /* SLIM CTA BAR */
+  .slim-cta-bar {
+    background-color: var(--rm-charcoal);
+    color: #ffffff;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.35s ease;
+  }
+
+  .slim-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .slim-cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 0.35rem;
+  }
+
+  .slim-cta-desc {
+    font-size: 0.95rem;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  /* SECTION 03: PROCESS */
+  .section-process {
+    padding-bottom: 7rem;
+  }
+
+  .process-header {
+    max-width: 900px;
+    margin-bottom: 4rem;
+  }
+
+  .process-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .process-intro-sub {
+    font-size: 0.95rem;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    .phases-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  .phase-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phase-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.75rem;
+  }
+
+  .phase-name {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .phase-step-range {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .phase-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .phase-step-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .phase-step-num {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--rm-amber);
+  }
+
+  .phase-step-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .phase-step-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  /* RELATED READING */
+  .related-reading-box {
+    background-color: var(--rm-charcoal-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 1.75rem 2.25rem;
+    margin-top: 1rem;
+    transition: background-color 0.35s ease;
+  }
+
+  .related-reading-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .related-tag {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rm-amber);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .related-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+
+  .related-sub {
+    font-size: 0.875rem;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  .related-arrow-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--rm-amber);
+    color: #14171a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .related-arrow-btn:hover {
+    background-color: #ffffff;
+    transform: translateX(4px);
+  }
+
+  /* AMBER BANNER */
+  .amber-banner {
+    background-color: var(--rm-amber);
+    color: #14171a;
+    padding: 3.5rem 0;
+  }
+
+  .amber-banner-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+  }
+
+  .amber-banner-left {
+    max-width: 650px;
+  }
+
+  .amber-banner-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #14171a;
+    margin-bottom: 0.5rem;
+  }
+
+  .amber-banner-sub {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #14171a;
+  }
+
+  .amber-banner-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .amber-banner-call {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #14171a;
+  }
+
+  .banner-tel-link {
+    color: #14171a;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* SECTION 04: BENEFITS */
+  .section-benefits {
+    padding-bottom: 7rem;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  .benefit-card {
+    background-color: var(--rm-card-bg);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--rm-card-border);
+    border-top: 3px solid var(--rm-card-border-top);
+    box-shadow: var(--rm-card-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--rm-card-shadow-hover);
+  }
+
+  .benefit-number {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--rm-amber);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .benefit-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--rm-paper-text);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.85rem;
+    line-height: 1.25;
+    transition: color 0.35s ease;
+  }
+
+  .benefit-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  /* TESTIMONIALS SECTION */
+  .section-testimonials {
+    padding: 6rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .testimonials-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--rm-amber);
+    margin-bottom: 0.25rem;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #ffffff;
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .author-loc {
+    font-size: 0.8125rem;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  /* SECTION 05: WARNING SIGNS */
+  .warning-signs-header {
+    max-width: 850px;
+    margin-bottom: 2.5rem;
+  }
+
+  .warning-signs-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  .industry-subheading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .warning-modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .warning-module-card {
+    background-color: transparent;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rm-paper-border);
+    transition: border-color 0.35s ease;
+  }
+
+  .warning-module-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .warning-module-grid {
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .warning-module-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .module-num {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--rm-amber);
+    line-height: 1;
+  }
+
+  .module-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--rm-paper-text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    transition: color 0.35s ease;
+  }
+
+  .warning-module-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .module-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  .signs-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .signs-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  .signs-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .signs-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .sign-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.9375rem;
+    color: var(--rm-paper-body);
+    line-height: 1.45;
+    transition: color 0.35s ease;
+  }
+
+  .sign-bullet {
+    color: var(--rm-amber);
+    font-size: 0.65rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .solution-box {
+    background-color: var(--rm-solution-bg);
+    color: var(--rm-solution-text);
+    border: 1px solid var(--rm-solution-border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+  }
+
+  .solution-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rm-amber);
+  }
+
+  .solution-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--rm-solution-text);
+  }
+
+  /* PROMPT BOX */
+  .prompt-box {
+    background-color: var(--rm-card-bg);
+    border: 1px solid var(--rm-card-border);
+    border-radius: 4px;
+    padding: 2.25rem 2.5rem;
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    box-shadow: var(--rm-card-shadow);
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .prompt-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--rm-paper-text);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.015em;
+    transition: color 0.35s ease;
+  }
+
+  .prompt-sub {
+    font-size: 0.95rem;
+    color: var(--rm-paper-body);
+    transition: color 0.35s ease;
+  }
+
+  /* SECTION 06: QUALITY CONTROL */
+  .quality-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 900px) {
+    .quality-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 5rem;
+    }
+  }
+
+  .quality-desc {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #ffffff;
+  }
+
+  .quality-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .quality-step-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .quality-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--rm-amber);
+    color: #14171a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .quality-step-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+  }
+
+  .quality-step-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  /* SECTION 07: CLOSING SECTION */
+  .section-closing {
+    padding: 7rem 0 8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .closing-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4.5rem;
+    }
+  }
+
+  .closing-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .closing-subtext {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #ffffff;
+    margin-bottom: 2.75rem;
+    max-width: 580px;
+  }
+
+  .closing-contact-details {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .closing-contact-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    align-items: baseline;
+  }
+
+  @media (max-width: 480px) {
+    .closing-contact-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  .contact-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .contact-val-link {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .contact-val-link:hover {
+    color: var(--rm-amber);
+  }
+
+  .contact-val-text {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Form Scroll Highlight Animation */
+  .assessment-card.pulse-highlight {
+    animation: pulseBorder 1.5s ease;
+  }
+
+  @keyframes pulseBorder {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 165, 0, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 16px rgba(240, 165, 0, 0);
+    }
+    100% {
+      box-shadow: var(--rm-card-shadow);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for CTAs targeting the site assessment form
+    const scrollLinks = document.querySelectorAll('.scroll-to-form');
+    const heroCard = document.getElementById('hero-assessment-form');
+
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = heroCard || document.querySelector('.assessment-card');
+        if (targetElement) {
+          const headerOffset = 110;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Pulse animation on the card
+          targetElement.classList.remove('pulse-highlight');
+          void targetElement.offsetWidth; // trigger reflow
+          targetElement.classList.add('pulse-highlight');
+
+          // Focus first input
+          const firstInput = targetElement.querySelector('input');
+          if (firstInput) {
+            setTimeout(() => firstInput.focus(), 500);
+          }
+        }
+      });
+    });
+
+    // Form submission handling for both assessment forms
+    const forms = document.querySelectorAll('.site-form');
+    forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const f = e.target as HTMLFormElement;
+        const responseBox = f.querySelector('.form-response') as HTMLElement;
+        const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+
+        // Simulate successful request
+        setTimeout(() => {
+          if (responseBox) {
+            responseBox.className = 'form-response success';
+            responseBox.textContent = 'Thank you! Your site assessment request has been received. Our team will contact you shortly.';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'REQUEST SENT ✓';
+          }
+          f.reset();
+        }, 800);
+      });
+    });
+  });
+</script>

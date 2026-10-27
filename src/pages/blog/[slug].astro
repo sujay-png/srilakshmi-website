@@ -1,0 +1,453 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/global/PageHero.astro';
+
+export async function getStaticPaths() {
+  const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed');
+  const posts = await res.json();
+  
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/images/ASHOKA-PARADISE.jpg";
+const plainTitle = post.title.rendered.replace(/<[^>]*>?/gm, '');
+---
+
+<BaseLayout title={plainTitle}>
+  <PageHero
+    eyebrow={new Date(post.date).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })}
+    title={plainTitle}
+    image={featuredImage}
+    size="large"
+  />
+
+  <section class="blog-details section-pad section-light">
+    <div class="container blog-container">
+      <div class="blog-layout">
+        <div class="blog-main">
+          <div class="blog-body" set:html={post.content.rendered} />
+          
+          <div class="blog-footer">
+            <a href="/blog/" class="btn btn-primary magnetic-btn">← Back to Blog</a>
+          </div>
+        </div>
+        
+        <aside class="blog-sidebar">
+          <div class="sidebar-widget cta-widget">
+            <h3 class="widget-title">Start Your Project</h3>
+            <p class="widget-text">Ready to build something amazing? Let's discuss your next project.</p>
+            <a href="/contact/" class="btn btn-primary magnetic-btn">Contact Us</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function initBlogContent() {
+    // 1. Assign anchor IDs to all headings inside blog body for smooth navigation
+    const contentHeadings = Array.from(
+      document.querySelectorAll('.blog-body h2, .blog-body h3')
+    ).filter(
+      (h) => !h.closest('.elementor-widget-table-of-contents') && !h.closest('.sidebar-widget')
+    );
+
+    contentHeadings.forEach((heading, idx) => {
+      if (!heading.id) {
+        const slug = (heading.textContent || '')
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        heading.id = slug || `section-${idx + 1}`;
+      }
+    });
+
+    // 2. Hydrate Elementor Table of Contents if present in the post
+    const tocWidgets = document.querySelectorAll('.elementor-widget-table-of-contents');
+    tocWidgets.forEach((toc) => {
+      // Hide orphan preceding H2 if it was an extra "Table of Content" heading
+      const prev = toc.previousElementSibling;
+      if (prev && prev.tagName === 'H2' && /table\s*of\s*contents?/i.test(prev.textContent || '')) {
+        (prev as HTMLElement).style.display = 'none';
+      }
+
+      const body = toc.querySelector('.elementor-toc__body');
+      const header = toc.querySelector('.elementor-toc__header');
+      const toggleCollapse = toc.querySelector('.elementor-toc__toggle-button--collapse');
+      const toggleExpand = toc.querySelector('.elementor-toc__toggle-button--expand');
+
+      if (body && contentHeadings.length > 0) {
+        const list = document.createElement('ol');
+        list.className = 'elementor-toc__list';
+
+        contentHeadings.forEach((heading) => {
+          if (heading.tagName.toLowerCase() !== 'h2') return;
+          const li = document.createElement('li');
+          li.className = 'elementor-toc__list-item';
+          const a = document.createElement('a');
+          a.href = `#${heading.id}`;
+          a.textContent = (heading.textContent || '').trim();
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+
+        body.innerHTML = '';
+        body.appendChild(list);
+      }
+
+      const toggle = () => {
+        toc.classList.toggle('elementor-toc--collapsed');
+      };
+
+      if (toggleCollapse) toggleCollapse.addEventListener('click', toggle);
+      if (toggleExpand) toggleExpand.addEventListener('click', toggle);
+      if (header) {
+        header.addEventListener('click', (e) => {
+          if ((e.target as HTMLElement).closest('.elementor-toc__toggle-button')) return;
+          toggle();
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initBlogContent);
+  initBlogContent();
+</script>
+
+<style>
+  .blog-container {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .blog-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .blog-layout {
+      grid-template-columns: 2.5fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .blog-sidebar {
+    position: sticky;
+    top: calc(var(--header-height, 80px) + 2rem);
+    align-self: start;
+  }
+
+  .cta-widget {
+    background: var(--c-surface);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid var(--c-border);
+  }
+
+  .widget-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--c-text);
+    margin-bottom: 1rem;
+  }
+
+  .widget-text {
+    color: var(--c-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .blog-body {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--c-text);
+    word-break: break-word;
+  }
+
+  .blog-body :global(h2) {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    margin: 3rem 0 1.25rem;
+    color: var(--c-text);
+    line-height: 1.2;
+    scroll-margin-top: calc(var(--header-height, 90px) + 2rem);
+  }
+
+  .blog-body :global(h3) {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--c-text);
+    line-height: 1.3;
+    scroll-margin-top: calc(var(--header-height, 90px) + 2rem);
+  }
+
+  .blog-body :global(h4) {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: var(--c-text);
+    scroll-margin-top: calc(var(--header-height, 90px) + 2rem);
+  }
+
+  .blog-body :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-body :global(strong) {
+    font-weight: 600;
+    color: var(--c-text);
+  }
+
+  .blog-body :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 2.5rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .blog-body :global(figure) {
+    margin: 2.5rem 0;
+  }
+  
+  .blog-body :global(figcaption) {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+    margin-top: 0.75rem;
+  }
+
+  .blog-body :global(ul) {
+    list-style: disc;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  .blog-body :global(ol) {
+    list-style: decimal;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  .blog-body :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+  
+  .blog-body :global(blockquote) {
+    margin: 2.5rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--c-accent);
+    background: var(--c-surface);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--c-text-muted);
+  }
+  
+  .blog-body :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .blog-body :global(a) {
+    color: var(--c-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 500;
+  }
+
+  .blog-body :global(a:hover) {
+    color: var(--c-text);
+  }
+
+  /* SVG Protection */
+  .blog-body :global(svg) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .blog-body :global(.e-font-icon-svg) {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+
+  /* Elementor Table of Contents Component */
+  .blog-body :global(.elementor-widget-table-of-contents) {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 2rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .blog-body :global(.elementor-toc__header) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--c-border);
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .blog-body :global(.elementor-toc__header-title) {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--c-text);
+    margin: 0 !important;
+    padding: 0;
+  }
+
+  .blog-body :global(.elementor-toc__toggle-button) {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--c-text);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .blog-body :global(.elementor-toc__toggle-button:hover) {
+    background: var(--c-saffron-soft);
+    color: var(--c-saffron);
+    border-color: var(--c-saffron);
+  }
+
+  .blog-body :global(.elementor-toc__toggle-button svg) {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+    fill: currentColor;
+  }
+
+  .blog-body :global(.elementor-toc__toggle-button--expand) {
+    display: none;
+  }
+
+  .blog-body :global(.elementor-toc--collapsed .elementor-toc__toggle-button--expand) {
+    display: inline-flex;
+  }
+
+  .blog-body :global(.elementor-toc--collapsed .elementor-toc__toggle-button--collapse) {
+    display: none;
+  }
+
+  .blog-body :global(.elementor-toc--collapsed .elementor-toc__body) {
+    display: none;
+  }
+
+  .blog-body :global(.elementor-toc__spinner-container) {
+    display: none !important;
+  }
+
+  .blog-body :global(.elementor-toc__list) {
+    list-style: decimal !important;
+    padding-left: 1.5rem !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .blog-body :global(.elementor-toc__list-item) {
+    margin: 0 !important;
+  }
+
+  .blog-body :global(.elementor-toc__list-item a) {
+    display: inline-block;
+    color: var(--c-text-secondary);
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .blog-body :global(.elementor-toc__list-item a:hover) {
+    color: var(--c-saffron);
+    transform: translateX(4px);
+  }
+
+  /* Gutenberg layout blocks */
+  .blog-body :global(.wp-block-columns) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .blog-body :global(.wp-block-column) {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+
+  .blog-body :global(.wp-block-group) {
+    margin: 2rem 0;
+  }
+
+  .blog-body :global(.wp-block-table) {
+    width: 100%;
+    margin: 2.5rem 0;
+    overflow-x: auto;
+  }
+
+  .blog-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+
+  .blog-body :global(th),
+  .blog-body :global(td) {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--c-border);
+    text-align: left;
+  }
+
+  .blog-body :global(th) {
+    background: var(--c-surface);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .blog-footer {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--c-border);
+    display: flex;
+    justify-content: center;
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/global/PageHero.astro';
+
+// Fetch posts
+const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed');
+const posts = await res.json();
+---
+
+<BaseLayout title="Blog">
+  <PageHero
+    eyebrow="Insights & Updates"
+    title="Our Latest Blog Posts"
+    image="/images/ASHOKA-PARADISE.jpg"
+  />
+
+  <section class="blog-section section-pad section-light">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post: any) => (
+          <article class="blog-card reveal-up">
+            <a href={`/blog/${post.slug}/`} class="blog-card-link">
+              <div class="blog-image-wrapper">
+                {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
+                  <img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered.replace(/<[^>]*>?/gm, '')} class="blog-image" />
+                ) : (
+                  <div class="blog-image-placeholder"></div>
+                )}
+              </div>
+              <div class="blog-content">
+                <p class="blog-date">
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                  })}
+                </p>
+                <h3 class="blog-title" set:html={post.title.rendered} />
+                <div class="blog-excerpt" set:html={post.excerpt.rendered} />
+                <span class="read-more">Read Article <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blog-card {
+    background: var(--c-surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-image-wrapper {
+    position: relative;
+    padding-top: 60%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+
+  .blog-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+
+  .blog-card:hover .blog-image {
+    transform: scale(1.05);
+  }
+
+  .blog-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c-border);
+  }
+
+  .blog-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .blog-date {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--c-text);
+    transition: color 0.3s ease;
+  }
+
+  .blog-card:hover .blog-title {
+    color: var(--c-accent);
+  }
+
+  .blog-excerpt {
+    color: var(--c-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  
+  .blog-excerpt :global(p) {
+    margin: 0;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+  }
+
+  .read-more svg {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover .read-more svg {
+    transform: translateX(4px) translateY(-4px);
+  }
+</style>
