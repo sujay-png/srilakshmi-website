@@ -331,7 +331,11 @@ const qualitySteps = [
               <p class="assessment-subtitle">Tell us about your building and our experts will get back to you.</p>
             </div>
 
-            <form class="assessment-form site-form" data-form-id="hero-form">
+            <form class="assessment-form site-form" data-form-id="hero-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Commercial Remodelling Assessment Enquiry (Hero Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Hero Assessment Form" />
               <div class="form-row-split">
                 <div class="form-field">
                   <label for="hero-name">FULL NAME</label>
@@ -465,7 +469,7 @@ const qualitySteps = [
         <p class="slim-cta-desc">Tell us what you want to renovate and our experts will take it from there.</p>
       </div>
       <div class="slim-cta-right">
-        <a href="#hero-assessment-form" class="cta-amber-btn scroll-to-form">
+        <a href="#hero-assessment-form" class="cta-dark-btn scroll-to-form">
           ENQUIRE COMMERCIAL REMODELLING
         </a>
       </div>
@@ -712,7 +716,7 @@ const qualitySteps = [
   </section>
 
   <!-- Section 07: Ready to Upgrade / Closing Assessment Form -->
-  <section class="section-charcoal section-closing" id="closing-assessment">
+  <section class="section-paper section-closing" id="closing-assessment">
     <div class="container">
       <div class="closing-grid">
         
@@ -763,7 +767,11 @@ const qualitySteps = [
               <p class="assessment-subtitle">Share a few details and our experts will contact you.</p>
             </div>
 
-            <form class="assessment-form site-form" data-form-id="closing-form">
+            <form class="assessment-form site-form" data-form-id="closing-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Commercial Remodelling Assessment Enquiry (Closing Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Closing Assessment Form" />
               <div class="form-row-split">
                 <div class="form-field">
                   <label for="close-name">FULL NAME</label>
@@ -900,7 +908,10 @@ const qualitySteps = [
   .assessment-footer-text .phone-link,
   .form-field label,
   .trusted-client-name,
-  .trusted-label {
+  .trusted-label,
+  .closing-subtext,
+  .contact-val-text,
+  .contact-label {
     color: #000000 !important;
   }
 
@@ -918,7 +929,10 @@ const qualitySteps = [
   :global([data-theme="dark"]) .assessment-footer-text .phone-link,
   :global([data-theme="dark"]) .form-field label,
   :global([data-theme="dark"]) .trusted-client-name,
-  :global([data-theme="dark"]) .trusted-label {
+  :global([data-theme="dark"]) .trusted-label,
+  :global([data-theme="dark"]) .closing-subtext,
+  :global([data-theme="dark"]) .contact-val-text,
+  :global([data-theme="dark"]) .contact-label {
     color: #ffffff !important;
   }
 
@@ -931,7 +945,9 @@ const qualitySteps = [
   .module-title,
   .prompt-title,
   .assessment-title,
-  .enquire-arrow-link {
+  .enquire-arrow-link,
+  .closing-headline,
+  .contact-val-link {
     color: #000000 !important;
   }
 
@@ -944,7 +960,9 @@ const qualitySteps = [
   :global([data-theme="dark"]) .module-title,
   :global([data-theme="dark"]) .prompt-title,
   :global([data-theme="dark"]) .assessment-title,
-  :global([data-theme="dark"]) .enquire-arrow-link {
+  :global([data-theme="dark"]) .enquire-arrow-link,
+  :global([data-theme="dark"]) .closing-headline,
+  :global([data-theme="dark"]) .contact-val-link {
     color: #ffffff !important;
   }
 
@@ -1051,20 +1069,24 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(1.85rem, 3.5vw, 3rem);
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.3;
     letter-spacing: -0.02em;
     color: #ffffff;
     margin-bottom: 1rem;
+    padding-bottom: 0.12em;
+    overflow: visible;
   }
 
   .section-title-dark {
     font-family: var(--font-heading);
     font-size: clamp(1.85rem, 3.5vw, 3rem);
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.3;
     letter-spacing: -0.02em;
     color: var(--rm-paper-text);
     margin-bottom: 1.5rem;
+    padding-bottom: 0.12em;
+    overflow: visible;
     transition: color 0.35s ease;
   }
 
@@ -1217,14 +1239,16 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(2.25rem, 4.2vw, 3.75rem);
     font-weight: 500;
-    line-height: 1.12;
+    line-height: 1.28;
     letter-spacing: -0.025em;
     color: #ffffff;
     margin-bottom: 1.75rem;
+    padding-bottom: 0.12em;
+    overflow: visible;
   }
 
   .hero-subtext {
-    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-size: clamp(1.15rem, 1.5vw, 1.3rem);
     line-height: 1.7;
     color: #ffffff;
     margin-bottom: 2.25rem;
@@ -1315,7 +1339,7 @@ const qualitySteps = [
   }
 
   .assessment-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
@@ -1478,6 +1502,13 @@ const qualitySteps = [
     border: 1px solid rgba(16, 185, 129, 0.3);
   }
 
+  .form-response.error {
+    display: block;
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
   /* TRUSTED BY STRIP */
   .trusted-section {
     background-color: var(--rm-trusted-bg);
@@ -1555,14 +1586,16 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(1.85rem, 3.2vw, 2.75rem);
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.35;
     letter-spacing: -0.02em;
     color: var(--rm-paper-text);
+    padding-bottom: 0.15em;
+    overflow: visible;
     transition: color 0.35s ease;
   }
 
   .overview-body {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.75;
     color: var(--rm-paper-body);
     font-weight: 400;
@@ -1587,15 +1620,17 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(1.85rem, 3.2vw, 2.65rem);
     font-weight: 500;
-    line-height: 1.18;
+    line-height: 1.35;
     letter-spacing: -0.02em;
     color: var(--rm-paper-text);
     margin-bottom: 1.25rem;
+    padding-bottom: 0.15em;
+    overflow: visible;
     transition: color 0.35s ease;
   }
 
   .expertise-sub {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.65;
     color: var(--rm-paper-body);
     margin-bottom: 2rem;
@@ -1667,7 +1702,7 @@ const qualitySteps = [
   }
 
   .expertise-desc {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.65;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
@@ -1675,11 +1710,9 @@ const qualitySteps = [
 
   /* SLIM CTA BAR */
   .slim-cta-bar {
-    background-color: var(--rm-charcoal);
-    color: #ffffff;
-    padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: var(--rm-amber);
+    color: #14171a;
+    padding: 3.5rem 0;
     transition: background-color 0.35s ease;
   }
 
@@ -1696,14 +1729,14 @@ const qualitySteps = [
     font-size: clamp(1.4rem, 2vw, 1.75rem);
     font-weight: 500;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: #14171a;
     margin-bottom: 0.35rem;
   }
 
   .slim-cta-desc {
-    font-size: 0.95rem;
-    color: #ffffff;
-    opacity: 0.85;
+    font-size: 1.1rem;
+    color: #14171a;
+    opacity: 0.9;
   }
 
   /* SECTION 03: PROCESS */
@@ -1717,14 +1750,14 @@ const qualitySteps = [
   }
 
   .process-intro {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     color: #ffffff;
     margin-bottom: 1rem;
   }
 
   .process-intro-sub {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: #ffffff;
     opacity: 0.85;
   }
@@ -1803,7 +1836,7 @@ const qualitySteps = [
   }
 
   .phase-step-desc {
-    font-size: 0.875rem;
+    font-size: 1.02rem;
     line-height: 1.6;
     color: #ffffff;
     opacity: 0.9;
@@ -1847,7 +1880,7 @@ const qualitySteps = [
   }
 
   .related-sub {
-    font-size: 0.875rem;
+    font-size: 1.02rem;
     color: #ffffff;
     opacity: 0.85;
   }
@@ -1893,14 +1926,16 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(1.65rem, 2.6vw, 2.25rem);
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.32;
     letter-spacing: -0.02em;
     color: #14171a;
     margin-bottom: 0.5rem;
+    padding-bottom: 0.1em;
+    overflow: visible;
   }
 
   .amber-banner-sub {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.5;
     color: #14171a;
   }
@@ -1987,7 +2022,7 @@ const qualitySteps = [
   }
 
   .benefit-desc {
-    font-size: 0.9375rem;
+    font-size: 1.08rem;
     line-height: 1.65;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
@@ -2030,7 +2065,7 @@ const qualitySteps = [
   }
 
   .testimonial-quote {
-    font-size: 1rem;
+    font-size: 1.18rem;
     line-height: 1.65;
     color: #ffffff;
     margin-bottom: 1.75rem;
@@ -2063,7 +2098,7 @@ const qualitySteps = [
   }
 
   .warning-signs-intro {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
@@ -2123,7 +2158,9 @@ const qualitySteps = [
     font-weight: 500;
     color: var(--rm-paper-text);
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1.32;
+    padding-bottom: 0.1em;
+    overflow: visible;
     transition: color 0.35s ease;
   }
 
@@ -2134,7 +2171,7 @@ const qualitySteps = [
   }
 
   .module-desc {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.65;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
@@ -2172,7 +2209,7 @@ const qualitySteps = [
     display: flex;
     align-items: flex-start;
     gap: 0.65rem;
-    font-size: 0.9375rem;
+    font-size: 1.08rem;
     color: var(--rm-paper-body);
     line-height: 1.45;
     transition: color 0.35s ease;
@@ -2207,7 +2244,7 @@ const qualitySteps = [
   }
 
   .solution-text {
-    font-size: 0.9375rem;
+    font-size: 1.08rem;
     line-height: 1.6;
     color: var(--rm-solution-text);
   }
@@ -2239,7 +2276,7 @@ const qualitySteps = [
   }
 
   .prompt-sub {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--rm-paper-body);
     transition: color 0.35s ease;
   }
@@ -2259,7 +2296,7 @@ const qualitySteps = [
   }
 
   .quality-desc {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.65;
     color: #ffffff;
   }
@@ -2300,7 +2337,7 @@ const qualitySteps = [
   }
 
   .quality-step-desc {
-    font-size: 0.9375rem;
+    font-size: 1.08rem;
     line-height: 1.6;
     color: #ffffff;
     opacity: 0.9;
@@ -2309,7 +2346,7 @@ const qualitySteps = [
   /* SECTION 07: CLOSING SECTION */
   .section-closing {
     padding: 7rem 0 8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--rm-paper-border);
   }
 
   .closing-grid {
@@ -2330,24 +2367,28 @@ const qualitySteps = [
     font-family: var(--font-heading);
     font-size: clamp(2.15rem, 3.8vw, 3.25rem);
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.3;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: var(--rm-paper-text);
     margin-bottom: 1.5rem;
+    padding-bottom: 0.12em;
+    overflow: visible;
+    transition: color 0.35s ease;
   }
 
   .closing-subtext {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.65;
-    color: #ffffff;
+    color: var(--rm-paper-body);
     margin-bottom: 2.75rem;
     max-width: 580px;
+    transition: color 0.35s ease;
   }
 
   .closing-contact-details {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--rm-paper-border);
   }
 
   .closing-contact-row {
@@ -2355,7 +2396,7 @@ const qualitySteps = [
     grid-template-columns: 130px 1fr;
     gap: 1.5rem;
     padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--rm-paper-border);
     align-items: baseline;
   }
 
@@ -2372,24 +2413,27 @@ const qualitySteps = [
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--rm-paper-body);
+    opacity: 0.75;
+    transition: color 0.35s ease;
   }
 
   .contact-val-link {
-    color: #ffffff;
+    color: var(--rm-paper-text);
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.2s ease;
   }
 
   .contact-val-link:hover {
-    color: var(--rm-amber);
+    color: var(--rm-amber) !important;
   }
 
   .contact-val-text {
-    color: #ffffff;
+    color: var(--rm-paper-body);
     font-size: 0.95rem;
     line-height: 1.5;
+    transition: color 0.35s ease;
   }
 
   /* Form Scroll Highlight Animation */
@@ -2447,29 +2491,60 @@ const qualitySteps = [
     // Form submission handling for both assessment forms
     const forms = document.querySelectorAll('.site-form');
     forms.forEach(form => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const f = e.target as HTMLFormElement;
         const responseBox = f.querySelector('.form-response') as HTMLElement;
         const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalBtnText = submitBtn ? submitBtn.textContent : 'SCHEDULE A SITE ASSESSMENT';
 
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = 'Submitting...';
         }
+        if (responseBox) {
+          responseBox.className = 'form-response';
+          responseBox.textContent = '';
+        }
 
-        // Simulate successful request
-        setTimeout(() => {
+        const formData = new FormData(f);
+        const data: Record<string, any> = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/enquires.wrnxt@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            if (responseBox) {
+              responseBox.className = 'form-response success';
+              responseBox.textContent = 'Thank you! Your site assessment request has been received. Our team will contact you shortly.';
+            }
+            if (submitBtn) {
+              submitBtn.textContent = 'REQUEST SENT ✓';
+            }
+            f.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
           if (responseBox) {
-            responseBox.className = 'form-response success';
-            responseBox.textContent = 'Thank you! Your site assessment request has been received. Our team will contact you shortly.';
+            responseBox.className = 'form-response error';
+            responseBox.textContent = 'There was an issue sending your request. Please try again or call us directly.';
           }
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'REQUEST SENT ✓';
+            submitBtn.textContent = originalBtnText;
           }
-          f.reset();
-        }, 800);
+        }
       });
     });
   });
