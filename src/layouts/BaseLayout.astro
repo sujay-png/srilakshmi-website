@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { title = siteData.name, description = siteData.description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
 ---
 
 <!DOCTYPE html>
@@ -37,6 +38,9 @@ const { title = siteData.name, description = siteData.description } = Astro.prop
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="generator" content={Astro.generator} />
@@ -47,8 +51,9 @@ const { title = siteData.name, description = siteData.description } = Astro.prop
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content="/images/srilakshmiconstructionlogo-1.png" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonicalURL} />
   </head>
   <body>
     <CustomCursor />

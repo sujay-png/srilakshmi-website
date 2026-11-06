@@ -3,8 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/global/PageHero.astro';
 
 export async function getStaticPaths() {
-  const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed');
-  const posts = await res.json();
+  let posts: any[] = [];
+  try {
+    const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed');
+    if (res.ok) {
+      posts = await res.json();
+    }
+  } catch (e) {
+    console.warn('Failed to fetch blog posts for static paths:', e);
+  }
   
   return posts.map((post: any) => ({
     params: { slug: post.slug },
