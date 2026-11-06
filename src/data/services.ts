@@ -7,57 +7,39 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: 'architecture-design',
-    title: 'Architecture and Design',
-    description: 'We integrate our deep knowledge of construction with design processes to deliver visually stunning and practically feasible structures.',
-    image: '/images/srilakshmicontructionwork.png'
-  },
-  {
-    id: 'planning',
-    title: 'Planning',
-    description: 'Comprehensive planning strategies that address budget, schedule, and logistical challenges before they arise.',
-    image: '/images/slider1.jpg'
-  },
-  {
-    id: 'project-management',
-    title: 'Project Management',
-    description: 'Expert oversight through every phase of construction, ensuring projects are delivered on time, within budget, and to the highest standards of quality.',
-    image: '/images/slider4.jpg'
-  },
-  {
-    id: 'healthcare',
-    title: 'Healthcare Buildings',
-    description: 'Constructing modern healthcare facilities that prioritize patient care, safety, and advanced medical infrastructure.',
-    image: '/images/slider3.jpg'
-  },
-  {
-    id: 'educational',
-    title: 'Educational Buildings',
-    description: 'Building inspiring learning environments from schools to major university campuses.',
-    image: '/images/Sri-Devi-Institute-Technology.jpg'
-  },
-  {
-    id: 'commercial',
-    title: 'Commercial Buildings',
-    description: 'State-of-the-art office spaces and commercial complexes designed for the modern workforce.',
-    image: '/images/commercial-Complex.png'
-  },
-  {
-    id: 'residential',
-    title: 'Residential Buildings',
+    id: 'residential-domestic',
+    title: 'Residential and Domestic construction',
     description: 'Creating comfortable, sustainable, and beautiful homes tailored to our clients\' lifestyles.',
     image: '/images/ASHOKA-PARADISE.jpg'
   },
   {
-    id: 'government-religious',
-    title: 'Government / Religious Buildings',
-    description: 'Expertise in constructing monumental and significant structures for communities and organizations.',
-    image: '/images/Don-Bosco-Chruch-Sirsi.jpg'
+    id: 'commercial-institutional',
+    title: 'Commercial and Institutional Infrastructure',
+    description: 'State-of-the-art office spaces, commercial complexes, and institutional facilities designed for the modern world.',
+    image: '/images/commercial-Complex.png'
   },
   {
-    id: 'green-construction',
-    title: 'Green Construction',
-    description: 'Commitment to sustainable building practices, minimizing environmental impact while maximizing energy efficiency.',
+    id: 'industrial-civil',
+    title: 'Industrial and Specialized Civil Engineering',
+    description: 'Expert oversight through every phase of specialized construction, ensuring robust and durable civil infrastructure.',
+    image: '/images/slider4.jpg'
+  },
+  {
+    id: 'landscape-hardscape',
+    title: 'Landscape and Hardscape solutions',
+    description: 'Transforming outdoor spaces with expert landscaping and hardscaping that perfectly complement the built environment.',
+    image: '/images/slider1.jpg'
+  },
+  {
+    id: 'architecture-planning',
+    title: 'Architecture design and planning',
+    description: 'We integrate our deep knowledge of construction with design processes to deliver visually stunning and practically feasible structures.',
+    image: '/images/srilakshmicontructionwork.png'
+  },
+  {
+    id: 'sustainable-finishing',
+    title: 'Sustainable & Finishing Solutions',
+    description: 'Commitment to sustainable building practices, minimizing environmental impact while delivering premium finishing touches.',
     image: '/images/Srilakshmirainwaterharvesting.png'
   }
 ];

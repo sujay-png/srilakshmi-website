@@ -17,7 +17,7 @@
  Our Experience 
  All 
  Apartments 
- Church 
+ Religious 
  Commercial Complex 
  Educational Institutions 
  Hosiptal 
@@ -68,7 +68,7 @@
  Gem Castle 
  Ashoka Residency, Mangalore 
  Presidency School, Mangalore 
- Boys Hostel MITE 
+ Administrative block MITE 
  Presidency School,Mangalore 
  St Joseph Engineering College, Vamanjoor 
  Sridevi Institute of Technology,Kenjar 

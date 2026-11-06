@@ -4,13 +4,13 @@ export const siteData = {
   founder: {
     name: 'Suresh A',
     title: 'Founder / Chief Engineer',
-    experience: '21 Years',
+    experience: '33+ Years',
     established: '2012'
   },
   contact: {
     address: '1st floor, Evershine Complex, Opp. H.P Petrol Bunk, Kavoor, Mangalore, Karnataka 575015',
     phone: '+91 9880138027',
-    email: 'srilakshmiconstruction08@gmail.com'
+    email: 'projects@srilakshmiconstruction.com'
   },
   socials: [
     // Add if available
