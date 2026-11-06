@@ -1,16 +1,7 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 
-import node from '@astrojs/node';
-
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://srilakshmiconstruction.com/',
-  trailingSlash: 'always',
-  build: {
-    format: 'directory'
-  },
-  adapter: node({
-    mode: 'standalone'
-  })
+  output: 'server',
+  adapter: vercel(),
 });
