@@ -1,0 +1,1804 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Commercial Building Contractor Mangalore";
+const pageDescription = "Successfully building commercial offices, showrooms and warehouses in Mangalore & Udupi since 2012. Design-build expertise with one accountable team from start to finish.";
+
+// 02 / CREDENTIALS
+const credentialsList = [
+  {
+    num: "01",
+    title: "Quality Certified",
+    desc: "Our construction processes are fully tested and certified for maximum strength."
+  },
+  {
+    num: "02",
+    title: "Trusted by Experts",
+    desc: "Architects and property owners across Mangalore & Udupi recommend our team for our quality, speed and experience."
+  },
+  {
+    num: "03",
+    title: "Complete Insurance Cover",
+    desc: "We protect your project with proper worker safety and property damage coverage."
+  },
+  {
+    num: "04",
+    title: "Clear Updates",
+    desc: "You get regular updates so you never have to guess what is happening on-site."
+  },
+  {
+    num: "05",
+    title: "Weather-Proof Building",
+    desc: "We use special materials and techniques designed to handle heavy rains and coastal weather easily."
+  },
+  {
+    num: "06",
+    title: "Friendly Support",
+    desc: "Our team is always a phone call away to answer your questions, even after the building is finished."
+  }
+];
+
+// 03 / DESIGN-BUILD - HOW IT HELPS YOU
+const designBuildBenefits = [
+  {
+    num: "01",
+    title: "One point of contact",
+    desc: "You call one team with every question, so nothing gets lost between people."
+  },
+  {
+    num: "02",
+    title: "Less risk for you",
+    desc: "One company is responsible for both design and construction. If a problem comes up, you know exactly who fixes it."
+  },
+  {
+    num: "03",
+    title: "Fewer change orders",
+    desc: "A change order is a request to change the work after it starts, and it costs time and money. Our builders review the design while it is still on paper, so we catch problems before they reach the site."
+  },
+  {
+    num: "04",
+    title: "Less paperwork",
+    desc: "You track one agreement and one set of updates, instead of several."
+  },
+  {
+    num: "05",
+    title: "Faster decisions",
+    desc: "When a design needs to change, our designers and builders work together. We check the change and act on it quickly."
+  },
+  {
+    num: "06",
+    title: "Clear updates",
+    desc: "We keep you informed about key updates and milestones, and we act as your advocate throughout the project."
+  }
+];
+
+// 04 / PROCESS: 6-STAGE BUILDING JOURNEY
+const buildingStages = [
+  {
+    stepNum: "STEP 1",
+    nodeNum: "1",
+    title: "The First Meeting",
+    desc: "We sit down with you & understand your objectives, look at your land or blueprints, and strategically plan your commercial project."
+  },
+  {
+    stepNum: "STEP 2",
+    nodeNum: "2",
+    title: "Smart Budgeting",
+    desc: "We help you optimize budget without ever compromising on quality and give you a clear and honest budget breakdown."
+  },
+  {
+    stepNum: "STEP 3",
+    nodeNum: "3",
+    title: "Value Engineering",
+    desc: "We evaluate every material and design choice to maximize the building’s long-term strength and energy efficiency. This strategic approach helps you avoid unnecessary costs while keeping your project strictly within budget."
+  },
+  {
+    stepNum: "STEP 4",
+    nodeNum: "4",
+    title: "Paperwork & Approvals",
+    desc: "We gather all required building permits and clearances from local authorities so construction can begin legally and smoothly."
+  },
+  {
+    stepNum: "STEP 5",
+    nodeNum: "5",
+    title: "Design & Construction Phase",
+    desc: "Our integrated team manages everything from initial blueprints to the final brick under strict quality control. This seamless process eliminates miscommunication, prevents delays, and gets your commercial space ready faster."
+  },
+  {
+    stepNum: "STEP 6",
+    nodeNum: "6",
+    title: "Final Check & Handover",
+    desc: "We test all the lights, water taps, and doors, clear out all the construction dust, and hand over the keys ready for use."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>{siteData.contact.phone}</span>
+        </a>
+        <span class="utility-divider">·</span>
+        <a href={`mailto:${siteData.contact.email}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>{siteData.contact.email}</span>
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Coastal Karnataka</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section (Dark Charcoal #14171A) -->
+  <section class="comm-hero section-charcoal hero" id="top">
+    <!-- Background Architectural Blueprint Graphic -->
+    <div class="hero-blueprint-bg" aria-hidden="true">
+      <svg class="blueprint-svg" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="100" y="80" width="600" height="480" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.18" />
+        <line x1="100" y1="200" x2="700" y2="200" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <line x1="100" y1="320" x2="700" y2="320" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <line x1="100" y1="440" x2="700" y2="440" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <line x1="250" y1="80" x2="250" y2="560" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <line x1="400" y1="80" x2="400" y2="560" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.15" />
+        <line x1="550" y1="80" x2="550" y2="560" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <!-- Structural cross bracing -->
+        <line x1="100" y1="80" x2="250" y2="200" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.1" />
+        <line x1="250" y1="80" x2="100" y2="200" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.1" />
+        <line x1="550" y1="80" x2="700" y2="200" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.1" />
+        <line x1="700" y1="80" x2="550" y2="200" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.1" />
+        <rect x="360" y="470" width="80" height="90" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.25" />
+      </svg>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="hero-left">
+          <div class="section-tag reveal">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">SERVICES / COMMERCIAL BUILDING CONSTRUCTION</span>
+          </div>
+
+          <h1 class="hero-headline reveal">
+            Commercial Building Construction Contractors in <span class="highlight-orange">Mangalore &amp; Udupi</span>
+          </h1>
+
+          <p class="hero-subtext reveal">
+            Successfully building commercial offices, showrooms and warehouses since 2012.
+          </p>
+
+          <div class="hero-ctas reveal">
+            <a href="#hero-enquiry-form" class="cta-orange-btn scroll-to-form">
+              ENQUIRE ABOUT COMMERCIAL PROJECT
+            </a>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="cta-outline-btn">
+              CALL {siteData.contact.phone}
+            </a>
+          </div>
+
+          <!-- Hero Proof Stats -->
+          <div class="hero-proof-stats reveal">
+            <div class="proof-stat-item">
+              <span class="proof-title">Since 2012</span>
+              <span class="proof-label">Established</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Office · Showroom · Warehouse</span>
+              <span class="proof-label">What we build</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Design-Build</span>
+              <span class="proof-label">One team, start to finish</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Above-the-fold Enquiry Form Card -->
+        <div class="hero-right reveal">
+          <div class="enquiry-card" id="hero-enquiry-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Enquire About Your Commercial Project</h3>
+              <p class="enquiry-card-subtitle">Tell us what you plan to build and our engineers will get back to you.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="hero-enquiry" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Commercial Building Construction Enquiry (Hero Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Hero Enquiry Form - Commercial Building Construction" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-project-type">PROJECT TYPE</label>
+                <div class="select-wrapper">
+                  <select id="hero-project-type" name="project_type" required>
+                    <option value="" disabled selected>Select project type</option>
+                    <option value="Commercial Office Building">Commercial Office Building</option>
+                    <option value="Showroom / Retail Space">Showroom / Retail Space</option>
+                    <option value="Warehouse / Logistics Facility">Warehouse / Logistics Facility</option>
+                    <option value="Commercial Complex / Mall">Commercial Complex / Mall</option>
+                    <option value="Institutional Infrastructure">Institutional Infrastructure</option>
+                    <option value="Mixed-Use Commercial">Mixed-Use Commercial</option>
+                    <option value="Other Commercial Project">Other Commercial Project</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-requirements">TELL US ABOUT YOUR LAND OR BLUEPRINTS</label>
+                <textarea id="hero-requirements" name="requirements" rows="3" placeholder="Tell us about your land location, square footage, requirements or blueprints..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                SEND ENQUIRY
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / WHY SRI LAKSHMI & 02 / CREDENTIALS (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-why-credentials" id="why-sri-lakshmi">
+    <div class="container">
+      
+      <!-- 01 / WHY SRI LAKSHMI -->
+      <div class="why-lakshmi-block">
+        <div class="section-tag reveal">
+          <span class="tag-diamond">◆</span>
+          <span class="tag-text">01 / WHY SRI LAKSHMI</span>
+        </div>
+
+        <div class="why-lakshmi-grid">
+          <div class="why-lakshmi-left reveal">
+            <span class="years-big-num">10+</span>
+            <span class="years-label">Years in the Business</span>
+            <h3 class="architects-subhead">Trusted By Architects Across Coastal Karnataka</h3>
+          </div>
+
+          <div class="why-lakshmi-right reveal">
+            <p class="why-lakshmi-body">
+              With <strong>10+ years of expertise</strong>, Sri Lakshmi Construction brings <strong>hands-on building experience</strong> to successful commercial projects. If you want a building team that <strong>handles everything smoothly from scratch</strong>, you are in the right place.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider-line"></div>
+
+      <!-- 02 / CREDENTIALS -->
+      <div class="credentials-block" id="credentials">
+        <div class="section-tag reveal">
+          <span class="tag-diamond">◆</span>
+          <span class="tag-text">02 / CREDENTIALS</span>
+        </div>
+
+        <h2 class="section-heading-dark reveal">Fully Certified &amp; Professional</h2>
+
+        <div class="credentials-grid">
+          {credentialsList.map((item) => (
+            <div class="credential-card reveal">
+              <span class="credential-num">{item.num}</span>
+              <h3 class="credential-title">{item.title}</h3>
+              <p class="credential-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 03 / DESIGN-BUILD: One Team From First Sketch to Final Handover (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-design-build" id="design-build">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">03 / DESIGN-BUILD</span>
+      </div>
+
+      <div class="design-build-header reveal">
+        <h2 class="section-heading-white">
+          Design-Build: One Team From First Sketch to Final Handover
+        </h2>
+        <p class="design-build-intro">
+          With design-build, <strong>the same team plans your building and builds it</strong>. You sign one agreement and deal with one company from the first drawing to the day we hand over the keys. You don’t have to manage separate designers and contractors, and you don’t have to referee between them.
+        </p>
+      </div>
+
+      <!-- Design-Build Flow Diagram Visual -->
+      <div class="design-build-flow-diagram reveal">
+        <div class="flow-card flow-start">
+          <span class="flow-stage-label">START</span>
+          <h4 class="flow-stage-title">First drawing</h4>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-card flow-team-highlight">
+          <span class="flow-stage-label">ONE TEAM</span>
+          <h4 class="flow-stage-title">Design &amp; build</h4>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-card flow-finish">
+          <span class="flow-stage-label">FINISH</span>
+          <h4 class="flow-stage-title">Keys handed over</h4>
+        </div>
+      </div>
+
+      <!-- Pill Badges -->
+      <div class="design-build-pills reveal">
+        <span class="db-pill">One agreement</span>
+        <span class="db-pill">One company</span>
+        <span class="db-pill">One point of contact</span>
+      </div>
+
+      <div class="how-it-helps-header reveal">
+        <h3 class="how-it-helps-title">How design-build helps you</h3>
+      </div>
+
+      <!-- How design-build helps you Grid -->
+      <div class="how-it-helps-grid">
+        {designBuildBenefits.map((item) => (
+          <div class="benefit-col reveal">
+            <span class="benefit-num">{item.num}</span>
+            <h4 class="benefit-title">{item.title}</h4>
+            <p class="benefit-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Page Orange CTA Strip (Touchpoint 3) -->
+  <section class="orange-cta-strip">
+    <div class="container cta-strip-inner">
+      <div class="cta-strip-left">
+        <h3 class="cta-strip-heading">Have a commercial project in mind?</h3>
+        <p class="cta-strip-sub">Tell us about your land or blueprints and our team will take it from there.</p>
+      </div>
+      <div class="cta-strip-right">
+        <a href="#hero-enquiry-form" class="cta-dark-btn scroll-to-form">
+          ENQUIRE ABOUT COMMERCIAL PROJECT
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / PROCESS: Our 6-Stage Building Journey (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-process" id="process">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">04 / PROCESS</span>
+      </div>
+
+      <h2 class="section-heading-dark reveal">Our 6-Stage Building Journey</h2>
+
+      <!-- Progress Timeline Track -->
+      <div class="journey-track reveal" aria-hidden="true">
+        <div class="journey-line"></div>
+        <div class="journey-nodes">
+          {buildingStages.map((stage, idx) => (
+            <div class={`journey-node ${idx === 0 ? 'node-highlight' : ''}`}>
+              <span class="node-circle">{stage.nodeNum}</span>
+              <span class="node-title">{stage.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 6 Detailed Stage Cards Grid -->
+      <div class="stages-cards-grid">
+        {buildingStages.map((stage) => (
+          <div class="stage-card reveal">
+            <span class="stage-step-tag">{stage.stepNum}</span>
+            <h3 class="stage-title">{stage.title}</h3>
+            <p class="stage-desc">{stage.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Orange CTA Strip with Form (Touchpoint 4) -->
+  <section class="orange-closing-section" id="closing-enquiry-section">
+    <div class="container">
+      <div class="closing-grid">
+        
+        <!-- Left Column: Big Headline & Direct Call -->
+        <div class="closing-left reveal">
+          <h2 class="closing-headline">
+            Let’s build something amazing together!
+          </h2>
+
+          <div class="direct-call-box">
+            <span class="direct-call-label">CALL OUR EXPERTS DIRECT</span>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="direct-call-phone">
+              {siteData.contact.phone}
+            </a>
+          </div>
+
+          <p class="closing-subtext">
+            Prefer to write? Fill in the form and a member of our engineering team will contact you.
+          </p>
+        </div>
+
+        <!-- Right Column: Form Card -->
+        <div class="closing-right reveal">
+          <div class="enquiry-card quote-card" id="closing-enquiry-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Talk to Our Engineers Today</h3>
+              <p class="enquiry-card-subtitle">Share a few details about your commercial project.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="closing-enquiry" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Commercial Building Construction Enquiry (Closing Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Closing Enquiry Form - Commercial Building Construction" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-project-type">PROJECT TYPE</label>
+                <div class="select-wrapper">
+                  <select id="close-project-type" name="project_type" required>
+                    <option value="" disabled selected>Select project type</option>
+                    <option value="Commercial Office Building">Commercial Office Building</option>
+                    <option value="Showroom / Retail Space">Showroom / Retail Space</option>
+                    <option value="Warehouse / Logistics Facility">Warehouse / Logistics Facility</option>
+                    <option value="Commercial Complex / Mall">Commercial Complex / Mall</option>
+                    <option value="Institutional Infrastructure">Institutional Infrastructure</option>
+                    <option value="Mixed-Use Commercial">Mixed-Use Commercial</option>
+                    <option value="Other Commercial Project">Other Commercial Project</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-requirements">TELL US ABOUT YOUR LAND OR BLUEPRINTS</label>
+                <textarea id="close-requirements" name="requirements" rows="3" placeholder="Tell us about your land location, square footage, requirements or blueprints..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                TALK TO OUR ENGINEERS TODAY
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+  /* ==========================================================================
+     Color Tokens & Multi-Theme System (Light & Dark Mode)
+     ========================================================================== */
+  :global(:root),
+  :global([data-theme="light"]) {
+    --cb-orange: #F0A500;
+    --cb-orange-hover: #D99300;
+    --cb-orange-dark: #C68200;
+
+    /* Charcoal / Dark Sections */
+    --cb-charcoal: #14171A;
+    --cb-charcoal-card: #1B1E22;
+    --cb-charcoal-text: #FFFFFF;
+    --cb-charcoal-subtext: rgba(255, 255, 255, 0.85);
+    --cb-charcoal-muted: rgba(255, 255, 255, 0.65);
+    --cb-charcoal-border: rgba(255, 255, 255, 0.14);
+
+    /* Paper / Light Sections */
+    --cb-paper: #F6F3ED;
+    --cb-paper-heading: #000000;
+    --cb-paper-text: #111111;
+    --cb-paper-slate: #5D636A;
+    --cb-paper-border: rgba(0, 0, 0, 0.12);
+
+    /* Cards in Paper Sections */
+    --cb-card-bg: #FFFFFF;
+    --cb-card-border: rgba(0, 0, 0, 0.08);
+    --cb-card-border-top: #14171A;
+    --cb-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --cb-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    /* Form Cards */
+    --cb-form-card-bg: #FFFFFF;
+    --cb-form-card-title: #000000;
+    --cb-form-card-sub: #444444;
+    --cb-form-card-label: #333333;
+    --cb-form-input-bg: #F7F7F7;
+    --cb-form-input-border: #D5D5D5;
+    --cb-form-input-text: #000000;
+    --cb-form-input-placeholder: #666666;
+    --cb-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+    /* Fonts */
+    --cb-font-heading: 'Archivo', var(--font-heading, sans-serif);
+    --cb-font-body: 'Inter', var(--font-body, sans-serif);
+  }
+
+  /* Full Dark Mode Adaptation */
+  :global([data-theme="dark"]) {
+    --cb-orange: #F0A500;
+    --cb-orange-hover: #FFAF1A;
+    --cb-orange-dark: #FFB733;
+
+    /* Charcoal / Dark Sections */
+    --cb-charcoal: #0B0D10;
+    --cb-charcoal-card: #15191D;
+    --cb-charcoal-text: #FFFFFF;
+    --cb-charcoal-subtext: rgba(255, 255, 255, 0.88);
+    --cb-charcoal-muted: rgba(255, 255, 255, 0.7);
+    --cb-charcoal-border: rgba(255, 255, 255, 0.12);
+
+    /* Paper Sections in Dark Mode */
+    --cb-paper: #121519;
+    --cb-paper-heading: #FFFFFF;
+    --cb-paper-text: #E5E7EB;
+    --cb-paper-slate: #CBD5E1;
+    --cb-paper-border: rgba(255, 255, 255, 0.12);
+
+    /* Cards in Paper Sections (Dark) */
+    --cb-card-bg: #1A1E24;
+    --cb-card-border: rgba(255, 255, 255, 0.12);
+    --cb-card-border-top: var(--cb-orange);
+    --cb-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    --cb-card-shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.65);
+
+    /* Form Cards (Dark) */
+    --cb-form-card-bg: #1A1E24;
+    --cb-form-card-title: #FFFFFF;
+    --cb-form-card-sub: #CBD5E1;
+    --cb-form-card-label: #E5E7EB;
+    --cb-form-input-bg: #101316;
+    --cb-form-input-border: rgba(255, 255, 255, 0.18);
+    --cb-form-input-text: #FFFFFF;
+    --cb-form-input-placeholder: #888888;
+    --cb-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Utility Top Bar */
+  .top-utility-bar {
+    background-color: #0A0C0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--cb-font-body);
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .utility-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--cb-orange);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  /* Common Section Styles */
+  .section-charcoal {
+    background-color: var(--cb-charcoal);
+    color: var(--cb-charcoal-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section-paper {
+    background-color: var(--cb-paper);
+    color: var(--cb-paper-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Tags */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--cb-font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-charcoal .section-tag {
+    color: var(--cb-orange);
+  }
+
+  .section-paper .section-tag {
+    color: var(--cb-orange-dark);
+  }
+
+  .tag-diamond {
+    color: var(--cb-orange);
+    font-size: 0.75rem;
+  }
+
+  /* Headings */
+  .section-heading-white {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading-dark {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 800;
+    color: var(--cb-paper-heading);
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .highlight-orange {
+    color: var(--cb-orange);
+  }
+
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .comm-hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-blueprint-bg {
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: 65%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .blueprint-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-headline {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtext {
+    font-family: var(--cb-font-body);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--cb-charcoal-subtext);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cta-orange-btn {
+    background-color: var(--cb-orange);
+    color: #000000;
+    font-family: var(--cb-font-body);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-orange-btn:hover {
+    background-color: var(--cb-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.35);
+  }
+
+  .cta-outline-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--cb-font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--cb-charcoal-border);
+    padding-top: 2rem;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-title {
+    font-family: var(--cb-font-body);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-family: var(--cb-font-body);
+    font-size: 0.85rem;
+    color: var(--cb-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ENQUIRY CARD COMPONENT (Used in Hero & Closing)
+     ========================================================================== */
+  .enquiry-card {
+    background-color: var(--cb-form-card-bg);
+    border-radius: 4px;
+    padding: 2.25rem 2.25rem 2rem;
+    box-shadow: var(--cb-form-card-shadow);
+    border-top: 5px solid var(--cb-orange);
+    color: var(--cb-form-card-title);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .enquiry-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiry-card-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--cb-form-card-title);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-card-subtitle {
+    font-family: var(--cb-font-body);
+    font-size: 0.9rem;
+    color: var(--cb-form-card-sub);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--cb-font-body);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--cb-form-card-label);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    background-color: var(--cb-form-input-bg);
+    border: 1px solid var(--cb-form-input-border);
+    border-radius: 3px;
+    font-family: var(--cb-font-body);
+    font-size: 0.92rem;
+    color: var(--cb-form-input-text);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--cb-form-input-placeholder);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--cb-orange);
+    background-color: var(--cb-form-input-bg);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: "▼";
+    font-size: 0.65rem;
+    color: var(--cb-form-card-label);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .submit-orange-btn {
+    background-color: var(--cb-orange);
+    color: #000000;
+    font-family: var(--cb-font-body);
+    font-weight: 800;
+    font-size: 0.92rem;
+    padding: 1.05rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 100%;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+    min-height: 48px;
+  }
+
+  .submit-orange-btn:hover {
+    background-color: var(--cb-orange-hover);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+  }
+
+  .enquiry-card-footer {
+    font-family: var(--cb-font-body);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--cb-form-card-sub);
+    margin-top: 0.5rem;
+  }
+
+  .enquiry-card-footer .phone-link {
+    color: var(--cb-form-card-title);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* ==========================================================================
+     01 / WHY SRI LAKSHMI & 02 / CREDENTIALS
+     ========================================================================== */
+  .section-why-credentials {
+    border-bottom: 1px solid var(--cb-paper-border);
+  }
+
+  .why-lakshmi-block {
+    margin-bottom: 4rem;
+  }
+
+  .why-lakshmi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .why-lakshmi-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 4px solid var(--cb-paper-heading);
+    padding-top: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .years-big-num {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: var(--cb-orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .years-label {
+    font-family: var(--cb-font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--cb-paper-heading);
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .architects-subhead {
+    font-family: var(--cb-font-heading);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--cb-paper-heading);
+    line-height: 1.3;
+    border-top: 2px solid var(--cb-paper-heading);
+    padding-top: 1.25rem;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .why-lakshmi-body {
+    font-family: var(--cb-font-body);
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: var(--cb-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  .why-lakshmi-body strong {
+    color: var(--cb-paper-heading);
+  }
+
+  .section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--cb-paper-border);
+    margin: 4.5rem 0;
+  }
+
+  /* 02 / CREDENTIALS GRID */
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .credential-card {
+    background-color: var(--cb-card-bg);
+    border: 1px solid var(--cb-card-border);
+    border-top: 4px solid var(--cb-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--cb-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cb-card-shadow-hover);
+  }
+
+  .credential-num {
+    font-family: var(--cb-font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--cb-orange);
+  }
+
+  .credential-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--cb-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .credential-desc {
+    font-family: var(--cb-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--cb-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     03 / DESIGN-BUILD SECTION
+     ========================================================================== */
+  .design-build-header {
+    max-width: 900px;
+    margin-bottom: 3.5rem;
+  }
+
+  .design-build-intro {
+    font-family: var(--cb-font-body);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--cb-charcoal-subtext);
+  }
+
+  .design-build-intro strong {
+    color: #FFFFFF;
+  }
+
+  /* Design-Build Flow Diagram Visual */
+  .design-build-flow-diagram {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .flow-card {
+    background-color: var(--cb-charcoal-card);
+    border: 1px solid var(--cb-charcoal-border);
+    border-radius: 4px;
+    padding: 2rem 2.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .flow-team-highlight {
+    background-color: var(--cb-orange);
+    color: #000000;
+    border-color: var(--cb-orange);
+  }
+
+  .flow-stage-label {
+    font-family: var(--cb-font-body);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--cb-orange);
+    text-transform: uppercase;
+  }
+
+  .flow-team-highlight .flow-stage-label {
+    color: #000000;
+    opacity: 0.85;
+  }
+
+  .flow-stage-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+  }
+
+  .flow-team-highlight .flow-stage-title {
+    color: #000000;
+  }
+
+  .flow-arrow {
+    font-size: 1.75rem;
+    color: var(--cb-orange);
+    font-weight: 800;
+  }
+
+  .design-build-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .db-pill {
+    background-color: var(--cb-charcoal-card);
+    border: 1px solid var(--cb-charcoal-border);
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-family: var(--cb-font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .how-it-helps-header {
+    border-top: 1px solid var(--cb-charcoal-border);
+    padding-top: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .how-it-helps-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+  }
+
+  .how-it-helps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2.5rem;
+  }
+
+  .benefit-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .benefit-num {
+    font-family: var(--cb-font-body);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--cb-orange);
+  }
+
+  .benefit-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+  }
+
+  .benefit-desc {
+    font-family: var(--cb-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--cb-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ORANGE CTA STRIP (Touchpoint 3)
+     ========================================================================== */
+  .orange-cta-strip {
+    background-color: var(--cb-orange);
+    color: #000000;
+    padding: 3.5rem 0;
+  }
+
+  .cta-strip-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cta-strip-heading {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.25rem);
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-strip-sub {
+    font-family: var(--cb-font-body);
+    font-size: 1.05rem;
+    color: #1A1A1A;
+  }
+
+  .cta-dark-btn {
+    background-color: #14171A;
+    color: #FFFFFF;
+    font-family: var(--cb-font-body);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 1.15rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ==========================================================================
+     04 / PROCESS: OUR 6-STAGE BUILDING JOURNEY
+     ========================================================================== */
+  .journey-track {
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem 0;
+  }
+
+  .journey-line {
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background-color: var(--cb-paper-border);
+    z-index: 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .journey-nodes {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .journey-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .node-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--cb-card-bg);
+    border: 2px solid var(--cb-paper-heading);
+    color: var(--cb-paper-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--cb-font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    box-shadow: var(--cb-card-shadow);
+    transition: all 0.3s ease;
+  }
+
+  .node-highlight .node-circle {
+    background-color: var(--cb-orange);
+    border-color: var(--cb-orange);
+    color: #000000;
+    box-shadow: 0 0 0 4px rgba(240, 165, 0, 0.25);
+  }
+
+  .node-title {
+    font-family: var(--cb-font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cb-paper-heading);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .stages-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .stage-card {
+    background-color: var(--cb-card-bg);
+    border: 1px solid var(--cb-card-border);
+    border-top: 4px solid var(--cb-orange);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    box-shadow: var(--cb-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .stage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cb-card-shadow-hover);
+  }
+
+  .stage-step-tag {
+    font-family: var(--cb-font-body);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--cb-orange-dark);
+    text-transform: uppercase;
+  }
+
+  .stage-title {
+    font-family: var(--cb-font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--cb-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .stage-desc {
+    font-family: var(--cb-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--cb-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     CLOSING ORANGE SECTION WITH FORM (Touchpoint 4)
+     ========================================================================== */
+  .orange-closing-section {
+    background-color: var(--cb-orange);
+    color: #000000;
+    padding: 6rem 0;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .closing-headline {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .direct-call-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .direct-call-label {
+    font-family: var(--cb-font-body);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  .direct-call-phone {
+    font-family: var(--cb-font-heading);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 900;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-call-phone:hover {
+    opacity: 0.85;
+  }
+
+  .closing-subtext {
+    font-family: var(--cb-font-body);
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: #1A1A1A;
+    max-width: 500px;
+  }
+
+  .quote-card {
+    border-top: 5px solid #000000;
+  }
+
+  /* Form Responses */
+  .form-response {
+    padding: 0;
+    margin-top: 0;
+    font-size: 0.9rem;
+    font-family: var(--cb-font-body);
+    border-radius: 4px;
+    display: none;
+  }
+
+  .form-response.success {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #E6F7EC;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+  }
+
+  .form-response.error {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #FCE8E6;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+  }
+
+  /* Pulse animation on smooth-scroll target */
+  .pulse-highlight {
+    animation: pulseBorder 1.2s ease-out;
+  }
+
+  @keyframes pulseBorder {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 165, 0, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgba(240, 165, 0, 0);
+    }
+    100% {
+      box-shadow: var(--cb-form-card-shadow);
+    }
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS (Desktop, Tablet, Mobile)
+     ========================================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .why-lakshmi-grid,
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .credentials-grid,
+    .stages-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .how-it-helps-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 2rem;
+    }
+
+    .design-build-flow-diagram {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .flow-arrow {
+      transform: rotate(90deg);
+      margin: 0.25rem 0;
+    }
+
+    .flow-card {
+      width: 100%;
+    }
+
+    .journey-track {
+      display: none;
+    }
+
+    .hero-blueprint-bg {
+      width: 90%;
+      opacity: 0.25;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 4.5rem 0;
+    }
+
+    .comm-hero {
+      padding-top: 3.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .cta-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .cta-strip-right {
+      width: 100%;
+    }
+
+    .cta-strip-right .cta-dark-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-ctas a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 3.5rem 0;
+    }
+
+    .credentials-grid,
+    .stages-cards-grid,
+    .how-it-helps-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .hero-proof-stats {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+
+    .enquiry-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .why-lakshmi-left {
+      padding-top: 1rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .enquiry-card {
+      padding: 1.25rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for CTAs targeting the enquiry form
+    const scrollLinks = document.querySelectorAll('.scroll-to-form');
+    const heroCard = document.getElementById('hero-enquiry-form');
+
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = heroCard || document.querySelector('.enquiry-card');
+        if (targetElement) {
+          const headerOffset = 100;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Pulse animation on the card
+          targetElement.classList.remove('pulse-highlight');
+          void targetElement.offsetWidth; // trigger reflow
+          targetElement.classList.add('pulse-highlight');
+
+          // Focus first input
+          const firstInput = targetElement.querySelector('input');
+          if (firstInput) {
+            setTimeout(() => firstInput.focus(), 450);
+          }
+        }
+      });
+    });
+
+    // Form submission handling for both enquiry forms
+    const forms = document.querySelectorAll('.site-form');
+    forms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const f = e.target as HTMLFormElement;
+        const responseBox = f.querySelector('.form-response') as HTMLElement;
+        const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalBtnText = submitBtn ? submitBtn.textContent : 'SEND ENQUIRY';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+        if (responseBox) {
+          responseBox.className = 'form-response';
+          responseBox.textContent = '';
+        }
+
+        const formData = new FormData(f);
+        const data: Record<string, any> = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/enquires.wrnxt@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            if (responseBox) {
+              responseBox.className = 'form-response success';
+              responseBox.textContent = 'Thank you! Your commercial project enquiry has been received. Our engineers will get back to you shortly.';
+            }
+            if (submitBtn) {
+              submitBtn.textContent = 'ENQUIRY SENT ✓';
+            }
+            f.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          if (responseBox) {
+            responseBox.className = 'form-response error';
+            responseBox.textContent = 'There was an issue sending your enquiry. Please try again or call +91 9880138027 directly.';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        }
+      });
+    });
+  });
+</script>
+
