@@ -1,0 +1,2638 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Steel Structural Fabrication Mangalore";
+const pageDescription = "We fabricate and erect steel structures for industrial, commercial and institutional buildings across coastal Karnataka. Built with quality, delivered with speed, and backed by experience.";
+
+// Scope - What We Fabricate (02 / SCOPE)
+const whatWeFabricate = [
+  {
+    num: "01",
+    title: "Industrial sheds & factory frames",
+    desc: "Columns, rafters and bracing for plants and workshops."
+  },
+  {
+    num: "02",
+    title: "Warehouses & storage buildings",
+    desc: "Wide, open spaces for stock, racking and vehicle movement."
+  },
+  {
+    num: "03",
+    title: "Roof trusses & long-span roofs",
+    desc: "Steel roofs for showrooms, halls and assembly spaces."
+  },
+  {
+    num: "04",
+    title: "Commercial building frames",
+    desc: "Steel and composite frames for offices, showrooms and retail buildings."
+  },
+  {
+    num: "05",
+    title: "Mezzanine floors, platforms & staircases",
+    desc: "Extra floor space without a full rebuild."
+  },
+  {
+    num: "06",
+    title: "Extensions & strengthening",
+    desc: "Steel additions and supports for existing buildings, a natural fit with our renovation work."
+  }
+];
+
+// Six-Stage Job Strip (01 / OVERVIEW)
+const jobStages = [
+  { num: "01", name: "Planning" },
+  { num: "02", name: "Fabrication drawings" },
+  { num: "03", name: "Workshop fabrication" },
+  { num: "04", name: "Coating" },
+  { num: "05", name: "Transport" },
+  { num: "06", name: "Erection", isHighlight: true }
+];
+
+// Who This Is For (03 / WHO THIS IS FOR)
+const whoThisIsFor = [
+  {
+    num: "01",
+    title: "Project managers",
+    desc: "A clear erection sequence, fabrication drawings and inspection records you can track."
+  },
+  {
+    num: "02",
+    title: "Property owners",
+    desc: "One accountable team, open updates, and a structure that is easy to extend later."
+  },
+  {
+    num: "03",
+    title: "Investors",
+    desc: "A faster build can help you start earning sooner, and we compare steel and RCC before you commit."
+  },
+  {
+    num: "04",
+    title: "Commercial developers",
+    desc: "Design, fabrication and erection under one contract, with one point of contact."
+  }
+];
+
+// Why Build in Steel (04 / WHY STEEL)
+const whySteelReasons = [
+  {
+    num: "01",
+    title: "Faster to build",
+    desc: "Steel structures go up faster than RCC and need lighter foundations. Workshop fabrication can run while the foundations are built on site."
+  },
+  {
+    num: "02",
+    title: "Lighter foundations",
+    desc: "A lighter frame puts less load on the ground, which can reduce foundation work."
+  },
+  {
+    num: "03",
+    title: "Wide, open spaces",
+    desc: "Steel’s strength-to-weight ratio lets it carry long clear spans efficiently, which suits warehouses and showrooms."
+  },
+  {
+    num: "04",
+    title: "Easy to change later",
+    desc: "Bolted steel members can be added to or altered when your needs grow."
+  },
+  {
+    num: "05",
+    title: "Recyclable",
+    desc: "Steel can be recycled, which cuts waste."
+  }
+];
+
+// Fabrication Process (05 / PROCESS)
+const processColumns = [
+  {
+    phase: "Plan",
+    stepRange: "STEPS 1–3",
+    steps: [
+      {
+        num: "01",
+        title: "Requirements and site review",
+        desc: "We study your needs, loads, spans and site conditions."
+      },
+      {
+        num: "02",
+        title: "Design and fabrication drawings",
+        desc: "We prepare detailed drawings for every member and connection."
+      },
+      {
+        num: "03",
+        title: "Material procurement",
+        desc: "We order steel early and check the test certificates."
+      }
+    ]
+  },
+  {
+    phase: "Fabricate",
+    stepRange: "STEPS 4–7",
+    steps: [
+      {
+        num: "04",
+        title: "Cutting and fit-up",
+        desc: "We cut, drill and assemble members to the drawings."
+      },
+      {
+        num: "05",
+        title: "Welding and bolting",
+        desc: "We weld and bolt joints to the specification."
+      },
+      {
+        num: "06",
+        title: "Surface preparation and coating",
+        desc: "We clean and protect every member before it leaves the workshop."
+      },
+      {
+        num: "07",
+        title: "Inspection and quality checks",
+        desc: "We check dimensions, welds and coatings."
+      }
+    ]
+  },
+  {
+    phase: "Erect",
+    stepRange: "STEPS 8–9",
+    steps: [
+      {
+        num: "08",
+        title: "Transport and erection",
+        desc: "We deliver, lift and fix the structure in a planned sequence."
+      },
+      {
+        num: "09",
+        title: "Final checks and handover",
+        desc: "We walk the site with you, resolve open items, and hand over the documents."
+      }
+    ]
+  }
+];
+
+// Indian Standards (06 / STANDARDS)
+const indianStandards = [
+  {
+    code: "IS 800",
+    desc: "The code of practice for general construction in steel."
+  },
+  {
+    code: "IS 2062",
+    desc: "The specification for steel used in general structural work."
+  },
+  {
+    code: "IS 816",
+    desc: "The code for metal arc welding."
+  },
+  {
+    code: "IS 4000",
+    desc: "The code for high-strength bolts in steel structures."
+  },
+  {
+    code: "IS 7215",
+    desc: "The tolerances for fabricating steel structures, meaning how closely parts must match the drawings."
+  },
+  {
+    code: "IS 12843",
+    desc: "The tolerances for erecting steel structures."
+  },
+  {
+    code: "IS 7205",
+    desc: "The safety code for erecting structural steelwork."
+  }
+];
+
+// Coastal Protection Points (07 / COASTAL PROTECTION)
+const coastalProtectionPoints = [
+  {
+    num: "01",
+    title: "Surface preparation first",
+    desc: "Coatings only last on properly cleaned steel."
+  },
+  {
+    num: "02",
+    title: "Hot-dip galvanising for exposed members",
+    desc: "It is the most common corrosion protection for outdoor steel in India."
+  },
+  {
+    num: "03",
+    title: "Paint over galvanising where needed",
+    desc: "A paint topcoat over galvanising adds protection."
+  },
+  {
+    num: "04",
+    title: "Matching protection on fasteners",
+    desc: "Bolts, nuts and washers need the same level of protection as the structure."
+  },
+  {
+    num: "05",
+    title: "Life cycle costing",
+    desc: "We compare coating options by their full cost over time, not just the price today."
+  }
+];
+
+// Schedule Protection Points (08 / SCHEDULE)
+const schedulePoints = [
+  {
+    num: "01",
+    text: "Fabrication and site work run side by side."
+  },
+  {
+    num: "02",
+    text: "We finalise fabrication drawings early, so approvals don’t hold up the workshop."
+  },
+  {
+    num: "03",
+    text: "We order materials early."
+  },
+  {
+    num: "04",
+    text: "We plan the erection sequence with your project team before steel leaves the workshop."
+  }
+];
+
+// Quality Checkpoints Timeline (09 / QUALITY)
+const qualityCheckpoints = [
+  {
+    stage: "BEFORE CUTTING",
+    text: "We check material test certificates."
+  },
+  {
+    stage: "DURING FABRICATION",
+    text: "We check dimensions against the drawings."
+  },
+  {
+    stage: "AT JOINTS",
+    text: "We inspect welds and bolt tightening."
+  },
+  {
+    stage: "BEFORE DISPATCH",
+    text: "We check coatings."
+  },
+  {
+    stage: "AT HANDOVER",
+    text: "We walk through the work with you and clear every open item."
+  }
+];
+
+// FAQs (10 / FAQS)
+const faqsList = [
+  {
+    num: "01",
+    q: "Is steel cheaper than RCC?",
+    a: "It depends on your project. Steel often wins on speed, span and foundation weight. RCC can cost less for shorter spans and low-rise buildings. We compare both for your project."
+  },
+  {
+    num: "02",
+    q: "How long does fabrication take?",
+    a: "It depends on tonnage, complexity and material availability. After we review your drawings, we give you a schedule."
+  },
+  {
+    num: "03",
+    q: "Do you handle the design too?",
+    a: "Yes. Through our design-build service, we can take design, fabrication and erection under one contract."
+  },
+  {
+    num: "04",
+    q: "Will steel rust in Mangalore’s climate?",
+    a: "Not when it is protected correctly. Coastal air is harsh, so we specify surface preparation and a coating system, such as galvanising plus paint, to suit your exposure."
+  },
+  {
+    num: "05",
+    q: "Does a steel building need fire protection?",
+    a: "Usually, yes. RCC has better built-in fire resistance, so steel buildings typically need added fire protection to meet code requirements."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>{siteData.contact.phone}</span>
+        </a>
+        <span class="utility-divider">·</span>
+        <a href={`mailto:${siteData.contact.email}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>{siteData.contact.email}</span>
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Coastal Karnataka</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section (Dark Charcoal #14171A) -->
+  <section class="steel-hero section-charcoal hero" id="top">
+    <!-- Background Blueprint Structural Frame Lines -->
+    <div class="hero-blueprint-bg" aria-hidden="true">
+      <svg class="blueprint-svg" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 480 L 50 160 L 400 40 L 750 160 L 750 480" stroke="#f0a500" stroke-width="2" stroke-opacity="0.2" />
+        <path d="M 50 160 L 750 160" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.15" />
+        <path d="M 400 40 L 400 160" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.15" />
+        <path d="M 50 480 L 750 480" stroke="#f0a500" stroke-width="2" stroke-opacity="0.25" />
+        <!-- Diagonal Web Trusses -->
+        <path d="M 50 160 L 166 40 L 283 160 L 400 40 L 516 160 L 633 40 L 750 160" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.18" />
+        <line x1="200" y1="160" x2="200" y2="480" stroke="#f0a500" stroke-width="1" stroke-opacity="0.1" />
+        <line x1="600" y1="160" x2="600" y2="480" stroke="#f0a500" stroke-width="1" stroke-opacity="0.1" />
+        <!-- Base details -->
+        <rect x="40" y="475" width="20" height="10" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.3" fill="none" />
+        <rect x="740" y="475" width="20" height="10" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.3" fill="none" />
+      </svg>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-grid">
+        
+        <!-- Left: Headline, Subtext, CTAs, Stats -->
+        <div class="hero-left">
+          <div class="section-tag reveal">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">SERVICES / STEEL STRUCTURAL FABRICATION</span>
+          </div>
+
+          <h1 class="hero-headline reveal">
+            Steel Structural Fabrication Contractors in <span class="highlight-orange">Mangalore &amp; Udupi</span>
+          </h1>
+
+          <p class="hero-subtext reveal">
+            We fabricate and erect steel structures for industrial, commercial and institutional buildings across coastal Karnataka. We build with quality, deliver with speed, and back every project with experience.
+          </p>
+
+          <div class="hero-ctas reveal">
+            <a href="#hero-enquiry-form" class="cta-orange-btn scroll-to-form">
+              ENQUIRE ABOUT STEEL FABRICATION
+            </a>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="cta-outline-btn">
+              CALL {siteData.contact.phone}
+            </a>
+          </div>
+
+          <!-- Hero Proof Stats -->
+          <div class="hero-proof-stats reveal">
+            <div class="proof-stat-item">
+              <span class="proof-title">Industrial · Commercial · Institutional</span>
+              <span class="proof-label">Buildings we serve</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Fabrication to erection</span>
+              <span class="proof-label">One team</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Quality · Speed · Experience</span>
+              <span class="proof-label">What we stand for</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Above-the-fold Enquiry Form Card -->
+        <div class="hero-right reveal">
+          <div class="enquiry-card" id="hero-enquiry-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Enquire About Steel Fabrication</h3>
+              <p class="enquiry-card-subtitle">Tell us what you plan to build and our engineers will get back to you.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="hero-enquiry" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Steel Structural Fabrication Enquiry (Hero Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Hero Enquiry Form - Steel Structural Fabrication" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-project-type">PROJECT TYPE</label>
+                <div class="select-wrapper">
+                  <select id="hero-project-type" name="project_type" required>
+                    <option value="" disabled selected>Select project type</option>
+                    <option value="Industrial sheds & factory frames">Industrial sheds &amp; factory frames</option>
+                    <option value="Warehouses & storage buildings">Warehouses &amp; storage buildings</option>
+                    <option value="Roof trusses & long-span roofs">Roof trusses &amp; long-span roofs</option>
+                    <option value="Commercial building frames">Commercial building frames</option>
+                    <option value="Mezzanine floors, platforms & staircases">Mezzanine floors, platforms &amp; staircases</option>
+                    <option value="Extensions & strengthening">Extensions &amp; strengthening</option>
+                    <option value="Other steel structure">Other steel structure</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-requirements">TELL US ABOUT YOUR DRAWINGS OR REQUIREMENTS</label>
+                <textarea id="hero-requirements" name="requirements" rows="3" placeholder="Describe your requirements, dimensions, tonnage or timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                SEND ENQUIRY
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / OVERVIEW (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-overview" id="overview">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">01 / OVERVIEW</span>
+      </div>
+
+      <div class="overview-grid">
+        <div class="overview-left reveal">
+          <h2 class="overview-headline">
+            Steel lets you build faster, span wider and expand later. <span class="highlight-orange">It also needs careful fabrication and the right protection from coastal air.</span>
+          </h2>
+        </div>
+        <div class="overview-right reveal">
+          <p class="overview-body">
+            We handle <strong>the whole job</strong>: planning, fabrication drawings, workshop fabrication, coating, transport and erection. You deal with <strong>one team</strong> from the first drawing to the final handover.
+          </p>
+        </div>
+      </div>
+
+      <!-- Six-Stage Job Strip -->
+      <div class="job-stages-strip reveal">
+        {jobStages.map((stage) => (
+          <div class={`job-stage-card ${stage.isHighlight ? 'job-stage-highlight' : ''}`}>
+            <span class="job-stage-num">{stage.num}</span>
+            <span class="job-stage-name">{stage.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 / SCOPE: What We Fabricate (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-scope" id="scope">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">02 / SCOPE</span>
+      </div>
+
+      <h2 class="section-heading-dark reveal">What We Fabricate</h2>
+
+      <div class="scope-grid">
+        {whatWeFabricate.map((item) => (
+          <div class="scope-card reveal">
+            <span class="scope-num">{item.num}</span>
+            <h3 class="scope-title">{item.title}</h3>
+            <p class="scope-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / WHO THIS IS FOR (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-audience" id="who-this-is-for">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">03 / WHO THIS IS FOR</span>
+      </div>
+
+      <h2 class="section-heading-white reveal">Who This Is For</h2>
+
+      <div class="audience-grid">
+        {whoThisIsFor.map((item) => (
+          <div class="audience-col reveal">
+            <span class="audience-num">{item.num}</span>
+            <h3 class="audience-title">{item.title}</h3>
+            <p class="audience-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / WHY STEEL & Honest Advice (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-why-steel" id="why-steel">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">04 / WHY STEEL</span>
+      </div>
+
+      <h2 class="section-heading-dark reveal">Why Build in Steel</h2>
+
+      <div class="why-steel-grid">
+        
+        <!-- Left: 5 Numbered Benefits -->
+        <div class="why-steel-left">
+          <div class="benefits-row-list">
+            {whySteelReasons.map((reason) => (
+              <div class="benefit-row-item reveal">
+                <span class="benefit-row-num">{reason.num}</span>
+                <div class="benefit-row-content">
+                  <h3 class="benefit-row-title">{reason.title}</h3>
+                  <p class="benefit-row-desc">{reason.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Honest Advice Card -->
+        <div class="why-steel-right reveal">
+          <div class="honest-advice-card">
+            <span class="honest-advice-tag">HONEST ADVICE</span>
+            <h3 class="honest-advice-heading">Steel isn’t always the answer.</h3>
+            <p class="honest-advice-body">
+              RCC has better built-in fire resistance and generally needs less corrosion upkeep, and it stays cost-competitive for shorter spans and low-rise buildings. We compare both on span, budget, timeline and fire requirements, then tell you which one suits your project.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Page Orange CTA Strip (Touchpoint 3) -->
+  <section class="orange-cta-strip">
+    <div class="container cta-strip-inner">
+      <div class="cta-strip-left">
+        <h3 class="cta-strip-heading">Planning a steel structure?</h3>
+        <p class="cta-strip-sub">Send us your drawings or requirements and we’ll review them.</p>
+      </div>
+      <div class="cta-strip-right">
+        <a href="#hero-enquiry-form" class="cta-dark-btn scroll-to-form">
+          ENQUIRE ABOUT STEEL FABRICATION
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / PROCESS: Our Steel Fabrication Process (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-process" id="process">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">05 / PROCESS</span>
+      </div>
+
+      <h2 class="section-heading-white reveal">Our Steel Fabrication Process</h2>
+
+      <div class="process-phases-grid">
+        {processColumns.map((phase) => (
+          <div class="process-phase-col reveal">
+            <div class="phase-header-bar">
+              <h3 class="phase-name">{phase.phase}</h3>
+              <span class="phase-step-range">{phase.stepRange}</span>
+            </div>
+            <div class="phase-steps-list">
+              {phase.steps.map((st) => (
+                <div class="phase-step-item">
+                  <span class="phase-step-num">{st.num}</span>
+                  <div class="phase-step-body">
+                    <h4 class="phase-step-title">{st.title}</h4>
+                    <p class="phase-step-desc">{st.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 / STANDARDS: Built to Indian Standards (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-standards" id="standards">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">06 / STANDARDS</span>
+      </div>
+
+      <div class="standards-grid">
+        <div class="standards-left reveal">
+          <h2 class="standards-heading">Built to Indian Standards</h2>
+          <p class="standards-sub">
+            We follow the relevant Indian Standards for steel construction, including:
+          </p>
+        </div>
+
+        <div class="standards-right reveal">
+          <div class="standards-table">
+            {indianStandards.map((std) => (
+              <div class="standard-row">
+                <span class="standard-code">{std.code}</span>
+                <p class="standard-desc">{std.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 / COASTAL PROTECTION: Built for Mangalore’s Coastal Air (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-coastal" id="coastal-protection">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">07 / COASTAL PROTECTION</span>
+      </div>
+
+      <h2 class="section-heading-white reveal">Built for Mangalore’s Coastal Air</h2>
+      <p class="section-intro-white reveal">
+        Salt and humidity attack unprotected steel, so we plan corrosion protection from the start.
+      </p>
+
+      <div class="coastal-grid">
+        
+        <!-- Left: 5 Numbered Protection Points -->
+        <div class="coastal-left">
+          <div class="coastal-points-list">
+            {coastalProtectionPoints.map((pt) => (
+              <div class="coastal-point-item reveal">
+                <span class="coastal-point-num">{pt.num}</span>
+                <div class="coastal-point-content">
+                  <h3 class="coastal-point-title">{pt.title}</h3>
+                  <p class="coastal-point-desc">{pt.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Protection, Layer by Layer Diagram Card -->
+        <div class="coastal-right reveal">
+          <div class="layer-diagram-card">
+            <span class="layer-diagram-tag">PROTECTION, LAYER BY LAYER</span>
+            
+            <div class="layer-stack">
+              <!-- Top Layer: Paint Topcoat -->
+              <div class="layer-block layer-paint">
+                <span class="layer-name">Paint topcoat</span>
+                <span class="layer-badge">where needed</span>
+              </div>
+              
+              <!-- Middle Layer: Hot-dip Galvanising -->
+              <div class="layer-block layer-galvanising">
+                <span class="layer-name">Hot-dip galvanising</span>
+                <span class="layer-badge">exposed members</span>
+              </div>
+              
+              <!-- Base Layer: Properly Prepared Steel -->
+              <div class="layer-block layer-steel">
+                <span class="layer-name">Properly prepared steel</span>
+                <span class="layer-badge">surface preparation first</span>
+              </div>
+            </div>
+
+            <p class="layer-diagram-footnote">
+              Bolts, nuts and washers get the same level of protection.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 / SCHEDULE & 09 / QUALITY & One Team, Design to Erection (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-schedule-quality" id="schedule-quality">
+    <div class="container">
+      
+      <!-- Top Two Columns: Schedule & Quality -->
+      <div class="schedule-quality-grid">
+        
+        <!-- Column 1: 08 / SCHEDULE -->
+        <div class="schedule-col reveal">
+          <div class="section-tag">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">08 / SCHEDULE</span>
+          </div>
+
+          <h2 class="sub-heading-dark">How We Protect Your Schedule</h2>
+
+          <div class="schedule-list">
+            {schedulePoints.map((pt) => (
+              <div class="schedule-item">
+                <span class="schedule-num">{pt.num}</span>
+                <p class="schedule-text">{pt.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Column 2: 09 / QUALITY (Checkpoint Timeline) -->
+        <div class="quality-col reveal">
+          <div class="section-tag">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">09 / QUALITY</span>
+          </div>
+
+          <h2 class="sub-heading-dark">Quality Checks at Every Stage</h2>
+
+          <div class="checkpoint-timeline">
+            {qualityCheckpoints.map((cp) => (
+              <div class="checkpoint-item">
+                <div class="checkpoint-marker">
+                  <span class="checkpoint-dot"></span>
+                </div>
+                <div class="checkpoint-content">
+                  <span class="checkpoint-stage">{cp.stage}</span>
+                  <p class="checkpoint-text">{cp.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Banner: One Team, Design to Erection -->
+      <div class="one-team-banner reveal">
+        <div class="one-team-grid">
+          <div class="one-team-left">
+            <h2 class="one-team-heading">One Team, Design to Erection</h2>
+          </div>
+          <div class="one-team-right">
+            <p class="one-team-desc">
+              Our design-build service puts design, fabrication and erection under one contract. You get one point of contact, fewer handoffs and clearer responsibility.
+            </p>
+            <div class="one-team-pills">
+              <span class="team-pill">One contract</span>
+              <span class="team-pill">One point of contact</span>
+              <span class="team-pill">Fewer handoffs</span>
+              <span class="team-pill">Clearer responsibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10 / FAQS (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-faqs" id="faqs">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">10 / FAQS</span>
+      </div>
+
+      <div class="faqs-layout">
+        <div class="faqs-left reveal">
+          <h2 class="section-heading-white">FAQs</h2>
+          <p class="faqs-intro">
+            Straight answers to the questions owners and project managers ask us most.
+          </p>
+        </div>
+
+        <div class="faqs-right">
+          <div class="faqs-list">
+            {faqsList.map((faq) => (
+              <div class="faq-item reveal">
+                <span class="faq-num">{faq.num}</span>
+                <div class="faq-content">
+                  <h3 class="faq-question">{faq.q}</h3>
+                  <p class="faq-answer">{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Orange CTA Strip with Form (Touchpoint 4) -->
+  <section class="orange-closing-section" id="quote-form-section">
+    <div class="container">
+      <div class="closing-grid">
+        
+        <!-- Left: Headline, Direct Call -->
+        <div class="closing-left reveal">
+          <h2 class="closing-headline">
+            Planning a Steel Structure?
+          </h2>
+          <p class="closing-subtext">
+            Send us your drawings or requirements. We’ll review them and recommend the right approach.
+          </p>
+
+          <div class="direct-call-box">
+            <span class="direct-call-label">CALL OUR EXPERTS DIRECT</span>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="direct-call-phone">
+              {siteData.contact.phone}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Quote Request Form Card -->
+        <div class="closing-right reveal">
+          <div class="enquiry-card quote-card" id="closing-quote-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Request a Steel Fabrication Quote</h3>
+              <p class="enquiry-card-subtitle">Share a few details about your project.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="closing-quote" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Steel Structural Fabrication Quote Request (Closing Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Closing Quote Form - Steel Structural Fabrication" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-project-type">PROJECT TYPE</label>
+                <div class="select-wrapper">
+                  <select id="close-project-type" name="project_type" required>
+                    <option value="" disabled selected>Select project type</option>
+                    <option value="Industrial sheds & factory frames">Industrial sheds &amp; factory frames</option>
+                    <option value="Warehouses & storage buildings">Warehouses &amp; storage buildings</option>
+                    <option value="Roof trusses & long-span roofs">Roof trusses &amp; long-span roofs</option>
+                    <option value="Commercial building frames">Commercial building frames</option>
+                    <option value="Mezzanine floors, platforms & staircases">Mezzanine floors, platforms &amp; staircases</option>
+                    <option value="Extensions & strengthening">Extensions &amp; strengthening</option>
+                    <option value="Other steel structure">Other steel structure</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-requirements">TELL US ABOUT YOUR DRAWINGS OR REQUIREMENTS</label>
+                <textarea id="close-requirements" name="requirements" rows="3" placeholder="Describe your requirements, dimensions, tonnage or timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                REQUEST A STEEL FABRICATION QUOTE
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+  /* ==========================================================================
+     Color Tokens & Multi-Theme System (Light & Dark Mode)
+     ========================================================================== */
+  :global(:root),
+  :global([data-theme="light"]) {
+    --st-orange: #F0A500;
+    --st-orange-hover: #D99300;
+    --st-orange-dark: #C68200;
+
+    /* Charcoal / Dark Sections */
+    --st-charcoal: #14171A;
+    --st-charcoal-card: #1B1E22;
+    --st-charcoal-text: #FFFFFF;
+    --st-charcoal-subtext: rgba(255, 255, 255, 0.85);
+    --st-charcoal-muted: rgba(255, 255, 255, 0.65);
+    --st-charcoal-border: rgba(255, 255, 255, 0.14);
+
+    /* Paper / Light Sections */
+    --st-paper: #F6F3ED;
+    --st-paper-heading: #000000;
+    --st-paper-text: #111111;
+    --st-paper-muted: #333333;
+    --st-paper-border: rgba(0, 0, 0, 0.12);
+
+    /* Cards in Paper Sections */
+    --st-card-bg: #FFFFFF;
+    --st-card-border: rgba(0, 0, 0, 0.08);
+    --st-card-border-top: #14171A;
+    --st-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --st-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    /* Form Cards */
+    --st-form-card-bg: #FFFFFF;
+    --st-form-card-title: #000000;
+    --st-form-card-sub: #444444;
+    --st-form-card-label: #333333;
+    --st-form-input-bg: #F7F7F7;
+    --st-form-input-border: #D5D5D5;
+    --st-form-input-text: #000000;
+    --st-form-input-placeholder: #666666;
+    --st-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+    /* Job Stage Strip */
+    --st-job-card-bg: #FFFFFF;
+    --st-job-card-text: #000000;
+    --st-job-card-border: rgba(0, 0, 0, 0.1);
+    --st-job-highlight-bg: #14171A;
+    --st-job-highlight-text: #FFFFFF;
+
+    /* Fonts */
+    --st-font-heading: 'Archivo', var(--font-heading, sans-serif);
+    --st-font-body: 'Inter', var(--font-body, sans-serif);
+  }
+
+  /* Full Dark Mode Adaptation */
+  :global([data-theme="dark"]) {
+    --st-orange: #F0A500;
+    --st-orange-hover: #FFAF1A;
+    --st-orange-dark: #FFB733;
+
+    /* Charcoal / Dark Sections */
+    --st-charcoal: #0B0D10;
+    --st-charcoal-card: #15191D;
+    --st-charcoal-text: #FFFFFF;
+    --st-charcoal-subtext: rgba(255, 255, 255, 0.88);
+    --st-charcoal-muted: rgba(255, 255, 255, 0.7);
+    --st-charcoal-border: rgba(255, 255, 255, 0.12);
+
+    /* Paper Sections in Dark Mode */
+    --st-paper: #121519;
+    --st-paper-heading: #FFFFFF;
+    --st-paper-text: #E5E7EB;
+    --st-paper-muted: #CBD5E1;
+    --st-paper-border: rgba(255, 255, 255, 0.12);
+
+    /* Cards in Paper Sections (Dark) */
+    --st-card-bg: #1A1E24;
+    --st-card-border: rgba(255, 255, 255, 0.12);
+    --st-card-border-top: var(--st-orange);
+    --st-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    --st-card-shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.65);
+
+    /* Form Cards (Dark) */
+    --st-form-card-bg: #1A1E24;
+    --st-form-card-title: #FFFFFF;
+    --st-form-card-sub: #CBD5E1;
+    --st-form-card-label: #E5E7EB;
+    --st-form-input-bg: #101316;
+    --st-form-input-border: rgba(255, 255, 255, 0.18);
+    --st-form-input-text: #FFFFFF;
+    --st-form-input-placeholder: #888888;
+    --st-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+    /* Job Stage Strip (Dark) */
+    --st-job-card-bg: #1A1E24;
+    --st-job-card-text: #FFFFFF;
+    --st-job-card-border: rgba(255, 255, 255, 0.12);
+    --st-job-highlight-bg: #0B0D10;
+    --st-job-highlight-text: #FFFFFF;
+  }
+
+  /* Utility Top Bar */
+  .top-utility-bar {
+    background-color: #0A0C0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--st-font-body);
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .utility-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--st-orange);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  /* Common Section Styles */
+  .section-charcoal {
+    background-color: var(--st-charcoal);
+    color: var(--st-charcoal-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section-paper {
+    background-color: var(--st-paper);
+    color: var(--st-paper-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Section Tags */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--st-font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-charcoal .section-tag {
+    color: var(--st-orange);
+  }
+
+  .section-paper .section-tag {
+    color: var(--st-orange-dark);
+  }
+
+  .tag-diamond {
+    color: var(--st-orange);
+    font-size: 0.75rem;
+  }
+
+  /* Headings */
+  .section-heading-white {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading-dark {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 800;
+    color: var(--st-paper-heading);
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .sub-heading-dark {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--st-paper-heading);
+    line-height: 1.2;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .highlight-orange {
+    color: var(--st-orange);
+  }
+
+  /* HERO SECTION */
+  .steel-hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-blueprint-bg {
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: 65%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.45;
+    z-index: 0;
+  }
+
+  .blueprint-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-headline {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtext {
+    font-family: var(--st-font-body);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--st-charcoal-subtext);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cta-orange-btn {
+    background-color: var(--st-orange);
+    color: #000000;
+    font-family: var(--st-font-body);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-orange-btn:hover {
+    background-color: var(--st-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.35);
+  }
+
+  .cta-outline-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--st-font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--st-charcoal-border);
+    padding-top: 2rem;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-title {
+    font-family: var(--st-font-body);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-family: var(--st-font-body);
+    font-size: 0.85rem;
+    color: var(--st-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     Enquiry Card Component (Hero & Closing)
+     ========================================================================== */
+  .enquiry-card {
+    background-color: var(--st-form-card-bg);
+    border-radius: 4px;
+    padding: 2.25rem 2.25rem 2rem;
+    box-shadow: var(--st-form-card-shadow);
+    border-top: 5px solid var(--st-orange);
+    color: var(--st-form-card-title);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .enquiry-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiry-card-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--st-form-card-title);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-card-subtitle {
+    font-family: var(--st-font-body);
+    font-size: 0.9rem;
+    color: var(--st-form-card-sub);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--st-font-body);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--st-form-card-label);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    background-color: var(--st-form-input-bg);
+    border: 1px solid var(--st-form-input-border);
+    border-radius: 3px;
+    font-family: var(--st-font-body);
+    font-size: 0.92rem;
+    color: var(--st-form-input-text);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--st-form-input-placeholder);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--st-orange);
+    background-color: var(--st-form-input-bg);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: "▼";
+    font-size: 0.65rem;
+    color: var(--st-form-card-label);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .submit-orange-btn {
+    background-color: var(--st-orange);
+    color: #000000;
+    font-family: var(--st-font-body);
+    font-weight: 800;
+    font-size: 0.92rem;
+    padding: 1.05rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 100%;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+    min-height: 48px;
+  }
+
+  .submit-orange-btn:hover {
+    background-color: var(--st-orange-hover);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+  }
+
+  .enquiry-card-footer {
+    font-family: var(--st-font-body);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--st-form-card-sub);
+    margin-top: 0.5rem;
+  }
+
+  .enquiry-card-footer .phone-link {
+    color: var(--st-form-card-title);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* ==========================================================================
+     01 / OVERVIEW SECTION
+     ========================================================================== */
+  .section-overview {
+    border-bottom: 1px solid var(--st-paper-border);
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+  }
+
+  .overview-headline {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--st-paper-heading);
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .overview-body {
+    font-family: var(--st-font-body);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--st-paper-text);
+    transition: color 0.3s ease;
+  }
+
+  /* Six-Stage Job Strip */
+  .job-stages-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: var(--st-job-card-bg);
+    border: 1px solid var(--st-job-card-border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .job-stage-card {
+    padding: 1.75rem 1.25rem;
+    border-right: 1px solid var(--st-job-card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: var(--st-job-card-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .job-stage-card:last-child {
+    border-right: none;
+  }
+
+  .job-stage-highlight {
+    background-color: var(--st-job-highlight-bg) !important;
+  }
+
+  .job-stage-num {
+    font-family: var(--st-font-body);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--st-orange);
+  }
+
+  .job-stage-name {
+    font-family: var(--st-font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--st-job-card-text);
+    transition: color 0.3s ease;
+  }
+
+  .job-stage-highlight .job-stage-name {
+    color: #FFFFFF !important;
+  }
+
+  /* ==========================================================================
+     02 / SCOPE: WHAT WE FABRICATE
+     ========================================================================== */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .scope-card {
+    background-color: var(--st-card-bg);
+    border: 1px solid var(--st-card-border);
+    border-top: 4px solid var(--st-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--st-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .scope-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--st-card-shadow-hover);
+  }
+
+  .scope-num {
+    font-family: var(--st-font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--st-orange);
+  }
+
+  .scope-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--st-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .scope-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--st-paper-muted);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     03 / WHO THIS IS FOR
+     ========================================================================== */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+
+  .audience-col {
+    border-top: 2px solid var(--st-orange);
+    padding-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .audience-num {
+    font-family: var(--st-font-body);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--st-orange);
+  }
+
+  .audience-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+  }
+
+  .audience-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--st-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     04 / WHY BUILD IN STEEL & HONEST ADVICE
+     ========================================================================== */
+  .why-steel-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  .benefits-row-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--st-paper-heading);
+    transition: border-color 0.3s ease;
+  }
+
+  .benefit-row-item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--st-paper-border);
+    transition: border-color 0.3s ease;
+  }
+
+  .benefit-row-num {
+    font-family: var(--st-font-heading);
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: var(--st-orange);
+  }
+
+  .benefit-row-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--st-paper-heading);
+    margin-bottom: 0.35rem;
+    transition: color 0.3s ease;
+  }
+
+  .benefit-row-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--st-paper-muted);
+    transition: color 0.3s ease;
+  }
+
+  .honest-advice-card {
+    background-color: var(--st-charcoal);
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    border-left: 5px solid var(--st-orange);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .honest-advice-tag {
+    display: inline-block;
+    font-family: var(--st-font-body);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--st-orange);
+    margin-bottom: 1.25rem;
+  }
+
+  .honest-advice-heading {
+    font-family: var(--st-font-heading);
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .honest-advice-body {
+    font-family: var(--st-font-body);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--st-charcoal-subtext);
+  }
+
+  /* ==========================================================================
+     ORANGE CTA STRIP (Touchpoint 3)
+     ========================================================================== */
+  .orange-cta-strip {
+    background-color: var(--st-orange);
+    color: #000000;
+    padding: 3.5rem 0;
+  }
+
+  .cta-strip-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cta-strip-heading {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.25rem);
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-strip-sub {
+    font-family: var(--st-font-body);
+    font-size: 1.05rem;
+    color: #1A1A1A;
+  }
+
+  .cta-dark-btn {
+    background-color: #14171A;
+    color: #FFFFFF;
+    font-family: var(--st-font-body);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 1.15rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ==========================================================================
+     05 / PROCESS: OUR STEEL FABRICATION PROCESS
+     ========================================================================== */
+  .process-phases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .process-phase-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phase-header-bar {
+    border-bottom: 2px solid var(--st-charcoal-border);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .phase-name {
+    font-family: var(--st-font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .phase-step-range {
+    font-family: var(--st-font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--st-orange);
+  }
+
+  .phase-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .phase-step-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .phase-step-num {
+    font-family: var(--st-font-body);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--st-orange);
+  }
+
+  .phase-step-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+  }
+
+  .phase-step-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--st-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     06 / STANDARDS: BUILT TO INDIAN STANDARDS
+     ========================================================================== */
+  .standards-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .standards-heading {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 900;
+    color: var(--st-paper-heading);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .standards-sub {
+    font-family: var(--st-font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--st-paper-muted);
+    transition: color 0.3s ease;
+  }
+
+  .standards-table {
+    border-top: 2px solid var(--st-paper-heading);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+  }
+
+  .standard-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 2rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--st-paper-border);
+    align-items: baseline;
+    transition: border-color 0.3s ease;
+  }
+
+  .standard-code {
+    font-family: var(--st-font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--st-orange-dark);
+  }
+
+  .standard-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--st-paper-text);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     07 / COASTAL PROTECTION
+     ========================================================================== */
+  .section-intro-white {
+    font-family: var(--st-font-body);
+    font-size: 1.15rem;
+    color: var(--st-charcoal-subtext);
+    max-width: 750px;
+    margin-bottom: 3.5rem;
+  }
+
+  .coastal-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .coastal-points-list {
+    border-top: 1px solid var(--st-charcoal-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coastal-point-item {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--st-charcoal-border);
+  }
+
+  .coastal-point-num {
+    font-family: var(--st-font-heading);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--st-orange);
+  }
+
+  .coastal-point-title {
+    font-family: var(--st-font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 0.35rem;
+  }
+
+  .coastal-point-desc {
+    font-family: var(--st-font-body);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--st-charcoal-muted);
+  }
+
+  /* Protection Layer Diagram Card */
+  .layer-diagram-card {
+    background-color: var(--st-charcoal-card);
+    border: 1px solid var(--st-charcoal-border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .layer-diagram-tag {
+    display: inline-block;
+    font-family: var(--st-font-body);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--st-orange);
+    margin-bottom: 2rem;
+  }
+
+  .layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .layer-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-radius: 3px;
+    font-family: var(--st-font-heading);
+    font-weight: 700;
+  }
+
+  .layer-paint {
+    background-color: var(--st-orange);
+    color: #000000;
+  }
+
+  .layer-galvanising {
+    background-color: #D1D5DB;
+    color: #111827;
+  }
+
+  .layer-steel {
+    background-color: #374151;
+    color: #FFFFFF;
+  }
+
+  .layer-name {
+    font-size: 1.05rem;
+  }
+
+  .layer-badge {
+    font-family: var(--st-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  .layer-diagram-footnote {
+    font-family: var(--st-font-body);
+    font-size: 0.85rem;
+    color: var(--st-charcoal-muted);
+    line-height: 1.5;
+  }
+
+  /* ==========================================================================
+     08 / SCHEDULE & 09 / QUALITY SECTION
+     ========================================================================== */
+  .schedule-quality-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .schedule-list {
+    border-top: 2px solid var(--st-paper-heading);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+  }
+
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1.25rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--st-paper-border);
+    align-items: baseline;
+    transition: border-color 0.3s ease;
+  }
+
+  .schedule-num {
+    font-family: var(--st-font-heading);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--st-orange-dark);
+  }
+
+  .schedule-text {
+    font-family: var(--st-font-body);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--st-paper-text);
+    transition: color 0.3s ease;
+  }
+
+  /* Checkpoint Timeline */
+  .checkpoint-timeline {
+    position: relative;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .checkpoint-timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: var(--st-orange);
+  }
+
+  .checkpoint-item {
+    position: relative;
+  }
+
+  .checkpoint-marker {
+    position: absolute;
+    left: -2rem;
+    top: 4px;
+  }
+
+  .checkpoint-dot {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--st-orange);
+    border: 3px solid var(--st-paper);
+    box-shadow: 0 0 0 2px var(--st-orange);
+    transition: border-color 0.3s ease;
+  }
+
+  .checkpoint-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .checkpoint-stage {
+    font-family: var(--st-font-body);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--st-orange-dark);
+    text-transform: uppercase;
+  }
+
+  .checkpoint-text {
+    font-family: var(--st-font-body);
+    font-size: 1rem;
+    color: var(--st-paper-text);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  /* One Team, Design to Erection Banner */
+  .one-team-banner {
+    border-top: 2px solid var(--st-paper-heading);
+    padding-top: 4rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .one-team-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .one-team-heading {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+    font-weight: 900;
+    color: var(--st-paper-heading);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .one-team-desc {
+    font-family: var(--st-font-body);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--st-paper-text);
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .one-team-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .team-pill {
+    background-color: var(--st-card-bg);
+    border: 1px solid var(--st-card-border);
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-family: var(--st-font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--st-paper-heading);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     10 / FAQS SECTION
+     ========================================================================== */
+  .faqs-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .faqs-intro {
+    font-family: var(--st-font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--st-charcoal-subtext);
+  }
+
+  .faqs-list {
+    border-top: 1px solid var(--st-charcoal-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--st-charcoal-border);
+  }
+
+  .faq-num {
+    font-family: var(--st-font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--st-orange);
+  }
+
+  .faq-question {
+    font-family: var(--st-font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin-bottom: 0.65rem;
+  }
+
+  .faq-answer {
+    font-family: var(--st-font-body);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--st-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     CLOSING ORANGE SECTION WITH FORM (Touchpoint 4)
+     ========================================================================== */
+  .orange-closing-section {
+    background-color: var(--st-orange);
+    color: #000000;
+    padding: 6rem 0;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .closing-headline {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .closing-subtext {
+    font-family: var(--st-font-body);
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: #1A1A1A;
+    margin-bottom: 3rem;
+    max-width: 500px;
+  }
+
+  .direct-call-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .direct-call-label {
+    font-family: var(--st-font-body);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  .direct-call-phone {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 900;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-call-phone:hover {
+    opacity: 0.85;
+  }
+
+  /* Quote Card Specific Adjustments in Closing */
+  .quote-card {
+    border-top: 5px solid #000000;
+  }
+
+  /* Form Responses */
+  .form-response {
+    padding: 0;
+    margin-top: 0;
+    font-size: 0.9rem;
+    font-family: var(--st-font-body);
+    border-radius: 4px;
+    display: none;
+  }
+
+  .form-response.success {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #E6F7EC;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+  }
+
+  .form-response.error {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #FCE8E6;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+  }
+
+  /* Pulse animation on smooth-scroll target */
+  .pulse-highlight {
+    animation: pulseBorder 1.2s ease-out;
+  }
+
+  @keyframes pulseBorder {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 165, 0, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgba(240, 165, 0, 0);
+    }
+    100% {
+      box-shadow: var(--st-form-card-shadow);
+    }
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS (Desktop, Tablet, Mobile)
+     ========================================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .overview-grid,
+    .why-steel-grid,
+    .standards-grid,
+    .coastal-grid,
+    .schedule-quality-grid,
+    .one-team-grid,
+    .faqs-layout,
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .audience-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .process-phases-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .job-stages-strip {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .job-stage-card:nth-child(3) {
+      border-right: none;
+    }
+
+    .job-stage-card:nth-child(1),
+    .job-stage-card:nth-child(2),
+    .job-stage-card:nth-child(3) {
+      border-bottom: 1px solid var(--st-job-card-border);
+    }
+
+    .hero-blueprint-bg {
+      width: 90%;
+      opacity: 0.25;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 4.5rem 0;
+    }
+
+    .steel-hero {
+      padding-top: 3.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .cta-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .cta-strip-right {
+      width: 100%;
+    }
+
+    .cta-strip-right .cta-dark-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-ctas a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .standard-row {
+      grid-template-columns: 7rem 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 3.5rem 0;
+    }
+
+    .scope-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .audience-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .job-stages-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .job-stage-card:nth-child(even) {
+      border-right: none;
+    }
+
+    .job-stage-card:nth-child(odd) {
+      border-right: 1px solid var(--st-job-card-border);
+    }
+
+    .job-stage-card:nth-child(1),
+    .job-stage-card:nth-child(2),
+    .job-stage-card:nth-child(3),
+    .job-stage-card:nth-child(4) {
+      border-bottom: 1px solid var(--st-job-card-border);
+    }
+
+    .hero-proof-stats {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+
+    .standard-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      padding: 1.15rem 0;
+    }
+
+    .enquiry-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .benefit-row-item,
+    .coastal-point-item,
+    .faq-item {
+      grid-template-columns: 2.25rem 1fr;
+      gap: 1rem;
+      padding: 1.4rem 0;
+    }
+
+    .schedule-item {
+      grid-template-columns: 2rem 1fr;
+      gap: 1rem;
+    }
+
+    .one-team-banner {
+      padding-top: 3rem;
+    }
+
+    .layer-diagram-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .layer-block {
+      padding: 1rem 1.15rem;
+    }
+
+    .honest-advice-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .job-stages-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .job-stage-card {
+      border-right: none !important;
+      border-bottom: 1px solid var(--st-job-card-border) !important;
+    }
+
+    .job-stage-card:last-child {
+      border-bottom: none !important;
+    }
+
+    .enquiry-card {
+      padding: 1.25rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for CTAs targeting the enquiry form
+    const scrollLinks = document.querySelectorAll('.scroll-to-form');
+    const heroCard = document.getElementById('hero-enquiry-form');
+
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = heroCard || document.querySelector('.enquiry-card');
+        if (targetElement) {
+          const headerOffset = 100;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Pulse animation on the card
+          targetElement.classList.remove('pulse-highlight');
+          void targetElement.offsetWidth; // trigger reflow
+          targetElement.classList.add('pulse-highlight');
+
+          // Focus first input
+          const firstInput = targetElement.querySelector('input');
+          if (firstInput) {
+            setTimeout(() => firstInput.focus(), 450);
+          }
+        }
+      });
+    });
+
+    // Form submission handling for both enquiry and quote forms
+    const forms = document.querySelectorAll('.site-form');
+    forms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const f = e.target as HTMLFormElement;
+        const responseBox = f.querySelector('.form-response') as HTMLElement;
+        const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalBtnText = submitBtn ? submitBtn.textContent : 'SEND ENQUIRY';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+        if (responseBox) {
+          responseBox.className = 'form-response';
+          responseBox.textContent = '';
+        }
+
+        const formData = new FormData(f);
+        const data: Record<string, any> = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/enquires.wrnxt@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            if (responseBox) {
+              responseBox.className = 'form-response success';
+              responseBox.textContent = 'Thank you! Your steel fabrication enquiry has been received. Our engineers will get back to you shortly.';
+            }
+            if (submitBtn) {
+              submitBtn.textContent = 'ENQUIRY SENT ✓';
+            }
+            f.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          if (responseBox) {
+            responseBox.className = 'form-response error';
+            responseBox.textContent = 'There was an issue sending your enquiry. Please try again or call +91 9880138027 directly.';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        }
+      });
+    });
+  });
+</script>
+
