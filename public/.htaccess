@@ -32,3 +32,9 @@ DirectoryIndex index.html
 # Prevent directory listings
 Options -Indexes
 
+# X-Robots-Tag HTTP header for search engines
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "index, follow"
+</IfModule>
+
+

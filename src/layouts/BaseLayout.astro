@@ -10,9 +10,15 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string;
+  robots?: string;
 }
 
-const { title = siteData.name, description = siteData.description, keywords } = Astro.props;
+const { 
+  title = siteData.name, 
+  description = siteData.description, 
+  keywords,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
 const pageTitle = title === siteData.name || title.includes(siteData.name) ? title : `${title} | ${siteData.name}`;
 ---
@@ -51,11 +57,16 @@ const pageTitle = title === siteData.name || title.includes(siteData.name) ? tit
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
+    <meta name="author" content={siteData.name} />
+    <meta name="publisher" content={siteData.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content="/images/srilakshmiconstructionlogo-1.png" />
+    <meta property="og:site_name" content={siteData.name} />
     <link rel="canonical" href={canonicalURL} />
   </head>
   <body>
