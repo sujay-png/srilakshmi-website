@@ -7,9 +7,12 @@ import Certifications from '../components/about/Certifications.astro';
 import FounderSection from '../components/about/FounderSection.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
 import { siteData } from '../data/site';
+
+const seoTitle = "Home renovation and remodeling contractors in Mangalore";
+const seoDescription = "Delivering world-class engineering, construction, and remodeling services across Mangalore, Udupi, and surrounding areas | srilakshmi constructions";
 ---
 
-<BaseLayout title="About Us">
+<BaseLayout title={seoTitle} description={seoDescription}>
   <PageHero
     eyebrow="About Sri Lakshmi Construction"
     title="<span style='font-size: 1.15em; line-height: 1;'>21</span> Years of Experience.<br/>Built on Trust. Driven by Possibility."
