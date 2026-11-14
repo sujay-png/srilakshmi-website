@@ -5,16 +5,20 @@ import PageHero from '../../components/global/PageHero.astro';
 // Fetch posts
 let posts: any[] = [];
 try {
-  const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed');
+  const res = await fetch('https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?_embed&per_page=100');
   if (res.ok) {
     posts = await res.json();
   }
 } catch (e) {
   console.warn('Failed to fetch blog posts:', e);
 }
+
+const seoTitle = "Construction Insights & Updates | Sri Lakshmi Construction Blog";
+const seoDescription = "Read the latest construction insights, civil engineering best practices, material selection guides, and commercial building advice from Sri Lakshmi Construction Mangalore.";
+const seoKeywords = "construction blog, civil engineering articles, construction companies in Mangalore, Sri Lakshmi Construction";
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title={seoTitle} description={seoDescription} keywords={seoKeywords}>
   <PageHero
     eyebrow="Insights & Updates"
     title="Our Latest Blog Posts"
