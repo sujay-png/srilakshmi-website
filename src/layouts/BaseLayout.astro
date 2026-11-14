@@ -22,7 +22,7 @@ const {
   image = "/images/srilakshmiconstructionlogo-1.png"
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
-const pageTitle = title === siteData.name || title.includes(siteData.name) ? title : `${title} | ${siteData.name}`;
+const pageTitle = title === siteData.name || title.includes(siteData.name) || title.toLowerCase().includes('sri lakshmi') ? title : `${title} | ${siteData.name}`;
 const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site || Astro.url).toString();
 ---
 

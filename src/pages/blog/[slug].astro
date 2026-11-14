@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/global/PageHero.astro';
+import { getBlogKeywords } from '../../data/blogKeywords';
 
 export async function getStaticPaths() {
   let posts: any[] = [];
@@ -23,15 +24,41 @@ interface Props {
   post: any;
 }
 
-const { post } = Astro.props;
+let { post } = Astro.props;
+const { slug } = Astro.params;
+
+// Fallback fetch if post prop is missing in dev mode or direct request
+if (!post && slug) {
+  try {
+    const res = await fetch(`https://dashboard.srilakshmiconstruction.com/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+    if (res.ok) {
+      const matched = await res.json();
+      if (Array.isArray(matched) && matched.length > 0) {
+        post = matched[0];
+      }
+    }
+  } catch (e) {
+    console.warn('Failed fallback fetch for post:', e);
+  }
+}
+
+if (!post) {
+  throw new Error(`Blog post not found for slug: ${slug}`);
+}
+
 const yoast = post.yoast_head_json || {};
 const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || yoast.og_image?.[0]?.url || "/images/ASHOKA-PARADISE.jpg";
-const plainTitle = post.title.rendered
+let plainTitle = (post.title?.rendered || '')
   .replace(/<[^>]*>?/gm, '')
   .replace(/&#8211;/g, '–')
   .replace(/&#8217;/g, "'")
   .replace(/&amp;/g, '&')
   .trim();
+
+// Clean up copy artifact if present in WordPress title
+if (plainTitle.includes('Copy') && yoast.title) {
+  plainTitle = yoast.title.split('|')[0].split('–')[0].split('-')[0].trim();
+}
 
 // Clean SEO Title
 const seoTitle = yoast.title || plainTitle;
@@ -44,15 +71,9 @@ const cleanExcerpt = (post.excerpt?.rendered || '')
   .trim();
 const seoDescription = yoast.description || cleanExcerpt || `${plainTitle} - Expert construction insights by Sri Lakshmi Construction Mangalore.`;
 
-// Keywords from WordPress Tags or Categories, plus location keywords
-const tags = (post._embedded?.['wp:term']?.[1] || []).map((t: any) => t.name);
-const categories = (post._embedded?.['wp:term']?.[0] || []).map((c: any) => c.name).filter((c: string) => c.toLowerCase() !== 'uncategorized');
-
-const seoKeywords = tags.length > 0 
-  ? tags.join(', ')
-  : categories.length > 0
-    ? `${categories.join(', ')}, ${plainTitle}, Construction companies in Mangalore`
-    : `${plainTitle}, Construction companies in Mangalore, Sri Lakshmi Construction`;
+// Targeted SEO Keywords
+const currentSlug = (slug || post.slug || '').toString();
+const seoKeywords = getBlogKeywords(currentSlug, post);
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription} keywords={seoKeywords} image={featuredImage}>
