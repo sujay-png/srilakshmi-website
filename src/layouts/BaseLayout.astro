@@ -9,10 +9,12 @@ import { siteData } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
 }
 
-const { title = siteData.name, description = siteData.description } = Astro.props;
+const { title = siteData.name, description = siteData.description, keywords } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+const pageTitle = title === siteData.name || title.includes(siteData.name) ? title : `${title} | ${siteData.name}`;
 ---
 
 <!DOCTYPE html>
@@ -46,9 +48,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO -->
-    <title>{title === siteData.name ? title : `${title} | ${siteData.name}`}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />

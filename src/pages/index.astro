@@ -8,10 +8,13 @@ import ProjectShowcase from '../components/home/ProjectShowcase.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import Clients from '../components/home/Clients.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
-import { siteData } from '../data/site';
+
+const seoTitle = "Sri Lakshmi Construction | construction company in Mangalore";
+const seoDescription = "Trusted construction company in Mangalore & Udupi since 2012. Specialists in turnkey commercial complexes, custom homes, and VDF flooring.";
+const seoKeywords = "Construction companies in Mangalore";
 ---
 
-<BaseLayout title={siteData.name} description={siteData.description}>
+<BaseLayout title={seoTitle} description={seoDescription} keywords={seoKeywords}>
   <Hero />
   <IntroStatement />
   <Stats />
