@@ -31,11 +31,22 @@ import { siteData } from '../../data/site';
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About Us</a></li>
-          <li><a href="/services/">Our Services</a></li>
           <li><a href="/projects/">Selected Works</a></li>
           <li><a href="/experience/">Experience</a></li>
           <li><a href="/responsibility/">Giving Back &amp; Safety</a></li>
           <li><a href="/career/">Careers</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col services-col">
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="/services/commercial-building-contractor-mangalore/">Commercial Building Construction</a></li>
+          <li><a href="/services/industrial-building-contractor-mangalore/">Industrial Building Construction</a></li>
+          <li><a href="/services/commercial-remodelling-contractors-mangalore/">Commercial Remodelling</a></li>
+          <li><a href="/services/steel-structural-fabrication-mangalore/">Steel Structural Fabrication</a></li>
+          <li><a href="/services/">All Services</a></li>
         </ul>
       </div>
       
@@ -104,10 +115,17 @@ import { siteData } from '../../data/site';
     margin-bottom: 4rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) and (max-width: 1023px) {
     .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3.5rem 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 0.9fr 1.3fr 1.1fr;
+      gap: 3.5rem;
     }
   }
 
