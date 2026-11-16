@@ -1,34 +1,27 @@
 # Hostinger LiteSpeed / Apache Configuration for Static Astro Site
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-
-  # Redirect HTTP to HTTPS (optional, standard for Hostinger)
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-  # If requested path exists as a directory, let Apache/LiteSpeed look for index.html
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^ - [L]
-
-  # If requested path exists as a file, serve it directly
-  RewriteCond %{REQUEST_FILENAME} -f
-  RewriteRule ^ - [L]
-
-  # Check if path with /index.html exists
-  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-  RewriteRule ^(.*)/?$ $1/index.html [L]
-
-  # Check if path with .html exists
-  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.*)$ $1.html [L]
-</IfModule>
-
-# Enable directory index to serve index.html by default
+# Set default index file to load
 DirectoryIndex index.html
 
 # Prevent directory listings
 Options -Indexes
 
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # If requested path is a real file or directory, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # If URL doesn't have a trailing slash and isn't a file, redirect to trailing slash
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(.[a-zA-Z0-9]{1,5})$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # Fallback: check if subfolder/index.html exists
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+</IfModule>

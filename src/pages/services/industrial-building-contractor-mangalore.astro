@@ -601,10 +601,9 @@ const essentialElementsList = [
 </BaseLayout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
-
   /* ==========================================================================
      Color Tokens & Multi-Theme System (Light & Dark Mode)
+     Consistent with Site Standard Typography: Syne (Heading) & DM Sans (Body)
      ========================================================================== */
   :global(:root),
   :global([data-theme="light"]) {
@@ -645,9 +644,9 @@ const essentialElementsList = [
     --ind-form-input-placeholder: #666666;
     --ind-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 
-    /* Fonts */
-    --ind-font-heading: 'Archivo', var(--font-heading, sans-serif);
-    --ind-font-body: 'Inter', var(--font-body, sans-serif);
+    /* Fonts - Synchronized with commercial-remodelling & site global */
+    --ind-font-heading: var(--font-heading);
+    --ind-font-body: var(--font-body);
   }
 
   /* Full Dark Mode Adaptation */
@@ -758,9 +757,9 @@ const essentialElementsList = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--ind-font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-family: var(--ind-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -782,21 +781,21 @@ const essentialElementsList = [
   /* Headings */
   .section-heading-white {
     font-family: var(--ind-font-heading);
-    font-size: clamp(2rem, 4.2vw, 2.75rem);
-    font-weight: 800;
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
     color: #FFFFFF;
-    line-height: 1.15;
-    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
 
   .section-heading-dark {
     font-family: var(--ind-font-heading);
-    font-size: clamp(2rem, 4.2vw, 2.75rem);
-    font-weight: 800;
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
     color: var(--ind-paper-heading);
-    line-height: 1.15;
-    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
   }
@@ -855,18 +854,18 @@ const essentialElementsList = [
 
   .hero-headline {
     font-family: var(--ind-font-heading);
-    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
-    font-weight: 900;
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
     color: #FFFFFF;
-    line-height: 1.1;
+    line-height: 1.28;
     margin-bottom: 1.75rem;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
   }
 
   .hero-subtext {
     font-family: var(--ind-font-body);
-    font-size: clamp(1rem, 1.8vw, 1.15rem);
-    line-height: 1.65;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
     color: var(--ind-charcoal-subtext);
     margin-bottom: 2.5rem;
     max-width: 600px;
@@ -882,9 +881,9 @@ const essentialElementsList = [
   .cta-orange-btn {
     background-color: var(--ind-orange);
     color: #000000;
-    font-family: var(--ind-font-body);
-    font-weight: 800;
-    font-size: 0.95rem;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.1rem 2rem;
     border-radius: 4px;
     text-decoration: none;
@@ -908,12 +907,14 @@ const essentialElementsList = [
   .cta-outline-btn {
     background-color: transparent;
     color: #FFFFFF;
-    font-family: var(--ind-font-body);
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.1rem 2rem;
     border-radius: 4px;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     border: 1px solid rgba(255, 255, 255, 0.35);
     display: inline-flex;
     align-items: center;
@@ -942,9 +943,9 @@ const essentialElementsList = [
   }
 
   .proof-title {
-    font-family: var(--ind-font-body);
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
     color: #FFFFFF;
     line-height: 1.3;
   }
@@ -974,11 +975,11 @@ const essentialElementsList = [
 
   .enquiry-card-title {
     font-family: var(--ind-font-heading);
-    font-size: 1.65rem;
-    font-weight: 800;
+    font-size: 1.55rem;
+    font-weight: 500;
     color: var(--ind-form-card-title);
     margin-bottom: 0.5rem;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
   }
@@ -1010,10 +1011,10 @@ const essentialElementsList = [
   }
 
   .form-field label {
-    font-family: var(--ind-font-body);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+    font-family: var(--ind-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     color: var(--ind-form-card-label);
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -1071,9 +1072,9 @@ const essentialElementsList = [
   .submit-orange-btn {
     background-color: var(--ind-orange);
     color: #000000;
-    font-family: var(--ind-font-body);
-    font-weight: 800;
-    font-size: 0.92rem;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.05rem;
     border-radius: 3px;
     border: none;
@@ -1101,7 +1102,7 @@ const essentialElementsList = [
 
   .enquiry-card-footer .phone-link {
     color: var(--ind-form-card-title);
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: underline;
   }
 
@@ -1119,7 +1120,7 @@ const essentialElementsList = [
   .overview-big-headline {
     font-family: var(--ind-font-heading);
     font-size: clamp(1.85rem, 3.8vw, 2.5rem);
-    font-weight: 800;
+    font-weight: 500;
     color: var(--ind-paper-heading);
     line-height: 1.25;
     letter-spacing: -0.02em;
@@ -1146,7 +1147,7 @@ const essentialElementsList = [
   .years-big-num {
     font-family: var(--ind-font-heading);
     font-size: clamp(3.5rem, 7vw, 5.5rem);
-    font-weight: 900;
+    font-weight: 600;
     color: var(--ind-orange);
     line-height: 1;
     letter-spacing: -0.03em;
@@ -1155,7 +1156,7 @@ const essentialElementsList = [
   .years-label {
     font-family: var(--ind-font-heading);
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--ind-paper-heading);
     transition: color 0.3s ease;
   }
@@ -1207,14 +1208,14 @@ const essentialElementsList = [
   .credential-num {
     font-family: var(--ind-font-heading);
     font-size: 1.75rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--ind-orange);
   }
 
   .credential-title {
     font-family: var(--ind-font-heading);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--ind-paper-heading);
     line-height: 1.25;
     transition: color 0.3s ease;
@@ -1258,14 +1259,14 @@ const essentialElementsList = [
   .capability-num {
     font-family: var(--ind-font-heading);
     font-size: 1.6rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--ind-orange);
   }
 
   .capability-title {
     font-family: var(--ind-font-heading);
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.25;
   }
@@ -1332,9 +1333,9 @@ const essentialElementsList = [
   }
 
   .related-tag {
-    font-family: var(--ind-font-body);
+    font-family: var(--ind-font-heading);
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--ind-orange);
     text-transform: uppercase;
@@ -1343,14 +1344,14 @@ const essentialElementsList = [
   .related-title {
     font-family: var(--ind-font-heading);
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
   }
 
   .related-arrow {
     font-size: 1.75rem;
     color: var(--ind-orange);
-    font-weight: 800;
+    font-weight: 600;
     transition: transform 0.2s ease;
   }
 
@@ -1378,7 +1379,7 @@ const essentialElementsList = [
   .cta-strip-heading {
     font-family: var(--ind-font-heading);
     font-size: clamp(1.85rem, 3.5vw, 2.25rem);
-    font-weight: 900;
+    font-weight: 500;
     color: #000000;
     line-height: 1.2;
     margin-bottom: 0.4rem;
@@ -1394,9 +1395,9 @@ const essentialElementsList = [
   .cta-dark-btn {
     background-color: #14171A;
     color: #FFFFFF;
-    font-family: var(--ind-font-body);
-    font-weight: 800;
-    font-size: 0.95rem;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.15rem 2.25rem;
     border-radius: 4px;
     text-decoration: none;
@@ -1445,14 +1446,14 @@ const essentialElementsList = [
   .coastal-num {
     font-family: var(--ind-font-heading);
     font-size: 1.75rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--ind-orange);
   }
 
   .coastal-title {
     font-family: var(--ind-font-heading);
     font-size: 1.4rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--ind-paper-heading);
     line-height: 1.25;
     transition: color 0.3s ease;
@@ -1513,7 +1514,7 @@ const essentialElementsList = [
     justify-content: center;
     font-family: var(--ind-font-heading);
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .node-highlight .node-circle {
@@ -1526,7 +1527,7 @@ const essentialElementsList = [
   .node-title {
     font-family: var(--ind-font-heading);
     font-size: 0.88rem;
-    font-weight: 700;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.3;
   }
@@ -1561,7 +1562,7 @@ const essentialElementsList = [
     color: #000000;
     font-family: var(--ind-font-heading);
     font-size: 1rem;
-    font-weight: 900;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1570,7 +1571,7 @@ const essentialElementsList = [
   .stage-title {
     font-family: var(--ind-font-heading);
     font-size: 1.15rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.3;
   }
@@ -1612,14 +1613,14 @@ const essentialElementsList = [
   .essential-num {
     font-family: var(--ind-font-heading);
     font-size: 1.75rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--ind-orange);
   }
 
   .essential-title {
     font-family: var(--ind-font-heading);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--ind-paper-heading);
     line-height: 1.25;
     transition: color 0.3s ease;
@@ -1651,9 +1652,9 @@ const essentialElementsList = [
   .closing-statement-heading {
     font-family: var(--ind-font-heading);
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 900;
+    font-weight: 500;
     color: #FFFFFF;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.02em;
   }
 
@@ -1687,9 +1688,9 @@ const essentialElementsList = [
   .closing-headline {
     font-family: var(--ind-font-heading);
     font-size: clamp(2.35rem, 5.2vw, 3.5rem);
-    font-weight: 900;
+    font-weight: 500;
     color: #000000;
-    line-height: 1.15;
+    line-height: 1.2;
     margin-bottom: 2.5rem;
     letter-spacing: -0.02em;
   }
@@ -1702,9 +1703,9 @@ const essentialElementsList = [
   }
 
   .direct-call-label {
-    font-family: var(--ind-font-body);
-    font-size: 0.82rem;
-    font-weight: 800;
+    font-family: var(--ind-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
     color: #000000;
     text-transform: uppercase;
@@ -1713,7 +1714,7 @@ const essentialElementsList = [
   .direct-call-phone {
     font-family: var(--ind-font-heading);
     font-size: clamp(2rem, 4.5vw, 2.75rem);
-    font-weight: 900;
+    font-weight: 600;
     color: #000000;
     text-decoration: none;
     letter-spacing: -0.02em;

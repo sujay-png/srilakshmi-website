@@ -926,10 +926,9 @@ const faqsList = [
 </BaseLayout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
-
   /* ==========================================================================
      Color Tokens & Multi-Theme System (Light & Dark Mode)
+     Consistent with Site Standard Typography: Syne (Heading) & DM Sans (Body)
      ========================================================================== */
   :global(:root),
   :global([data-theme="light"]) {
@@ -977,9 +976,9 @@ const faqsList = [
     --st-job-highlight-bg: #14171A;
     --st-job-highlight-text: #FFFFFF;
 
-    /* Fonts */
-    --st-font-heading: 'Archivo', var(--font-heading, sans-serif);
-    --st-font-body: 'Inter', var(--font-body, sans-serif);
+    /* Fonts - Synchronized with commercial-remodelling & site global */
+    --st-font-heading: var(--font-heading);
+    --st-font-body: var(--font-body);
   }
 
   /* Full Dark Mode Adaptation */
@@ -1097,9 +1096,9 @@ const faqsList = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--st-font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-family: var(--st-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -1121,32 +1120,32 @@ const faqsList = [
   /* Headings */
   .section-heading-white {
     font-family: var(--st-font-heading);
-    font-size: clamp(2rem, 4.2vw, 2.75rem);
-    font-weight: 800;
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
     color: #FFFFFF;
-    line-height: 1.15;
-    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
 
   .section-heading-dark {
     font-family: var(--st-font-heading);
-    font-size: clamp(2rem, 4.2vw, 2.75rem);
-    font-weight: 800;
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
     color: var(--st-paper-heading);
-    line-height: 1.15;
-    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
   }
 
   .sub-heading-dark {
     font-family: var(--st-font-heading);
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    font-weight: 800;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 500;
     color: var(--st-paper-heading);
-    line-height: 1.2;
-    margin-bottom: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
   }
@@ -1193,18 +1192,20 @@ const faqsList = [
 
   .hero-headline {
     font-family: var(--st-font-heading);
-    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
-    font-weight: 900;
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
     color: #FFFFFF;
-    line-height: 1.1;
+    line-height: 1.28;
     margin-bottom: 1.75rem;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
+    padding-bottom: 0.12em;
+    overflow: visible;
   }
 
   .hero-subtext {
     font-family: var(--st-font-body);
-    font-size: clamp(1rem, 1.8vw, 1.15rem);
-    line-height: 1.65;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
     color: var(--st-charcoal-subtext);
     margin-bottom: 2.5rem;
     max-width: 600px;
@@ -1219,11 +1220,11 @@ const faqsList = [
 
   .cta-orange-btn {
     background-color: var(--st-orange);
-    color: #000000;
-    font-family: var(--st-font-body);
-    font-weight: 800;
-    font-size: 0.95rem;
-    padding: 1.1rem 2rem;
+    color: #14171a;
+    font-family: var(--st-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1rem 1.75rem;
     border-radius: 4px;
     text-decoration: none;
     text-transform: uppercase;
@@ -1234,7 +1235,7 @@ const faqsList = [
     border: none;
     cursor: pointer;
     transition: all 0.25s ease;
-    min-height: 48px;
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.25);
   }
 
   .cta-orange-btn:hover {
@@ -1246,18 +1247,19 @@ const faqsList = [
   .cta-outline-btn {
     background-color: transparent;
     color: #FFFFFF;
-    font-family: var(--st-font-body);
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 1.1rem 2rem;
+    font-family: var(--st-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1rem 1.75rem;
     border-radius: 4px;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.25s ease;
-    min-height: 48px;
   }
 
   .cta-outline-btn:hover {
@@ -1280,9 +1282,9 @@ const faqsList = [
   }
 
   .proof-title {
-    font-family: var(--st-font-body);
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-family: var(--st-font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
     color: #FFFFFF;
     line-height: 1.3;
   }
@@ -1312,11 +1314,11 @@ const faqsList = [
 
   .enquiry-card-title {
     font-family: var(--st-font-heading);
-    font-size: 1.65rem;
-    font-weight: 800;
+    font-size: 1.55rem;
+    font-weight: 500;
     color: var(--st-form-card-title);
     margin-bottom: 0.5rem;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
   }
@@ -1348,10 +1350,10 @@ const faqsList = [
   }
 
   .form-field label {
-    font-family: var(--st-font-body);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+    font-family: var(--st-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     color: var(--st-form-card-label);
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -1408,16 +1410,16 @@ const faqsList = [
 
   .submit-orange-btn {
     background-color: var(--st-orange);
-    color: #000000;
-    font-family: var(--st-font-body);
-    font-weight: 800;
-    font-size: 0.92rem;
+    color: #14171a;
+    font-family: var(--st-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.05rem;
-    border-radius: 3px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     width: 100%;
     transition: all 0.25s ease;
     margin-top: 0.5rem;
@@ -1439,7 +1441,7 @@ const faqsList = [
 
   .enquiry-card-footer .phone-link {
     color: var(--st-form-card-title);
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: underline;
   }
 
@@ -1461,7 +1463,7 @@ const faqsList = [
   .overview-headline {
     font-family: var(--st-font-heading);
     font-size: clamp(1.85rem, 3.5vw, 2.35rem);
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.25;
     color: var(--st-paper-heading);
     letter-spacing: -0.02em;
@@ -1506,16 +1508,16 @@ const faqsList = [
   }
 
   .job-stage-num {
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.85rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .job-stage-name {
     font-family: var(--st-font-heading);
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.25;
     color: var(--st-job-card-text);
     transition: color 0.3s ease;
@@ -1555,14 +1557,14 @@ const faqsList = [
   .scope-num {
     font-family: var(--st-font-heading);
     font-size: 1.75rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .scope-title {
     font-family: var(--st-font-heading);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--st-paper-heading);
     line-height: 1.25;
     transition: color 0.3s ease;
@@ -1594,16 +1596,16 @@ const faqsList = [
   }
 
   .audience-num {
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.9rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .audience-title {
     font-family: var(--st-font-heading);
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.2;
   }
@@ -1644,14 +1646,14 @@ const faqsList = [
   .benefit-row-num {
     font-family: var(--st-font-heading);
     font-size: 1.35rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .benefit-row-title {
     font-family: var(--st-font-heading);
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--st-paper-heading);
     margin-bottom: 0.35rem;
     transition: color 0.3s ease;
@@ -1678,18 +1680,19 @@ const faqsList = [
 
   .honest-advice-tag {
     display: inline-block;
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.78rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--st-orange);
     margin-bottom: 1.25rem;
+    text-transform: uppercase;
   }
 
   .honest-advice-heading {
     font-family: var(--st-font-heading);
     font-size: 2.15rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.2;
     margin-bottom: 1.25rem;
@@ -1723,7 +1726,7 @@ const faqsList = [
   .cta-strip-heading {
     font-family: var(--st-font-heading);
     font-size: clamp(1.85rem, 3.5vw, 2.25rem);
-    font-weight: 900;
+    font-weight: 500;
     color: #000000;
     line-height: 1.2;
     margin-bottom: 0.4rem;
@@ -1739,9 +1742,9 @@ const faqsList = [
   .cta-dark-btn {
     background-color: #14171A;
     color: #FFFFFF;
-    font-family: var(--st-font-body);
-    font-weight: 800;
-    font-size: 0.95rem;
+    font-family: var(--st-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
     padding: 1.15rem 2.25rem;
     border-radius: 4px;
     text-decoration: none;
@@ -1786,14 +1789,14 @@ const faqsList = [
   .phase-name {
     font-family: var(--st-font-heading);
     font-size: 1.75rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
   }
 
   .phase-step-range {
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.08em;
     color: var(--st-orange);
   }
@@ -1811,16 +1814,16 @@ const faqsList = [
   }
 
   .phase-step-num {
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.85rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .phase-step-title {
     font-family: var(--st-font-heading);
     font-size: 1.15rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.25;
   }
@@ -1845,9 +1848,9 @@ const faqsList = [
   .standards-heading {
     font-family: var(--st-font-heading);
     font-size: clamp(2rem, 4.2vw, 2.75rem);
-    font-weight: 900;
+    font-weight: 500;
     color: var(--st-paper-heading);
-    line-height: 1.15;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
@@ -1881,7 +1884,7 @@ const faqsList = [
   .standard-code {
     font-family: var(--st-font-heading);
     font-size: 1.25rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange-dark);
   }
 
@@ -1928,14 +1931,14 @@ const faqsList = [
   .coastal-point-num {
     font-family: var(--st-font-heading);
     font-size: 1.2rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .coastal-point-title {
     font-family: var(--st-font-heading);
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     margin-bottom: 0.35rem;
   }
@@ -1958,12 +1961,13 @@ const faqsList = [
 
   .layer-diagram-tag {
     display: inline-block;
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.78rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--st-orange);
     margin-bottom: 2rem;
+    text-transform: uppercase;
   }
 
   .layer-stack {
@@ -1980,7 +1984,7 @@ const faqsList = [
     padding: 1.25rem 1.5rem;
     border-radius: 3px;
     font-family: var(--st-font-heading);
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .layer-paint {
@@ -2046,7 +2050,7 @@ const faqsList = [
   .schedule-num {
     font-family: var(--st-font-heading);
     font-size: 1.2rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange-dark);
   }
 
@@ -2105,9 +2109,9 @@ const faqsList = [
   }
 
   .checkpoint-stage {
-    font-family: var(--st-font-body);
+    font-family: var(--st-font-heading);
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.1em;
     color: var(--st-orange-dark);
     text-transform: uppercase;
@@ -2138,9 +2142,9 @@ const faqsList = [
   .one-team-heading {
     font-family: var(--st-font-heading);
     font-size: clamp(1.85rem, 3.5vw, 2.35rem);
-    font-weight: 900;
+    font-weight: 500;
     color: var(--st-paper-heading);
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
   }
@@ -2165,8 +2169,8 @@ const faqsList = [
     border: 1px solid var(--st-card-border);
     padding: 0.6rem 1.25rem;
     border-radius: 100px;
-    font-family: var(--st-font-body);
-    font-size: 0.9rem;
+    font-family: var(--st-font-heading);
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--st-paper-heading);
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -2206,14 +2210,14 @@ const faqsList = [
   .faq-num {
     font-family: var(--st-font-heading);
     font-size: 1.25rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-orange);
   }
 
   .faq-question {
     font-family: var(--st-font-heading);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #FFFFFF;
     line-height: 1.25;
     margin-bottom: 0.65rem;
@@ -2244,17 +2248,17 @@ const faqsList = [
 
   .closing-headline {
     font-family: var(--st-font-heading);
-    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
-    font-weight: 900;
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
     color: #000000;
-    line-height: 1.1;
+    line-height: 1.25;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
   }
 
   .closing-subtext {
     font-family: var(--st-font-body);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     line-height: 1.65;
     color: #1A1A1A;
     margin-bottom: 3rem;
@@ -2268,9 +2272,9 @@ const faqsList = [
   }
 
   .direct-call-label {
-    font-family: var(--st-font-body);
-    font-size: 0.82rem;
-    font-weight: 800;
+    font-family: var(--st-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
     color: #000000;
     text-transform: uppercase;
@@ -2279,7 +2283,7 @@ const faqsList = [
   .direct-call-phone {
     font-family: var(--st-font-heading);
     font-size: clamp(2rem, 4.5vw, 2.75rem);
-    font-weight: 900;
+    font-weight: 600;
     color: #000000;
     text-decoration: none;
     letter-spacing: -0.02em;
