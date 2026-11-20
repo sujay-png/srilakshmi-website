@@ -177,9 +177,59 @@ const seoKeywords = getBlogKeywords(currentSlug, post);
         });
       }
     });
+
+    // 3. Hydrate Accordions (Nested <details>, EAEL Adv Accordion, and Elementor Accordion)
+    // A) Exclusive toggle for <details.e-n-accordion-item>
+    const nAccordions = document.querySelectorAll('.e-n-accordion, .elementor-widget-n-accordion');
+    nAccordions.forEach((container) => {
+      const detailsList = Array.from(container.querySelectorAll('details.e-n-accordion-item'));
+      detailsList.forEach((detail) => {
+        detail.addEventListener('toggle', () => {
+          if ((detail as HTMLDetailsElement).open) {
+            detailsList.forEach((other) => {
+              if (other !== detail && (other as HTMLDetailsElement).open) {
+                (other as HTMLDetailsElement).open = false;
+              }
+            });
+          }
+        });
+      });
+    });
+
+    // B) Interactive toggling for div-based accordions (EAEL & Elementor Accordion)
+    const advHeaders = document.querySelectorAll('.eael-accordion-header, .elementor-accordion .elementor-tab-title');
+    advHeaders.forEach((header) => {
+      const content = header.nextElementSibling as HTMLElement;
+      const isFirst = (header as HTMLElement).dataset.tab === '1';
+
+      if (isFirst && !header.classList.contains('active-tab')) {
+        header.classList.add('active-tab');
+        if (content) content.style.display = 'block';
+      } else if (!header.classList.contains('active-tab')) {
+        if (content) content.style.display = 'none';
+      }
+
+      header.addEventListener('click', () => {
+        const isOpen = header.classList.contains('active-tab');
+        const parentList = header.closest('.eael-accordion-list, .elementor-accordion');
+        if (parentList) {
+          parentList.querySelectorAll('.eael-accordion-header, .elementor-tab-title').forEach((h) => {
+            h.classList.remove('active-tab');
+            const c = h.nextElementSibling as HTMLElement;
+            if (c) c.style.display = 'none';
+          });
+        }
+
+        if (!isOpen) {
+          header.classList.add('active-tab');
+          if (content) content.style.display = 'block';
+        }
+      });
+    });
   }
 
   document.addEventListener('DOMContentLoaded', initBlogContent);
+  document.addEventListener('astro:page-load', initBlogContent);
   initBlogContent();
 </script>
 
@@ -496,6 +546,353 @@ const seoKeywords = getBlogKeywords(currentSlug, post);
     background: var(--c-surface);
     font-family: var(--font-heading);
     font-weight: 600;
+  }
+
+  /* ==========================================================================
+     Blog FAQs & Accordion Components
+     Supports Elementor Nested Accordions (details/summary), EAEL, and standard WP
+     ========================================================================== */
+
+  /* Remove default browser disclosure marker on all <details> in blog */
+  .blog-body :global(details summary) {
+    list-style: none !important;
+    list-style-type: none !important;
+    cursor: pointer;
+  }
+  .blog-body :global(details summary::-webkit-details-marker) {
+    display: none !important;
+  }
+  .blog-body :global(details summary::marker) {
+    display: none !important;
+    content: "" !important;
+  }
+
+  /* Accordion Containers */
+  .blog-body :global(.e-n-accordion),
+  .blog-body :global(.elementor-widget-n-accordion),
+  .blog-body :global(.eael-accordion-list),
+  .blog-body :global(.elementor-accordion) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     1. Elementor Nested Accordion (details / summary)
+     -------------------------------------------------------------------------- */
+  .blog-body :global(details.e-n-accordion-item) {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md, 12px);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    margin-bottom: 0 !important;
+  }
+
+  .blog-body :global(details.e-n-accordion-item:hover) {
+    border-color: rgba(217, 119, 6, 0.45);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .blog-body :global(details.e-n-accordion-item[open]) {
+    border-color: var(--c-accent, #d97706);
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.08);
+  }
+
+  /* Summary Row (Question + Icon) */
+  .blog-body :global(summary.e-n-accordion-item-title) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1.25rem !important;
+    padding: 1.25rem 1.5rem !important;
+    cursor: pointer !important;
+    user-select: none;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease;
+    outline: none;
+    margin: 0 !important;
+  }
+
+  .blog-body :global(summary.e-n-accordion-item-title:hover) {
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .blog-body :global(details.e-n-accordion-item[open] summary.e-n-accordion-item-title) {
+    border-bottom: 1px solid var(--c-border);
+    background: rgba(217, 119, 6, 0.025);
+  }
+
+  .blog-body :global(.e-n-accordion-item-title-header) {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .blog-body :global(.e-n-accordion-item-title-text) {
+    font-family: var(--font-heading) !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    color: var(--c-text) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: color 0.2s ease;
+  }
+
+  .blog-body :global(details.e-n-accordion-item[open] .e-n-accordion-item-title-text) {
+    color: var(--c-accent, #d97706) !important;
+  }
+
+  /* Toggle Icon Badge */
+  .blog-body :global(.e-n-accordion-item-title-icon) {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--c-text);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .blog-body :global(summary.e-n-accordion-item-title:hover .e-n-accordion-item-title-icon) {
+    border-color: var(--c-accent, #d97706);
+    color: var(--c-accent, #d97706);
+    transform: scale(1.05);
+  }
+
+  .blog-body :global(details.e-n-accordion-item[open] .e-n-accordion-item-title-icon) {
+    background: var(--c-accent, #d97706);
+    border-color: var(--c-accent, #d97706);
+    color: #ffffff !important;
+    transform: rotate(180deg);
+  }
+
+  .blog-body :global(.e-n-accordion-item-title-icon svg) {
+    width: 13px !important;
+    height: 13px !important;
+    max-width: 13px !important;
+    max-height: 13px !important;
+    fill: currentColor !important;
+  }
+
+  /* Open / Closed Icon Visibility */
+  .blog-body :global(details.e-n-accordion-item:not([open]) .e-opened) {
+    display: none !important;
+  }
+  .blog-body :global(details.e-n-accordion-item:not([open]) .e-closed) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-body :global(details.e-n-accordion-item[open] .e-opened) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .blog-body :global(details.e-n-accordion-item[open] .e-closed) {
+    display: none !important;
+  }
+
+  /* Answer Content Area */
+  .blog-body :global(details.e-n-accordion-item > div[role="region"]) {
+    display: block !important;
+    padding: 1.5rem !important;
+    background: var(--c-surface);
+    animation: faqSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .blog-body :global(details.e-n-accordion-item > div[role="region"] .elementor-widget-text-editor) {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .blog-body :global(details.e-n-accordion-item > div[role="region"] p) {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--c-text-muted);
+    margin-bottom: 0.85rem;
+  }
+
+  .blog-body :global(details.e-n-accordion-item > div[role="region"] p:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. EAEL & Classic Elementor Accordions
+     -------------------------------------------------------------------------- */
+  .blog-body :global(.eael-accordion-header),
+  .blog-body :global(.elementor-accordion .elementor-tab-title) {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md, 12px);
+    padding: 1.25rem 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1.25rem !important;
+    cursor: pointer !important;
+    user-select: none;
+    transition: all 0.25s ease;
+    outline: none;
+    margin: 0 !important;
+  }
+
+  .blog-body :global(.eael-accordion-header:hover),
+  .blog-body :global(.elementor-accordion .elementor-tab-title:hover) {
+    border-color: rgba(217, 119, 6, 0.45);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .blog-body :global(.eael-accordion-header.active-tab),
+  .blog-body :global(.elementor-accordion .elementor-tab-title.active-tab),
+  .blog-body :global(.elementor-accordion .elementor-tab-title.elementor-active) {
+    border-color: var(--c-accent, #d97706);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: rgba(217, 119, 6, 0.025);
+  }
+
+  .blog-body :global(.eael-accordion-tab-title),
+  .blog-body :global(.elementor-accordion .elementor-tab-title a),
+  .blog-body :global(.elementor-accordion .elementor-accordion-title) {
+    flex: 1 1 auto;
+    font-family: var(--font-heading) !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    color: var(--c-text) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+  }
+
+  .blog-body :global(.eael-accordion-header.active-tab .eael-accordion-tab-title),
+  .blog-body :global(.elementor-accordion .elementor-tab-title.active-tab .elementor-accordion-title) {
+    color: var(--c-accent, #d97706) !important;
+  }
+
+  .blog-body :global(.fa-toggle) {
+    display: none !important;
+  }
+
+  .blog-body :global(.eael-advanced-accordion-icon-closed),
+  .blog-body :global(.eael-advanced-accordion-icon-opened),
+  .blog-body :global(.elementor-accordion .elementor-accordion-icon) {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--c-text);
+    transition: all 0.3s ease;
+  }
+
+  .blog-body :global(.eael-advanced-accordion-icon-closed svg),
+  .blog-body :global(.eael-advanced-accordion-icon-opened svg),
+  .blog-body :global(.elementor-accordion .elementor-accordion-icon svg) {
+    width: 13px !important;
+    height: 13px !important;
+    max-width: 13px !important;
+    max-height: 13px !important;
+    fill: currentColor !important;
+  }
+
+  .blog-body :global(.eael-accordion-header:not(.active-tab) .eael-advanced-accordion-icon-opened) {
+    display: none !important;
+  }
+
+  .blog-body :global(.eael-accordion-header:not(.active-tab) .eael-advanced-accordion-icon-closed) {
+    display: inline-flex !important;
+  }
+
+  .blog-body :global(.eael-accordion-header.active-tab .eael-advanced-accordion-icon-closed) {
+    display: none !important;
+  }
+
+  .blog-body :global(.eael-accordion-header.active-tab .eael-advanced-accordion-icon-opened) {
+    display: inline-flex !important;
+    background: var(--c-accent, #d97706);
+    border-color: var(--c-accent, #d97706);
+    color: #ffffff !important;
+    transform: rotate(180deg);
+  }
+
+  .blog-body :global(.eael-accordion-content),
+  .blog-body :global(.elementor-accordion .elementor-tab-content) {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-top: none;
+    border-bottom-left-radius: var(--radius-md, 12px);
+    border-bottom-right-radius: var(--radius-md, 12px);
+    padding: 1.5rem !important;
+    margin-bottom: 1rem;
+    animation: faqSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .blog-body :global(.eael-accordion-content p),
+  .blog-body :global(.elementor-accordion .elementor-tab-content p) {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--c-text-muted);
+    margin-bottom: 0.85rem;
+  }
+
+  .blog-body :global(.eael-accordion-content p:last-child),
+  .blog-body :global(.elementor-accordion .elementor-tab-content p:last-child) {
+    margin-bottom: 0;
+  }
+
+  @keyframes faqSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive Adjustments for Mobile */
+  @media (max-width: 640px) {
+    .blog-body :global(summary.e-n-accordion-item-title),
+    .blog-body :global(.eael-accordion-header),
+    .blog-body :global(.elementor-accordion .elementor-tab-title) {
+      padding: 1rem 1.15rem !important;
+      gap: 1rem !important;
+    }
+
+    .blog-body :global(.e-n-accordion-item-title-text),
+    .blog-body :global(.eael-accordion-tab-title),
+    .blog-body :global(.elementor-accordion .elementor-accordion-title) {
+      font-size: 1rem !important;
+    }
+
+    .blog-body :global(.e-n-accordion-item-title-icon),
+    .blog-body :global(.eael-advanced-accordion-icon-closed),
+    .blog-body :global(.eael-advanced-accordion-icon-opened) {
+      width: 30px;
+      height: 30px;
+    }
+
+    .blog-body :global(details.e-n-accordion-item > div[role="region"]),
+    .blog-body :global(.eael-accordion-content),
+    .blog-body :global(.elementor-accordion .elementor-tab-content) {
+      padding: 1.15rem !important;
+    }
   }
 
   .blog-footer {
