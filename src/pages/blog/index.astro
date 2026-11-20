@@ -28,31 +28,44 @@ const seoKeywords = "construction blog, civil engineering articles, construction
   <section class="blog-section section-pad section-light">
     <div class="container">
       <div class="blog-grid">
-        {posts.map((post: any) => (
-          <article class="blog-card reveal-up">
-            <a href={`/blog/${post.slug}/`} class="blog-card-link">
-              <div class="blog-image-wrapper">
-                {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                  <img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered.replace(/<[^>]*>?/gm, '')} class="blog-image" />
-                ) : (
-                  <div class="blog-image-placeholder"></div>
-                )}
-              </div>
-              <div class="blog-content">
-                <p class="blog-date">
-                  {new Date(post.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })}
-                </p>
-                <h3 class="blog-title" set:html={post.title.rendered} />
-                <div class="blog-excerpt" set:html={post.excerpt.rendered} />
-                <span class="read-more">Read Article <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </div>
-            </a>
-          </article>
-        ))}
+        {posts.map((post: any) => {
+          const featuredImg = 
+            post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 
+            post.yoast_head_json?.og_image?.[0]?.url || 
+            "/images/ASHOKA-PARADISE.jpg";
+          
+          let displayTitle = post.title?.rendered || '';
+          if (displayTitle.includes('Copy') && post.yoast_head_json?.title) {
+            displayTitle = post.yoast_head_json.title.split('|')[0].split('–')[0].split('-')[0].trim();
+          }
+
+          return (
+            <article class="blog-card reveal-up">
+              <a href={`/blog/${post.slug}/`} class="blog-card-link">
+                <div class="blog-image-wrapper">
+                  <img 
+                    src={featuredImg} 
+                    alt={displayTitle.replace(/<[^>]*>?/gm, '')} 
+                    class="blog-image" 
+                    loading="lazy" 
+                  />
+                </div>
+                <div class="blog-content">
+                  <p class="blog-date">
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                      month: 'long',
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
+                  </p>
+                  <h3 class="blog-title" set:html={displayTitle} />
+                  <div class="blog-excerpt" set:html={post.excerpt.rendered} />
+                  <span class="read-more">Read Article <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </a>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>

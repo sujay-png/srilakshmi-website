@@ -3,6 +3,8 @@
  * Keyed by post slug.
  */
 export const blogKeywordsMap: Record<string, string> = {
+  'why-is-vernacular-architecture-still-relevant-in-modern-construction':
+    'vernacular architecture Mangalore, vernacular construction Coastal Karnataka, traditional eco-friendly architecture, climate responsive design, local material construction',
   'how-does-stamped-concrete-work-in-mangalore':
     'stamped concrete in Mangalore, stamped concrete work, decorative concrete flooring, stamped paving, concrete contractors Mangalore',
   'how-to-verify-the-quality-of-cement-for-construction':
