@@ -9,27 +9,83 @@ import { siteData } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  robots?: string;
+  image?: string;
 }
 
-const { title = siteData.name, description = siteData.description } = Astro.props;
+const { 
+  title = siteData.name, 
+  description = siteData.description, 
+  keywords,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  image = "/images/srilakshmiconstructionlogo-1.png"
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+const pageTitle = title === siteData.name || title.includes(siteData.name) || title.toLowerCase().includes('sri lakshmi') ? title : `${title} | ${siteData.name}`;
+const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site || Astro.url).toString();
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) - deferred to avoid blocking main thread -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K9TKMJ0YT2');
+
+      const loadGtag = () => {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K9TKMJ0YT2';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag);
+      } else {
+        window.addEventListener('load', loadGtag);
+      }
+    </script>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" />
+    </noscript>
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO -->
-    <title>{title === siteData.name ? title : `${title} | ${siteData.name}`}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
+    <meta name="author" content={siteData.name} />
+    <meta name="publisher" content={siteData.name} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/srilakshmiconstructionlogo-1.png" />
-    <link rel="canonical" href={Astro.url} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteData.name} />
+    <link rel="canonical" href={canonicalURL} />
   </head>
   <body>
     <CustomCursor />
@@ -43,17 +99,18 @@ const { title = siteData.name, description = siteData.description } = Astro.prop
     <Footer />
     
     <script>
-      // Intersection Observer for scroll reveals
       document.addEventListener('DOMContentLoaded', () => {
+        const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-line, .section-header__line';
+
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('active');
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll(revealSelectors).forEach(el => observer.observe(el));
       });
     </script>
   </body>
