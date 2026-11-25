@@ -1,0 +1,1554 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Institutional Building Construction Services Mangalore";
+const pageDescription = "Institutional building construction services in Mangalore & Coastal Karnataka. Engineering precision, statutory compliance, and architectural dignity for educational campuses, healthcare facilities, and government offices.";
+
+// 02 / CREDENTIALS
+const credentialsList = [
+  {
+    num: "01",
+    title: "ISO-Certified Quality Processes",
+    desc: "Standardized QA/QC frameworks applied across every construction phase."
+  },
+  {
+    num: "02",
+    title: "Statutory & Municipal Compliance",
+    desc: "Complete adherence to local building codes, fire safety mandates, and accessibility regulations."
+  },
+  {
+    num: "03",
+    title: "Fully Insured Operations",
+    desc: "Comprehensive coverage protecting your project through workers’ compensation, builder’s risk, and property liability insurance."
+  }
+];
+
+// 03 / WHY TRUST US
+const whyTrustList = [
+  {
+    num: "01",
+    title: "Smooth Approvals & Regulatory Mastery",
+    desc: "Our in-depth knowledge of local regulatory frameworks and compliance protocols ensures smooth approvals from municipal and state development authorities, eliminating legal bottlenecks before construction begins."
+  },
+  {
+    num: "02",
+    title: "Uncompromising Commitment to Budgets & Deadlines",
+    desc: "By leveraging strategic pre-construction planning, precise resource allocation, and advanced risk reduction techniques, we ensure your project stays on schedule and strictly within financial limits."
+  },
+  {
+    num: "03",
+    title: "Technical Competence & Precision Execution",
+    desc: "We deploy specialized engineering methodologies to handle high-capacity public spaces, heavy structural loading, and advanced technological integrations (such as lab services, HVAC networks, and IT infrastructure)."
+  }
+];
+
+// 04 / PROCESS: 5-STAGE INSTITUTIONAL BUILDING JOURNEY
+const institutionalJourneyStages = [
+  {
+    num: "1",
+    title: "Strategic Planning & Consultation",
+    desc: "We sit down with your board, project managers, or administrative team to understand the scope, functional requirements, and long-term utility of the institutional asset."
+  },
+  {
+    num: "2",
+    title: "Architecture, Design-Build & Smart Budgeting",
+    desc: "Our in-house design and engineering teams collaborate to optimize structural layouts while providing a transparent, line-by-line BOQ and value engineering options that lower long-term maintenance costs."
+  },
+  {
+    num: "3",
+    title: "Regulatory Clearances & Paperwork",
+    desc: "We manage all required building permits, environmental clearances, and statutory approvals from local authorities so construction can begin smoothly and legally."
+  },
+  {
+    num: "4",
+    title: "Precision Construction Phase",
+    desc: "Our expert site crews execute heavy foundation works, reinforced concrete frameworks, and complex mechanical, electrical, and plumbing (MEP) integrations under rigorous quality supervision."
+  },
+  {
+    num: "5",
+    title: "Final Inspection, Commissioning & Handover",
+    desc: "We conduct complete system check-outs, address all punch-list items, perform deep post-construction cleaning, and hand over the building along with complete compliance and warranty documentation."
+  }
+];
+
+// 05 / BEYOND THE BUILD: OTHER ESSENTIAL ELEMENTS
+const essentialElementsList = [
+  {
+    num: "01",
+    title: "High-Durability Infrastructure",
+    desc: "Engineered specifically to withstand heavy daily foot traffic and coastal weather conditions (humidity and monsoons)."
+  },
+  {
+    num: "02",
+    title: "Accessibility & Safety Compliance",
+    desc: "Integration of PWD-compliant ramps, emergency exits, modern fire suppression systems, and safe public gathering spaces."
+  },
+  {
+    num: "03",
+    title: "Transparent Project Tracking",
+    desc: "Real-time milestone reporting, change-order management, and financial transparency so your committee or trust board always stays informed."
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  activeNav="services"
+>
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href="tel:+919880138027" class="utility-link">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +91 9880138027
+        </a>
+        <span class="utility-divider">·</span>
+        <a href="mailto:projects@srilakshmiconstruction.com" class="utility-link">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          projects@srilakshmiconstruction.com
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Dakshina Kannada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section (Dark Charcoal) -->
+  <section class="section-charcoal inst-hero">
+    <div class="hero-building-bg" aria-hidden="true">
+      <svg class="building-svg" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Institutional Architecture Silhouette -->
+        <path d="M50 400 H550 V410 H50 Z" fill="#F0A500" opacity="0.3" />
+        <path d="M80 390 H520 V400 H80 Z" fill="#20262E" />
+        <path d="M110 380 H490 V390 H110 Z" fill="#1C2127" />
+        
+        <!-- Central Portico & Pillars -->
+        <path d="M130 180 H470 V200 H130 Z" fill="#20262E" stroke="#333D48" stroke-width="1.5" />
+        <!-- Pediment Triangle -->
+        <path d="M120 180 L300 110 L480 180 Z" fill="#181D23" stroke="#F0A500" stroke-width="2" opacity="0.85" />
+        <circle cx="300" cy="155" r="14" fill="#F0A500" opacity="0.4" />
+        
+        <!-- Columns -->
+        <rect x="150" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+        <rect x="210" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+        <rect x="270" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+        <rect x="308" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+        <rect x="368" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+        <rect x="428" y="200" width="22" height="180" fill="#1E232B" stroke="#333D48" stroke-width="1" />
+
+        <!-- Grand Illuminated Doorway -->
+        <path d="M265 290 Q300 270 335 290 V380 H265 Z" fill="#0E1114" stroke="#F0A500" stroke-width="2" />
+        <rect x="280" y="305" width="40" height="75" fill="#F0A500" opacity="0.85" />
+
+        <!-- Flanking Windows (Illuminated accents) -->
+        <rect x="60" y="220" width="28" height="45" rx="3" fill="#F0A500" opacity="0.65" />
+        <rect x="60" y="290" width="28" height="45" rx="3" fill="#F0A500" opacity="0.65" />
+        <rect x="512" y="220" width="28" height="45" rx="3" fill="#F0A500" opacity="0.65" />
+        <rect x="512" y="290" width="28" height="45" rx="3" fill="#F0A500" opacity="0.65" />
+
+        <!-- Grid lines for engineering aesthetics -->
+        <line x1="20" y1="410" x2="580" y2="410" stroke="#F0A500" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4" />
+      </svg>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-grid">
+        <!-- Left: Copy & Actions -->
+        <div class="hero-content">
+          <div class="section-tag">
+            <span class="tag-diamond">◆</span>
+            <span>SERVICES / INSTITUTIONAL CONSTRUCTION</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Institutional Building Construction Services <span class="highlight-orange">in Mangalore &amp; Coastal Karnataka</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Building massive, sophisticated public-facing structures requires a rare blend of engineering precision, strict regulatory compliance, and architectural dignity. From educational campuses and research facilities to healthcare centers and government offices, Sri Lakshmi Construction delivers robust institutional infrastructure built for long-term safety, durability, and utility.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#quote-form" class="cta-orange-btn">SCHEDULE AN INSTITUTIONAL CONSULTATION</a>
+            <a href="tel:+919880138027" class="cta-outline-btn">CALL +91 9880138027</a>
+          </div>
+
+          <!-- Bottom Proof Stats -->
+          <div class="hero-proof-stats">
+            <div class="proof-stat-item">
+              <span class="proof-title">13+ years</span>
+              <span class="proof-label">In the business</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Education · Healthcare · Government</span>
+              <span class="proof-label">Buildings we serve</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Mangalore · Udupi · Dakshina Kannada</span>
+              <span class="proof-label">Where we work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Enquiry Card -->
+        <div class="hero-form-wrapper" id="enquiry">
+          <div class="enquiry-card">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Enquire About Institutional Construction</h3>
+              <p class="enquiry-card-subtitle">Tell us about your campus or facility and our experts will get back to you.</p>
+            </div>
+
+            <form class="enquiry-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Institutional Construction Enquiry - Sri Lakshmi Construction" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="service_page" value="Institutional Building Construction Services Mangalore" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 Phone number" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="name@institution.org" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-type">INSTITUTION TYPE</label>
+                <div class="select-wrapper">
+                  <select id="hero-type" name="institution_type" required>
+                    <option value="" disabled selected>Select institution type</option>
+                    <option value="Educational Campus / School / College">Educational Campus / School / College</option>
+                    <option value="Healthcare / Hospital / Clinic">Healthcare / Hospital / Clinic</option>
+                    <option value="Government / Public Administrative Office">Government / Public Administrative Office</option>
+                    <option value="Research & Lab Facility">Research &amp; Lab Facility</option>
+                    <option value="Religious / Cultural Institution">Religious / Cultural Institution</option>
+                    <option value="Other Institution">Other Institution</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-message">TELL US ABOUT YOUR CAMPUS OR FACILITY PROJECT</label>
+                <textarea id="hero-message" name="message" rows="3" placeholder="Briefly describe your project scope, location, and timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">SEND ENQUIRY</button>
+
+              <div class="enquiry-card-footer">
+                <span>Prefer to talk? Call <a href="tel:+919880138027" class="phone-link">+91 9880138027</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / PROOF & 02 / CREDENTIALS (Light Paper Section) -->
+  <section class="section-paper section-overview-credentials">
+    <div class="container">
+      <!-- 01 / PROOF -->
+      <div class="proof-block">
+        <div class="section-tag">
+          <span class="tag-diamond">◆</span>
+          <span>01 / PROOF</span>
+        </div>
+
+        <div class="proof-split-grid">
+          <div class="proof-left-stat">
+            <span class="years-big-num">21</span>
+            <span class="years-label">Years of Engineering Excellence</span>
+          </div>
+          <div class="proof-right-copy">
+            <p class="proof-lead-body">
+              With <strong>13+ years in the business</strong>, Sri Lakshmi Construction brings <strong>two decades of trusted civil engineering experience</strong> to complex institutional developments across Mangalore, Udupi, and Dakshina Kannada. We understand the high standards required for public and private institutions where <strong>structural integrity and public safety cannot be compromised</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider-line"></div>
+
+      <!-- 02 / CREDENTIALS -->
+      <div class="credentials-block">
+        <div class="section-tag">
+          <span class="tag-diamond">◆</span>
+          <span>02 / CREDENTIALS</span>
+        </div>
+
+        <h2 class="section-heading-dark">Fully Certified &amp; Regulated</h2>
+
+        <div class="credentials-3col-grid">
+          {credentialsList.map((cred) => (
+            <div class="credential-card">
+              <span class="credential-num">{cred.num}</span>
+              <h3 class="credential-title">{cred.title}</h3>
+              <p class="credential-desc">{cred.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / WHY TRUST US (Dark Charcoal Section) -->
+  <section class="section-charcoal section-why-trust">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-diamond">◆</span>
+        <span>03 / WHY TRUST US</span>
+      </div>
+
+      <h2 class="section-heading-white">
+        What Makes an Institutional Construction Contractor Trusted &amp; Reputable?
+      </h2>
+
+      <p class="section-sub-white">
+        Institutional projects involve unique challenges—ranging from complex architectural layouts to rigorous public safety laws. A reliable, reputable contractor earns trust through specific operational standards:
+      </p>
+
+      <div class="why-trust-grid">
+        {whyTrustList.map((item) => (
+          <div class="why-trust-card">
+            <span class="why-trust-num">{item.num}</span>
+            <h3 class="why-trust-title">{item.title}</h3>
+            <p class="why-trust-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ORANGE CTA STRIP (Touchpoint 3) -->
+  <section class="orange-cta-strip">
+    <div class="container">
+      <div class="cta-strip-inner">
+        <div class="cta-strip-text">
+          <h2 class="cta-strip-heading">Planning an institutional project?</h2>
+          <p class="cta-strip-sub">Tell us about your campus or facility, and our experts will take it from there.</p>
+        </div>
+        <div class="cta-strip-action">
+          <a href="#quote-form" class="cta-dark-btn">SCHEDULE AN INSTITUTIONAL CONSULTATION</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / PROCESS: 5-STAGE INSTITUTIONAL BUILDING JOURNEY (Light Paper Section) -->
+  <section class="section-paper section-process">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-diamond">◆</span>
+        <span>04 / PROCESS</span>
+      </div>
+
+      <h2 class="section-heading-dark">Our 5-Stage Institutional Building Journey</h2>
+
+      <!-- Visual Node Track -->
+      <div class="journey-track">
+        <div class="journey-line"></div>
+        <div class="journey-nodes">
+          {institutionalJourneyStages.map((stage, idx) => (
+            <div class={`journey-node ${idx === 0 ? 'node-highlight' : ''}`}>
+              <div class="node-circle">{stage.num}</div>
+              <span class="node-title">{stage.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Detailed Process Cards -->
+      <div class="process-stages-grid">
+        {institutionalJourneyStages.map((stage) => (
+          <div class="process-stage-card">
+            <div class="stage-num-badge">{stage.num}</div>
+            <h3 class="stage-title">{stage.title}</h3>
+            <p class="stage-desc">{stage.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / BEYOND THE BUILD: OTHER ESSENTIAL ELEMENTS (Dark Charcoal Section) -->
+  <section class="section-charcoal section-beyond">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-diamond">◆</span>
+        <span>05 / BEYOND THE BUILD</span>
+      </div>
+
+      <h2 class="section-heading-white">Other Essential Elements for Institutional Clients</h2>
+
+      <div class="essential-elements-grid">
+        {essentialElementsList.map((item) => (
+          <div class="essential-card">
+            <span class="essential-num">{item.num}</span>
+            <h3 class="essential-title">{item.title}</h3>
+            <p class="essential-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD PUBLIC TRUST SECTION (Light Paper Section) -->
+  <section class="section-paper section-public-trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-left">
+          <h2 class="trust-heading">
+            Build Public Trust on a <span class="highlight-orange">Foundation of Strength</span>
+          </h2>
+        </div>
+        <div class="trust-right">
+          <p class="trust-body">
+            Institutional facilities are <strong>long-term assets that serve communities for generations</strong>. You need an engineering partner who respects public trust, protects your funding, and executes with uncompromising precision.
+          </p>
+          <p class="trust-body">
+            Backed by 13+ years in the business, Sri Lakshmi Construction delivers institutional buildings that combine <strong>architectural excellence with structural endurance</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING ORANGE SECTION WITH FORM (Touchpoint 4) -->
+  <section class="orange-closing-section" id="quote-form">
+    <div class="container">
+      <div class="closing-grid">
+        <!-- Left: Direct Phone Box -->
+        <div class="closing-left">
+          <h2 class="closing-headline">
+            Ready to discuss your institutional campus or facility project?
+          </h2>
+
+          <div class="direct-call-box">
+            <span class="direct-call-label">CALL OUR EXPERTS DIRECT</span>
+            <a href="tel:+919880138027" class="direct-call-phone">+91 9880138027</a>
+          </div>
+        </div>
+
+        <!-- Right: Consultation Form Card -->
+        <div class="closing-right">
+          <div class="enquiry-card quote-card">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Schedule an Institutional Consultation</h3>
+              <p class="enquiry-card-subtitle">Share a few details about your project.</p>
+            </div>
+
+            <form class="enquiry-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Institutional Consultation Request - Sri Lakshmi Construction" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="service_page" value="Institutional Building Construction Services Mangalore - Closing CTA" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 Phone number" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="name@institution.org" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-type">INSTITUTION TYPE</label>
+                <div class="select-wrapper">
+                  <select id="close-type" name="institution_type" required>
+                    <option value="" disabled selected>Select institution type</option>
+                    <option value="Educational Campus / School / College">Educational Campus / School / College</option>
+                    <option value="Healthcare / Hospital / Clinic">Healthcare / Hospital / Clinic</option>
+                    <option value="Government / Public Administrative Office">Government / Public Administrative Office</option>
+                    <option value="Research & Lab Facility">Research &amp; Lab Facility</option>
+                    <option value="Religious / Cultural Institution">Religious / Cultural Institution</option>
+                    <option value="Other Institution">Other Institution</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-message">TELL US ABOUT YOUR CAMPUS OR FACILITY PROJECT</label>
+                <textarea id="close-message" name="message" rows="3" placeholder="Briefly describe your project scope, location, and timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">SCHEDULE AN INSTITUTIONAL CONSULTATION</button>
+
+              <div class="enquiry-card-footer">
+                <span>Prefer to talk? Call <a href="tel:+919880138027" class="phone-link">+91 9880138027</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ==========================================================================
+     COLOR TOKENS & TYPOGRAPHY
+     ========================================================================== */
+  :root {
+    --inst-charcoal: #14171A;
+    --inst-paper: #F6F3ED;
+    --inst-orange: #F0A500;
+    --inst-orange-hover: #D99400;
+    --inst-orange-dark: #C68200;
+
+    --inst-font-heading: var(--font-heading);
+    --inst-font-body: var(--font-body);
+
+    /* Charcoal section tokens */
+    --inst-charcoal-card: #1D2126;
+    --inst-charcoal-border: rgba(255, 255, 255, 0.1);
+    --inst-charcoal-text: #E5E7EB;
+    --inst-charcoal-subtext: #9CA3AF;
+    --inst-charcoal-muted: #CBD5E1;
+
+    /* Paper section tokens (Light Theme Default) */
+    --inst-paper-heading: #14171A;
+    --inst-paper-slate: #4A5568;
+    --inst-paper-border: #E2DDD5;
+    --inst-paper-text: #2D3748;
+
+    /* Card surfaces in paper sections */
+    --inst-card-bg: #FFFFFF;
+    --inst-card-border: #E8E4DC;
+    --inst-card-border-top: #14171A;
+    --inst-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    --inst-card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.08);
+
+    /* Form Cards */
+    --inst-form-card-bg: #FFFFFF;
+    --inst-form-card-title: #14171A;
+    --inst-form-card-sub: #4A5568;
+    --inst-form-card-label: #14171A;
+    --inst-form-input-bg: #FFFFFF;
+    --inst-form-input-border: #D1D5DB;
+    --inst-form-input-text: #14171A;
+    --inst-form-input-placeholder: #9CA3AF;
+    --inst-form-card-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Dark Theme Adaptations */
+  [data-theme="dark"] {
+    --inst-paper: #181B1F;
+    --inst-paper-heading: #FFFFFF;
+    --inst-paper-slate: #9CA3AF;
+    --inst-paper-border: rgba(255, 255, 255, 0.1);
+    --inst-paper-text: #E5E7EB;
+
+    --inst-card-bg: #1F242B;
+    --inst-card-border: rgba(255, 255, 255, 0.08);
+    --inst-card-border-top: var(--inst-orange);
+    --inst-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --inst-card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+    /* Form Cards (Dark) */
+    --inst-form-card-bg: #1A1E24;
+    --inst-form-card-title: #FFFFFF;
+    --inst-form-card-sub: #CBD5E1;
+    --inst-form-card-label: #E5E7EB;
+    --inst-form-input-bg: #101316;
+    --inst-form-input-border: rgba(255, 255, 255, 0.18);
+    --inst-form-input-text: #FFFFFF;
+    --inst-form-input-placeholder: #888888;
+    --inst-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Utility Top Bar */
+  .top-utility-bar {
+    background-color: #0A0C0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--inst-font-body);
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .utility-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--inst-orange);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  /* Common Section Styles */
+  .section-charcoal {
+    background-color: var(--inst-charcoal);
+    color: var(--inst-charcoal-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section-paper {
+    background-color: var(--inst-paper);
+    color: var(--inst-paper-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Tags */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--inst-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-charcoal .section-tag {
+    color: var(--inst-orange);
+  }
+
+  .section-paper .section-tag {
+    color: var(--inst-orange-dark);
+  }
+
+  .tag-diamond {
+    color: var(--inst-orange);
+    font-size: 0.75rem;
+  }
+
+  /* Headings */
+  .section-heading-white {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.28;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading-dark {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    line-height: 1.28;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .section-sub-white {
+    font-family: var(--inst-font-body);
+    font-size: 1.1rem;
+    color: var(--inst-charcoal-subtext);
+    margin-top: -1rem;
+    margin-bottom: 3.5rem;
+    line-height: 1.65;
+    max-width: 900px;
+  }
+
+  .highlight-orange {
+    color: var(--inst-orange);
+  }
+
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .inst-hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-building-bg {
+    position: absolute;
+    right: -2%;
+    bottom: -5%;
+    width: 60%;
+    height: 95%;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .building-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-headline {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.28;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-subtext {
+    font-family: var(--inst-font-body);
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--inst-charcoal-subtext);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cta-orange-btn {
+    background-color: var(--inst-orange);
+    color: #000000;
+    font-family: var(--inst-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-orange-btn:hover {
+    background-color: var(--inst-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.35);
+  }
+
+  .cta-outline-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--inst-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--inst-charcoal-border);
+    padding-top: 2rem;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-title {
+    font-family: var(--inst-font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-family: var(--inst-font-body);
+    font-size: 0.85rem;
+    color: var(--inst-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ENQUIRY CARD COMPONENT (Hero & Closing)
+     ========================================================================== */
+  .enquiry-card {
+    background-color: var(--inst-form-card-bg);
+    border-radius: 4px;
+    padding: 2.25rem 2.25rem 2rem;
+    box-shadow: var(--inst-form-card-shadow);
+    border-top: 5px solid var(--inst-orange);
+    color: var(--inst-form-card-title);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .enquiry-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiry-card-title {
+    font-family: var(--inst-font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--inst-form-card-title);
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-card-subtitle {
+    font-family: var(--inst-font-body);
+    font-size: 0.9rem;
+    color: var(--inst-form-card-sub);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--inst-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--inst-form-card-label);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    background-color: var(--inst-form-input-bg);
+    border: 1px solid var(--inst-form-input-border);
+    border-radius: 3px;
+    font-family: var(--inst-font-body);
+    font-size: 0.92rem;
+    color: var(--inst-form-input-text);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--inst-form-input-placeholder);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--inst-orange);
+    background-color: var(--inst-form-input-bg);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: "▼";
+    font-size: 0.65rem;
+    color: var(--inst-form-card-label);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .submit-orange-btn {
+    background-color: var(--inst-orange);
+    color: #000000;
+    font-family: var(--inst-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.05rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 100%;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+    min-height: 48px;
+  }
+
+  .submit-orange-btn:hover {
+    background-color: var(--inst-orange-hover);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+  }
+
+  .enquiry-card-footer {
+    font-family: var(--inst-font-body);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--inst-form-card-sub);
+    margin-top: 0.5rem;
+  }
+
+  .enquiry-card-footer .phone-link {
+    color: var(--inst-form-card-title);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* ==========================================================================
+     01 / PROOF & 02 / CREDENTIALS (Light Paper Section)
+     ========================================================================== */
+  .section-overview-credentials {
+    border-bottom: 1px solid var(--inst-paper-border);
+  }
+
+  .proof-block {
+    margin-bottom: 4rem;
+  }
+
+  .proof-split-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .proof-left-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 4px solid var(--inst-paper-heading);
+    padding-top: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .years-big-num {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 600;
+    color: var(--inst-orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .years-label {
+    font-family: var(--inst-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    transition: color 0.3s ease;
+  }
+
+  .proof-lead-body {
+    font-family: var(--inst-font-body);
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: var(--inst-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  .proof-lead-body strong {
+    color: var(--inst-paper-heading);
+  }
+
+  .section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--inst-paper-border);
+    margin: 4.5rem 0;
+  }
+
+  /* 02 / CREDENTIALS GRID */
+  .credentials-3col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .credential-card {
+    background-color: var(--inst-card-bg);
+    border: 1px solid var(--inst-card-border);
+    border-top: 4px solid var(--inst-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--inst-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--inst-card-shadow-hover);
+  }
+
+  .credential-num {
+    font-family: var(--inst-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--inst-orange);
+  }
+
+  .credential-title {
+    font-family: var(--inst-font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .credential-desc {
+    font-family: var(--inst-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--inst-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     03 / WHY TRUST US (Dark Charcoal Section)
+     ========================================================================== */
+  .why-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .why-trust-card {
+    background-color: var(--inst-charcoal-card);
+    border: 1px solid var(--inst-charcoal-border);
+    border-top: 4px solid var(--inst-orange);
+    padding: 2.75rem 2.25rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .why-trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .why-trust-num {
+    font-family: var(--inst-font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--inst-orange);
+  }
+
+  .why-trust-title {
+    font-family: var(--inst-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .why-trust-desc {
+    font-family: var(--inst-font-body);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--inst-charcoal-subtext);
+  }
+
+  /* ==========================================================================
+     ORANGE CTA STRIP (Touchpoint 3)
+     ========================================================================== */
+  .orange-cta-strip {
+    background-color: var(--inst-orange);
+    color: #000000;
+    padding: 3.5rem 0;
+  }
+
+  .cta-strip-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cta-strip-heading {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.25rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-strip-sub {
+    font-family: var(--inst-font-body);
+    font-size: 1.05rem;
+    color: #1A1A1A;
+  }
+
+  .cta-dark-btn {
+    background-color: #14171A;
+    color: #FFFFFF;
+    font-family: var(--inst-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.15rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ==========================================================================
+     04 / PROCESS: 5-STAGE INSTITUTIONAL BUILDING JOURNEY (Light Paper Section)
+     ========================================================================== */
+  .journey-track {
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem 0;
+  }
+
+  .journey-line {
+    position: absolute;
+    top: 36px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background-color: var(--inst-paper-border);
+    z-index: 0;
+  }
+
+  .journey-nodes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .journey-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .node-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--inst-card-bg);
+    border: 2px solid var(--inst-paper-heading);
+    color: var(--inst-paper-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--inst-font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+  }
+
+  .node-highlight .node-circle {
+    background-color: var(--inst-orange);
+    border-color: var(--inst-orange);
+    color: #000000;
+    box-shadow: 0 0 0 4px rgba(240, 165, 0, 0.25);
+  }
+
+  .node-title {
+    font-family: var(--inst-font-heading);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .process-stages-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-stage-card {
+    background-color: var(--inst-card-bg);
+    border: 1px solid var(--inst-card-border);
+    border-top: 3px solid var(--inst-orange);
+    padding: 2rem 1.5rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--inst-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease;
+  }
+
+  .process-stage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--inst-card-shadow-hover);
+  }
+
+  .stage-num-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--inst-orange);
+    color: #000000;
+    font-family: var(--inst-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage-title {
+    font-family: var(--inst-font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .stage-desc {
+    font-family: var(--inst-font-body);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--inst-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     05 / BEYOND THE BUILD: OTHER ESSENTIAL ELEMENTS (Dark Charcoal Section)
+     ========================================================================== */
+  .essential-elements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .essential-card {
+    background-color: var(--inst-charcoal-card);
+    border: 1px solid var(--inst-charcoal-border);
+    border-top: 4px solid var(--inst-orange);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .essential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .essential-num {
+    font-family: var(--inst-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--inst-orange);
+  }
+
+  .essential-title {
+    font-family: var(--inst-font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.25;
+  }
+
+  .essential-desc {
+    font-family: var(--inst-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--inst-charcoal-subtext);
+  }
+
+  /* ==========================================================================
+     BUILD PUBLIC TRUST SECTION (Light Paper Section)
+     ========================================================================== */
+  .section-public-trust {
+    border-top: 1px solid var(--inst-paper-border);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .trust-heading {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    color: var(--inst-paper-heading);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .trust-body {
+    font-family: var(--inst-font-body);
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--inst-paper-slate);
+    margin-bottom: 1.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .trust-body:last-child {
+    margin-bottom: 0;
+  }
+
+  .trust-body strong {
+    color: var(--inst-paper-heading);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     CLOSING ORANGE SECTION WITH FORM (Touchpoint 4)
+     ========================================================================== */
+  .orange-closing-section {
+    background-color: var(--inst-orange);
+    color: #000000;
+    padding: 6rem 0;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .closing-headline {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .direct-call-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .direct-call-label {
+    font-family: var(--inst-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  .direct-call-phone {
+    font-family: var(--inst-font-heading);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-call-phone:hover {
+    opacity: 0.85;
+  }
+
+  .quote-card {
+    border-top: 5px solid #000000;
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .proof-split-grid,
+    .trust-grid,
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-building-bg {
+      opacity: 0.2;
+      width: 90%;
+    }
+
+    .why-trust-grid,
+    .credentials-3col-grid,
+    .essential-elements-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .journey-nodes,
+    .process-stages-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .journey-line {
+      display: none;
+    }
+
+    .journey-node {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 4rem 0;
+    }
+
+    .why-trust-grid,
+    .credentials-3col-grid,
+    .essential-elements-grid,
+    .hero-proof-stats,
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+
+    .utility-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .cta-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .enquiry-card {
+      padding: 1.75rem 1.5rem;
+    }
+  }
+</style>

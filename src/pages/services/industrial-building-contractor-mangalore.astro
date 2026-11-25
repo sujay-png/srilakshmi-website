@@ -1,0 +1,1997 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Industrial Building Contractor Mangalore";
+const pageDescription = "Industrial building construction services in Mangalore, Udupi & Dakshina Kannada. Sand pad foundations, heavy-duty VDF flooring, clear-span industrial steel sheds, and single-source execution built for long-term structural durability.";
+
+// 02 / CREDENTIALS
+const credentialsList = [
+  {
+    num: "01",
+    title: "ISO-Certified",
+    desc: "Strict QA/QC protocols implemented across every phase of structural execution."
+  },
+  {
+    num: "02",
+    title: "Environmental Compliance",
+    desc: "Full adherence to state industrial board regulations, fire safety standards, and local municipal zoning requirements."
+  },
+  {
+    num: "03",
+    title: "Comprehensive Project Insurance",
+    desc: "Full coverage including workers’ compensation, builder’s risk, and third-party property liability."
+  }
+];
+
+// 03 / CORE CAPABILITIES
+const capabilitiesList = [
+  {
+    num: "01",
+    title: "Cargo Handling Industrial Sheds & Warehouses",
+    desc: "We design and erect high-clearance, clear-span industrial sheds engineered specifically for logistics hubs, manufacturing units, and cargo terminals.",
+    bullets: [
+      "Heavy-load structural steel frameworks designed to withstand high coastal wind loads.",
+      "Wide clear-span designs optimizing interior storage capacity and forklift maneuvering.",
+      "Integrated ventilation, high-bay lighting layouts, and weather-proof roofing systems."
+    ]
+  },
+  {
+    num: "02",
+    title: "Heavy-Duty Vacuum Dewatered Flooring (VDF / Tremix)",
+    desc: "Floor failure is the leading cause of industrial downtime. We specialize in precision-engineered VDF flooring designed to handle intense machinery vibrations and constant vehicular traffic.",
+    bullets: [
+      "High Impact & Abrasion Resistance: Compressive strength engineered for heavy forklift movement and multi-tier pallet stacking.",
+      "Reduced Shrinkage / Cracking: Vacuum dewatering extracts excess mixing water from the concrete matrix, delivering a dense, dust-free surface.",
+      "Custom Hardener Finishes: Wear-resistant liquid surface hardeners applied for superior chemical, oil, and heavy wear resistance."
+    ]
+  },
+  {
+    num: "03",
+    title: "Sand Pad Foundations",
+    desc: "Proper load distribution is critical when building on coastal soils. We bring proven expertise in constructing high-capacity Sand Pad Foundations.",
+    bullets: [
+      "Heavy Storage Tanks: Engineered sand pads designed to prevent differential settlement under massive liquid or bulk solid loads.",
+      "Granaries & Grain Storage: Heavy-capacity foundations built to support truck tanker filling bays and industrial granaries.",
+      "Machinery Raft Foundations: Vibration-isolated foundation pads engineered for heavy industrial machinery."
+    ]
+  },
+  {
+    num: "04",
+    title: "Processing Plants & Factory Infrastructure",
+    desc: "Complete civil and structural infrastructure development for manufacturing plants, assembly units, and heavy industrial operations.",
+    bullets: []
+  }
+];
+
+// 04 / COASTAL EXPERTISE
+const coastalExpertiseList = [
+  {
+    num: "01",
+    title: "Mitigating Salt Attack & Corrosion",
+    desc: "Aggressive marine air accelerates rust in standard steel reinforcements. We utilize specialized anti-corrosion treatments, high-grade mix designs, and protective coatings to ensure 50+ year asset durability."
+  },
+  {
+    num: "02",
+    title: "Managing High-Energy Weather Zones",
+    desc: "The coastal environment does not tolerate weak structural spots. A poorly designed drainage system, inadequate retaining wall, or unverified foundation can lead to soil erosion, structural shifting, and costly compliance delays."
+  }
+];
+
+// 05 / PROCESS: 5-STAGE INDUSTRIAL CONSTRUCTION JOURNEY
+const industrialJourneyStages = [
+  {
+    num: "1",
+    title: "Technical Consultation & Site Assessment",
+    desc: "We evaluate your machinery load requirements, material handling workflows, soil bearing capacity, and specific environmental factors."
+  },
+  {
+    num: "2",
+    title: "Engineering Design & Value Engineering",
+    desc: "Our structural engineers design custom steel frameworks, specialized foundations (like sand pads or pile caps), and optimized layout plans while maintaining strict budgetary control."
+  },
+  {
+    num: "3",
+    title: "Statutory Approvals & Clearances",
+    desc: "We manage all necessary industrial building permits, environmental clearances, and local body sanctions so your project starts smoothly and legally."
+  },
+  {
+    num: "4",
+    title: "Precision Industrial Execution",
+    desc: "Our specialized site teams execute heavy structural steel fabrication, mass concrete pours, VDF flooring installation, and MEP utility integration under strict safety supervision."
+  },
+  {
+    num: "5",
+    title: "Commissioning & Project Handover",
+    desc: "We conduct rigorous load testing, system check-outs, final safety audits, and deliver complete as-built documentation and warranty logs."
+  }
+];
+
+// 06 / BEYOND THE BUILD: OTHER ESSENTIAL ELEMENTS
+const essentialElementsList = [
+  {
+    num: "01",
+    title: "Zero-Downtime Expansion Planning",
+    desc: "Phased construction methodologies designed for active factory upgrades or plant expansions without halting daily operations."
+  },
+  {
+    num: "02",
+    title: "Transparent Project Tracking",
+    desc: "Line-item cost reporting, milestone updates, and rigorous change-order management."
+  },
+  {
+    num: "03",
+    title: "HSE-Compliant Job Sites",
+    desc: "Zero-compromise worker safety, health, and environmental standards enforced on every site."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>{siteData.contact.phone}</span>
+        </a>
+        <span class="utility-divider">·</span>
+        <a href={`mailto:${siteData.contact.email}`} class="utility-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>{siteData.contact.email}</span>
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Dakshina Kannada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section (Dark Charcoal #14171A) -->
+  <section class="ind-hero section-charcoal hero" id="top">
+    <!-- Background Blueprint Technical Illustration (Shed, Tank & Sand Pad) -->
+    <div class="hero-blueprint-bg" aria-hidden="true">
+      <svg class="blueprint-svg" viewBox="0 0 800 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Industrial Shed Portal Frame -->
+        <path d="M 40 480 L 40 200 L 320 80 L 600 200 L 600 480" stroke="#f0a500" stroke-width="2" stroke-opacity="0.22" />
+        <line x1="40" y1="200" x2="600" y2="200" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.15" />
+        <line x1="320" y1="80" x2="320" y2="200" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.15" />
+        <!-- Storage Tank Profile on the right -->
+        <rect x="640" y="220" width="130" height="260" rx="4" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.2" />
+        <ellipse cx="705" cy="220" rx="65" ry="18" stroke="#f0a500" stroke-width="1.5" stroke-opacity="0.2" />
+        <line x1="770" y1="240" x2="770" y2="480" stroke="#f0a500" stroke-width="1" stroke-opacity="0.12" />
+        <!-- Sand Pad Foundation Base -->
+        <line x1="20" y1="480" x2="790" y2="480" stroke="#f0a500" stroke-width="2" stroke-opacity="0.28" />
+        <rect x="620" y="480" width="170" height="35" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.3" fill="none" />
+        <!-- Crane beam line inside shed -->
+        <line x1="40" y1="280" x2="600" y2="280" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="6 4" stroke-opacity="0.18" />
+      </svg>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="hero-left">
+          <div class="section-tag reveal">
+            <span class="tag-diamond">◆</span>
+            <span class="tag-text">SERVICES / INDUSTRIAL BUILDING CONTRACTOR</span>
+          </div>
+
+          <h1 class="hero-headline reveal">
+            Industrial Building Construction Services in <span class="highlight-orange">Mangalore, Udupi &amp; Dakshina Kannada</span>
+          </h1>
+
+          <p class="hero-subtext reveal">
+            Industrial facilities with high-volume cargo movement, heavy machinery vibration and coastal soil conditions require a well-planned industrial building structure that can last long-term. We provide industrial construction services across Mangalore &amp; Udupi.
+          </p>
+
+          <div class="hero-ctas reveal">
+            <a href="#hero-enquiry-form" class="cta-orange-btn scroll-to-form">
+              SCHEDULE AN INDUSTRIAL CONSULTATION
+            </a>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="cta-outline-btn">
+              CALL {siteData.contact.phone}
+            </a>
+          </div>
+
+          <!-- Hero Proof Stats -->
+          <div class="hero-proof-stats reveal">
+            <div class="proof-stat-item">
+              <span class="proof-title">13+ years</span>
+              <span class="proof-label">In the business</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Sand Pad Foundations · VDF Flooring · Steel Sheds</span>
+              <span class="proof-label">What we build</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Single-source execution</span>
+              <span class="proof-label">One accountable team</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Above-the-fold Enquiry Form Card -->
+        <div class="hero-right reveal">
+          <div class="enquiry-card" id="hero-enquiry-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Enquire About Industrial Construction</h3>
+              <p class="enquiry-card-subtitle">Tell us about your facility and our engineers will get back to you.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="hero-enquiry" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Industrial Building Construction Enquiry (Hero Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Hero Enquiry Form - Industrial Building Construction" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-facility-type">FACILITY TYPE</label>
+                <div class="select-wrapper">
+                  <select id="hero-facility-type" name="facility_type" required>
+                    <option value="" disabled selected>Select facility type</option>
+                    <option value="Cargo Handling Industrial Sheds & Warehouses">Cargo Handling Industrial Sheds &amp; Warehouses</option>
+                    <option value="Heavy-Duty VDF / Tremix Flooring">Heavy-Duty VDF / Tremix Flooring</option>
+                    <option value="Sand Pad Foundations / Heavy Storage Tanks">Sand Pad Foundations / Heavy Storage Tanks</option>
+                    <option value="Processing Plants & Factory Infrastructure">Processing Plants &amp; Factory Infrastructure</option>
+                    <option value="Granaries & Grain Storage Facility">Granaries &amp; Grain Storage Facility</option>
+                    <option value="Machinery Raft Foundations">Machinery Raft Foundations</option>
+                    <option value="Factory Expansion / Upgrades">Factory Expansion / Upgrades</option>
+                    <option value="Other Industrial Facility">Other Industrial Facility</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-requirements">TELL US ABOUT YOUR SITE AND LOAD REQUIREMENTS</label>
+                <textarea id="hero-requirements" name="requirements" rows="3" placeholder="Describe your site location, machinery loads, workflows or drawings..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                SEND ENQUIRY
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / OVERVIEW & 02 / CREDENTIALS (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-overview-credentials" id="overview">
+    <div class="container">
+      
+      <!-- 01 / OVERVIEW -->
+      <div class="overview-block">
+        <div class="section-tag reveal">
+          <span class="tag-diamond">◆</span>
+          <span class="tag-text">01 / OVERVIEW</span>
+        </div>
+
+        <h2 class="overview-big-headline reveal">
+          From high-capacity Sand Pad Foundations to heavy-duty Vacuum Dewatered Flooring (VDF) for cargo handling sheds, <span class="highlight-orange">we deliver single-source execution built for long-term structural durability.</span>
+        </h2>
+
+        <div class="overview-split-grid">
+          <div class="overview-left-stat reveal">
+            <span class="years-big-num">21</span>
+            <span class="years-label">Years of Experience</span>
+          </div>
+
+          <div class="overview-right-text reveal">
+            <p class="overview-lead-body">
+              With <strong>13+ years in the business</strong>, Sri Lakshmi Construction brings <strong>two decades of industrial civil engineering experience</strong> to the Mangalore &amp; Udupi region. We understand the <strong>rigorous safety, load-bearing, and environmental challenges</strong> associated with large-scale industrial assets.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider-line"></div>
+
+      <!-- 02 / CREDENTIALS -->
+      <div class="credentials-block" id="credentials">
+        <div class="section-tag reveal">
+          <span class="tag-diamond">◆</span>
+          <span class="tag-text">02 / CREDENTIALS</span>
+        </div>
+
+        <h2 class="section-heading-dark reveal">Certified Contractor</h2>
+
+        <div class="credentials-3col-grid">
+          {credentialsList.map((item) => (
+            <div class="credential-card reveal">
+              <span class="credential-num">{item.num}</span>
+              <h3 class="credential-title">{item.title}</h3>
+              <p class="credential-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 03 / CAPABILITIES (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-capabilities" id="capabilities">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">03 / CAPABILITIES</span>
+      </div>
+
+      <h2 class="section-heading-white reveal">
+        Our Core Industrial Construction Capabilities
+      </h2>
+
+      <div class="capabilities-grid">
+        {capabilitiesList.map((item) => (
+          <div class="capability-card reveal">
+            <span class="capability-num">{item.num}</span>
+            <h3 class="capability-title">{item.title}</h3>
+            <p class="capability-desc">{item.desc}</p>
+
+            {item.bullets.length > 0 && (
+              <ul class="capability-bullets">
+                {item.bullets.map((b) => (
+                  <li class="capability-bullet-item">
+                    <span class="bullet-square">■</span>
+                    <span class="bullet-text">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Related Service Navigation Box -->
+      <div class="related-service-box reveal">
+        <a href="/services/steel-structural-fabrication-mangalore/" class="related-service-link">
+          <div class="related-service-content">
+            <span class="related-tag">RELATED SERVICE</span>
+            <h4 class="related-title">Steel structural fabrication</h4>
+          </div>
+          <span class="related-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Page Orange CTA Strip (Touchpoint 3) -->
+  <section class="orange-cta-strip">
+    <div class="container cta-strip-inner">
+      <div class="cta-strip-left">
+        <h3 class="cta-strip-heading">Have an industrial project in mind?</h3>
+        <p class="cta-strip-sub">Tell us about your machinery loads and site, and our engineers will take it from there.</p>
+      </div>
+      <div class="cta-strip-right">
+        <a href="#hero-enquiry-form" class="cta-dark-btn scroll-to-form">
+          SCHEDULE AN INDUSTRIAL CONSULTATION
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / COASTAL EXPERTISE (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-coastal-expertise" id="coastal-expertise">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">04 / COASTAL EXPERTISE</span>
+      </div>
+
+      <h2 class="section-heading-dark reveal">
+        Why Coastal Industrial Construction Requires Local Expertise
+      </h2>
+      <p class="section-sub-dark reveal">
+        Industrial construction in this region requires specialized coastal engineering strategies:
+      </p>
+
+      <div class="coastal-expertise-grid">
+        {coastalExpertiseList.map((item) => (
+          <div class="coastal-card reveal">
+            <span class="coastal-num">{item.num}</span>
+            <h3 class="coastal-title">{item.title}</h3>
+            <p class="coastal-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / PROCESS: Our 5-Stage Industrial Construction Journey (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-process" id="process">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">05 / PROCESS</span>
+      </div>
+
+      <h2 class="section-heading-white reveal">
+        Our 5-Stage Industrial Construction Journey
+      </h2>
+
+      <!-- Progress Timeline Track -->
+      <div class="journey-track reveal" aria-hidden="true">
+        <div class="journey-line"></div>
+        <div class="journey-nodes">
+          {industrialJourneyStages.map((stage, idx) => (
+            <div class={`journey-node ${idx === 0 ? 'node-highlight' : ''}`}>
+              <span class="node-circle">{stage.num}</span>
+              <span class="node-title">{stage.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 5 Step Cards Grid -->
+      <div class="process-stages-grid">
+        {industrialJourneyStages.map((stage) => (
+          <div class="process-stage-card reveal">
+            <div class="stage-num-badge">{stage.num}</div>
+            <h3 class="stage-title">{stage.title}</h3>
+            <p class="stage-desc">{stage.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 / BEYOND THE BUILD: Other Essential Elements (Light Section - Paper #F6F3ED) -->
+  <section class="section-paper section-essential-elements" id="beyond-the-build">
+    <div class="container">
+      <div class="section-tag reveal">
+        <span class="tag-diamond">◆</span>
+        <span class="tag-text">06 / BEYOND THE BUILD</span>
+      </div>
+
+      <h2 class="section-heading-dark reveal">
+        Other Essential Elements for Industrial Clients
+      </h2>
+
+      <div class="essential-elements-grid">
+        {essentialElementsList.map((item) => (
+          <div class="essential-card reveal">
+            <span class="essential-num">{item.num}</span>
+            <h3 class="essential-title">{item.title}</h3>
+            <p class="essential-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Statement Section (Dark Section - Charcoal #14171A) -->
+  <section class="section-charcoal section-closing-statement" id="foundation-of-strength">
+    <div class="container">
+      <div class="closing-statement-grid">
+        <div class="closing-statement-left reveal">
+          <h2 class="closing-statement-heading">
+            Build Your Industrial Asset on a <span class="highlight-orange">Foundation of Strength</span>
+          </h2>
+        </div>
+        <div class="closing-statement-right reveal">
+          <p class="closing-statement-body">
+            Industrial developments are long-term capital investments that require <strong>absolute engineering precision, financial predictability, and uncompromising safety</strong>. Backed by 13+ years in the business, Sri Lakshmi Construction delivers robust industrial infrastructure built for peak operational performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Orange CTA Strip with Form (Touchpoint 4) -->
+  <section class="orange-closing-section" id="consultation-section">
+    <div class="container">
+      <div class="closing-grid">
+        
+        <!-- Left Column: Big Headline & Direct Call -->
+        <div class="closing-left reveal">
+          <h2 class="closing-headline">
+            Ready to discuss your industrial facility, warehouse, or factory expansion?
+          </h2>
+
+          <div class="direct-call-box">
+            <span class="direct-call-label">CALL OUR ENGINEERS DIRECTLY</span>
+            <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="direct-call-phone">
+              {siteData.contact.phone}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Form Card -->
+        <div class="closing-right reveal">
+          <div class="enquiry-card quote-card" id="closing-enquiry-form">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Schedule an Industrial Consultation</h3>
+              <p class="enquiry-card-subtitle">Share a few details about your facility.</p>
+            </div>
+
+            <form class="enquiry-form site-form" data-form-id="closing-enquiry" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Industrial Building Consultation Request (Closing Form)" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_location" value="Closing Consultation Form - Industrial Building Construction" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="your.name@company.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-facility-type">FACILITY TYPE</label>
+                <div class="select-wrapper">
+                  <select id="close-facility-type" name="facility_type" required>
+                    <option value="" disabled selected>Select facility type</option>
+                    <option value="Cargo Handling Industrial Sheds & Warehouses">Cargo Handling Industrial Sheds &amp; Warehouses</option>
+                    <option value="Heavy-Duty VDF / Tremix Flooring">Heavy-Duty VDF / Tremix Flooring</option>
+                    <option value="Sand Pad Foundations / Heavy Storage Tanks">Sand Pad Foundations / Heavy Storage Tanks</option>
+                    <option value="Processing Plants & Factory Infrastructure">Processing Plants &amp; Factory Infrastructure</option>
+                    <option value="Granaries & Grain Storage Facility">Granaries &amp; Grain Storage Facility</option>
+                    <option value="Machinery Raft Foundations">Machinery Raft Foundations</option>
+                    <option value="Factory Expansion / Upgrades">Factory Expansion / Upgrades</option>
+                    <option value="Other Industrial Facility">Other Industrial Facility</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-requirements">TELL US ABOUT YOUR SITE AND LOAD REQUIREMENTS</label>
+                <textarea id="close-requirements" name="requirements" rows="3" placeholder="Describe your site location, machinery loads, workflows or drawings..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">
+                SCHEDULE AN INDUSTRIAL CONSULTATION
+              </button>
+
+              <div class="form-response" aria-live="polite"></div>
+
+              <p class="enquiry-card-footer">
+                Prefer to talk? Call <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} class="phone-link">{siteData.contact.phone}</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ==========================================================================
+     Color Tokens & Multi-Theme System (Light & Dark Mode)
+     Consistent with Site Standard Typography: Syne (Heading) & DM Sans (Body)
+     ========================================================================== */
+  :global(:root),
+  :global([data-theme="light"]) {
+    --ind-orange: #F0A500;
+    --ind-orange-hover: #D99300;
+    --ind-orange-dark: #C68200;
+
+    /* Charcoal / Dark Sections */
+    --ind-charcoal: #14171A;
+    --ind-charcoal-card: #1B1E22;
+    --ind-charcoal-text: #FFFFFF;
+    --ind-charcoal-subtext: rgba(255, 255, 255, 0.85);
+    --ind-charcoal-muted: rgba(255, 255, 255, 0.65);
+    --ind-charcoal-border: rgba(255, 255, 255, 0.14);
+
+    /* Paper / Light Sections */
+    --ind-paper: #F6F3ED;
+    --ind-paper-heading: #000000;
+    --ind-paper-text: #111111;
+    --ind-paper-slate: #5D636A;
+    --ind-paper-border: rgba(0, 0, 0, 0.12);
+
+    /* Cards in Paper Sections */
+    --ind-card-bg: #FFFFFF;
+    --ind-card-border: rgba(0, 0, 0, 0.08);
+    --ind-card-border-top: #14171A;
+    --ind-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --ind-card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    /* Form Cards */
+    --ind-form-card-bg: #FFFFFF;
+    --ind-form-card-title: #000000;
+    --ind-form-card-sub: #444444;
+    --ind-form-card-label: #333333;
+    --ind-form-input-bg: #F7F7F7;
+    --ind-form-input-border: #D5D5D5;
+    --ind-form-input-text: #000000;
+    --ind-form-input-placeholder: #666666;
+    --ind-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+    /* Fonts - Synchronized with commercial-remodelling & site global */
+    --ind-font-heading: var(--font-heading);
+    --ind-font-body: var(--font-body);
+  }
+
+  /* Full Dark Mode Adaptation */
+  :global([data-theme="dark"]) {
+    --ind-orange: #F0A500;
+    --ind-orange-hover: #FFAF1A;
+    --ind-orange-dark: #FFB733;
+
+    /* Charcoal / Dark Sections */
+    --ind-charcoal: #0B0D10;
+    --ind-charcoal-card: #15191D;
+    --ind-charcoal-text: #FFFFFF;
+    --ind-charcoal-subtext: rgba(255, 255, 255, 0.88);
+    --ind-charcoal-muted: rgba(255, 255, 255, 0.7);
+    --ind-charcoal-border: rgba(255, 255, 255, 0.12);
+
+    /* Paper Sections in Dark Mode */
+    --ind-paper: #121519;
+    --ind-paper-heading: #FFFFFF;
+    --ind-paper-text: #E5E7EB;
+    --ind-paper-slate: #CBD5E1;
+    --ind-paper-border: rgba(255, 255, 255, 0.12);
+
+    /* Cards in Paper Sections (Dark) */
+    --ind-card-bg: #1A1E24;
+    --ind-card-border: rgba(255, 255, 255, 0.12);
+    --ind-card-border-top: var(--ind-orange);
+    --ind-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    --ind-card-shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.65);
+
+    /* Form Cards (Dark) */
+    --ind-form-card-bg: #1A1E24;
+    --ind-form-card-title: #FFFFFF;
+    --ind-form-card-sub: #CBD5E1;
+    --ind-form-card-label: #E5E7EB;
+    --ind-form-input-bg: #101316;
+    --ind-form-input-border: rgba(255, 255, 255, 0.18);
+    --ind-form-input-text: #FFFFFF;
+    --ind-form-input-placeholder: #888888;
+    --ind-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Utility Top Bar */
+  .top-utility-bar {
+    background-color: #0A0C0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--ind-font-body);
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .utility-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--ind-orange);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  /* Common Section Styles */
+  .section-charcoal {
+    background-color: var(--ind-charcoal);
+    color: var(--ind-charcoal-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section-paper {
+    background-color: var(--ind-paper);
+    color: var(--ind-paper-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Tags */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--ind-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-charcoal .section-tag {
+    color: var(--ind-orange);
+  }
+
+  .section-paper .section-tag {
+    color: var(--ind-orange-dark);
+  }
+
+  .tag-diamond {
+    color: var(--ind-orange);
+    font-size: 0.75rem;
+  }
+
+  /* Headings */
+  .section-heading-white {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading-dark {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .section-sub-dark {
+    font-family: var(--ind-font-body);
+    font-size: 1.1rem;
+    color: var(--ind-paper-slate);
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+
+  .highlight-orange {
+    color: var(--ind-orange);
+  }
+
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .ind-hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-blueprint-bg {
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: 65%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.45;
+    z-index: 0;
+  }
+
+  .blueprint-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-headline {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.28;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-subtext {
+    font-family: var(--ind-font-body);
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--ind-charcoal-subtext);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cta-orange-btn {
+    background-color: var(--ind-orange);
+    color: #000000;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-orange-btn:hover {
+    background-color: var(--ind-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.35);
+  }
+
+  .cta-outline-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--ind-charcoal-border);
+    padding-top: 2rem;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-title {
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-family: var(--ind-font-body);
+    font-size: 0.85rem;
+    color: var(--ind-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ENQUIRY CARD COMPONENT (Used in Hero & Closing)
+     ========================================================================== */
+  .enquiry-card {
+    background-color: var(--ind-form-card-bg);
+    border-radius: 4px;
+    padding: 2.25rem 2.25rem 2rem;
+    box-shadow: var(--ind-form-card-shadow);
+    border-top: 5px solid var(--ind-orange);
+    color: var(--ind-form-card-title);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .enquiry-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiry-card-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--ind-form-card-title);
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-card-subtitle {
+    font-family: var(--ind-font-body);
+    font-size: 0.9rem;
+    color: var(--ind-form-card-sub);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--ind-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ind-form-card-label);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    background-color: var(--ind-form-input-bg);
+    border: 1px solid var(--ind-form-input-border);
+    border-radius: 3px;
+    font-family: var(--ind-font-body);
+    font-size: 0.92rem;
+    color: var(--ind-form-input-text);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--ind-form-input-placeholder);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--ind-orange);
+    background-color: var(--ind-form-input-bg);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: "▼";
+    font-size: 0.65rem;
+    color: var(--ind-form-card-label);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .submit-orange-btn {
+    background-color: var(--ind-orange);
+    color: #000000;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.05rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 100%;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+    min-height: 48px;
+  }
+
+  .submit-orange-btn:hover {
+    background-color: var(--ind-orange-hover);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+  }
+
+  .enquiry-card-footer {
+    font-family: var(--ind-font-body);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--ind-form-card-sub);
+    margin-top: 0.5rem;
+  }
+
+  .enquiry-card-footer .phone-link {
+    color: var(--ind-form-card-title);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* ==========================================================================
+     01 / OVERVIEW & 02 / CREDENTIALS
+     ========================================================================== */
+  .section-overview-credentials {
+    border-bottom: 1px solid var(--ind-paper-border);
+  }
+
+  .overview-block {
+    margin-bottom: 4rem;
+  }
+
+  .overview-big-headline {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(1.85rem, 3.8vw, 2.5rem);
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 3.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .overview-split-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .overview-left-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 4px solid var(--ind-paper-heading);
+    padding-top: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .years-big-num {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 600;
+    color: var(--ind-orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .years-label {
+    font-family: var(--ind-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    transition: color 0.3s ease;
+  }
+
+  .overview-lead-body {
+    font-family: var(--ind-font-body);
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: var(--ind-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  .overview-lead-body strong {
+    color: var(--ind-paper-heading);
+  }
+
+  .section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--ind-paper-border);
+    margin: 4.5rem 0;
+  }
+
+  /* 02 / CREDENTIALS GRID */
+  .credentials-3col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .credential-card {
+    background-color: var(--ind-card-bg);
+    border: 1px solid var(--ind-card-border);
+    border-top: 4px solid var(--ind-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--ind-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ind-card-shadow-hover);
+  }
+
+  .credential-num {
+    font-family: var(--ind-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--ind-orange);
+  }
+
+  .credential-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .credential-desc {
+    font-family: var(--ind-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ind-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     03 / CAPABILITIES (Dark Section - Charcoal #14171A)
+     ========================================================================== */
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .capability-card {
+    background-color: var(--ind-charcoal-card);
+    border: 1px solid var(--ind-charcoal-border);
+    border-top: 4px solid var(--ind-orange);
+    padding: 2.75rem 2.25rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .capability-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .capability-num {
+    font-family: var(--ind-font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ind-orange);
+  }
+
+  .capability-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.25;
+  }
+
+  .capability-desc {
+    font-family: var(--ind-font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ind-charcoal-subtext);
+  }
+
+  .capability-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--ind-charcoal-border);
+    padding-top: 1.25rem;
+  }
+
+  .capability-bullet-item {
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    font-family: var(--ind-font-body);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ind-charcoal-muted);
+  }
+
+  .bullet-square {
+    color: var(--ind-orange);
+    font-size: 0.7rem;
+  }
+
+  /* Related Service Box */
+  .related-service-box {
+    background-color: var(--ind-charcoal-card);
+    border: 1px solid var(--ind-charcoal-border);
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+
+  .related-service-box:hover {
+    border-color: var(--ind-orange);
+    transform: translateY(-2px);
+  }
+
+  .related-service-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.75rem 2.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .related-service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .related-tag {
+    font-family: var(--ind-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--ind-orange);
+    text-transform: uppercase;
+  }
+
+  .related-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+
+  .related-arrow {
+    font-size: 1.75rem;
+    color: var(--ind-orange);
+    font-weight: 600;
+    transition: transform 0.2s ease;
+  }
+
+  .related-service-box:hover .related-arrow {
+    transform: translateX(6px);
+  }
+
+  /* ==========================================================================
+     ORANGE CTA STRIP (Touchpoint 3)
+     ========================================================================== */
+  .orange-cta-strip {
+    background-color: var(--ind-orange);
+    color: #000000;
+    padding: 3.5rem 0;
+  }
+
+  .cta-strip-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cta-strip-heading {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.25rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-strip-sub {
+    font-family: var(--ind-font-body);
+    font-size: 1.05rem;
+    color: #1A1A1A;
+  }
+
+  .cta-dark-btn {
+    background-color: #14171A;
+    color: #FFFFFF;
+    font-family: var(--ind-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.15rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ==========================================================================
+     04 / COASTAL EXPERTISE (Light Section - Paper #F6F3ED)
+     ========================================================================== */
+  .coastal-expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .coastal-card {
+    background-color: var(--ind-card-bg);
+    border: 1px solid var(--ind-card-border);
+    border-top: 4px solid var(--ind-card-border-top);
+    padding: 2.75rem 2.25rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    box-shadow: var(--ind-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .coastal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ind-card-shadow-hover);
+  }
+
+  .coastal-num {
+    font-family: var(--ind-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--ind-orange);
+  }
+
+  .coastal-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .coastal-desc {
+    font-family: var(--ind-font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ind-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     05 / PROCESS: OUR 5-STAGE INDUSTRIAL CONSTRUCTION JOURNEY
+     ========================================================================== */
+  .journey-track {
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem 0;
+  }
+
+  .journey-line {
+    position: absolute;
+    top: 36px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background-color: var(--ind-charcoal-border);
+    z-index: 0;
+  }
+
+  .journey-nodes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .journey-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .node-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--ind-charcoal-card);
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ind-font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .node-highlight .node-circle {
+    background-color: var(--ind-orange);
+    border-color: var(--ind-orange);
+    color: #000000;
+    box-shadow: 0 0 0 4px rgba(240, 165, 0, 0.25);
+  }
+
+  .node-title {
+    font-family: var(--ind-font-heading);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .process-stages-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-stage-card {
+    background-color: var(--ind-charcoal-card);
+    border: 1px solid var(--ind-charcoal-border);
+    border-top: 3px solid var(--ind-orange);
+    padding: 2rem 1.5rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.25s ease;
+  }
+
+  .process-stage-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .stage-num-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ind-orange);
+    color: #000000;
+    font-family: var(--ind-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .stage-desc {
+    font-family: var(--ind-font-body);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ind-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     06 / BEYOND THE BUILD: OTHER ESSENTIAL ELEMENTS (Light Section)
+     ========================================================================== */
+  .essential-elements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .essential-card {
+    background-color: var(--ind-card-bg);
+    border: 1px solid var(--ind-card-border);
+    border-top: 4px solid var(--ind-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--ind-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .essential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ind-card-shadow-hover);
+  }
+
+  .essential-num {
+    font-family: var(--ind-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--ind-orange);
+  }
+
+  .essential-title {
+    font-family: var(--ind-font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ind-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .essential-desc {
+    font-family: var(--ind-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ind-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     CLOSING STATEMENT SECTION (Dark Section)
+     ========================================================================== */
+  .section-closing-statement {
+    border-top: 1px solid var(--ind-charcoal-border);
+    padding: 5rem 0;
+  }
+
+  .closing-statement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .closing-statement-heading {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .closing-statement-body {
+    font-family: var(--ind-font-body);
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--ind-charcoal-subtext);
+  }
+
+  .closing-statement-body strong {
+    color: #FFFFFF;
+  }
+
+  /* ==========================================================================
+     CLOSING ORANGE SECTION WITH FORM (Touchpoint 4)
+     ========================================================================== */
+  .orange-closing-section {
+    background-color: var(--ind-orange);
+    color: #000000;
+    padding: 6rem 0;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .closing-headline {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .direct-call-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .direct-call-label {
+    font-family: var(--ind-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  .direct-call-phone {
+    font-family: var(--ind-font-heading);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-call-phone:hover {
+    opacity: 0.85;
+  }
+
+  .quote-card {
+    border-top: 5px solid #000000;
+  }
+
+  /* Form Responses */
+  .form-response {
+    padding: 0;
+    margin-top: 0;
+    font-size: 0.9rem;
+    font-family: var(--ind-font-body);
+    border-radius: 4px;
+    display: none;
+  }
+
+  .form-response.success {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #E6F7EC;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+  }
+
+  .form-response.error {
+    display: block;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background-color: #FCE8E6;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+  }
+
+  /* Pulse animation on smooth-scroll target */
+  .pulse-highlight {
+    animation: pulseBorder 1.2s ease-out;
+  }
+
+  @keyframes pulseBorder {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 165, 0, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgba(240, 165, 0, 0);
+    }
+    100% {
+      box-shadow: var(--ind-form-card-shadow);
+    }
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS (Desktop, Tablet, Mobile)
+     ========================================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .overview-split-grid,
+    .closing-statement-grid,
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .capabilities-grid,
+    .coastal-expertise-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .credentials-3col-grid,
+    .essential-elements-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .process-stages-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .journey-track {
+      display: none;
+    }
+
+    .hero-blueprint-bg {
+      width: 90%;
+      opacity: 0.25;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 4.5rem 0;
+    }
+
+    .ind-hero {
+      padding-top: 3.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .cta-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .cta-strip-right {
+      width: 100%;
+    }
+
+    .cta-strip-right .cta-dark-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-ctas a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 3.5rem 0;
+    }
+
+    .credentials-3col-grid,
+    .essential-elements-grid,
+    .process-stages-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .hero-proof-stats {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+
+    .enquiry-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .overview-left-stat {
+      padding-top: 1rem;
+    }
+
+    .capability-card,
+    .coastal-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .related-service-link {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .enquiry-card {
+      padding: 1.25rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for CTAs targeting the enquiry form
+    const scrollLinks = document.querySelectorAll('.scroll-to-form');
+    const heroCard = document.getElementById('hero-enquiry-form');
+
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = heroCard || document.querySelector('.enquiry-card');
+        if (targetElement) {
+          const headerOffset = 100;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Pulse animation on the card
+          targetElement.classList.remove('pulse-highlight');
+          void targetElement.offsetWidth; // trigger reflow
+          targetElement.classList.add('pulse-highlight');
+
+          // Focus first input
+          const firstInput = targetElement.querySelector('input');
+          if (firstInput) {
+            setTimeout(() => firstInput.focus(), 450);
+          }
+        }
+      });
+    });
+
+    // Form submission handling for both enquiry forms
+    const forms = document.querySelectorAll('.site-form');
+    forms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const f = e.target as HTMLFormElement;
+        const responseBox = f.querySelector('.form-response') as HTMLElement;
+        const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalBtnText = submitBtn ? submitBtn.textContent : 'SEND ENQUIRY';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+        if (responseBox) {
+          responseBox.className = 'form-response';
+          responseBox.textContent = '';
+        }
+
+        const formData = new FormData(f);
+        const data: Record<string, any> = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/enquires.wrnxt@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            if (responseBox) {
+              responseBox.className = 'form-response success';
+              responseBox.textContent = 'Thank you! Your industrial building consultation request has been received. Our engineers will get back to you shortly.';
+            }
+            if (submitBtn) {
+              submitBtn.textContent = 'ENQUIRY SENT ✓';
+            }
+            f.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          if (responseBox) {
+            responseBox.className = 'form-response error';
+            responseBox.textContent = 'There was an issue sending your consultation request. Please try again or call +91 9880138027 directly.';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        }
+      });
+    });
+  });
+</script>
+

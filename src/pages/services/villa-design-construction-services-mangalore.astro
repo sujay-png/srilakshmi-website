@@ -1,0 +1,1515 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteData } from '../../data/site';
+
+const pageTitle = "Villa Design & Construction Services Mangalore";
+const pageDescription = "End-to-end luxury villa design and construction services in Mangalore & Coastal Karnataka. Custom architectural drafting, high-strength structural execution, turnkey interiors, and coastal landscaping under one roof.";
+
+// 02 / CREDENTIALS
+const credentialsList = [
+  {
+    num: "01",
+    title: "ISO-Certified Workflows",
+    desc: "Strict quality control protocols applied across design, structural engineering, and finishing works."
+  },
+  {
+    num: "02",
+    title: "Complete Legal Compliance",
+    desc: "Seamless management of local development authority approvals (Mangalore City Corporation / Udupi Urban Development Authority) and CRZ clearances."
+  },
+  {
+    num: "03",
+    title: "Full Insurance Protection",
+    desc: "Complete coverage including workers’ compensation, property damage liability, and builder’s risk."
+  }
+];
+
+// 03 / PROCESS: 5-STAGE VILLA JOURNEY
+const villaJourneyStages = [
+  {
+    num: "1",
+    title: "Consultation & Architectural Vision",
+    desc: "We sit down with you to understand your lifestyle needs, site dimensions, and budget parameters, strategically planning your custom villa layout from day one."
+  },
+  {
+    num: "2",
+    title: "Custom Villa Design & Smart Budgeting",
+    desc: "Our in-house architects draft detailed floor plans, 3D elevation models, interior layouts, and landscape designs. Simultaneously, we provide a transparent, line-item budget breakdown to ensure zero hidden costs."
+  },
+  {
+    num: "3",
+    title: "Permits & Authority Approvals",
+    desc: "We handle all official paperwork, plan sanctions, and statutory building permits from local municipal bodies so work begins legally and smoothly."
+  },
+  {
+    num: "4",
+    title: "Design-Build Construction Phase",
+    desc: "Our site teams execute the entire build—pouring high-strength foundations, raising structural walls, installing MEP (Mechanical, Electrical, Plumbing) networks, crafting custom interiors, and laying coastal-resilient landscaping under rigorous engineering supervision."
+  },
+  {
+    num: "5",
+    title: "Final Quality Check & Key Handover",
+    desc: "We test all electrical, plumbing, and automation systems, perform post-construction deep cleaning, and deliver your villa key-in-hand along with complete warranty and compliance files."
+  }
+];
+
+// 04 / VILLA SOLUTIONS
+const villaSolutionsList = [
+  {
+    num: "01",
+    title: "Custom Villa Architecture",
+    desc: "Tailored floor plans, modern facade design, climate-responsive ventilation, and traditional options like exposed brickwork or VDF outdoor surfaces."
+  },
+  {
+    num: "02",
+    title: "Interior & Exterior Design",
+    desc: "Complete turnkey interior execution including modular kitchens, custom cabinetry, false ceilings, lighting layouts, and weather-resistant exterior finishes."
+  },
+  {
+    num: "03",
+    title: "Coastal Landscaping & Hardscaping",
+    desc: "Custom garden planning, stone pathways, patio paving, and rainwater harvesting integration engineered specifically for coastal soil and rain cycles."
+  },
+  {
+    num: "04",
+    title: "Smart Budgeting & Value Engineering",
+    desc: "Strategic selection of high-durability materials to optimize lifecycle costs without compromising on luxury or aesthetic value."
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  activeNav="services"
+>
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href="tel:+919880138027" class="utility-link">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +91 9880138027
+        </a>
+        <span class="utility-divider">·</span>
+        <a href="mailto:projects@srilakshmiconstruction.com" class="utility-link">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          projects@srilakshmiconstruction.com
+        </a>
+      </div>
+      <div class="utility-right">
+        <span>Mangalore · Udupi · Dakshina Kannada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section (Dark Charcoal) -->
+  <section class="section-charcoal villa-hero">
+    <div class="hero-villa-bg" aria-hidden="true">
+      <svg class="villa-svg" viewBox="0 0 650 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Coastal Luxury Villa Line Illustration -->
+        <!-- Ground Line -->
+        <line x1="10" y1="410" x2="640" y2="410" stroke="#F0A500" stroke-width="1.5" opacity="0.4" />
+        
+        <!-- Modern Villa Geometry -->
+        <rect x="120" y="240" width="380" height="170" fill="#1A1F26" stroke="#2D3748" stroke-width="1.5" />
+        <rect x="200" y="140" width="300" height="100" fill="#202630" stroke="#333F4D" stroke-width="1.5" />
+        <rect x="230" y="90" width="220" height="50" fill="#181D24" stroke="#F0A500" stroke-width="1" opacity="0.7" />
+
+        <!-- Cantilever Overhang / Pergola -->
+        <rect x="100" y="230" width="420" height="12" fill="#F0A500" opacity="0.8" />
+        <line x1="110" y1="242" x2="110" y2="410" stroke="#F0A500" stroke-width="2" opacity="0.6" />
+
+        <!-- Upper Balcony Glass Railing -->
+        <rect x="200" y="210" width="220" height="20" fill="rgba(240, 165, 0, 0.12)" stroke="#F0A500" stroke-width="1" opacity="0.6" />
+
+        <!-- Warm Illuminated Windows -->
+        <rect x="145" y="265" width="90" height="110" rx="2" fill="#F0A500" opacity="0.75" />
+        <rect x="270" y="275" width="130" height="135" rx="2" fill="#0C0E11" stroke="#F0A500" stroke-width="1.5" />
+        <rect x="285" y="290" width="100" height="120" fill="#F0A500" opacity="0.85" />
+        <rect x="240" y="155" width="100" height="65" rx="2" fill="#F0A500" opacity="0.6" />
+        <rect x="370" y="155" width="90" height="65" rx="2" fill="#F0A500" opacity="0.6" />
+
+        <!-- Palm Tree Silhouettes (Coastal signature) -->
+        <path d="M540 410 Q550 280 570 180" stroke="#333F4D" stroke-width="4" stroke-linecap="round" />
+        <path d="M570 180 Q610 160 635 190" stroke="#F0A500" stroke-width="2.5" opacity="0.75" />
+        <path d="M570 180 Q590 140 620 150" stroke="#F0A500" stroke-width="2.5" opacity="0.75" />
+        <path d="M570 180 Q550 130 540 160" stroke="#F0A500" stroke-width="2.5" opacity="0.75" />
+        <path d="M570 180 Q520 160 510 190" stroke="#F0A500" stroke-width="2.5" opacity="0.75" />
+
+        <!-- Decorative Garden Hardscaping -->
+        <rect x="520" y="375" width="100" height="35" rx="2" fill="#14171A" stroke="#F0A500" stroke-width="1" opacity="0.5" />
+        <line x1="535" y1="375" x2="535" y2="410" stroke="#F0A500" stroke-width="1" opacity="0.3" />
+        <line x1="565" y1="375" x2="565" y2="410" stroke="#F0A500" stroke-width="1" opacity="0.3" />
+        <line x1="595" y1="375" x2="595" y2="410" stroke="#F0A500" stroke-width="1" opacity="0.3" />
+      </svg>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-grid">
+        <!-- Left: Copy & Actions -->
+        <div class="hero-content">
+          <div class="section-tag">
+            <span class="tag-diamond">◆</span>
+            <span>SERVICES / VILLA CONSTRUCTION</span>
+          </div>
+
+          <h1 class="hero-headline">
+            End-to-End Villa Design &amp; Construction Services <span class="highlight-orange">in Mangalore &amp; Coastal Karnataka</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Build your dream villa with complete peace of mind. From custom architectural drafting to structural execution, interior fit-outs, and coastal landscaping, Sri Lakshmi Construction delivers turnkey luxury homes built to last for generations.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#quote-form" class="cta-orange-btn">SCHEDULE AN END-TO-END VILLA CONSULTATION</a>
+            <a href="tel:+919880138027" class="cta-outline-btn">CALL +91 9880138027</a>
+          </div>
+
+          <!-- Bottom Proof Stats -->
+          <div class="hero-proof-stats">
+            <div class="proof-stat-item">
+              <span class="proof-title">10+ years</span>
+              <span class="proof-label">In the business</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Design · Build · Interiors · Landscaping</span>
+              <span class="proof-label">Under one roof</span>
+            </div>
+            <div class="proof-stat-item">
+              <span class="proof-title">Turnkey</span>
+              <span class="proof-label">Key-in-hand handover</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Enquiry Card -->
+        <div class="hero-form-wrapper" id="enquiry">
+          <div class="enquiry-card">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Enquire About Your Villa</h3>
+              <p class="enquiry-card-subtitle">Tell us about your plot and our experts will get back to you.</p>
+            </div>
+
+            <form class="enquiry-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Villa Construction Enquiry - Sri Lakshmi Construction" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="service_page" value="Villa Design & Construction Services Mangalore" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="hero-name">FULL NAME</label>
+                  <input type="text" id="hero-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="hero-phone">PHONE NUMBER</label>
+                  <input type="tel" id="hero-phone" name="phone" required placeholder="+91 Phone number" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-email">EMAIL</label>
+                <input type="email" id="hero-email" name="email" required placeholder="your.email@example.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="hero-plot-status">PLOT STATUS</label>
+                <div class="select-wrapper">
+                  <select id="hero-plot-status" name="plot_status" required>
+                    <option value="" disabled selected>Select plot status</option>
+                    <option value="Plot Purchased & Ready for Construction">Plot Purchased &amp; Ready for Construction</option>
+                    <option value="Plot Identified / In Final Stages of Purchase">Plot Identified / In Final Stages of Purchase</option>
+                    <option value="Currently Searching for a Plot">Currently Searching for a Plot</option>
+                    <option value="Looking to Demolish & Rebuild Villa">Looking to Demolish &amp; Rebuild Villa</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="hero-message">TELL US ABOUT YOUR PLOT AND YOUR DREAM VILLA</label>
+                <textarea id="hero-message" name="message" rows="3" placeholder="Tell us about your plot location, dimensions, architectural style preferences, and ideal timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">SEND ENQUIRY</button>
+
+              <div class="enquiry-card-footer">
+                <span>Prefer to talk? Call <a href="tel:+919880138027" class="phone-link">+91 9880138027</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 / PROOF & 02 / CREDENTIALS (Light Paper Section) -->
+  <section class="section-paper section-overview-credentials">
+    <div class="container">
+      <!-- 01 / PROOF -->
+      <div class="proof-block">
+        <div class="section-tag">
+          <span class="tag-diamond">◆</span>
+          <span>01 / PROOF</span>
+        </div>
+
+        <div class="proof-split-grid">
+          <div class="proof-left-stat">
+            <span class="years-big-num">10+</span>
+            <span class="years-label">Years of Engineering Excellence</span>
+          </div>
+          <div class="proof-right-copy">
+            <p class="proof-lead-body">
+              With <strong>10+ years in the business</strong>, Sri Lakshmi Construction brings over two decades of <strong>hands-on civil engineering and design expertise</strong> to luxury residential developments across Mangalore, Udupi, and Dakshina Kannada. We blend <strong>architectural elegance with heavy-duty structural execution</strong>, ensuring your villa easily withstands coastal humidity and monsoon conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider-line"></div>
+
+      <!-- 02 / CREDENTIALS -->
+      <div class="credentials-block">
+        <div class="section-tag">
+          <span class="tag-diamond">◆</span>
+          <span>02 / CREDENTIALS</span>
+        </div>
+
+        <h2 class="section-heading-dark">Fully Certified &amp; Quality Assured</h2>
+
+        <div class="credentials-3col-grid">
+          {credentialsList.map((cred) => (
+            <div class="credential-card">
+              <span class="credential-num">{cred.num}</span>
+              <h3 class="credential-title">{cred.title}</h3>
+              <p class="credential-desc">{cred.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / PROCESS: 5-STAGE VILLA JOURNEY (Dark Charcoal Section) -->
+  <section class="section-charcoal section-process-dark">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-diamond">◆</span>
+        <span>03 / PROCESS</span>
+      </div>
+
+      <h2 class="section-heading-white">Our 5-Stage End-to-End Villa Journey</h2>
+
+      <!-- Visual Node Track -->
+      <div class="journey-track">
+        <div class="journey-line"></div>
+        <div class="journey-nodes">
+          {villaJourneyStages.map((stage, idx) => (
+            <div class={`journey-node ${idx === 0 ? 'node-highlight' : ''}`}>
+              <div class="node-circle">{stage.num}</div>
+              <span class="node-title">{stage.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Detailed Process Cards -->
+      <div class="process-stages-grid">
+        {villaJourneyStages.map((stage) => (
+          <div class="process-stage-card">
+            <div class="stage-num-badge">{stage.num}</div>
+            <h3 class="stage-title">{stage.title}</h3>
+            <p class="stage-desc">{stage.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ORANGE CTA STRIP (Touchpoint 3) -->
+  <section class="orange-cta-strip">
+    <div class="container">
+      <div class="cta-strip-inner">
+        <div class="cta-strip-text">
+          <h2 class="cta-strip-heading">Dreaming of your own villa?</h2>
+          <p class="cta-strip-sub">Tell us about your plot and your lifestyle, and our team will take it from there.</p>
+        </div>
+        <div class="cta-strip-action">
+          <a href="#quote-form" class="cta-dark-btn">SCHEDULE A VILLA CONSULTATION</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / VILLA SOLUTIONS (Light Paper Section) -->
+  <section class="section-paper section-solutions">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-diamond">◆</span>
+        <span>04 / VILLA SOLUTIONS</span>
+      </div>
+
+      <h2 class="section-heading-dark">Complete Villa Solutions Under One Roof</h2>
+
+      <div class="solutions-2col-grid">
+        {villaSolutionsList.map((sol) => (
+          <div class="solution-card">
+            <span class="solution-num">{sol.num}</span>
+            <h3 class="solution-title">{sol.title}</h3>
+            <p class="solution-desc">{sol.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD YOUR DREAM VILLA WITH TOTAL CONFIDENCE (Dark Charcoal Section) -->
+  <section class="section-charcoal section-confidence">
+    <div class="container">
+      <div class="confidence-grid">
+        <div class="confidence-left">
+          <h2 class="confidence-heading">
+            Build Your Dream Villa with <span class="highlight-orange">Total Confidence</span>
+          </h2>
+        </div>
+        <div class="confidence-right">
+          <p class="confidence-body">
+            Creating a custom villa is a personal journey. By combining architectural design, civil contracting, interiors, and landscaping under one roof, Sri Lakshmi Construction <strong>eliminates single-point coordination hassles</strong> while delivering uncompromised quality and speed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Flow Chain Badges -->
+      <div class="workflow-chain">
+        <div class="chain-box">Architectural design</div>
+        <span class="chain-operator">+</span>
+        <div class="chain-box">Civil contracting</div>
+        <span class="chain-operator">+</span>
+        <div class="chain-box">Interiors</div>
+        <span class="chain-operator">+</span>
+        <div class="chain-box">Landscaping</div>
+        <span class="chain-arrow">→</span>
+        <div class="chain-box chain-box-orange">One team, under one roof</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING ORANGE SECTION WITH FORM (Touchpoint 4) -->
+  <section class="orange-closing-section" id="quote-form">
+    <div class="container">
+      <div class="closing-grid">
+        <!-- Left: Direct Phone Box -->
+        <div class="closing-left">
+          <h2 class="closing-headline">
+            Ready to start your villa project?
+          </h2>
+
+          <div class="direct-call-box">
+            <span class="direct-call-label">CALL OUR EXPERTS DIRECT</span>
+            <a href="tel:+919880138027" class="direct-call-phone">+91 9880138027</a>
+          </div>
+        </div>
+
+        <!-- Right: Consultation Form Card -->
+        <div class="closing-right">
+          <div class="enquiry-card quote-card">
+            <div class="enquiry-card-header">
+              <h3 class="enquiry-card-title">Schedule an End-to-End Villa Consultation</h3>
+              <p class="enquiry-card-subtitle">Share a few details about your plot and plans.</p>
+            </div>
+
+            <form class="enquiry-form" action="https://formsubmit.co/enquires.wrnxt@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="End-to-End Villa Consultation Request - Sri Lakshmi Construction" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="service_page" value="Villa Design & Construction Services Mangalore - Closing CTA" />
+
+              <div class="form-row-split">
+                <div class="form-field">
+                  <label for="close-name">FULL NAME</label>
+                  <input type="text" id="close-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                  <label for="close-phone">PHONE NUMBER</label>
+                  <input type="tel" id="close-phone" name="phone" required placeholder="+91 Phone number" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-email">EMAIL</label>
+                <input type="email" id="close-email" name="email" required placeholder="your.email@example.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="close-plot-status">PLOT STATUS</label>
+                <div class="select-wrapper">
+                  <select id="close-plot-status" name="plot_status" required>
+                    <option value="" disabled selected>Select plot status</option>
+                    <option value="Plot Purchased & Ready for Construction">Plot Purchased &amp; Ready for Construction</option>
+                    <option value="Plot Identified / In Final Stages of Purchase">Plot Identified / In Final Stages of Purchase</option>
+                    <option value="Currently Searching for a Plot">Currently Searching for a Plot</option>
+                    <option value="Looking to Demolish & Rebuild Villa">Looking to Demolish &amp; Rebuild Villa</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="close-message">TELL US ABOUT YOUR PLOT AND YOUR DREAM VILLA</label>
+                <textarea id="close-message" name="message" rows="3" placeholder="Tell us about your plot location, dimensions, architectural style preferences, and ideal timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-orange-btn">SCHEDULE AN END-TO-END VILLA CONSULTATION</button>
+
+              <div class="enquiry-card-footer">
+                <span>Prefer to talk? Call <a href="tel:+919880138027" class="phone-link">+91 9880138027</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ==========================================================================
+     COLOR TOKENS & TYPOGRAPHY
+     ========================================================================== */
+  :root {
+    --villa-charcoal: #14171A;
+    --villa-paper: #F6F3ED;
+    --villa-orange: #F0A500;
+    --villa-orange-hover: #D99400;
+    --villa-orange-dark: #C68200;
+
+    --villa-font-heading: var(--font-heading);
+    --villa-font-body: var(--font-body);
+
+    /* Charcoal section tokens */
+    --villa-charcoal-card: #1D2126;
+    --villa-charcoal-border: rgba(255, 255, 255, 0.1);
+    --villa-charcoal-text: #E5E7EB;
+    --villa-charcoal-subtext: #9CA3AF;
+    --villa-charcoal-muted: #CBD5E1;
+
+    /* Paper section tokens (Light Theme Default) */
+    --villa-paper-heading: #14171A;
+    --villa-paper-slate: #4A5568;
+    --villa-paper-border: #E2DDD5;
+    --villa-paper-text: #2D3748;
+
+    /* Card surfaces in paper sections */
+    --villa-card-bg: #FFFFFF;
+    --villa-card-border: #E8E4DC;
+    --villa-card-border-top: #14171A;
+    --villa-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    --villa-card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.08);
+
+    /* Form Cards */
+    --villa-form-card-bg: #FFFFFF;
+    --villa-form-card-title: #14171A;
+    --villa-form-card-sub: #4A5568;
+    --villa-form-card-label: #14171A;
+    --villa-form-input-bg: #FFFFFF;
+    --villa-form-input-border: #D1D5DB;
+    --villa-form-input-text: #14171A;
+    --villa-form-input-placeholder: #9CA3AF;
+    --villa-form-card-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Dark Theme Adaptations */
+  [data-theme="dark"] {
+    --villa-paper: #181B1F;
+    --villa-paper-heading: #FFFFFF;
+    --villa-paper-slate: #9CA3AF;
+    --villa-paper-border: rgba(255, 255, 255, 0.1);
+    --villa-paper-text: #E5E7EB;
+
+    --villa-card-bg: #1F242B;
+    --villa-card-border: rgba(255, 255, 255, 0.08);
+    --villa-card-border-top: var(--villa-orange);
+    --villa-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --villa-card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+    /* Form Cards (Dark) */
+    --villa-form-card-bg: #1A1E24;
+    --villa-form-card-title: #FFFFFF;
+    --villa-form-card-sub: #CBD5E1;
+    --villa-form-card-label: #E5E7EB;
+    --villa-form-input-bg: #101316;
+    --villa-form-input-border: rgba(255, 255, 255, 0.18);
+    --villa-form-input-text: #FFFFFF;
+    --villa-form-input-placeholder: #888888;
+    --villa-form-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Utility Top Bar */
+  .top-utility-bar {
+    background-color: #0A0C0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--villa-font-body);
+  }
+
+  .utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .utility-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .utility-link:hover {
+    color: var(--villa-orange);
+  }
+
+  .utility-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .utility-right {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+  }
+
+  /* Common Section Styles */
+  .section-charcoal {
+    background-color: var(--villa-charcoal);
+    color: var(--villa-charcoal-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section-paper {
+    background-color: var(--villa-paper);
+    color: var(--villa-paper-text);
+    padding: 6rem 0;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Tags */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--villa-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-charcoal .section-tag {
+    color: var(--villa-orange);
+  }
+
+  .section-paper .section-tag {
+    color: var(--villa-orange-dark);
+  }
+
+  .tag-diamond {
+    color: var(--villa-orange);
+    font-size: 0.75rem;
+  }
+
+  /* Headings */
+  .section-heading-white {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.28;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading-dark {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    color: var(--villa-paper-heading);
+    line-height: 1.28;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .highlight-orange {
+    color: var(--villa-orange);
+  }
+
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .villa-hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-villa-bg {
+    position: absolute;
+    right: -2%;
+    bottom: -5%;
+    width: 62%;
+    height: 95%;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .villa-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-headline {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.28;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-subtext {
+    font-family: var(--villa-font-body);
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--villa-charcoal-subtext);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cta-orange-btn {
+    background-color: var(--villa-orange);
+    color: #000000;
+    font-family: var(--villa-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-orange-btn:hover {
+    background-color: var(--villa-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 165, 0, 0.35);
+  }
+
+  .cta-outline-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--villa-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-outline-btn:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--villa-charcoal-border);
+    padding-top: 2rem;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .proof-title {
+    font-family: var(--villa-font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .proof-label {
+    font-family: var(--villa-font-body);
+    font-size: 0.85rem;
+    color: var(--villa-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ENQUIRY CARD COMPONENT (Hero & Closing)
+     ========================================================================== */
+  .enquiry-card {
+    background-color: var(--villa-form-card-bg);
+    border-radius: 4px;
+    padding: 2.25rem 2.25rem 2rem;
+    box-shadow: var(--villa-form-card-shadow);
+    border-top: 5px solid var(--villa-orange);
+    color: var(--villa-form-card-title);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .enquiry-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiry-card-title {
+    font-family: var(--villa-font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--villa-form-card-title);
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-card-subtitle {
+    font-family: var(--villa-font-body);
+    font-size: 0.9rem;
+    color: var(--villa-form-card-sub);
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--villa-font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--villa-form-card-label);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    background-color: var(--villa-form-input-bg);
+    border: 1px solid var(--villa-form-input-border);
+    border-radius: 3px;
+    font-family: var(--villa-font-body);
+    font-size: 0.92rem;
+    color: var(--villa-form-input-text);
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--villa-form-input-placeholder);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--villa-orange);
+    background-color: var(--villa-form-input-bg);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: "▼";
+    font-size: 0.65rem;
+    color: var(--villa-form-card-label);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .submit-orange-btn {
+    background-color: var(--villa-orange);
+    color: #000000;
+    font-family: var(--villa-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.05rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: 100%;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+    min-height: 48px;
+  }
+
+  .submit-orange-btn:hover {
+    background-color: var(--villa-orange-hover);
+    box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+  }
+
+  .enquiry-card-footer {
+    font-family: var(--villa-font-body);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--villa-form-card-sub);
+    margin-top: 0.5rem;
+  }
+
+  .enquiry-card-footer .phone-link {
+    color: var(--villa-form-card-title);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* ==========================================================================
+     01 / PROOF & 02 / CREDENTIALS (Light Paper Section)
+     ========================================================================== */
+  .section-overview-credentials {
+    border-bottom: 1px solid var(--villa-paper-border);
+  }
+
+  .proof-block {
+    margin-bottom: 4rem;
+  }
+
+  .proof-split-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .proof-left-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 4px solid var(--villa-paper-heading);
+    padding-top: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .years-big-num {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 600;
+    color: var(--villa-orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .years-label {
+    font-family: var(--villa-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--villa-paper-heading);
+    transition: color 0.3s ease;
+  }
+
+  .proof-lead-body {
+    font-family: var(--villa-font-body);
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: var(--villa-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  .proof-lead-body strong {
+    color: var(--villa-paper-heading);
+  }
+
+  .section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--villa-paper-border);
+    margin: 4.5rem 0;
+  }
+
+  /* 02 / CREDENTIALS GRID */
+  .credentials-3col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .credential-card {
+    background-color: var(--villa-card-bg);
+    border: 1px solid var(--villa-card-border);
+    border-top: 4px solid var(--villa-card-border-top);
+    padding: 2.25rem 2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--villa-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--villa-card-shadow-hover);
+  }
+
+  .credential-num {
+    font-family: var(--villa-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--villa-orange);
+  }
+
+  .credential-title {
+    font-family: var(--villa-font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--villa-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .credential-desc {
+    font-family: var(--villa-font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--villa-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     03 / PROCESS: 5-STAGE VILLA JOURNEY (Dark Charcoal Section)
+     ========================================================================== */
+  .section-process-dark {
+    border-top: 1px solid var(--villa-charcoal-border);
+  }
+
+  .journey-track {
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem 0;
+  }
+
+  .journey-line {
+    position: absolute;
+    top: 36px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background-color: var(--villa-charcoal-border);
+    z-index: 0;
+  }
+
+  .journey-nodes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .journey-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .node-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--villa-charcoal-card);
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--villa-font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+  }
+
+  .node-highlight .node-circle {
+    background-color: var(--villa-orange);
+    border-color: var(--villa-orange);
+    color: #000000;
+    box-shadow: 0 0 0 4px rgba(240, 165, 0, 0.25);
+  }
+
+  .node-title {
+    font-family: var(--villa-font-heading);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .process-stages-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-stage-card {
+    background-color: var(--villa-charcoal-card);
+    border: 1px solid var(--villa-charcoal-border);
+    border-top: 3px solid var(--villa-orange);
+    padding: 2rem 1.5rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.25s ease;
+  }
+
+  .process-stage-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .stage-num-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--villa-orange);
+    color: #000000;
+    font-family: var(--villa-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage-title {
+    font-family: var(--villa-font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  .stage-desc {
+    font-family: var(--villa-font-body);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--villa-charcoal-muted);
+  }
+
+  /* ==========================================================================
+     ORANGE CTA STRIP (Touchpoint 3)
+     ========================================================================== */
+  .orange-cta-strip {
+    background-color: var(--villa-orange);
+    color: #000000;
+    padding: 3.5rem 0;
+  }
+
+  .cta-strip-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cta-strip-heading {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(1.85rem, 3.5vw, 2.25rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-strip-sub {
+    font-family: var(--villa-font-body);
+    font-size: 1.05rem;
+    color: #1A1A1A;
+  }
+
+  .cta-dark-btn {
+    background-color: #14171A;
+    color: #FFFFFF;
+    font-family: var(--villa-font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1.15rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    min-height: 48px;
+  }
+
+  .cta-dark-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ==========================================================================
+     04 / VILLA SOLUTIONS (Light Paper Section)
+     ========================================================================== */
+  .solutions-2col-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .solution-card {
+    background-color: var(--villa-card-bg);
+    border: 1px solid var(--villa-card-border);
+    border-top: 4px solid var(--villa-card-border-top);
+    padding: 2.75rem 2.25rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    box-shadow: var(--villa-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--villa-card-shadow-hover);
+  }
+
+  .solution-num {
+    font-family: var(--villa-font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--villa-orange);
+  }
+
+  .solution-title {
+    font-family: var(--villa-font-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--villa-paper-heading);
+    line-height: 1.25;
+    transition: color 0.3s ease;
+  }
+
+  .solution-desc {
+    font-family: var(--villa-font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--villa-paper-slate);
+    transition: color 0.3s ease;
+  }
+
+  /* ==========================================================================
+     BUILD YOUR DREAM VILLA WITH TOTAL CONFIDENCE (Dark Charcoal Section)
+     ========================================================================== */
+  .section-confidence {
+    border-top: 1px solid var(--villa-charcoal-border);
+  }
+
+  .confidence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .confidence-heading {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .confidence-body {
+    font-family: var(--villa-font-body);
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--villa-charcoal-subtext);
+  }
+
+  .confidence-body strong {
+    color: #FFFFFF;
+  }
+
+  /* Workflow Chain Badges */
+  .workflow-chain {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background-color: var(--villa-charcoal-card);
+    border: 1px solid var(--villa-charcoal-border);
+    padding: 2rem 2.5rem;
+    border-radius: 6px;
+  }
+
+  .chain-box {
+    background-color: #14171A;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.95rem 1.6rem;
+    border-radius: 4px;
+    font-family: var(--villa-font-heading);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: center;
+  }
+
+  .chain-box-orange {
+    background-color: var(--villa-orange);
+    color: #000000;
+    font-weight: 600;
+    border-color: var(--villa-orange);
+    box-shadow: 0 4px 18px rgba(240, 165, 0, 0.35);
+  }
+
+  .chain-operator {
+    color: var(--villa-orange);
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .chain-arrow {
+    color: var(--villa-orange);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  /* ==========================================================================
+     CLOSING ORANGE SECTION WITH FORM (Touchpoint 4)
+     ========================================================================== */
+  .orange-closing-section {
+    background-color: var(--villa-orange);
+    color: #000000;
+    padding: 6rem 0;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  .closing-headline {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .direct-call-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .direct-call-label {
+    font-family: var(--villa-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  .direct-call-phone {
+    font-family: var(--villa-font-heading);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-call-phone:hover {
+    opacity: 0.85;
+  }
+
+  .quote-card {
+    border-top: 5px solid #000000;
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .proof-split-grid,
+    .confidence-grid,
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-villa-bg {
+      opacity: 0.2;
+      width: 90%;
+    }
+
+    .credentials-3col-grid,
+    .solutions-2col-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .journey-nodes,
+    .process-stages-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .journey-line {
+      display: none;
+    }
+
+    .journey-node {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-charcoal,
+    .section-paper,
+    .orange-closing-section {
+      padding: 4rem 0;
+    }
+
+    .credentials-3col-grid,
+    .solutions-2col-grid,
+    .hero-proof-stats,
+    .form-row-split {
+      grid-template-columns: 1fr;
+    }
+
+    .workflow-chain {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem;
+    }
+
+    .chain-operator,
+    .chain-arrow {
+      transform: rotate(90deg);
+    }
+
+    .utility-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .cta-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .enquiry-card {
+      padding: 1.75rem 1.5rem;
+    }
+  }
+</style>

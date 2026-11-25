@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     id: 'anantha-shayana',
     title: 'Anantha Shayana',
-    location: 'Karkala',
+    location: 'Maryhill',
     category: 'Residential',
     image: '/images/Anantha-Shayana.jpg',
   },
@@ -60,7 +60,7 @@ export const projects: Project[] = [
   },
   {
     id: 'boys-hostel-mite',
-    title: 'Boys Hostel MITE',
+    title: 'Administrative block MITE',
     location: 'Mangalore',
     category: 'Educational Institutions',
     image: '/images/Boys-Hostel-MITE.jpg',
@@ -83,14 +83,14 @@ export const projects: Project[] = [
     id: 'don-bosco-church',
     title: 'Don Bosco Church',
     location: 'Sirsi',
-    category: 'Church',
+    category: 'Religious',
     image: '/images/Don-Bosco-Chruch-Sirsi.jpg',
   },
   {
     id: 'infant-mary-chapel',
     title: 'Infant Mary Chapel',
     location: 'Mangalore',
-    category: 'Church',
+    category: 'Religious',  
     image: '/images/Infant-Mary-Chapel.jpg',
   },
   {
@@ -105,7 +105,7 @@ export const projects: Project[] = [
 export const categories = [
   'All',
   'Apartments',
-  'Church',
+  'Religious',
   'Commercial Complex',
   'Educational Institutions',
   'Hospital',
